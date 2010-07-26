@@ -37,9 +37,9 @@ define('ADMIN_EMAIL','bkk@doede.net');
 #Mysql Login info
 define('DBTYPE','mysql');
 define('DBHOST','localhost'); 
-define('DBNAME','oskaartje110809');
-define('DBUSER','mijnnaamishaas');
-define('DBPASS','m@n11m=hare');
+define('DBNAME','');
+define('DBUSER','');
+define('DBPASS','');
 
 #Table prefix
 define('TABLE_PREFIX','ost_');
