@@ -29,10 +29,10 @@ if(OSTINSTALLED!=TRUE){
 }
 
 # Encrypt/Decrypt secret key - randomly generated during installation.
-define('SECRET_SALT','5403D82EEC058C0');
+define('SECRET_SALT','');
 
 #Default admin email. Used only on db connection issues and related alerts.
-define('ADMIN_EMAIL','bkk@doede.net');
+define('ADMIN_EMAIL','');
 
 #Mysql Login info
 define('DBTYPE','mysql');
