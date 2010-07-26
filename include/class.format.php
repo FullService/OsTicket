@@ -81,7 +81,7 @@ class Format {
 
     //make urls clickable. Mainly for display 
     function clickableurls($text) {
-        $text=preg_replace('/(((f|ht){1}tp(s?):\/\/)[-a-zA-Z0-9@:%_\+.~#?&;//=]+)/i','<a href="\\1" target="_blank">\\1</a>', $text);
+       $text=preg_replace('/(((f|ht){1}tp(s?):\/\/)[-a-zA-Z0-9@:%_\+.~#?&;\/\/=]+)/i','<a href="\\1" target="_blank">\\1</a>', $text);
         $text=eregi_replace("(^|[ \n\r\t])(www\.([a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+)(/[^/ \n\r]*)*)",
                 '\\1<a href="http://\\2" target="_blank">\\2</a>', $text);
         $text=eregi_replace("(^|[ \n\r\t])([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,4})",'\\1<a href="mailto:\\2" target="_blank">\\2</a>', $text);
