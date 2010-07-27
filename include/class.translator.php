@@ -12,10 +12,10 @@
  **********************************************************************/
 
 if(defined('ROOT_DIR'))
-	define('TRANSLATE_DIR',ROOT_DIR.'translate/'); // Dir with Translate files
+	define('TRANSLATE_DIR',ROOT_DIR.'translate/'); // Dir with Translations
 else{
 	define('ROOT_DIR',str_replace('\\\\', '/', realpath(dirname(__FILE__))).'/'); #Get real path for root dir ---linux and windows
-	define('TRANSLATE_DIR',ROOT_DIR.'translate/'); // Dir with Translate files
+	define('TRANSLATE_DIR',ROOT_DIR.'translate/'); // Dir with Translations
 }
 
 define('TRANSLATE_PATH','translate/');
