@@ -62,7 +62,7 @@ $info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use th
                     <option value="<?=$topicId?>"<?=$selected?>><?=$topic?></option>
                 <?
                  }?>
-                <option value="0" ><?php echo $trl->translate('TEXT_GENERAL_INQUIRY');?></option>
+                <?php /*<option value="0" ><?php echo $trl->translate('TEXT_GENERAL_INQUIRY');?></option> */ ?>
             </select>
             &nbsp;<font class="error">*&nbsp;<?=$errors['topicId']?></font>
         </td>
