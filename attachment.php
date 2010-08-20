@@ -69,5 +69,4 @@ header("Content-Transfer-Encoding: binary");
 header("Content-Length: ".filesize($file));
 readfile($file);
 exit();
-?>
-    
+?> 
