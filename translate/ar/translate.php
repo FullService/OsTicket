@@ -8,9 +8,9 @@ $LANG = array ();
 # Language identification
 $LANG['LANGUAGE'] = 'us';
 //Word Name (english name)
-$LANG['LANGUAGE_NAME'] = 'English';
+$LANG['LANGUAGE_NAME'] = 'Arabic';
 //Native name of language (in the original language)
-$LANG['LANGUAGE_NATIVE_NAME'] = 'English';
+$LANG['LANGUAGE_NATIVE_NAME'] = 'Arabic';
 $LANG['DIRECTION'] = 'rtl';
 $LANG['CODEPAGE'] = 'UTF-8';
 
