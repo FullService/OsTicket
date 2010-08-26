@@ -6,11 +6,11 @@ if (!strcasecmp(basename($_SERVER['SCRIPT_NAME']), basename( __FILE__ ))) die ('
 $LANG = array ();
 
 # Language identification
-$LANG['LANGUAGE'] = 'us';
+$LANG['LANGUAGE'] = 'ar';
 //Word Name (english name)
 $LANG['LANGUAGE_NAME'] = 'Arabic';
 //Native name of language (in the original language)
-$LANG['LANGUAGE_NATIVE_NAME'] = 'Arabic';
+$LANG['LANGUAGE_NATIVE_NAME'] = 'العربية';
 $LANG['DIRECTION'] = 'rtl';
 $LANG['CODEPAGE'] = 'UTF-8';
 
