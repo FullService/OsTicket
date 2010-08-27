@@ -31,7 +31,7 @@ $LANG['ERROR_SECURITY_VIOLATION_YOUR_ACCOUNT_WILL_LOCKED'] = 'Security violation
 $LANG['ERROR_UNABLE_SEND_MESSAGE_TRY_AGAIN'] = 'Unable to post the message. Try again';
 $LANG['ERROR_UNKNOW_ACTION'] = 'Uknown action';
 $LANG['ERROR_UNABLE_TO_POST_MESSAGE'] = 'Unable to post the message. Try again';
-$LANG['ERROR_UKNOW_ACTION'] = 'Uknown action';
+$LANG['ERROR_UKNOW_ACTION'] = 'Unknown action';
 $LANG['ERROR_YOU_HAVE_REACHED_MAXIMUM_FAILED_LOGIN']='You\'ve reached maximum failed login attempts allowed. Try again after 5 minutes or <a href="open.php">open a new ticket</a>'; 
 $LANG['ERROR_YOU_MUST_CHANGE_PASSWORD'] = 'You must change your password to continue.';
 

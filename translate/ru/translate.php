@@ -30,7 +30,7 @@ $LANG['ERROR_ACCESS_DENIED_INVALID_TICKET'] = 'Access Denied. Possibly invalid t
 $LANG['ERROR_MESSAGE_REQUIRED'] = 'Message required';
 $LANG['ERROR_UNABLE_TO_POST_MESSAGE'] = 'Unable to post the message. Try again';
 $LANG['ERROR_OCCURED_TRY_AGAIN'] = 'Error(s) occured. Please try again';
-$LANG['ERROR_UKNOW_ACTION'] = 'Uknown action';
+$LANG['ERROR_UKNOW_ACTION'] = 'Unknown action';
 $LANG['ERROR_YOU_MUST_CHANGE_PASSWORD'] = 'You must change your password to continue.';
 
 $LANG['TITLE'] = 'Tickets FullService'; 
