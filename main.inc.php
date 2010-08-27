@@ -6,14 +6,14 @@
     The brain of the whole sytem. Don't monkey with it.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
     See LICENSE.TXT for details.
 
     vim: expandtab sw=4 ts=4 sts=4:
-    $Id: main.inc.php,v 1.2.2.8 2009/10/27 17:54:16 carlos.delfino Exp $
+    $Id: $
 **********************************************************************/    
     
     #Disable direct access.
@@ -26,16 +26,18 @@
            if(isset($$key))
                unset($$key);
     }
+
     #Disable url fopen && url include
     ini_set('allow_url_fopen', 0);
     ini_set('allow_url_include', 0);
-    #Disabling magic quotes...we will handle the cleanup via db_input ( avoiding false system security).
-    ini_set('magic_quotes_gpc', 0);
-    ini_set('magic_quotes_runtime', 0);
+
     #Disable session ids on url.
     ini_set('session.use_trans_sid', 0);
     #No cache
     ini_set('session.cache_limiter', 'nocache');
+    #Cookies
+    //ini_set('session.cookie_path','/osticket/');
+
     #Error reporting...Good idea to ENABLE error reporting to a file. i.e display_errors should be set to false
     error_reporting(E_ALL ^ E_NOTICE); //Respect whatever is set in php.ini (sysadmin knows better??)
     #Don't display errors
@@ -55,19 +57,27 @@
     /*############## Do NOT monkey with anything else beyond this point UNLESS you really know what you are doing ##############*/
 
     #Current version..
-    define('THIS_VERSION','1.6 RC5'); //Changes from version to version.
+    define('THIS_VERSION','1.6 ST'); //Changes from version to version.
 
     #load config info
+    $configfile='';
     if(file_exists(ROOT_DIR.'ostconfig.php')){ //Old installs prior to v 1.6 RC5
-        require('ostconfig.php');
+        $configfile=ROOT_DIR.'ostconfig.php';
         if(defined(DEFAULT_LANGUAGE))
                 define('OSTLANG',DEFAULT_LANGUAGE);
-    }
-    elseif(file_exists(INCLUDE_DIR.'settings.php')) //New config file.. v 1.6 RC5 +
-        require(INCLUDE_DIR.'settings.php');
-    else
-        die('<b>Error loading settings. Contact admin.</b>');
-      
+        }
+    elseif(file_exists(INCLUDE_DIR.'settings.php')) //OLD config file.. v 1.6 RC5
+        $configfile=INCLUDE_DIR.'settings.php';
+    elseif(file_exists(INCLUDE_DIR.'ost-config.php')) //NEW config file v 1.6 stable ++
+        $configfile=INCLUDE_DIR.'ost-config.php';
+    elseif(file_exists(ROOT_DIR.'include/'))
+        header('Location: '.ROOT_PATH.'setup/');
+
+    if(!$configfile || !file_exists($configfile)) die('<b>Error loading settings. Contact admin.</b>');
+
+    require($configfile);
+    define('CONFIG_FILE',$configfile); //used in admin.php to check perm.
+   
    //Path separator
     if(!defined('PATH_SEPARATOR')){
         if(strpos($_ENV['OS'],'Win')!==false || !strcasecmp(substr(PHP_OS, 0, 3),'WIN'))
@@ -155,10 +165,18 @@
     $_SESSION['TZ_OFFSET']=$cfg->getTZoffset();
     $_SESSION['daylight']=$cfg->observeDaylightSaving();
 
-    $_SESSION['cfg']=$cfg;
+    #Cleanup magic quotes crap.
+    if(function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
+        $_POST=Format::strip_slashes($_POST);
+        $_GET=Format::strip_slashes($_GET);
+        $_REQUEST=Format::strip_slashes($_REQUEST);
+    }
+    
+        $_SESSION['cfg']=$cfg;
     
 	$trl = new Translator($cfg);
     
 	$_SESSION['trl']=$trl;
+    
     
 ?>

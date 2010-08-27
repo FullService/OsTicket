@@ -6,37 +6,37 @@
     Clients should never see the dir paths.
     
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
     See LICENSE.TXT for details.
 
     vim: expandtab sw=4 ts=4 sts=4:
-    $Id: attachment.php,v 1.1.2.1 2009/08/17 19:12:52 carlos.delfino Exp $
+    $Id: attachment.php,v 1.1.2.2 2010/04/15 14:33:55 carlos.delfino Exp $
 **********************************************************************/
 require('secure.inc.php');
 //TODO: alert admin on any error on this file.
 if(!$thisclient || !$thisclient->isClient() || !$_GET['id'] || !$_GET['ref']) die('Access Denied');
 
-$sql='SELECT attach_id,ref_id,ticket.ticket_id,ticketID,dept_id,file_name,file_key,email FROM '.TICKET_ATTACHMENT_TABLE.
+$sql='SELECT attach_id,ref_id,ticket.ticket_id,ticketID,ticket.created,dept_id,file_name,file_key,email FROM '.TICKET_ATTACHMENT_TABLE.
     ' LEFT JOIN '.TICKET_TABLE.' ticket USING(ticket_id) '.
     ' WHERE attach_id='.db_input($_GET['id']);
 //valid ID??
 if(!($resp=db_query($sql)) || !db_num_rows($resp)) die('Invalid/unknown file');
-list($id,$refid,$tid,$extid,$deptID,$filename,$key,$email)=db_fetch_row($resp);
+list($id,$refid,$tid,$extid,$date,$deptID,$filename,$key,$email)=db_fetch_row($resp);
 
-//Still paranoid...:)...check the secret session based hash.
+//Still paranoid...:)...check the secret session based hash and email
 $hash=MD5($tid*$refid.session_id());
-if($_GET['ref'] && strcmp($hash,$_GET['ref'])!=0) die('Access Denied');
-
-//Check ticket access,
-if(strcasecmp($thisclient->getEmail(),$email)) die("Access denied: Kwaheri");
+if(!$_GET['ref'] || strcmp($hash,$_GET['ref']) || strcasecmp($thisclient->getEmail(),$email)) die('Access denied: Kwaheri');
 
 
 //see if the file actually exits.
-$file=rtrim($cfg->getUploadDir(),'/').'/'.$key.'_'.$filename;
-
+$month=date('my',strtotime("$date"));
+$file=rtrim($cfg->getUploadDir(),'/')."/$month/$key".'_'.$filename;
+if(!file_exists($file))
+    $file=rtrim($cfg->getUploadDir(),'/')."/$key".'_'.$filename;
+    
 if(!file_exists($file)) die('Invalid Attachment');
 
 $extension =substr($filename,-3);
@@ -69,4 +69,4 @@ header("Content-Transfer-Encoding: binary");
 header("Content-Length: ".filesize($file));
 readfile($file);
 exit();
-?> 
+?>
