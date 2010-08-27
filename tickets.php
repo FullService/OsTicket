@@ -6,14 +6,14 @@
     Note that we are using external ID. The real (local) ids are hidden from user.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
     See LICENSE.TXT for details.
 
     vim: expandtab sw=4 ts=4 sts=4:
-    $Id: tickets.php,v 1.1.2.2 2009/10/27 17:54:16 carlos.delfino Exp $
+    $Id: $
 **********************************************************************/
 require('secure.inc.php');
 if(!is_object($thisclient) || !$thisclient->isValid()) die('Access denied'); //Double check again.

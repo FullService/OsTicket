@@ -1,9 +1,9 @@
 <?php
 /*********************************************************************
-    logout.php
+    captcha.php
 
-    Destroy clients session.
-
+    Simply returns captcha image.
+    
     Peter Rotich <peter@osticket.com>
     Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
@@ -12,14 +12,11 @@
     See LICENSE.TXT for details.
 
     vim: expandtab sw=4 ts=4 sts=4:
-    $Id: $
+    $Id: captcha.php,v 1.1.2.2 2010/04/15 14:34:05 carlos.delfino Exp $
 **********************************************************************/
+require_once('main.inc.php');
+require(INCLUDE_DIR.'class.captcha.php');
 
-require('client.inc.php');
-//We are checking to make sure the user is logged in before a logout to avoid session reset tricks on excess logins
-$_SESSION['_client']=array();
-session_unset();
-session_destroy();
-header('Location: index.php');
-require('index.php');
+$captcha = new Captcha(5,12,ROOT_DIR.'images/captcha/');
+echo $captcha->getImage();
 ?>
