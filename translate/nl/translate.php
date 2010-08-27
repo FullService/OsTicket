@@ -10,7 +10,7 @@ $LANG['LANGUAGE'] = 'nl';
 //Word Name (english name)
 $LANG['LANGUAGE_NAME'] = 'Dutch';
 //Native name of language (in the original language)
-$LANG['LANGUAGE_NATIVE_NAME'] = 'Nederlands';
+$LANG['LANGUAGE_NATIVE_NAME'] = 'Dutch';
 $LANG['DIRECTION'] = 'ltr';
 $LANG['CODEPAGE'] = 'UTF-8';
 
