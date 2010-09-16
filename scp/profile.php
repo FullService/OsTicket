@@ -61,6 +61,7 @@ if(!$errors && $_POST) { //Handle post
                 ' WHERE staff_id='.db_input($thisuser->getId()); 
             if(db_query($sql) && db_affected_rows()){
                 $msg='Password Changed Successfully';
+                Sys::log(LOG_ALERT,'Excessive login attempts (staff)',$alert,($cfg->alertONLoginError()));
             }else{
                 $errors['err']='Unable to complete password change. Internal error.';
             }
