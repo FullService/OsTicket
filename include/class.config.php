@@ -5,7 +5,7 @@
  osTicket config info manager.
 
  Peter Rotich <peter@osticket.com>
- Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
  http://www.osticket.com
 
  Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -258,6 +258,10 @@ class Config {
 		return $this->config['log_graceperiod'];
 	}
 
+    function logTicketActivity(){
+        return $this->config['log_ticket_activity'];
+    }
+
 	function clickableURLS() {
 		return $this->config['clickable_urls']?true:false;
 	}
@@ -265,6 +269,19 @@ class Config {
 	function canFetchMail() {
 		return $this->config['enable_mail_fetch']?true:false;
 	}
+
+    function enableStaffIPBinding(){
+        return $this->config['staff_ip_binding']?true:false;
+    }
+
+    function enableCaptcha() {
+        
+        //Checking it in real time!
+        if(!extension_loaded('gd') || !function_exists('gd_info'))
+            return false;
+
+        return $this->config['enable_captcha']?true:false;
+    }
 
 	function enableAutoCron() {
 		return $this->config['enable_auto_cron']?true:false;
@@ -311,6 +328,11 @@ class Config {
 	function autoRespONNewMessage() {
 		return $this->config['message_autoresponder']?true:false;
 	}
+
+    function notifyONNewStaffTicket(){
+        return $this->config['ticket_notice_active']?true:false;
+    }
+
 	function alertONNewMessage() {
 		return $this->config['message_alert_active']?true:false;
 	}
@@ -498,12 +520,26 @@ class Config {
 		if($var['strip_quoted_reply'] && !$var['reply_separator'])
 		$errors['reply_separator']='Reply separator required (?)';
 
+        if($var['enable_captcha']){
+            if (!extension_loaded('gd'))
+                $errors['enable_captcha']='The GD extension required';
+            elseif(!function_exists('imagepng'))
+                $errors['enable_captcha']='PNG support required for Image Captcha';
+        }
+
+        if(!$errors['admin_email'] && Email::getIdByEmail($var['admin_email'])) //Make sure admin email is not also a system email.
+            $errors['admin_email']='Email already setup as system email';
+
+
+
+
 		if($errors) return false; //No go!
 
 		//We are good to go...blanket update!
 		$sql= 'UPDATE '.CONFIG_TABLE.' SET isonline='.db_input($var['isonline']).
             ',timezone_offset='.db_input($var['timezone_offset']).
             ',enable_daylight_saving='.db_input(isset($var['enable_daylight_saving'])?1:0).
+            ',staff_ip_binding='.db_input(isset($var['staff_ip_binding'])?1:0).
             ',staff_max_logins='.db_input($var['staff_max_logins']).
             ',staff_login_timeout='.db_input($var['staff_login_timeout']).
             ',staff_session_timeout='.db_input($var['staff_session_timeout']).
@@ -526,6 +562,7 @@ class Config {
             ',clickable_urls='.db_input(isset($var['clickable_urls'])?1:0).
             ',allow_priority_change='.db_input(isset($var['allow_priority_change'])?1:0).
             ',use_email_priority='.db_input(isset($var['use_email_priority'])?1:0).
+            ',enable_captcha='.db_input(isset($var['enable_captcha'])?1:0).
             ',enable_auto_cron='.db_input(isset($var['enable_auto_cron'])?1:0).
             ',enable_mail_fetch='.db_input(isset($var['enable_mail_fetch'])?1:0).
             ',enable_email_piping='.db_input(isset($var['enable_email_piping'])?1:0).
@@ -533,9 +570,10 @@ class Config {
             ',send_login_errors='.db_input(isset($var['send_login_errors'])?1:0).
             ',save_email_headers='.db_input(isset($var['save_email_headers'])?1:0).
             ',strip_quoted_reply='.db_input(isset($var['strip_quoted_reply'])?1:0).
-            ',email_attachments='.db_input(isset($var['email_attachments'])?1:0).
+            ',log_ticket_activity='.db_input(isset($var['log_ticket_activity'])?1:0).
             ',ticket_autoresponder='.db_input($var['ticket_autoresponder']).
             ',message_autoresponder='.db_input($var['message_autoresponder']).
+            ',ticket_notice_active='.db_input($var['ticket_notice_active']).
             ',ticket_alert_active='.db_input($var['ticket_alert_active']).
             ',ticket_alert_admin='.db_input(isset($var['ticket_alert_admin'])?1:0).
             ',ticket_alert_dept_manager='.db_input(isset($var['ticket_alert_dept_manager'])?1:0).
@@ -562,7 +600,7 @@ class Config {
             ',date_format='.db_input($var['date_format']).
             ',datetime_format='.db_input($var['datetime_format']).
             ',daydatetime_format='.db_input($var['daydatetime_format']).
-            ',reply_separator='.db_input($var['reply_separator']).
+            ',reply_separator='.db_input(trim($var['reply_separator'])).
             ',admin_email='.db_input($var['admin_email']).
             ',helpdesk_title='.db_input($var['helpdesk_title']).
             ',helpdesk_url='.db_input($var['helpdesk_url']).

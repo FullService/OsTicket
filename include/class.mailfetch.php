@@ -5,7 +5,7 @@
     mail fetcher class. Uses IMAP ext for now.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -105,7 +105,7 @@ class MailFetcher {
     }
 
     //Convert text to desired encoding..defaults to utf8
-    function mime_encode($text,$charset=null,$enc='uft-8') { //Thank in part to afterburner  
+    function mime_encode($text,$charset=null,$enc='utf-8') { //Thank in part to afterburner  
                 
         $encodings=array('UTF-8','WINDOWS-1251', 'ISO-8859-5', 'ISO-8859-1','KOI8-R');
         if(function_exists("iconv") and $text) {
@@ -116,6 +116,17 @@ class MailFetcher {
         }
 
         return utf8_encode($text);
+    }
+
+    //Generic decoder - mirrors imap_utf8
+    function mime_decode($text) {
+        
+        $a = imap_mime_header_decode($text);
+        $str = '';
+        foreach ($a as $k => $part)
+            $str.= $part->text;
+        
+        return $str?$str:imap_utf8($text);
     }
 
     function getLastError(){
@@ -146,18 +157,18 @@ class MailFetcher {
     //search for specific mime type parts....encoding is the desired encoding.
     function getPart($mid,$mimeType,$encoding=false,$struct=null,$partNumber=false){
           
-        if(!$struct)
-            $struct=imap_fetchstructure($this->mbox, $mid);
+        if(!$struct && $mid)
+            $struct=@imap_fetchstructure($this->mbox, $mid);
         //Match the mime type.
-        if($struct && strcasecmp($mimeType,$this->getMimeType($struct))==0){
+        if($struct && !$struct->ifdparameters && strcasecmp($mimeType,$this->getMimeType($struct))==0){
             $partNumber=$partNumber?$partNumber:1;
             if(($text=imap_fetchbody($this->mbox, $mid, $partNumber))){
                 if($struct->encoding==3 or $struct->encoding==4) //base64 and qp decode.
                     $text=$this->decode($struct->encoding,$text);
                 $charset=null;
                 if($encoding) { //Convert text to desired mime encoding...
-                    if($struct->parameters[0] 
-                            && !strcasecmp($struct->parameters[0]->attribute,'CHARSET') && strcasecmp($struct->parameters[0]->value,'US-ASCII')) {
+                    if($struct->ifparameters){
+                        if(!strcasecmp($struct->parameters[0]->attribute,'CHARSET') && strcasecmp($struct->parameters[0]->value,'US-ASCII'))
                         $charset=trim($struct->parameters[0]->value);
                     }
                     $text=$this->mime_encode($text,$charset,$encoding);
@@ -166,17 +177,16 @@ class MailFetcher {
             }
         }
         //Do recursive search 
+        $text='';
         if($struct && $struct->parts){
             while(list($i, $substruct) = each($struct->parts)) {
                 if($partNumber) 
                     $prefix = $partNumber . '.';
-                if(($text=$this->getPart($mid,$mimeType,$encoding,$substruct,$prefix.($i+1))))
-                    return $text;
+                if(($result=$this->getPart($mid,$mimeType,$encoding,$substruct,$prefix.($i+1))))
+                    $text.=$result;
             }
         }
-        //No luck.
-        
-        return false;
+        return $text;
     }
 
     function getHeader($mid){
@@ -213,9 +223,9 @@ class MailFetcher {
             return false;
         }
 
-        $var['name']=imap_utf8($mailinfo['from']['name']);
+        $var['name']=$this->mime_decode($mailinfo['from']['name']);
         $var['email']=$mailinfo['from']['email'];
-        $var['subject']=$mailinfo['subject']?imap_utf8($mailinfo['subject']):'[No Subject]';
+        $var['subject']=$mailinfo['subject']?$this->mime_decode($mailinfo['subject']):'[No Subject]';
         $var['message']=Format::stripEmptyLines($this->getBody($mid));
         $var['header']=$this->getHeader($mid);
         $var['emailId']=$emailid?$emailid:$cfg->getDefaultEmailId(); //ok to default?
@@ -228,7 +238,7 @@ class MailFetcher {
         $ticket=null;
         $newticket=true;
         //Check the subject line for possible ID.
-        if(ereg ("[[][#][0-9]{1,10}[]]",$var['subject'],$regs)) {
+        if(preg_match ("[[#][0-9]{1,10}]",$var['subject'],$regs)) {
             $extid=trim(preg_replace("/[^0-9]/", "", $regs[0]));
             $ticket= new Ticket(Ticket::getIdByExtId($extid));
             //Allow mismatched emails?? For now NO.
@@ -251,19 +261,37 @@ class MailFetcher {
         //Save attachments if any.
         if($msgid && $cfg->allowEmailAttachments()){
             if(($struct = imap_fetchstructure($this->mbox,$mid)) && $struct->parts) {
-                //We've got something...do a search
-                foreach($struct->parts as $k=>$part) {
-                    if($part && $part->ifdparameters && ($filename=$part->dparameters[0]->value)){ //attachment
-                        if($cfg->canUploadFileType($filename) && $cfg->getMaxFileSize()>=$part->bytes) {
-                            //extract the attachments...and do the magic.
-                            $data=$this->decode($part->encoding, imap_fetchbody($this->mbox,$mid,$k+1));
-                            $ticket->saveAttachment($filename,$data,$msgid,'M');
-                        }
-                    }
-                }
+                if($ticket->getLastMsgId()!=$msgid)
+                    $ticket->setLastMsgId($msgid);
+                $this->saveAttachments($ticket,$mid,$struct);
+
             }
         } 
         return $ticket;
+    }
+
+    function saveAttachments($ticket,$mid,$part,$index=0) {
+        global $cfg;
+
+                    if($part && $part->ifdparameters && ($filename=$part->dparameters[0]->value)){ //attachment
+            $index=$index?$index:1;
+            if($ticket && $cfg->canUploadFileType($filename) && $cfg->getMaxFileSize()>=$part->bytes) {
+                            //extract the attachments...and do the magic.
+                $data=$this->decode($part->encoding, imap_fetchbody($this->mbox,$mid,$index));
+                $ticket->saveAttachment($filename,$data,$ticket->getLastMsgId(),'M');
+                return;
+                    }
+            //TODO: Log failure??
+                }
+
+        //Recursive attachment search!
+        if($part && $part->parts) {
+            foreach($part->parts as $k=>$struct) {
+                if($index) $prefix = $index.'.';
+                $this->saveAttachments($ticket,$mid,$struct,$prefix.($k+1));
+            }
+        } 
+
     }
 
     function fetchTickets($emailid,$max=20,$deletemsgs=false){
@@ -295,6 +323,13 @@ class MailFetcher {
         if(!$cfg->canFetchMail())
             return;
 
+        //We require imap ext to fetch emails via IMAP/POP3
+        if(!function_exists('imap_open')) {
+            $msg='PHP must be compiled with IMAP extension enabled for IMAP/POP3 fetch to work!';
+            Sys::log(LOG_WARN,'Mail Fetch Error',$msg);
+            return;
+        }
+
         $MAX_ERRORS=5; //Max errors before we start delayed fetch attempts - hardcoded for now.
 
         $sql=' SELECT email_id,mail_host,mail_port,mail_protocol,mail_encryption,mail_delete,mail_errors,userid,userpass FROM '.EMAIL_TABLE.
@@ -317,13 +352,13 @@ class MailFetcher {
                 db_query('UPDATE '.EMAIL_TABLE.' SET mail_errors=mail_errors+1, mail_lasterror=NOW() WHERE email_id='.db_input($row['email_id']));
                 if($errors>=$MAX_ERRORS){
                     //We've reached the MAX consecutive errors...will attempt logins at delayed intervals
-                    $msg="Admin,\n The system is having trouble fetching emails from the following POP account: \n".
+                    $msg="\nThe system is having trouble fetching emails from the following mail account: \n".
                         "\nUser: ".$row['userid'].
                         "\nHost: ".$row['mail_host'].
                         "\nError: ".$fetcher->getLastError().
                         "\n\n ".$errors.' consecutive errors. Maximum of '.$MAX_ERRORS. ' allowed'.
                         "\n\n This could be connection issues related to the host. Next delayed login attempt in aprox. 10 minutes";
-                    Sys::alertAdmin('Mail Fetch Failure Alert',$msg);
+                    Sys::alertAdmin('Mail Fetch Failure Alert',$msg,true);
                 }
             }
         }

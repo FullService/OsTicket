@@ -5,7 +5,7 @@
     Ticket lock handle.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -86,6 +86,13 @@ class TicketLock {
         return false;
     }
 
+    //release aka delete a lock.
+    function release(){
+        //FORCED release - we don't give a ....
+        $sql='DELETE FROM '.TICKET_LOCK_TABLE.' WHERE lock_id='.db_input($this->getId());
+        return (db_query($sql) && db_affected_rows())?true:false;
+    }
+
     function getId(){
         return $this->id;
     }
@@ -109,6 +116,15 @@ class TicketLock {
     //Should we be doing realtime check here? (Ans: not really....expiretime is local & based on loadtime)
     function isExpired(){
         return (time()>$this->expiretime)?true:false;
+    }
+
+    //Simply remove ALL locks a user (staff) holds on a ticket(s).
+    function removeStaffLocks($staffId,$ticketId=0) {
+        $sql='DELETE FROM '.TICKET_LOCK_TABLE.' WHERE staff_id='.db_input($staffId);
+        if($ticketId)
+            $sql.=' AND ticket_id='.db_input($ticketId);
+
+        return db_query($sql)?true:false;
     }
 
     //Called  via cron 

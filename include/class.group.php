@@ -5,14 +5,14 @@
     Groups
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
     See LICENSE.TXT for details.
 
     vim: expandtab sw=4 ts=4 sts=4:
-    $Id: class.group.php,v 1.1.2.1 2009/08/17 18:35:47 carlos.delfino Exp $
+    $Id: $
 **********************************************************************/
 
 class Group {
@@ -51,6 +51,7 @@ class Group {
             $sql=' SET updated=NOW(), group_name='.db_input(Format::striptags($vars['group_name'])).
                  ', group_enabled='.db_input($vars['group_enabled']).
                  ', dept_access='.db_input($vars['depts']?implode(',',$vars['depts']):'').
+                 ', can_create_tickets='.db_input($vars['can_create_tickets']).
                  ', can_delete_tickets='.db_input($vars['can_delete_tickets']).
                  ', can_edit_tickets='.db_input($vars['can_edit_tickets']).
                  ', can_transfer_tickets='.db_input($vars['can_transfer_tickets']).

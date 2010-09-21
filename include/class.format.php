@@ -5,7 +5,7 @@
     Collection of helper function used for formatting 
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -57,8 +57,23 @@ class Format {
         return $hard?$string:(substr($string,0,strrpos($string,' ')).' ...');
     }
 
+    function strip_slashes($var){
+        return is_array($var)?array_map(array('Format','strip_slashes'),$var):stripslashes($var);
+    }
+
     function htmlchars($var) {
         return is_array($var)?array_map(array('Format','htmlchars'),$var):htmlspecialchars($var,ENT_QUOTES);
+    }
+
+
+    //Same as htmlchars above but with ability to add extra checks...etc.
+    function input($var) {
+
+        /*: Moved to main.inc.php
+        if(function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc())
+            $var=Format::strip_slashes($var);
+        */
+        return Format::htmlchars($var);
     }
 
     //Format text for display..
@@ -81,17 +96,20 @@ class Format {
 
     //make urls clickable. Mainly for display 
     function clickableurls($text) {
-       $text=preg_replace('/(((f|ht){1}tp(s?):\/\/)[-a-zA-Z0-9@:%_\+.~#?&;\/\/=]+)/i','<a href="\\1" target="_blank">\\1</a>', $text);
-        $text=eregi_replace("(^|[ \n\r\t])(www\.([a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+)(/[^/ \n\r]*)*)",
+
+        //Not perfect but it works - please help improve it. 
+        $text=preg_replace('/(((f|ht){1}tp(s?):\/\/)[-a-zA-Z0-9@:%_\+.~#?&;\/\/=]+)/','<a href="\\1" target="_blank">\\1</a>', $text);
+        $text=preg_replace("/(^|[ \\n\\r\\t])(www\.([a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+)(\/[^\/ \\n\\r]*)*)/",
                 '\\1<a href="http://\\2" target="_blank">\\2</a>', $text);
-        $text=eregi_replace("(^|[ \n\r\t])([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,4})",'\\1<a href="mailto:\\2" target="_blank">\\2</a>', $text);
+        $text=preg_replace("/(^|[ \\n\\r\\t])([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,4})/",'\\1<a href="mailto:\\2" target="_blank">\\2</a>', $text);
 
         return $text;
     }
 
     function stripEmptyLines ( $string) {
         //return preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $string);
-        return preg_replace('/\s\s+/',"\n",$string);
+        //return preg_replace('/\s\s+/',"\n",$string); //Too strict??
+        return preg_replace("/\n{3,}/", "\n\n", $string);
     }
 
     

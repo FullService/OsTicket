@@ -6,7 +6,7 @@
     Mail parsing will change once we move to PHP5
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -115,13 +115,41 @@ class Mail_Parse {
                 return $struct->body;
         }
 
+        $data='';
         if($struct && $struct->parts) {
-            for($i = 0; $i < count($struct->parts); $i++) {
-                if(($data=$this->getPart($struct->parts[$i],$ctypepart)))
-                    return $data;
+            foreach($struct->parts as $i=>$part) {
+                if($part && !$part->disposition && ($text=$this->getPart($part,$ctypepart)))
+                    $data.=$text;
             }
         }
-        return '';
+                    return $data;
+            }
+
+    function getAttachments($part=null){
+
+        if($part==null)
+            $part=$this->getStruct();
+
+        if($part && $part->disposition
+                && (!strcasecmp($part->disposition,'attachment') 
+                    || !strcasecmp($part->disposition,'inline') 
+                    || !strcasecmp($part->ctype_primary,'image'))){
+            if(!($filename=$part->d_parameters['filename']) && $part->d_parameters['filename*'])
+                $filename=$part->d_parameters['filename*']; //Do we need to decode?
+
+            return array(array('filename'=>$filename,'body'=>$part->body));
+        }
+
+        $files=array();
+        if($part->parts){
+            foreach($part->parts as $k=>$p){
+                if($p && ($result=$this->getAttachments($p))) {
+                    $files=array_merge($files,$result);
+        }
+    }
+        }
+
+        return $files;
     }
 
     function getPriority(){

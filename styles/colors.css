@@ -148,6 +148,7 @@ table.tgrid th a, table.tgrid th a:hover {
 
 /* Input buttons/submits colors*/
 .button {
+    text-shadow: #000 -1px -1px 1px;
     background-color: #DB8606;
     color: #FFF;
     border-color: #666;

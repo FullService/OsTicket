@@ -5,7 +5,7 @@
     Nothing special...just a central location for all cron calls.
     
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -35,7 +35,7 @@ class Cron {
         Sys::purgeLogs();
     }
 
-    function run(){
+    function run(){ //called by outside cron NOT autocron
         Cron::MailFetcher();
         Cron::TicketMonitor();
         cron::PurgeLogs();

@@ -5,7 +5,7 @@
     AJAX interface for tickets
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -23,7 +23,7 @@ class TicketsAjaxAPI{
    
     function searchbyemail($params) {
 	
-        $input = strtolower($params['input']);
+        $input = db_input(strtolower($params['input']),false);
         $len = strlen($input);
         $limit = isset($params['limit']) ? (int) $params['limit']:25;
         $items=array();
@@ -41,7 +41,7 @@ class TicketsAjaxAPI{
 
     function search($params) {
 
-        $input = strtolower($params['input']);
+        $input = db_input(strtolower($params['input']),false);
         $len = strlen($input);
         $limit = isset($params['limit']) ? (int) $params['limit']:25;
         $items=array();
@@ -116,6 +116,26 @@ class TicketsAjaxAPI{
         $lock->renew(); //Failure here is not an issue since the lock is not expired yet..
         
         return '{"id":'.$lock->getId().', "time":'.$lock->getTime().'}';
+    }
+
+    function releaseLock($params) {
+        global $thisuser;
+
+        if($params['id'] && is_numeric($params['id'])){ //Lock Id provided!
+        
+            $lock= new TicketLock($params['id']);
+            //Already gone?
+            if(!$lock->load() || !$lock->getStaffId() || $lock->isExpired()) //Said lock doesn't exist or is is expired
+                return 1;
+        
+            //make sure the user actually owns the lock before releasing it.
+            return ($lock->getStaffId()==$thisuser->getId() && $lock->release())?1:0;
+
+        }elseif($params['tid']){ //release all the locks the user owns on the ticket.
+            return TicketLock::removeStaffLocks($thisuser->getId(),$params['tid'])?1:0;
+        }
+
+        return 0;
     }
 }
 ?>

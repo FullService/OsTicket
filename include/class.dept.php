@@ -5,7 +5,7 @@
     Department class
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -249,7 +249,7 @@ class Dept {
             if($id) {
                 $sql='UPDATE '.DEPT_TABLE.' '.$sql.' WHERE dept_id='.db_input($id);
                 if(!db_query($sql) || !db_affected_rows())
-                    $errors['err']='Unable to update '.Format::htmlchars($_POST['dept_name']).' Dept. Error occured';
+                    $errors['err']='Unable to update '.Format::input($_POST['dept_name']).' Dept. Error occured';
             }else{
                 $sql='INSERT INTO '.DEPT_TABLE.' '.$sql.',created=NOW()';
                 if(db_query($sql) && ($deptID=db_insert_id()))

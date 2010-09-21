@@ -5,7 +5,7 @@
     AJAX interface for knowledge base related...allowed methods.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -24,6 +24,15 @@ class KbaseAjaxAPI{
 	    $sql='SELECT answer FROM '.KB_PREMADE_TABLE.' WHERE isenabled=1 AND premade_id='.db_input($params['id']);
 	    if(($res=db_query($sql)) && db_num_rows($res))
 		    list($response)=db_fetch_row($res);
+
+        if($response && $params['tid'] && strpos($response,'%')!==false) {
+            include_once(INCLUDE_DIR.'class.ticket.php');
+
+            $ticket = new Ticket($params['tid']);
+            if($ticket && $ticket->getId()){
+                $response=$ticket->replaceTemplateVars($response);
+            }
+        }
 
         return $response;
 	}

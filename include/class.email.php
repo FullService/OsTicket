@@ -3,7 +3,7 @@
     class.email.php
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -161,6 +161,7 @@ class Email {
         $headers = array ('From' => $from,
                           'To' => $to,
                           'Subject' => $subject,
+                          'Date'=>date("D , d M Y H:i:s O"),
                           'Message-ID' =>'<'.Misc::randCode(6).''.time().'-'.$this->getEmail().'>',
                           'X-Mailer' =>'osTicket v 1.6',
                           'Content-Type' => 'text/html; charset="UTF-8"'
@@ -194,7 +195,7 @@ class Email {
             if(!PEAR::isError($result))
                 return true;
 
-            $alert=sprintf("Unable to email via %s:%d [%s]\n\n%s",$smtp['host'],$smtp['port'],$smtp['username']);
+            $alert=sprintf("Unable to email via %s:%d [%s]\n\n%s\n",$smtp['host'],$smtp['port'],$smtp['username'],$result->getMessage());
             Sys::log(LOG_ALERT,'SMTP Error',$alert,false);
             //print_r($result);
         }
@@ -224,6 +225,15 @@ class Email {
                           'Content-Type' => 'text/html; charset="UTF-8"'
                           );
         $mime = new Mail_mime();
+        $mime->setTXTBody($body);
+        $options=array('head_encoding' => 'quoted-printable',
+                       'text_encoding' => 'quoted-printable',
+                       'html_encoding' => 'base64',
+                       'html_charset'  => 'utf-8',
+                       'text_charset'  => 'utf-8');
+        //encode the body
+        $body = $mime->get($options);
+        //headers
         $headers = $mime->headers($headers);
         $mail = mail::factory('mail');
         return PEAR::isError($mail->send($to, $headers, $body))?false:true;
@@ -245,7 +255,7 @@ class Email {
 
 
     function save($id,$vars,&$errors) {
-
+        global $cfg;
         //very basic checks
 
         if($id && $id!=$vars['email_id'])
@@ -253,13 +263,14 @@ class Email {
 
         if(!$vars['email'] || !Validator::is_email($vars['email'])){
             $errors['email']='Valid email required';
-        }else{
-            $sql='SELECT email_id FROM '.EMAIL_TABLE.' WHERE email='.db_input($vars['email']);
-            if($id)
-                $sql.=' AND email_id!='.db_input($id);
-                
-            if(db_num_rows(db_query($sql)))
+        }elseif(($eid=Email::getIdByEmail($vars['email'])) && $eid!=$id){
                 $errors['email']='Email already exits';
+        }elseif(!strcasecmp($cfg->getAdminEmail(),$vars['email'])){
+            $errors['email']='Email already used as admin email!';
+        }else{ //make sure the email doesn't belong to any of the staff 
+            $sql='SELECT staff_id FROM '.STAFF_TABLE.' WHERE email='.db_input($vars['email']);
+            if(($res=db_query($sql)) && db_num_rows($res))
+                $errors['email']='Email in-use by a staff member';
         }
         
         if(!$vars['dept_id'] || !is_numeric($vars['dept_id']))
@@ -341,7 +352,7 @@ class Email {
         }
         
         if(!$errors) {
-            $sql='updated=NOW(),mail_errors=0 '.
+            $sql='updated=NOW(),mail_errors=0, mail_lastfetch=NULL'.
                 ',email='.db_input($vars['email']).
                 ',name='.db_input(Format::striptags($vars['name'])).
                 ',dept_id='.db_input($vars['dept_id']).
@@ -351,12 +362,12 @@ class Email {
                 ',userpass='.db_input(Misc::encrypt($vars['userpass'],SECRET_SALT)).
                 ',mail_active='.db_input($vars['mail_active']).
                 ',mail_host='.db_input($vars['mail_host']).
-                ',mail_protocol='.db_input($vars['mail_protocol']).
+                ',mail_protocol='.db_input($vars['mail_protocol']?$vars['mail_protocol']:'POP').
                 ',mail_encryption='.db_input($vars['mail_encryption']).
                 ',mail_port='.db_input($vars['mail_port']?$vars['mail_port']:0).
                 ',mail_fetchfreq='.db_input($vars['mail_fetchfreq']?$vars['mail_fetchfreq']:0).
                 ',mail_fetchmax='.db_input($vars['mail_fetchmax']?$vars['mail_fetchmax']:0).
-                ',mail_delete='.db_input($vars['mail_delete']).
+                ',mail_delete='.db_input(isset($vars['mail_delete'])?$vars['mail_delete']:0).
                 ',smtp_active='.db_input($vars['smtp_active']).
                 ',smtp_host='.db_input($vars['smtp_host']).
                 ',smtp_port='.db_input($vars['smtp_port']?$vars['smtp_port']:0).

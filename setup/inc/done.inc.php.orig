@@ -1,8 +1,8 @@
 <h1>Important!</h1>
 <P>Congratulations your new support ticket system is installed. Your next step is to fully configure your new support ticket system for use, but before you get to it please take a minute to cleanup.
 <ul>
-    <li><strong>Change permission of ost-config.php to remove write access</strong><br>
-        chmod 644 include/ost-config.php</li>
+    <li><strong>Change permission of settings.php to remove write access</strong><br>
+        chmod 644 include/settings.php</li>
     <li><strong>Delete setup directory</strong><br>
      After verifying that your installation completed correctly please delete setup folder.</li>
     <?php

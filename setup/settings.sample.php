@@ -6,14 +6,14 @@
     Created during installation process and shouldn't change even on upgrades.
    
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
     See LICENSE.TXT for details.
 
     vim: expandtab sw=4 ts=4 sts=4:
-    $Id: settings.sample.php,v 1.1.2.3 2009/10/06 18:35:31 carlos.delfino Exp $
+    $Id: $
 **********************************************************************/
 
 #Disable direct access.
@@ -46,5 +46,4 @@ define('TABLE_PREFIX','%CONFIG-PREFIX');
 
 #Translator Configure
 define('OSTLANG','%CONFIG-OSTLANG');
-
 ?>

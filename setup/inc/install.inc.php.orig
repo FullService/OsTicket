@@ -1,7 +1,7 @@
 <?php
 if(!defined('SETUPINC')) die('Kwaheri wafiki!');
 
-$info=($errors && $_POST)?Format::input($_POST):array(); //use post data.
+$info=($errors && $_POST)?Format::htmlchars($_POST):array(); //use post data.
    
 if(!isset($info['title'])) {
     $info['title']='osTicket :: Support Ticket System';

@@ -5,7 +5,7 @@
     Misc collection of useful generic helper functions.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -88,6 +88,12 @@ class Misc {
             $str .='s';
         }
         $str .= '://';
+        if (!isset($_SERVER['REQUEST_URI'])) { //IIS???
+            $_SERVER['REQUEST_URI'] = substr($_SERVER['PHP_SELF'],1 );
+            if (isset($_SERVER['QUERY_STRING'])) {
+                $_SERVER['REQUEST_URI'].='?'.$_SERVER['QUERY_STRING'];
+            }
+        } 
         if ($_SERVER['SERVER_PORT']!=80) {
             $str .= $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
         } else {

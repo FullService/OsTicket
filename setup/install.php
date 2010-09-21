@@ -5,14 +5,14 @@
     osTicket Installer.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
     See LICENSE.TXT for details.
 
     vim: expandtab sw=4 ts=4 sts=4:
-    $Id: install.php,v 1.1.2.3 2009/10/06 18:35:30 carlos.delfino Exp $
+    $Id: $
 **********************************************************************/
 
 #inits
@@ -30,9 +30,10 @@ require('setup.inc.php');
 $errors=array();
 $fp=null;
 $_SESSION['abort']=false;
-define('VERSION','1.6 RC5'); //Current version number
-define('CONFIGFILE','../include/settings.php'); //osTicket config file full path.
-define('SCHEMAFILE','./inc/osticket-rc5.sql'); //osTicket SQL schema.
+define('VERSION','1.6 ST'); //Current version number
+define('VERSION_VERBOSE','1.6 Stable'); //What the user sees during installation process.
+define('CONFIGFILE','../include/ost-config.php'); //osTicket config file full path.
+define('SCHEMAFILE','./inc/osticket-v1.6.sql'); //osTicket SQL schema.
 define('URL',rtrim('http'.(($_SERVER['HTTPS']=='on')?'s':'').'://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']),'setup'));
 
 $install='<strong>Need help?</strong> <a href="http://www.osticket.com/support/" target="_blank">Professional Installation Available</a>';
@@ -42,7 +43,7 @@ $support='<strong>Get a peace of mind</strong> <a href="http://www.osticket.com/
 $inc='install.inc.php';
 $info=$install;
 
-if(file_exists('../ostconfig.php')) { //old installation? try upgrading it buddy.
+if(file_exists('../ostconfig.php') || file_exists('../include/settings.php')) { //old installation? try upgrading it buddy.
     header('Location: upgrade.php');
     die('Old installation exists....try upgrade instead');
 }elseif((double)phpversion()<4.3){ //Old PHP installation
@@ -58,6 +59,7 @@ if(file_exists('../ostconfig.php')) { //old installation? try upgrading it buddy
     $errors['err']='Configuration file already modified!';
     $inc='unclean.inc.php';
 }elseif(!file_exists(CONFIGFILE) || !is_writable(CONFIGFILE)) { //writable config file??
+    clearstatcache();
     $errors['err']='Configuration file is not writable';
     $inc='chmod.inc.php';
 }else {
@@ -69,7 +71,6 @@ if(file_exists('../ostconfig.php')) { //old installation? try upgrading it buddy
     }elseif($_POST){
         $f=array();
         $f['title']     = array('type'=>'string', 'required'=>1, 'error'=>'Title required');
-        $f['ostlang']   = array('type'=>'string', 'required'=>1, 'error'=>'OS ticket default Language required');
         $f['sysemail']  = array('type'=>'email',  'required'=>1, 'error'=>'Valid email required');
         $f['username']  = array('type'=>'username', 'required'=>1, 'error'=>'Username required');
         $f['password']  = array('type'=>'password', 'required'=>1, 'error'=>'Password required');
@@ -93,12 +94,8 @@ if(file_exists('../ostconfig.php')) { //old installation? try upgrading it buddy
         if($_POST['prefix'] && substr($_POST['prefix'], -1)!='_')
             $errors['prefix']='Bad prefix. Must have underscore (_) at the end. e.g \'ost_\'';
        
-        // verificar se é um dos idiomas disponiveis
-        if($_POST['ostlang'] && !$_POST['ostlang'])
-            $errors['ostlang']='Bad Language. this language not exist';
-       
         //Make sure admin username is not very predictable.
-        if(!$errors['username'] && in_array(strtolower($_POST['username']),array('admin','admins','username')))
+        if(!$errors['username'] && in_array(strtolower($_POST['username']),array('admin','admins','username','osticket')))
             $errors['username']='Bad username';
 
         //Connect to the DB
@@ -111,7 +108,7 @@ if(file_exists('../ostconfig.php')) { //old installation? try upgrading it buddy
         //Select the DB
         if(!$errors && !db_select_database($_POST['dbname'])) {
             //Try creating the missing DB
-            if(!mysql_query('CREATE DATABASE '.$_POST['dbname'])) {
+            if(!mysql_query('CREATE DATABASE '.$_POST['dbname'].' DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci')) {
                 $errors['dbname']='Database doesn\'t exist';
                 $errors['mysql']='Unable to create the database due to permission';
             }elseif(!db_select_database($_POST['dbname'])) {
@@ -119,9 +116,9 @@ if(file_exists('../ostconfig.php')) { //old installation? try upgrading it buddy
             }
         }
         //Get database schema
-        if(!$errors && (!file_exists(SCHEMAFILE) || !($schema=file_get_contents(SCHEMAFILE)))) {
+        if(!$errors && !file_exists(SCHEMAFILE)) {
             $errors['err']='Internal error. Please make sure your download is the latest';
-            $errors['mysql']='Missing SQL schema';
+            $errors['mysql']='Missing SQL schema file';
         }
         //Open the file for writing..
         if(!$errors && !($fp = @fopen(CONFIGFILE,'r+'))){
@@ -129,26 +126,13 @@ if(file_exists('../ostconfig.php')) { //old installation? try upgrading it buddy
         }
 
         //IF no errors..Do the install. Let the fun start...
-        if(!$errors && $schema && $fp) {
+        if(!$errors && $fp) {
             define('ADMIN_EMAIL',$_POST['email']); //Needed to report SQL errors during install.
             define('PREFIX',$_POST['prefix']); //Table prefix
             
-            //Loadup SQL schema.
-            $queries =array_map('replace_table_prefix',array_filter(array_map('trim',explode(';',$schema)))); //Don't fail me bro!
-            if($queries && count($queries)) {
-                @mysql_query('SET SESSION SQL_MODE =""');
-                foreach($queries as $k=>$sql) {
-                    if(!mysql_query($sql)){
-                        //Aborting on error.
-                        $errors['err']='Invalid SQL schema. Get help from Developers';
-                        $errors['mysql']='You have an error in your SQL syntax ';
-                        break;
-                    }
-                }
-            }else{
-                 $errors['err']='Error parsing the SQL schema.';
-            }
-
+            $debug=false; //Change it to true to show failed query
+            if(!load_sql_schema(SCHEMAFILE,$errors,$debug) && !$errors['err'])
+                $errors['err']='Error parsing SQL schema! Get help from developers';
 
             if(!$errors) {
                 $info=$support;
@@ -162,8 +146,7 @@ if(file_exists('../ostconfig.php')) { //old installation? try upgrading it buddy
                 $configfile= str_replace('%CONFIG-DBPASS',$_POST['dbpass'],$configfile);
                 $configfile= str_replace('%CONFIG-PREFIX',$_POST['prefix'],$configfile);
                 $configfile= str_replace('%CONFIG-SIRI',Misc::randcode(32),$configfile);
-                $configfile= str_replace('%CONFIG-OSTLANG',$_POST['ostlang'],$configfile);
-                
+
                 if(ftruncate($fp,0) && fwrite($fp,$configfile)){
                     //Some more configurations.
                     $tzoffset= date("Z")/3600; //Server's offset.
@@ -199,7 +182,7 @@ if(file_exists('../ostconfig.php')) { //old installation? try upgrading it buddy
                     //Create a ticket to make the system warm and happy.
                     $sql='INSERT INTO '.PREFIX.'ticket SET created=NOW(),ticketID='.db_input(Misc::randNumber(6)).
                         ",priority_id=2,dept_id=1,email='support@osticket.com',name='osTicket Support' ".
-                        ",subject='osTicket Installed!',topic='Commercial support',status='open',source='Web'";
+                        ",subject='osTicket Installed!',helptopic='Commercial support',status='open',source='Web'";
                     if(db_query($sql) && ($id=db_insert_id())){
                         db_query('INSERT INTO '.PREFIX."ticket_message VALUES (1,$id,NULL,".db_input(OSTICKET_INSTALLED).",NULL,'Web','',NOW(),NULL)");
                     }
@@ -222,10 +205,7 @@ if(file_exists('../ostconfig.php')) { //old installation? try upgrading it buddy
         }
     }
 }
-// TODO Já se pode usar o Tradutor apartir daqui.
-// para isto e preciso obte-lo 
-
-$title=sprintf('osTicket version %s - Basic installation',VERSION);
+$title=sprintf('osTicket version %s - Basic installation',VERSION_VERBOSE);
 ?>
 <html>
 <head>

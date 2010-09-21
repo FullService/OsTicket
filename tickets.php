@@ -27,9 +27,9 @@ if(($id=$_REQUEST['id']?$_REQUEST['id']:$_POST['ticket_id']) && is_numeric($id))
     $ticket= new Ticket(Ticket::getIdByExtId((int)$id));
     if(!$ticket or !$ticket->getEmail()) {
         $ticket=null; //clear.
-        $errors['err']=$trl->translate('ERROR_ACCESS_DENIED_INVALID_TICKET');
+        $errors['err']='Access Denied. Possibly invalid ticket ID';
     }elseif(strcasecmp($thisclient->getEmail(),$ticket->getEmail())){
-        $errors['err']=$trl->translate('ERROR_SECURITY_VIOLATION_YOUR_ACCOUNT_WILL_LOCKED');
+        $errors['err']='Security violation. Repeated violations will result in your account being locked.';
         $ticket=null; //clear.
     }else{
         //Everything checked out.
@@ -42,20 +42,20 @@ if($_POST && is_object($ticket) && $ticket->getId()):
     switch(strtolower($_POST['a'])){
     case 'postmessage':
         if(strcasecmp($thisclient->getEmail(),$ticket->getEmail())) { //double check perm again!
-            $errors['err']=$trl->translate('ERROR_ACCESS_DENIED_INVALID_TICKET');
+            $errors['err']='Access Denied. Possibly invalid ticket ID';
             $inc='tickets.inc.php'; //Show the tickets.               
         }
 
         if(!$_POST['message'])
-            $errors['message']=$trl->translate('ERROR_MESSAGE_REQUIRED');
+            $errors['message']='Message required';
         //check attachment..if any is set
         if($_FILES['attachment']['name']) {
             if(!$cfg->allowOnlineAttachments()) //Something wrong with the form...user shouldn't have an option to attach
-            	$errors['attachment']=$trl->translate('TEXT_FILE_REJECTED',$_FILES['attachment']['name']);           
+                $errors['attachment']='File [ '.$_FILES['attachment']['name'].' ] rejected';
             elseif(!$cfg->canUploadFileType($_FILES['attachment']['name']))
-                $errors['attachment']=$trl->translate('TEXT_INVALID_FILE_TYPE',$_FILES['attachment']['name']);
+                $errors['attachment']='Invalid file type [ '.$_FILES['attachment']['name'].' ]';
             elseif($_FILES['attachment']['size']>$cfg->getMaxFileSize())
-                $errors['attachment']=$trl->translate('TEXT_FILE_IS_TOO_BIG',$cfg->getMaxFileSize()); 
+                $errors['attachment']='File is too big. Max '.$cfg->getMaxFileSize().' bytes allowed';
         }
                     
         if(!$errors){
@@ -64,16 +64,16 @@ if($_POST && is_object($ticket) && $ticket->getId()):
                 if($_FILES['attachment']['name'] && $cfg->canUploadFiles() && $cfg->allowOnlineAttachments())
                     $ticket->uploadAttachment($_FILES['attachment'],$msgid,'M');
                     
-                $msg=$trl->translate('TEXT_MESSAGE_POSTED_SUCESSFULY');
+                $msg='Message Posted Successfully';
             }else{
-                $errors['err']=$trl->translate('ERROR_UNABLE_TO_POST_MESSAGE');
+                $errors['err']='Unable to post the message. Try again';
             }
         }else{
-            $errors['err']=$errors['err']?$errors['err']:$trl->translate('ERROR_OCCURED_TRY_AGAIN');
+            $errors['err']=$errors['err']?$errors['err']:'Error(s) occured. Please try again';
         }
         break;
     default:
-        $errors['err']=$trl->translate('ERROR_UNKNOW_ACTION');
+        $errors['err']='Uknown action';
     }
     $ticket->reload();
 endif;

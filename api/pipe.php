@@ -6,7 +6,7 @@
     Converts piped emails to ticket. Both local and remote!
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -89,7 +89,7 @@ $var['header']=$parser->getHeader();
 $var['pri']=$cfg->useEmailPriority()?$parser->getPriority():0;
 
 $ticket=null;
-if(ereg ("[[][#][0-9]{1,10}[]]",$var['subject'],$regs)) {
+if(preg_match ("[[#][0-9]{1,10}]",$var['subject'],$regs)) {
     $extid=trim(preg_replace("/[^0-9]/", "", $regs[0]));
     $ticket= new Ticket(Ticket::getIdByExtId($extid));
     //Allow mismatched emails?? For now hell NO.
@@ -115,19 +115,15 @@ if(!$ticket){ //New tickets...
     }
 }
 //Ticket created...save attachments if enabled.
-$struct=$parser->getStruct();       
-if($struct && $struct->parts && $cfg->allowEmailAttachments()) {                   
-    for($i = 0; $i < count($struct->parts); $i++) {
-        $part=$struct->parts[$i];
-        if($part->disposition 
-                && (!strcasecmp($part->disposition,'attachment') || !strcasecmp($part->disposition,'inline') || !strcasecmp($part->ctype_primary,'image'))){
-            $filename=$part->d_parameters['filename'];
-            if($filename && $cfg->canUploadFileType($filename)) {
-                $ticket->saveAttachment($filename,$part->body,$msgid,'M');
+if($cfg->allowEmailAttachments()) {                   
+    if($attachments=$parser->getAttachments()){
+        //print_r($attachments);
+        foreach($attachments as $k=>$attachment){
+            if($attachment['filename'] && $cfg->canUploadFileType($attachment['filename'])) {
+                $ticket->saveAttachment($attachment['filename'],$attachment['body'],$msgid,'M');
             }
         }
     }
 }
-//print_r($var);
 api_exit(EX_SUCCESS);
 ?>
