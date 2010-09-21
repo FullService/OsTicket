@@ -19,6 +19,13 @@ if(!defined('OSTSCPINC') || !is_object($thisuser) || !$rep) die('Kwaheri');
         </td>
     </tr>
     <tr>
+        <td nowrap>Auto Refresh Rate:</td>
+        <td>
+            <input type="input" size=3 name="auto_refresh_rate" value="<?=$rep['auto_refresh_rate']?>">
+            in Mins. (<i>Tickets page refresh rate in minutes. Enter 0 to disable</i>)
+        </td>
+    </tr>
+    <tr>
         <td nowrap>Preferred Timezone:</td>
         <td>
             <select name="timezone_offset">

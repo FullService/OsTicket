@@ -5,7 +5,7 @@
     Staff's profile handle
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -24,17 +24,25 @@ if($_POST && $_POST['id']!=$thisuser->getId()) { //Check dummy ID used on the fo
 if(!$errors && $_POST) { //Handle post
     switch(strtolower($_REQUEST['t'])):
     case 'pref':
+        if(!is_numeric($_POST['auto_refresh_rate']))
+            $errors['err']='Invalid auto refresh value.';
+
+        if(!$errors) {
+
         $sql='UPDATE '.STAFF_TABLE.' SET updated=NOW() '.
             ',daylight_saving='.db_input(isset($_POST['daylight_saving'])?1:0).
             ',max_page_size='.db_input($_POST['max_page_size']).
-            ',timezone_offset='.db_input($_POST['timezone_offset']);
+                ',auto_refresh_rate='.db_input($_POST['auto_refresh_rate']).
+                ',timezone_offset='.db_input($_POST['timezone_offset']).
             ' WHERE staff_id='.db_input($thisuser->getId());
         if(db_query($sql) && db_affected_rows()){
             $thisuser->reload();
             $_SESSION['TZ_OFFSET']=$thisuser->getTZoffset();
+                $_SESSION['daylight']=$thisuser->observeDaylight();
             $msg='Preference Updated Successfully';
         }else{
             $errors['err']='Preference update error.';
+        }
         }
         break;
     case 'passwd':
@@ -85,15 +93,19 @@ if(!$errors && $_POST) { //Handle post
             $errors['mobile']='Enter a valid number';
         }
 
+        if($_POST['phone_ext'] && !is_numeric($_POST['phone_ext'])) {
+            $errors['phone_ext']='Invalid ext.';
+        }
+
         if(!$errors) {
 
             $sql='UPDATE '.STAFF_TABLE.' SET updated=NOW() '.
                 ',firstname='.db_input(Format::striptags($_POST['firstname'])).
                 ',lastname='.db_input(Format::striptags($_POST['lastname'])).
                 ',email='.db_input($_POST['email']).
-                ',phone='.db_input($_POST['phone']).
+                ',phone="'.db_input($_POST['phone'],false).'"'.
                 ',phone_ext='.db_input($_POST['phone_ext']).
-                ',mobile='.db_input($_POST['mobile']).
+                ',mobile="'.db_input($_POST['mobile'],false).'"'.
                 ',signature='.db_input(Format::striptags($_POST['signature'])).
                 ' WHERE staff_id='.db_input($thisuser->getId());
             if(db_query($sql) && db_affected_rows()){
@@ -112,6 +124,7 @@ if(!$errors && $_POST) { //Handle post
     if(!$errors) {
         $thisuser->reload();
         $_SESSION['TZ_OFFSET']=$thisuser->getTZoffset();
+        $_SESSION['daylight']=$thisuser->observeDaylight();
     }
 }
 
@@ -125,7 +138,8 @@ $nav->addSubMenu(array('desc'=>$trl->translate("LABEL_CHANGE_PASSWORD"),'href'=>
 if($thisuser->onVacation()){
         $warn.=$trl->translate("TEXT_WELCOME_BACK_VACATION");
 }
-$rep=Format::htmlchars(($errors && $_POST)?$_POST:$thisuser->getData());
+
+$rep=($errors && $_POST)?Format::input($_POST):Format::htmlchars($thisuser->getData());
 
 // page logic
 $inc='myprofile.inc.php';

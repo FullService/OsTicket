@@ -99,8 +99,8 @@ $priorities= db_query('SELECT priority_id,priority_desc FROM '.TICKET_PRIORITY_T
             <font class="error">&nbsp;<?=$errors['mail']?></font></td></tr>
         <tr><th>Status</th>
             <td>
-                <input type="radio" name="mail_active"  value="1"   <?=$info['mail_active']?'checked':''?> />Enable
-                <input type="radio" name="mail_active"  value="0"   <?=!$info['mail_active']?'checked':''?> />Disable
+                <label><input type="radio" name="mail_active"  value="1"   <?=$info['mail_active']?'checked':''?> />Enable</label>
+                <label><input type="radio" name="mail_active"  value="0"   <?=!$info['mail_active']?'checked':''?> />Disable</label>
                 &nbsp;<font class="error">&nbsp;<?=$errors['mail_active']?></font>
             </td>
         </tr>
@@ -117,7 +117,7 @@ $priorities= db_query('SELECT priority_id,priority_desc FROM '.TICKET_PRIORITY_T
         <tr><th>Protocol</th>
             <td>
                 <select name="mail_protocol">
-                    <option value=''>Select</option>
+                    <option value='POP'>Select</option>
                     <option value='POP' <?=($info['mail_protocol']=='POP')?'selected="selected"':''?> >POP</option>
                     <option value='IMAP' <?=($info['mail_protocol']=='IMAP')?'selected="selected"':''?> >IMAP</option>
                 </select>
@@ -127,10 +127,10 @@ $priorities= db_query('SELECT priority_id,priority_desc FROM '.TICKET_PRIORITY_T
 
         <tr><th>Encryption</th>
             <td>
-                 <input type="radio" name="mail_encryption"  value="NONE"
-                    <?=($info['mail_encryption']!='SSL')?'checked':''?> />None
-                 <input type="radio" name="mail_encryption"  value="SSL"
-                    <?=($info['mail_encryption']=='SSL')?'checked':''?> />SSL
+                 <label><input type="radio" name="mail_encryption"  value="NONE"
+                    <?=($info['mail_encryption']!='SSL')?'checked':''?> />None</label>
+                 <label><input type="radio" name="mail_encryption"  value="SSL"
+                    <?=($info['mail_encryption']=='SSL')?'checked':''?> />SSL</label>
                 <font class="error">&nbsp;<?=$errors['mail_encryption']?></font>
             </td>
         </tr>
@@ -149,7 +149,7 @@ $priorities= db_query('SELECT priority_id,priority_desc FROM '.TICKET_PRIORITY_T
         <tr><th>Delete Messages</th>
             <td>
                 <input type="checkbox" name="mail_delete" value=1 <?=$info['mail_delete']? 'checked': ''?> >
-                    Delete fetched message(s) (<i>recommended</i>)
+                    Delete fetched message(s) (<i>recommended when using POP</i>)
                 &nbsp;<font class="error">&nbsp;<?=$errors['mail_delete']?></font>
             </td>
         </tr>
@@ -160,8 +160,8 @@ $priorities= db_query('SELECT priority_id,priority_desc FROM '.TICKET_PRIORITY_T
                 <font class="error">&nbsp;<?=$errors['smtp']?></font></td></tr>
         <tr><th>Status</th>
             <td>
-                <input type="radio" name="smtp_active"  value="1"   <?=$info['smtp_active']?'checked':''?> />Enable
-                <input type="radio" name="smtp_active"  value="0"   <?=!$info['smtp_active']?'checked':''?> />Disable
+                <label><input type="radio" name="smtp_active"  value="1"   <?=$info['smtp_active']?'checked':''?> />Enable</label>
+                <label><input type="radio" name="smtp_active"  value="0"   <?=!$info['smtp_active']?'checked':''?> />Disable</label>
                 &nbsp;<font class="error">&nbsp;<?=$errors['smtp_active']?></font>
             </td>
         </tr>
@@ -177,10 +177,11 @@ $priorities= db_query('SELECT priority_id,priority_desc FROM '.TICKET_PRIORITY_T
         </tr>
         <tr><th><?=$trl->translate('TEXT_AUTHENTICATION_REQUIRED_QUESTION')?></th>
             <td>
-                 <input type="radio" name="smtp_auth"  value="1"
-                    <?=$info['smtp_auth']?'checked':''?> />Yes
-                 <input type="radio" name="smtp_auth"  value="0"
-                    <?=!$info['smtp_auth']?'checked':''?> />NO
+
+                 <label><input type="radio" name="smtp_auth"  value="1"
+                    <?=$info['smtp_auth']?'checked':''?> />Yes</label>
+                 <label><input type="radio" name="smtp_auth"  value="0"
+                    <?=!$info['smtp_auth']?'checked':''?> />NO</label>
                 <font class="error">&nbsp;<?=$errors['smtp_auth']?></font>
             </td>
         </tr>

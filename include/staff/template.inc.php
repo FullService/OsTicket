@@ -1,6 +1,6 @@
 <?php
 if(!defined('OSTADMININC') || !$thisuser->isadmin() || !is_object($template)) die('Access Denied');
-$tpl=Format::htmlchars(($errors && $_POST)?$_POST:$template->getInfo());
+$tpl=($errors && $_POST)?Format::input($_POST):Format::htmlchars($template->getInfo());
 ?>
 <div class="msg">Email Templates</div>
 <table width="100%" border="0" cellspacing=0 cellpadding=0>
@@ -22,7 +22,7 @@ $tpl=Format::htmlchars(($errors && $_POST)?$_POST:$template->getInfo());
             <tr>
                 <th>Internal notes:</th>
                 <td><i>Administrative notes</i>&nbsp;<font class="error">&nbsp;<?=$errors['notes']?></font>
-                    <textarea rows="7" cols="75" name="notes"><?=$tpl['notes']?></textarea>
+                    <textarea rows="5" cols="75" name="notes"><?=$tpl['notes']?></textarea>
                         &nbsp;<font class="error">&nbsp;<?=$errors['notes']?></font></td>
             </tr>
         </table>
@@ -58,6 +58,21 @@ $tpl=Format::htmlchars(($errors && $_POST)?$_POST:$template->getInfo());
                 <th>Message Body:</th>
                 <td><textarea rows="7" cols="75" name="message_autoresp_body"><?=$tpl['message_autoresp_body']?></textarea>
                             &nbsp;<font class="error">&nbsp;<?=$errors['message_autoresp_body']?></font></td>
+            </tr>
+            <tr class="header"><td colspan=2 >New Ticket Notice</td></tr>
+            <tr class="subheader"><td colspan=2 >
+                Notice sent to user, if enabled, on new ticket <b>created by staff</b> on their behalf.</td>
+                </tr>
+            <tr>
+                <th>Subject</th>
+                <td>
+                    <input type="text" size="65" name="ticket_notice_subj" value="<?=$tpl['ticket_notice_subj']?>">
+                            &nbsp;<font class="error">&nbsp;<?=$errors['ticket_notice_subj']?></font></td>
+            </tr>
+            <tr>
+                <th>Message Body:</th>
+                <td><textarea rows="7" cols="75" name="ticket_notice_body"><?=$tpl['ticket_notice_body']?></textarea>
+                        &nbsp;<font class="error">&nbsp;<?=$errors['ticket_notice_body']?></font></td>
             </tr>
             <tr class="header"><td  colspan=2 >Over Ticket limit Notice</td></tr>
             <tr class="subheader"><td colspan=2 >

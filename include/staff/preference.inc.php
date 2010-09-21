@@ -2,7 +2,7 @@
 if(!defined('OSTADMININC') || !$thisuser->isadmin()) die('Access Denied');
 
 //Get the config info.
-$config=Format::htmlchars(($errors && $_POST)?$_POST:$cfg->getConfig());
+$config=($errors && $_POST)?Format::input($_POST):Format::htmlchars($cfg->getConfig());
 //Basic checks for warnings...
 $warn=array();
 if($config['allow_attachments'] && !$config['upload_dir']) {
@@ -13,6 +13,10 @@ if($config['allow_attachments'] && !$config['upload_dir']) {
     if(!$config['allow_attachments'] && ($config['allow_online_attachments'] or $config['allow_online_attachments_onlogin']))
         $warn['allow_online_attachments']='<br>*Attachments Disabled.';
 }
+
+if(!$errors['enable_captcha'] && $config['enable_captcha'] && !extension_loaded('gd'))
+    $errors['enable_captcha']='GD required for captcha to work';
+    
 
 //Not showing err on post to avoid alarming the user...after an update.
 if(!$errors['err'] &&!$msg && $warn )
@@ -129,6 +133,12 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
             <td>
               <input type="text" name="staff_session_timeout" size=6 value="<?=$config['staff_session_timeout']?>">
                 (<i>Staff's max Idle time in minutes. Enter 0 to disable timeout</i>)
+            </td>
+        </tr>
+       <tr><th>Bind Staff Session to IP:</th>
+            <td>
+              <input type="checkbox" name="staff_ip_binding" <?=$config['staff_ip_binding']?'checked':''?>>
+               Bind staff's session to login IP.
             </td>
         </tr>
 
@@ -290,12 +300,29 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
                 Show answered tickets on open queue.
             </td>
         </tr>
+        <tr><th>Ticket Activity Log:</th>
+            <td>
+              <input type="checkbox" name="log_ticket_activity" <?=$config['log_ticket_activity']?'checked':''?>>
+                Log ticket's activity as internal notes.
+            </td>
+        </tr>
         <tr><th>Staff Identity:</th>
             <td>
               <input type="checkbox" name="hide_staff_name" <?=$config['hide_staff_name']?'checked':''?>>
                 Hide staff's name on responses.
             </td>
         </tr>
+        <tr><th>Human Verification:</th>
+            <td>
+                <?php
+                   if($config['enable_captcha'] && !$errors['enable_captcha']) {?>
+                        <img src="../captcha.php" border="0" align="left">&nbsp;
+                <?}?>
+              <input type="checkbox" name="enable_captcha" <?=$config['enable_captcha']?'checked':''?>>
+                Enable captcha on new web tickets.&nbsp;<font class="error">&nbsp;<?=$errors['enable_captcha']?></font><br/>
+            </td>
+        </tr>
+
     </table>
     <table width="100%" border="0" cellspacing=0 cellpadding=2 class="tform">
         <tr class="header"><td colspan=2 >Email Settings</td></tr>
@@ -314,7 +341,7 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
         </tr>
         <tr><th valign="top"><br><b>Outgoing Emails</b>:</th>
             <td>
-                <i><b>Default Email:</b> Only applies to outgoing emails with no SMTP settings.</i>
+                <i><b>Default Email:</b> Only applies to outgoing emails with no SMTP settings.</i><br/>
                 <select name="default_smtp_id"
                     onChange="document.getElementById('overwrite').style.display=(this.options[this.selectedIndex].value>0)?'block':'none';">
                     <option value=0><?= $trl->translate('TEXT_SELECT_ONE_TOPIC') ?></option>
@@ -384,6 +411,12 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
             <td><i>Autoresponse includes the ticket ID required to check status of the ticket</i><br>
                 <input type="radio" name="ticket_autoresponder"  value="1"   <?=$config['ticket_autoresponder']?'checked':''?> />Enable
                 <input type="radio" name="ticket_autoresponder"  value="0"   <?=!$config['ticket_autoresponder']?'checked':''?> />Disable
+            </td>
+        </tr>
+        <tr><th valign="top">New Ticket by Staff:</th>
+            <td><i>Notice sent when staff creates a ticket on behalf of the user (Staff can disable)</i><br>
+                <input type="radio" name="ticket_notice_active"  value="1"   <?=$config['ticket_notice_active']?'checked':''?> />Enable
+                <input type="radio" name="ticket_notice_active"  value="0"   <?=!$config['ticket_notice_active']?'checked':''?> />Disable
             </td>
         </tr>
         <tr><th valign="top">New Message:</th>

@@ -5,14 +5,14 @@
     User (client and staff) sessions handle.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
     See LICENSE.TXT for details.
 
     vim: expandtab sw=4 ts=4 sts=4:
-    $Id: class.usersession.php,v 1.1.2.1 2009/08/17 18:38:50 carlos.delfino Exp $
+    $Id: $
 **********************************************************************/
 
 include_once(INCLUDE_DIR.'class.client.php');
@@ -67,7 +67,7 @@ class UserSession {
       return($token);
    }
 
-   function isvalidSession($htoken,$maxidletime=0){
+   function isvalidSession($htoken,$maxidletime=0,$checkip=false){
         global $cfg;
        
         $token = rawurldecode($htoken);
@@ -90,7 +90,7 @@ class UserSession {
             return FALSE;
         }
         #Make sure IP is still same ( proxy access??????)
-        if(strcmp($ip, MD5($this->ip)))
+        if($checkip && strcmp($ip, MD5($this->ip)))
             return FALSE;
 
         $this->validated=TRUE;
@@ -119,7 +119,7 @@ class ClientSession extends Client {
         if(!$this->getId() || $this->session->getSessionId()!=session_id())
             return false;
         
-        return $this->session->isvalidSession($_SESSION['_client']['token'],$cfg->getClientTimeout())?true:false;
+        return $this->session->isvalidSession($_SESSION['_client']['token'],$cfg->getClientTimeout(),false)?true:false;
     }
 
     function refreshSession(){
@@ -157,7 +157,7 @@ class StaffSession extends Staff {
         if(!$this->getId() || $this->session->getSessionId()!=session_id())
             return false;
         
-        return $this->session->isvalidSession($_SESSION['_staff']['token'],$cfg->getStaffTimeout())?true:false;
+        return $this->session->isvalidSession($_SESSION['_staff']['token'],$cfg->getStaffTimeout(),$cfg->enableStaffIPBinding())?true:false;
     }
 
     function refreshSession(){

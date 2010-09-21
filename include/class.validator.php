@@ -6,14 +6,14 @@
    
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
     See LICENSE.TXT for details.
 
     vim: expandtab sw=4 ts=4 sts=4:
-    $Id: class.validator.php,v 1.1.2.1 2009/08/17 18:38:50 carlos.delfino Exp $
+    $Id: $
 **********************************************************************/
 class Validator {
 
@@ -35,7 +35,7 @@ class Validator {
     }
    
    
-    function validate($source){
+    function validate($source,$userinput=true){
 
         $this->errors=array();
         //Check the input and make sure the fields are specified.
@@ -47,6 +47,11 @@ class Validator {
         if($this->errors)
             return false;
       
+        //if magic quotes are enabled - then try cleaning up inputs before validation...
+        if($userinput && function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc())
+            $source=Format::strip_slashes($source);
+
+
         $this->input=$source;
 
         //Do the do.
@@ -126,16 +131,14 @@ class Validator {
         return $this->errors;
     }
    
-    /* Functione below can be called directly without class instance. Validator::func(var..); */
+    /* Functions below can be called directly without class instance. Validator::func(var..); */
     function is_email($email) {
-        return (preg_match('/^([*+!.&#$|\'\\%\/0-9a-z^_`{}=?~:-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,})$/i',trim($email)));
-        /*
-        //return eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$",trim($email));
-        */
+        return (preg_match('/^([*+!.&#$|\'\\%\/0-9a-z^_`{}=?~:-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,})$/i',trim(stripslashes($email))));
     }
     function is_phone($phone) {
-        $stripped=eregi_replace("(\(|\)|\-|\+)","",ereg_replace("([  ]+)","",$phone));
-        return (!is_numeric($stripped) || ((strlen($stripped)<7) || (strlen($stripped)>13)))?false:true;
+        /* We're not really validating the phone number but just making sure it doesn't contain illegal chars and of acceptable len */
+        $stripped=preg_replace("(\(|\)|\-|\+|[  ]+)","",$phone);
+        return (!is_numeric($stripped) || ((strlen($stripped)<7) || (strlen($stripped)>16)))?false:true;
     }
     
     function is_url($url) { //Thanks to 4ice for the fix.
@@ -166,7 +169,7 @@ class Validator {
             return false;
       
         $ip=trim($ip);
-        if(ereg("^[0-9]{1,3}(.[0-9]{1,3}){3}$",$ip)) {
+        if(preg_match("/^[0-9]{1,3}(.[0-9]{1,3}){3}$/",$ip)) {
             foreach(explode(".", $ip) as $block)
                 if($block<0 || $block>255 )
                     return false;

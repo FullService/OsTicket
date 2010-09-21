@@ -18,7 +18,7 @@ if($staff && $_REQUEST['a']!='new'){
     $rep['dept_id']=$rep['dept_id']?$rep['dept_id']:$_GET['dept'];
     $rep['isvisible']=isset($rep['isvisible'])?$rep['isvisible']:1;
 }
-$rep=Format::htmlchars(($errors && $_POST)?$_POST:$rep);
+$rep=($errors && $_POST)?Format::input($_POST):Format::htmlchars($rep);
 
 //get the goodies.
 $groups=db_query('SELECT group_id,group_name FROM '.GROUP_TABLE);

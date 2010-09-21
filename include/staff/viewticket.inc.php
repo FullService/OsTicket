@@ -3,7 +3,7 @@
 if(!defined('OSTSCPINC') || !@$thisuser->isStaff() || !is_object($ticket) ) die('Invalid path');
 if(!$ticket->getId() or (!$thisuser->canAccessDept($ticket->getDeptId()) and $thisuser->getId()!=$ticket->getStaffId())) die('Access Denied');
 
-$info=($_POST && $errors)?Format::htmlchars($_POST):array(); //Re-use the post info on error...savekeyboards.org
+$info=($_POST && $errors)?Format::input($_POST):array(); //Re-use the post info on error...savekeyboards.org
 
 //Auto-lock the ticket if locking is enabled..if locked already simply renew it.
 if($cfg->getLockTime() && !$ticket->acquireLock())
@@ -16,13 +16,13 @@ $lock  = $ticket->getLock();  //Ticket lock obj
 $id=$ticket->getId(); //Ticket ID.
 
 if($staff)
-    $warn.='<span class="Icon assignedTicket">Ticket is assigned to '.$staff->getName().'</span>';
+    $warn.='&nbsp;&nbsp;<span class="Icon assignedTicket">Ticket is assigned to '.$staff->getName().'</span>';
 if(!$errors['err'] && ($lock && $lock->getStaffId()!=$thisuser->getId()))
     $errors['err']='This ticket is currently locked by another staff member!';
 if(!$errors['err'] && ($emailBanned=BanList::isbanned($ticket->getEmail())))
     $errors['err']='Email is in banlist! Must be removed before any reply/response';    
 if($ticket->isOverdue())
-    $warn.='<span class="Icon overdueTicket">Marked overdue!</span>';
+    $warn.='&nbsp;&nbsp;<span class="Icon overdueTicket">Marked overdue!</span>';
     
 ?>
 <table width="100%" cellpadding="2" cellspacing="0" border="0">
@@ -69,7 +69,7 @@ if($ticket->isOverdue())
                     echo $ticket->getEmail();
                     if(($related=$ticket->getRelatedTicketsCount())) {
                         echo sprintf('&nbsp;&nbsp;<a href="tickets.php?a=search&query=%s" title="Related Tickets">(<b>%d</b>)</a>',
-                                    $ticket->getEmail(),$related);
+                                    urlencode($ticket->getEmail()),$related);
                     }
                     ?>
                 </td>
@@ -205,10 +205,11 @@ if($thisuser->canManageTickets() || $thisuser->isManager()){ ?>
 //Internal Notes
 $sql ='SELECT note_id,title,note,source,created FROM '.TICKET_NOTE_TABLE.' WHERE ticket_id='.db_input($id).' ORDER BY created DESC';
 if(($resp=db_query($sql)) && ($notes=db_num_rows($resp))){
+    $display=($notes>5)?'none':'block'; //Collapse internal notes if more than 5.
 ?>
 <div align="left">
-    <a class="Icon note" href="#" onClick="toggleLayer('ticketnotes'); return false;">Internal Notes (<?=$notes?>)</a>
-    <div id='ticketnotes' style="display:block;text-align:center;"> 
+    <a class="Icon note" href="#" onClick="toggleLayer('ticketnotes'); return false;">Internal Notes (<?=$notes?>)</a><br><br>
+    <div id='ticketnotes' style="display:<?=$display?>;text-align:center;"> 
         <?
         while($row=db_fetch_array($resp)) {?>
         <table align="center" class="note" cellspacing="0" cellpadding="1" width="100%" border=0>
@@ -293,12 +294,12 @@ if(($resp=db_query($sql)) && ($notes=db_num_rows($resp))){
                              ?>
                                Canned Response:&nbsp;
                                <select id="canned" name="canned"
-                                onChange="getCannedResponse(this.options[this.selectedIndex].value,this.form);this.selectedIndex='0';" >
+                                onChange="getCannedResponse(this.options[this.selectedIndex].value,this.form,'response');this.selectedIndex='0';" >
                                 <option value="0" selected="selected">Select a premade reply</option>
                                 <?while(list($cannedId,$title)=db_fetch_row($canned)) { ?>
                                  <option value="<?=$cannedId?>" ><?=Format::htmlchars($title)?></option>
                                 <?}?>
-                               </select>&nbsp;&nbsp;&nbsp;<input type='checkbox' value='1' name=append checked="true" />Append
+                               </select>&nbsp;&nbsp;&nbsp;<label><input type='checkbox' value='1' name=append checked="true" />Append</label>
                             <?}?>
                             <textarea name="response" id="response" cols="90" rows="9" wrap="soft" style="width:90%"><?=$info['response']?></textarea>
                         </div>
@@ -316,23 +317,23 @@ if(($resp=db_query($sql)) && ($notes=db_num_rows($resp))){
                          if($appendStaffSig || $appendDeptSig) { ?>
                           <div style="margin-top: 10px;">
                                 <label for="signature" nowrap>Append Signature:</label>
-                                <input type="radio" name="signature" value="none" checked > None
+                                <label><input type="radio" name="signature" value="none" checked > None</label>
                                 <?if($appendStaffSig) {?>
-                                <input type="radio" name="signature" value="mine" <?=$info['signature']=='mine'?'checked':''?> > My signature
+                               <label> <input type="radio" name="signature" value="mine" <?=$info['signature']=='mine'?'checked':''?> > My signature</label>
                                 <?}?>
                                 <?if($appendDeptSig) {?>
-                                <input type="radio" name="signature" value="dept" <?=$info['signature']=='dept'?'checked':''?> > Dept Signature
+                                <label><input type="radio" name="signature" value="dept" <?=$info['signature']=='dept'?'checked':''?> > Dept Signature</label>
                                 <?}?>
                            </div>
                          <?}?>
                         <div style="margin-top: 3px;">
-                            <label for="ticket_status"><b>Ticket Status:</b></label>
+                            <b>Ticket Status:</b>
                             <?
                             $checked=isset($info['ticket_status'])?'checked':''; //Staff must explicitly check the box to change status..
                             if($ticket->isOpen()){?>
-                            <input type="checkbox" name="ticket_status" value="Close" <?=$checked?> > Close on Reply
+                            <label><input type="checkbox" name="ticket_status" id="l_ticket_status" value="Close" <?=$checked?> > Close on Reply</label>
                             <?}else{ ?>
-                            <input type="checkbox" name="ticket_status" value="Reopen" <?=$checked?> > Reopen on Reply
+                            <label><input type="checkbox" name="ticket_status" id="l_ticket_status" value="Reopen" <?=$checked?> > Reopen on Reply</label>
                             <?}?>
                         </div>
                         <p>
@@ -367,13 +368,13 @@ if(($resp=db_query($sql)) && ($notes=db_num_rows($resp))){
                         if(!$ticket->isAssigned() || $thisuser->isadmin()  || $thisuser->isManager() || $thisuser->getId()==$ticket->getStaffId()) {
                          ?>
                         <div style="margin-top: 3px;">
-                            <label for="ticket_status"><b>Ticket Status:</b></label>
+                            <b>Ticket Status:</b>
                             <?
                             $checked=($info && isset($info['ticket_status']))?'checked':''; //not selected by default.
                             if($ticket->isOpen()){?>
-                            <input type="checkbox" name="ticket_status" value="Close" <?=$checked?> > Close Ticket
+                            <label><input type="checkbox" name="ticket_status" id="ticket_status" value="Close" <?=$checked?> > Close Ticket</label>
                             <?}else{ ?>
-                            <input type="checkbox" name="ticket_status" value="Reopen" <?=$checked?> > Reopen Ticket
+                            <label><input type="checkbox" name="ticket_status" id="ticket_status" value="Reopen" <?=$checked?> > Reopen Ticket</label>
                             <?}?>
                         </div>
                         <?}?>

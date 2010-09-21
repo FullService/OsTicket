@@ -1,22 +1,27 @@
 //Copyright (c) 2007 osTicket.com
 
-function getCannedResponse(idx,fObj)
+function getCannedResponse(idx,fObj,target)
 {
     if(idx==0) { return false; }
+
+    var tid =0;
+    if(fObj && fObj.ticket_id)
+        tid=fObj.ticket_id.value;
     Http.get({
-        url: "ajax.php?api=kbase&f=cannedResp&id="+idx,
+        url: "ajax.php?api=kbase&f=cannedResp&id="+idx+'&tid='+tid,
         callback: setCannedResponse
-    },[fObj]);
+    },[fObj,target]);
 
 }
 
-function setCannedResponse(xmlreply,fObj)
+function setCannedResponse(xmlreply,fObj,target)
 {
     if (xmlreply.status == Http.Status.OK)
     {
         var resp=xmlreply.responseText;
-        if(fObj.response && resp){
-            fObj.response.value=(fObj.append && fObj.append.checked)?trim(fObj.response.value+"\n\n"+resp):trim(resp)+"\n\n";
+        iObj=fObj.elements[target];
+        if(iObj && resp){
+            iObj.value=(fObj.append && fObj.append.checked)?trim(iObj.value+"\n\n"+resp):trim(resp)+"\n\n";
         }else {
             alert("Invalid form or tag");
         }

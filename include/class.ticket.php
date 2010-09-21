@@ -5,7 +5,7 @@
     The most important class! Don't play with fire please.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -38,15 +38,17 @@ class Ticket{
     var $fullname;
     var $staff_id;
     var $dept_id;
+    var $topic_id;
     var $dept_name;
     var $subject;
-    var $topic;
+    var $helptopic;
     var $overdue;
 
     var $lastMsgId;
     
     var $dept;  //Dept class
     var $staff; //Staff class
+    var $topic; //Topic class
     var $tlock; //TicketLock class
     
     function Ticket($id,$exid=false){
@@ -56,9 +58,10 @@ class Ticket{
     function load($id) {
        
        
-        $sql =' SELECT  ticket.*,lock_id,dept_name,priority_desc FROM '.TICKET_TABLE.' ticket '.
+        $sql =' SELECT  ticket.*,topic.topic_id as topicId,lock_id,dept_name,priority_desc FROM '.TICKET_TABLE.' ticket '.
               ' LEFT JOIN '.DEPT_TABLE.' dept ON ticket.dept_id=dept.dept_id '.
               ' LEFT JOIN '.TICKET_PRIORITY_TABLE.' pri ON ticket.priority_id=pri.priority_id '.
+              ' LEFT JOIN '.TOPIC_TABLE.' topic ON ticket.topic_id=topic.topic_id '.
               ' LEFT JOIN '.TICKET_LOCK_TABLE.' tlock ON ticket.ticket_id=tlock.ticket_id AND tlock.expire>NOW() '.
               ' WHERE ticket.ticket_id='.db_input($id); 
         //echo $sql;
@@ -80,6 +83,7 @@ class Ticket{
             $this->priority=$row['priority_desc'];
             $this->staff_id =$row['staff_id'];
             $this->dept_id  =$row['dept_id'];
+            $this->topic_id  =$row['topicId']; //Note that we're actually joining the topic table to make the topic is not deleted (long story!).
             $this->dept_name    =$row['dept_name'];
             $this->subject =$row['subject'];
             $this->topic =$row['topic'];

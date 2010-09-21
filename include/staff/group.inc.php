@@ -1,7 +1,7 @@
 <?php
 if(!defined('OSTADMININC') || !$thisuser->isadmin()) die('Access Denied');
 
-$info=Format::htmlchars(($errors && $_POST)?$_POST:$group);
+$info=($errors && $_POST)?Format::input($_POST):Format::htmlchars($group);
 if($group && $_REQUEST['a']!='new'){
     $title='Edit Group: '.$group['group_name'];
     $action='update';
@@ -55,11 +55,11 @@ if($group && $_REQUEST['a']!='new'){
                 <a href="#" onclick="return reset_all(document.forms['group'])">Select None</a>&nbsp;&nbsp; 
             </td>
         </tr>
-        <tr><th>Can <b>Delete</b> Tickets</th>
+        <tr><th>Can <b>Create</b> Tickets</th>
             <td>
-                <input type="radio" name="can_delete_tickets"  value="1"   <?=$info['can_delete_tickets']?'checked':''?> />Yes 
-                <input type="radio" name="can_delete_tickets"  value="0"   <?=!$info['can_delete_tickets']?'checked':''?> />No
-                &nbsp;&nbsp;<i>Deleted tickets can't be recovered!</i>
+                <input type="radio" name="can_create_tickets"  value="1"   <?=$info['can_create_tickets']?'checked':''?> />Yes 
+                <input type="radio" name="can_create_tickets"  value="0"   <?=!$info['can_create_tickets']?'checked':''?> />No
+                &nbsp;&nbsp;<i>Ability to open tickets on behalf of users!</i>
             </td>
         </tr>
         <tr><th>Can <b>Edit</b> Tickets</th>
@@ -69,11 +69,11 @@ if($group && $_REQUEST['a']!='new'){
                 &nbsp;&nbsp;<i>Ability to edit tickets. Admins & Dept managers are allowed by default.</i>
             </td>
         </tr>
-        <tr><th>Can <b>Mass Close</b> Tickets</th>
+        <tr><th>Can <b>Close</b> Tickets</th>
             <td>
                 <input type="radio" name="can_close_tickets"  value="1" <?=$info['can_close_tickets']?'checked':''?> />Yes
                 <input type="radio" name="can_close_tickets"  value="0" <?=!$info['can_close_tickets']?'checked':''?> />No
-                &nbsp;&nbsp;<i>Staff can still close one ticket at a time when set to No</i>
+                &nbsp;&nbsp;<i><b>Mass Close Only:</b> Staff can still close one ticket at a time when set to No</i>
             </td>
         </tr>
         <tr><th>Can <b>Transfer</b> Tickets</th>
@@ -81,6 +81,13 @@ if($group && $_REQUEST['a']!='new'){
                 <input type="radio" name="can_transfer_tickets"  value="1" <?=$info['can_transfer_tickets']?'checked':''?> />Yes
                 <input type="radio" name="can_transfer_tickets"  value="0" <?=!$info['can_transfer_tickets']?'checked':''?> />No
                 &nbsp;&nbsp;<i>Ability to transfer tickets from one dept to another.</i>
+            </td>
+        </tr>
+        <tr><th>Can <b>Delete</b> Tickets</th>
+            <td>
+                <input type="radio" name="can_delete_tickets"  value="1"   <?=$info['can_delete_tickets']?'checked':''?> />Yes
+                <input type="radio" name="can_delete_tickets"  value="0"   <?=!$info['can_delete_tickets']?'checked':''?> />No
+                &nbsp;&nbsp;<i>Deleted tickets can't be recovered!</i>
             </td>
         </tr>
         <tr><th>Can Ban Emails</th>

@@ -6,7 +6,7 @@
     Mostly wrappers with error checking.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -129,7 +129,7 @@
   
 	function db_output($param) {
 
-        if(!get_magic_quotes_runtime()) //Sucker is NOT on - thanks.
+        if(!function_exists('get_magic_quotes_runtime') || !get_magic_quotes_runtime()) //Sucker is NOT on - thanks.
             return $param;
 
         if (is_array($param)) {
@@ -149,10 +149,7 @@
     function db_real_escape($val,$quote=false){
         global $$dblink;
 
-        //We turn off magic_quotes_gpc in main.inc.php BUT it has no effect on runtime.
-        if(get_magic_quotes_gpc()) //Avoid double quotes...
-            $val= stripslashes($val);
-
+        //Magic quotes crap is taken care of in main.inc.php
         $val=mysql_real_escape_string($val);
 
         return ($quote)?"'$val'":$val;

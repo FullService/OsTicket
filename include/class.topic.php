@@ -5,7 +5,7 @@
     Help topic helper
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -46,7 +46,7 @@ class Topic {
             $this->topic=$info['topic'];
             $this->dept_id=$info['dept_id'];
             $this->priority_id=$info['priority_id'];
-            $this->active=$info['enabled'];
+            $this->active=$info['isactive'];
             $this->autoresp=$info['noautoresp']?false:true;
             $this->info=$info;
             return true;
@@ -84,6 +84,10 @@ class Topic {
          return $this->active?true:false;
     }
 
+    function isActive(){
+        return $this->isEnabled();
+    }
+
     function getInfo() {
         return $this->info;
     }
@@ -110,6 +114,13 @@ class Topic {
             $errors['topic']='Help topic required';
         elseif(strlen($vars['topic'])<5)
             $errors['topic']='Topic is too short. 5 chars minimum';
+        else{
+            $sql='SELECT topic_id FROM '.TOPIC_TABLE.' WHERE topic='.db_input(Format::striptags($vars['topic']));
+            if($id)
+                $sql.=' AND topic_id!='.db_input($id);
+            if(($res=db_query($sql)) && db_num_rows($res))
+                $errors['topic']='Topic alredy exists';
+        }
             
         if(!$vars['dept_id'])
             $errors['dept_id']='You must select a department';

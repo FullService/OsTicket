@@ -85,6 +85,10 @@ class Staff {
         return $this->udata['daylight_saving']?true:false;
     }
 
+    function getRefreshRate(){
+        return $this->udata['auto_refresh_rate'];
+    }
+
     function getPageLimit() {
         global $cfg;
         $limit=$this->udata['max_page_size'];
@@ -196,6 +200,10 @@ class Staff {
         return ($this->isadmin() ||in_array($deptid,$this->getDepts()))?true:false;
     }
 
+    function canCreateTickets(){
+        return ($this->isadmin() || $this->udata['can_create_tickets'])?true:false;
+    }
+
     function canEditTickets(){
         return ($this->isadmin() || $this->udata['can_edit_tickets'])?true:false;
     }
@@ -242,6 +250,8 @@ class Staff {
 
     function save($id,$vars,&$errors) {
                 
+        include_once(INCLUDE_DIR.'class.dept.php');
+
         if($id && $id!=$vars['staff_id'])
             $errors['err']='Internal Error';
             
@@ -262,6 +272,8 @@ class Staff {
         
         if(!$vars['email'] || !Validator::is_email($vars['email']))
             $errors['email']='Valid email required';
+        elseif(Email::getIdByEmail($vars['email']))
+            $errors['email']='Already in-use system email';
         
         if($vars['phone'] && !Validator::is_phone($vars['phone']))
             $errors['phone']='Valid number required';
@@ -298,9 +310,9 @@ class Staff {
                  ',firstname='.db_input(Format::striptags($vars['firstname'])).
                  ',lastname='.db_input(Format::striptags($vars['lastname'])).
                  ',email='.db_input($vars['email']).
-                 ',phone='.db_input($vars['phone']).
+                 ',phone="'.db_input($vars['phone'],false).'"'.
                  ',phone_ext='.db_input($vars['phone_ext']).
-                 ',mobile='.db_input($vars['mobile']).
+                 ',mobile="'.db_input($vars['mobile'],false).'"'.
                  ',signature='.db_input(Format::striptags($vars['signature']));
 
             if($vars['npassword'])

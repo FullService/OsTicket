@@ -1,7 +1,7 @@
 <?php
 if(!defined('OSTADMININC') || !$thisuser->isadmin()) die('Access Denied');
 
-$info=($_POST && $errors)?Format::htmlchars($_POST):array(); //Re-use the post info on error...savekeyboards.org
+$info=($_POST && $errors)?Format::input($_POST):array(); //Re-use the post info on error...savekeyboards.org
 if($topic && $_REQUEST['a']!='new'){
     $title='Edit Topic';
     $action='update';

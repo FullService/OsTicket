@@ -3,7 +3,7 @@
     class.msgtpl.php
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -86,6 +86,8 @@ class Template {
         $fields['ticket_autoresp_body']  = array('type'=>'string',   'required'=>1, 'error'=>'Template message required');
         $fields['message_autoresp_subj'] = array('type'=>'string',   'required'=>1, 'error'=>'Subject required');
         $fields['message_autoresp_body'] = array('type'=>'string',   'required'=>1, 'error'=>'Template message required');
+        $fields['ticket_notice_subj'] = array('type'=>'string',   'required'=>1, 'error'=>'Subject required');
+        $fields['ticket_notice_body'] = array('type'=>'string',   'required'=>1, 'error'=>'Template message required');
         $fields['ticket_overlimit_subj'] = array('type'=>'string',   'required'=>1, 'error'=>'Subject required');
         $fields['ticket_overlimit_body'] = array('type'=>'string',   'required'=>1, 'error'=>'Template message required');
         $fields['ticket_reply_subj']     = array('type'=>'string',   'required'=>1, 'error'=>'Subject required');
@@ -122,6 +124,8 @@ class Template {
                  ',ticket_autoresp_body='.db_input(Format::striptags($var['ticket_autoresp_body'])).
                  ',message_autoresp_subj='.db_input(Format::striptags($var['message_autoresp_subj'])).
                  ',message_autoresp_body='.db_input(Format::striptags($var['message_autoresp_body'])).
+                 ',ticket_notice_subj='.db_input(Format::striptags($var['ticket_notice_subj'])).
+                 ',ticket_notice_body='.db_input(Format::striptags($var['ticket_notice_body'])).
                  ',ticket_alert_subj='.db_input(Format::striptags($var['ticket_alert_subj'])).
                  ',ticket_alert_body='.db_input(Format::striptags($var['ticket_alert_body'])).
                  ',message_alert_subj='.db_input(Format::striptags($var['message_alert_subj'])).
@@ -186,6 +190,8 @@ class Template {
                  ',ticket_autoresp_body='.db_input(Format::striptags($info['ticket_autoresp_body'])).
                  ',message_autoresp_subj='.db_input(Format::striptags($info['message_autoresp_subj'])).
                  ',message_autoresp_body='.db_input(Format::striptags($info['message_autoresp_body'])).
+                 ',ticket_notice_subj='.db_input(Format::striptags($info['ticket_notice_subj'])).
+                 ',ticket_notice_body='.db_input(Format::striptags($info['ticket_notice_body'])).
                  ',ticket_alert_subj='.db_input(Format::striptags($info['ticket_alert_subj'])).
                  ',ticket_alert_body='.db_input(Format::striptags($info['ticket_alert_body'])).
                  ',message_alert_subj='.db_input(Format::striptags($info['message_alert_subj'])).

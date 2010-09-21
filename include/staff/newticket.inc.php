@@ -1,6 +1,6 @@
 <?php
 if(!defined('OSTSCPINC') || !is_object($thisuser) || !$thisuser->isStaff()) die('Access Denied');
-$info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use the post data
+$info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the post data
 ?>
 <div width="100%">
     <?if($errors['err']) {?>
@@ -20,7 +20,7 @@ $info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use th
         <td>
             <input type="text" id="email" name="email" size="25" value="<?=$info['email']?>">
             &nbsp;<font class="error"><b>*</b>&nbsp;<?=$errors['email']?></font>
-            <? if($cfg->autoRespONNewTicket()) {?>
+            <? if($cfg->notifyONNewStaffTicket()) {?>
                &nbsp;&nbsp;&nbsp;
                <input type="checkbox" name="alertuser" <?=(!$errors || $info['alertuser'])? 'checked': ''?>>Send alert to user.
             <?}?>
@@ -79,7 +79,21 @@ $info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use th
         <td align="left" valign="top"><b>Issue Summary:</b></td>
         <td>
             <i>Visible to client/customer.</i><font class="error"><b>*&nbsp;<?=$errors['issue']?></b></font><br/>
-            <textarea name="issue" cols="45" rows="7" wrap="soft"><?=$info['issue']?></textarea></td>
+            <?
+            $sql='SELECT premade_id,title FROM '.KB_PREMADE_TABLE.' WHERE isenabled=1';
+            $canned=db_query($sql);
+            if($canned && db_num_rows($canned)) {
+            ?>
+             Premade:&nbsp;
+              <select id="canned" name="canned"
+                onChange="getCannedResponse(this.options[this.selectedIndex].value,this.form,'issue');this.selectedIndex='0';" >
+                <option value="0" selected="selected">Select a premade reply/issue</option>
+                <?while(list($cannedId,$title)=db_fetch_row($canned)) { ?>
+                <option value="<?=$cannedId?>" ><?=Format::htmlchars($title)?></option>
+                <?}?>
+              </select>&nbsp;&nbsp;&nbsp;<label><input type='checkbox' value='1' name=append checked="true" />Append</label>
+            <?}?>
+            <textarea name="issue" cols="55" rows="8" wrap="soft"><?=$info['issue']?></textarea></td>
     </tr>
     <?if($cfg->canUploadFiles()) {
         ?>
@@ -94,7 +108,7 @@ $info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use th
         <td align="left" valign="top">Internal Note:</td>
         <td>
             <i>Optional Internal note(s).</i><font class="error"><b>&nbsp;<?=$errors['note']?></b></font><br/>
-            <textarea name="note" cols="45" rows="5" wrap="soft"><?=$info['note']?></textarea></td>
+            <textarea name="note" cols="55" rows="5" wrap="soft"><?=$info['note']?></textarea></td>
     </tr>
 
     <tr>
@@ -103,7 +117,7 @@ $info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use th
             <i>Time is based on your time zone (GM <?=$thisuser->getTZoffset()?>)</i>&nbsp;<font class="error">&nbsp;<?=$errors['time']?></font><br>
             <input id="duedate" name="duedate" value="<?=Format::htmlchars($info['duedate'])?>"
                 onclick="event.cancelBubble=true;calendar(this);" autocomplete=OFF>
-            <a href="#" onclick="event.cancelBubble=true;calendar(getObj('duedate'));"><img src='images/cal.png'border=0 alt=""></a>
+            <a href="#" onclick="event.cancelBubble=true;calendar(getObj('duedate')); return false;"><img src='images/cal.png'border=0 alt=""></a>
             &nbsp;&nbsp;
             <?php
              $min=$hr=null;
@@ -131,8 +145,28 @@ $info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use th
         </td>
        </tr>
     <? }?>
+    <?php
+    $services= db_query('SELECT topic_id,topic FROM '.TOPIC_TABLE.' WHERE isactive=1 ORDER BY topic');
+    if($services && db_num_rows($services)){ ?>
     <tr>
-        <td>Assign:</td>
+        <td align="left" valign="top">Help Topic:</td>
+        <td>
+            <select name="topicId">
+                <option value="" selected >Select One</option>
+                <?
+                 while (list($topicId,$topic) = db_fetch_row($services)){
+                    $selected = ($info['topicId']==$topicId)?'selected':''; ?>
+                    <option value="<?=$topicId?>"<?=$selected?>><?=$topic?></option>
+                <?
+                 }?>
+            </select>
+            &nbsp;<font class="error">&nbsp;<?=$errors['topicId']?></font>
+        </td>
+    </tr>
+    <?
+    }?>
+    <tr>
+        <td>Assign To:</td>
         <td>
             <select id="staffId" name="staffId">
                 <option value="0" selected="selected">-Assign To Staff-</option>
@@ -150,13 +184,28 @@ $info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use th
                 <input type="checkbox" name="alertstaff" <?=(!$errors || $info['alertstaff'])? 'checked': ''?>>Send alert to assigned staff.
         </td>
     </tr>
-    <tr height=2px><td align="left" colspan=2 >&nbsp;</td></tr>
+    <tr>
+        <td>Signature:</td>
+        <td> <?php
+            $appendStaffSig=$thisuser->appendMySignature();
+            $info['signature']=!$info['signature']?'none':$info['signature']; //change 'none' to 'mine' to default to staff signature.
+            ?>
+            <div style="margin-top: 2px;">
+                <label><input type="radio" name="signature" value="none" checked > None</label>
+                <?if($appendStaffSig) {?>
+                    <label> <input type="radio" name="signature" value="mine" <?=$info['signature']=='mine'?'checked':''?> > My signature</label>
+                 <?}?>
+                 <label><input type="radio" name="signature" value="dept" <?=$info['signature']=='dept'?'checked':''?> > Dept Signature (if any)</label>
+            </div>
+        </td>
+    </tr>
+    <tr height=2px><td align="left" colspan=2 >&nbsp;</td</tr>
     <tr>
         <td></td>
         <td>
-            <input class="button" type="submit" name="submit_x" value="<?=$trl->translate('LABEL_SUBMIT_TICKET')?>">
-            <input class="button" type="reset" value="<?=$trl->translate('LABEL_RESET')?>">
-            <input class="button" type="button" name="cancel" value="<?=$trl->translate('LABEL_CANCEL')?>" onClick='window.location.href="tickets.php"'>    
+            <input class="button" type="submit" name="submit_x" value="Submit Ticket">
+            <input class="button" type="reset" value="Reset">
+            <input class="button" type="button" name="cancel" value="Cancel" onClick='window.location.href="tickets.php"'>    
         </td>
     </tr>
   </form>

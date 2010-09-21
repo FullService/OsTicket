@@ -5,7 +5,7 @@
     Handles staff authentication/logins
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -50,14 +50,14 @@ if($_POST && (!empty($_POST['username']) && !empty($_POST['passwd']))){
         $_SESSION['_staff']['userID']=$_POST['username'];
         $user->refreshSession(); //set the hash.
         $_SESSION['TZ_OFFSET']=$user->getTZoffset();
-        $_SESSION['daylight']=$cfg->observeDaylightSaving();
+        $_SESSION['daylight']=$user->observeDaylight();
         Sys::log(LOG_DEBUG,'Staff login',sprintf("%s logged in [%s]",$user->getUserName(),$_SERVER['REMOTE_ADDR'])); //Debug.
         //Redirect to the original destination. (make sure it is not redirecting to login page.)
-        $dest=($dest && !strstr($dest,'login.php'))?$dest:'index.php';
+        $dest=($dest && (!strstr($dest,'login.php') && !strstr($dest,'ajax.php')))?$dest:'index.php';
         session_write_close();
         session_regenerate_id();
         @header("Location: $dest");
-        require('index.php'); //Just incase header is messed up.
+        require_once('index.php'); //Just incase header is messed up.
         exit;
     }
     //If we get to this point we know the login failed.

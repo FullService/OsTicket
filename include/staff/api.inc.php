@@ -2,7 +2,7 @@
 if(!defined('OSTADMININC') || !$thisuser->isadmin()) die('Access Denied');
 
 
-$info['phrase']=($errors && $_POST['phrase'])?$_POST['phrase']:$cfg->getAPIPassphrase();
+$info['phrase']=($errors && $_POST['phrase'])?Format::htmlchars($_POST['phrase']):$cfg->getAPIPassphrase();
 $select='SELECT * ';
 $from='FROM '.API_KEY_TABLE;
 $where='';
@@ -118,13 +118,13 @@ $deletable=0;
  <div class="msg">Add New IP</div>
  <hr>
  <div>
-   Add a new IP address.<br/>
+   Add a new IP address.&nbsp;&nbsp;<font class="error"><?=$errors['ip']?></font>
    <form action="admin.php?t=api" method="POST" >
     <input type=hidden name='t' value='api'>
     <input type=hidden name='do' value='add'>
     New IP:
     <input name="ip" size=30 value="<?=($errors['ip'])?Format::htmlchars($_REQUEST['ip']):''?>" />
-    <font class="error">*&nbsp;<?=$errors['ip']?></font>&nbsp;&nbsp;
+    <font class="error">*&nbsp;</font>&nbsp;&nbsp;
      &nbsp;&nbsp; <input class="button" type="submit" name="add" value="Add">
     </form>
  </div>

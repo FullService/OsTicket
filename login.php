@@ -63,7 +63,7 @@ if($_POST && (!empty($_POST['lemail']) && !empty($_POST['lticket']))):
             session_write_close();
             session_regenerate_id();
             @header("Location: tickets.php");
-            require('tickets.php'); //Just incase. of header already sent error.
+            require_once('tickets.php'); //Just incase. of header already sent error.
             exit;
         }
     }

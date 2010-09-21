@@ -5,7 +5,7 @@
     File included on every staff page...handles logins (security) and file path issues.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -79,15 +79,15 @@ $thisuser->refreshSession();
 $_SESSION['TZ_OFFSET']=$thisuser->getTZoffset();
 //Clear some vars. we use in all pages.
 $errors=array();
-$msg=$warn='';
+$msg=$warn=$sysnotice'';
 $tabs=array();
 $submenu=array();
 
 if(defined('THIS_VERSION') && strcasecmp($cfg->getVersion(),THIS_VERSION)) {
-    $errors['err']=sprintf('The script is version %s while the database is version %s',THIS_VERSION,$cfg->getVersion());
+    $errors['err']=$sysnotice=sprintf('The script is version %s while the database is version %s',THIS_VERSION,$cfg->getVersion());
 }elseif($cfg->isHelpDeskOffline()){
-    $warn='System is set to offline mode - Client interface is disabled and ONLY admins can access staff control panel.';
-    $warn.=' <a href="admin.php?t=pref">Enable</a>.';
+    $sysnotice='<strong>System is set to offline mode</strong> - Client interface is disabled and ONLY admins can access staff control panel.';
+    $sysnotice.=' <a href="admin.php?t=pref">Enable</a>.';
 }
 
 $nav = new StaffNav(strcasecmp(basename($_SERVER['SCRIPT_NAME']),'admin.php')?'staff':'admin',$trl);

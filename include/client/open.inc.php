@@ -1,7 +1,7 @@
 <?php
 if(!defined('OSTCLIENTINC')) die('Kwaheri rafiki!'); //Say bye to our friend..
 
-$info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use the post data
+$info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the post data
 ?>
 <div>
     <?if($errors['err']) {?>
@@ -12,11 +12,11 @@ $info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use th
         <p id="warnmessage"><?=$warn?></p>
     <?}?>
 </div>
-<div><?=$trl->translate('TEXT_PLEASE_FILL_FORM_NEW_TICKET')?></div><br>
+<div>Please fill in the form below to open a new ticket.</div><br>
 <form action="open.php" method="POST" enctype="multipart/form-data">
 <table align="left" cellpadding=2 cellspacing=1 width="90%">
     <tr>
-        <th width="20%"><?=$trl->translate('LABEL_FULL_NAME')?>:</th>
+        <th width="20%">Full Name:</th>
         <td>
             <?if ($thisclient && ($name=$thisclient->getName())) {
                 ?>
@@ -25,10 +25,6 @@ $info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use th
                 <input type="text" name="name" size="25" value="<?=$info['name']?>">
 	        <?}?>
             &nbsp;<font class="error">*&nbsp;<?=$errors['name']?></font>
-<?if ($thisclient && ($name=$thisclient->getName())) { ?>
-            	<br>
-				<A href="logout.php" ><?=$trl->translate('TEXT_NOT_THIS_USER')?></A>
-			<?}?>	
 	        </td>
     </tr>
     <tr>
@@ -41,6 +37,10 @@ $info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use th
                 <input type="text" name="email" size="25" value="<?=$info['email']?>">
             <?}?>
             &nbsp;<font class="error">*&nbsp;<?=$errors['email']?></font>
+            <?if ($thisclient && ($name=$thisclient->getName())) { ?>
+            	<br>
+				<A href="logout.php" ><?=$trl->translate('TEXT_NOT_THIS_USER')?></A>
+			<?}?>
         </td>
     </tr>
     <tr>
@@ -110,7 +110,19 @@ $info=($_POST && $errors)?Format::htmlchars($_POST):array(); //on error...use th
         </td>
     </tr>
     <?}?>
-    <tr height=2px><td align="left" colspan=2 >&nbsp;</td></tr>
+    <?if($cfg && $cfg->enableCaptcha() && (!$thisclient || !$thisclient->isValid())) {
+        if($_POST && $errors && !$errors['captcha'])
+            $errors['captcha']='Please re-enter the text again';
+        ?>
+    <tr>
+        <th valign="top">Captcha Text:</th>
+        <td><img src="captcha.php" border="0" align="left">
+        <span>&nbsp;&nbsp;<input type="text" name="captcha" size="7" value="">&nbsp;<i>Enter the text shown on the image.</i></span><br/>
+                <font class="error">&nbsp;<?=$errors['captcha']?></font>
+        </td>
+    </tr>
+    <?}?>
+    <tr height=2px><td align="left" colspan=2 >&nbsp;</td</tr>
     <tr>
         <td></td>
         <td>

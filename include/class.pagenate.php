@@ -5,7 +5,7 @@
  Pagenation  support class
 
  Peter Rotich <peter@osticket.com>
- Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
  http://www.osticket.com
 
  Released under the GNU General Public License WITHOUT ANY WARRANTY.

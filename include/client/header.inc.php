@@ -1,24 +1,14 @@
 <?php
-if($cfg && is_object($cfg)){
-	$cfgTitle = $cfg->getTitle();
-	$title=$cfgTitle;
-	$dirTitle = 'ltr';
-}else{
-	$title = $trl->translate('TEXT_HEADER_TITLE');
-	$dirTitle = $trl->dir();
-}
-$dir = $trl->dir();
+$title=($cfg && is_object($cfg))?$cfg->getTitle():'osTicket :: Support Ticket System';
+header("Content-Type: text/html; charset=UTF-8\r\n");
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html dir="<?php echo $dir; ?>">
+<html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title dir="<?php echo $dirTitle;?>"><?=Format::htmlchars($title)?></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title><?=Format::htmlchars($title)?></title>
     <link rel="stylesheet" href="./styles/main.css" media="screen">
     <link rel="stylesheet" href="./styles/colors.css" media="screen">
-    <style type="text/css">body {
-	direction: <?php echo $dir; ?>;
-}</style>
 </head>
 <body dir="<?php echo $dir; ?>">
 <div id="container">

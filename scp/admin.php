@@ -5,7 +5,7 @@
     Handles all admin related pages....everything admin!
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -25,22 +25,29 @@ if(!$thisuser or !$thisuser->isadmin()){
 
 //Some security related warnings - bitch until fixed!!! :)
 if(defined('THIS_VERSION') && strcasecmp($cfg->getVersion(),THIS_VERSION)) {
-    $warn=sprintf('The script is version %s while the database is version %s.',THIS_VERSION,$cfg->getVersion());
+    $sysnotice=sprintf('The script is version %s while the database is version %s.',THIS_VERSION,$cfg->getVersion());
     if(file_exists('../setup/'))
-        $warn.=' Possibly caused by incomplete <a href="../setup/upgrade.php">upgrade</a>.';
-    $errors['err']=$warn; 
+        $sysnotice.=' Possibly caused by incomplete <a href="../setup/upgrade.php">upgrade</a>.';
+    $errors['err']=$sysnotice; 
 }elseif(!$cfg->isHelpDeskOffline()) {
 
     if(file_exists('../setup/')){
-        $warn='Please take a minute to delete setup/install directory for security reasons.';
+        $sysnotice='Please take a minute to delete <strong>setup/install</strong> directory for security reasons.';
     }else{
-        $cfile=file_exists('../ostconfig.php')?'../ostconfig.php':(INCLUDE_DIR.'settings.php');
-        if($cfile && file_exists($cfile) && is_writable($cfile))
-            $warn=sprintf('Please change permission of config file (%s) to remove write access. e.g <i>chmod 644 %s</i>',
-                    basename($cfile),basename($cfile));
+
+        if(CONFIG_FILE && file_exists(CONFIG_FILE) && is_writable(CONFIG_FILE)) {
+            //Confirm for real that the file is writable by group or world.
+            clearstatcache(); //clear the cache!
+            $perms = @fileperms(CONFIG_FILE);
+            if(($perms & 0x0002) || ($perms & 0x0010)) { 
+                $sysnotice=sprintf('Please change permission of config file (%s) to remove write access. e.g <i>chmod 644 %s</i>',
+                                basename(CONFIG_FILE),basename(CONFIG_FILE));
     }
-    if(!$warn && ini_get('register_globals'))
-        $warn='Please consider turning off register globals if possible';
+}
+
+    }
+    if(!$sysnotice && ini_get('register_globals'))
+        $sysnotice='Please consider turning off register globals if possible';
 }
 
 //Access checked out OK...lets do the do 
@@ -72,6 +79,10 @@ if($_POST && $_REQUEST['t'] && !$errors):
             break;
         case 'attach':
             if($_POST['allow_attachments'] or $_POST['upload_dir']) {
+
+                if($_POST['upload_dir']) //get the real path.
+                    $_POST['upload_dir'] = realpath($_POST['upload_dir']);
+
                 if(!$_POST['upload_dir'] or !is_writable($_POST['upload_dir'])) {
                     $errors['upload_dir']='Directory must be valid and writeable';
                     if($_POST['allow_attachments'])
@@ -90,7 +101,7 @@ if($_POST && $_REQUEST['t'] && !$errors):
                $sql= 'UPDATE '.CONFIG_TABLE.' SET allow_attachments='.db_input(isset($_POST['allow_attachments'])?1:0).
                     ',upload_dir='.db_input($_POST['upload_dir']). 
                     ',max_file_size='.db_input($_POST['max_file_size']).
-                    ',allowed_filetypes='.db_input(strtolower(ereg_replace("/\n\r|\r\n|\n|\r/", '',$_POST['allowed_filetypes']))).
+                    ',allowed_filetypes='.db_input(strtolower(preg_replace("/\n\r|\r\n|\n|\r/", '',trim($_POST['allowed_filetypes'])))).
                     ',email_attachments='.db_input(isset($_POST['email_attachments'])?1:0).
                     ',allow_email_attachments='.db_input(isset($_POST['allow_email_attachments'])?1:0).
                     ',allow_online_attachments='.db_input(isset($_POST['allow_online_attachments'])?1:0).
@@ -112,13 +123,13 @@ if($_POST && $_REQUEST['t'] && !$errors):
             include_once(INCLUDE_DIR.'class.api.php');
             switch(strtolower($_POST['do'])) {
                 case 'add':
-                    if(Api::add($_POST['ip'],$errors))
-                        $msg='Key created successfully for '.$_POST['ip'];
+                    if(Api::add(trim($_POST['ip']),$errors))
+                        $msg='Key created successfully for '.Format::htmlchars($_POST['ip']);
                     elseif(!$errors['err'])
                         $errors['err']='Error adding the IP. Try again';
                     break;
                 case 'update_phrase':
-                    if(Api::setPassphrase($_POST['phrase'],$errors))
+                    if(Api::setPassphrase(trim($_POST['phrase']),$errors))
                         $msg='API passphrase updated successfully';
                     elseif(!$errors['err'])
                         $errors['err']='Error updating passphrase. Try again';
@@ -695,7 +706,7 @@ require(STAFFINC_DIR.'header.inc.php');
             }else{
                 ?>
                 <p align="center">
-                    <font class="error">Problems loading requested admin page. (<?=$thistab?>)</font>
+                    <font class="error">Problems loading requested admin page. (<?=Format::htmlchars($thistab)?>)</font>
                     <br>Possibly access denied, if you believe this is in error please get technical support.
                 </p>
             <?}?>

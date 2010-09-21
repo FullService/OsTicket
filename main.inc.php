@@ -61,7 +61,7 @@
 
     #load config info
     $configfile='';
-    if(file_exists(ROOT_DIR.'ostconfig.php')){ //Old installs prior to v 1.6 RC5
+    if(file_exists(ROOT_DIR.'ostconfig.php')) //Old installs prior to v 1.6 RC5
         $configfile=ROOT_DIR.'ostconfig.php';
         if(defined(DEFAULT_LANGUAGE))
                 define('OSTLANG',DEFAULT_LANGUAGE);

@@ -5,7 +5,7 @@
     Ajax utils interface.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -37,13 +37,14 @@ if(!$_REQUEST['api'] || !$_REQUEST['f']){
 }
 //------Do the AJAX Dance ----------------//
 define('OSTAJAXINC',TRUE);
-$file='ajax.'.strtolower($_REQUEST['api']).'.php';
-$class=ucfirst(strtolower($_REQUEST['api'])).'AjaxAPI';
-$func=$_REQUEST['f'];
+$file='ajax.'.Format::file_name(strtolower($_REQUEST['api'])).'.php';
 if(!file_exists(INCLUDE_DIR.$file)){
 Http::response(405,'invalid method');
 exit;
 }
+
+$class=ucfirst(strtolower($_REQUEST['api'])).'AjaxAPI';
+$func=$_REQUEST['f'];
 
 if(is_callable($func)){ //if the function is callable B4 we include the source file..play with the user...
 Http::response(500,'This is secure ajax assjax '.$_SERVER['REMOTE_ADDR']);
@@ -52,7 +53,7 @@ exit;
 require(INCLUDE_DIR.$file);
 
 if(!is_callable(array($class,$func))){
- Http::response(416,'invalid method/call'.$func);
+ Http::response(416,'invalid method/call '.Format::htmlchars($func));
  exit;
 }
 

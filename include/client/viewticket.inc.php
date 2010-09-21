@@ -3,7 +3,7 @@ if(!defined('OSTCLIENTINC') || !is_object($thisclient) || !is_object($ticket)) d
 //Double check access one last time...
 if(strcasecmp($thisclient->getEmail(),$ticket->getEmail())) die('Access Denied');
 
-$info=($_POST && $errors)?Format::htmlchars($_POST):array(); //Re-use the post info on error...savekeyboards.org
+$info=($_POST && $errors)?Format::input($_POST):array(); //Re-use the post info on error...savekeyboards.org
 
 $dept = $ticket->getDept();
 //Making sure we don't leak out internal dept names

@@ -5,6 +5,7 @@ body {
   margin:0;
   padding:0;
   text-align: center;
+	background:url(/images/bg.gif) #fff;
 }
 
 img, fieldset { border:None; }
@@ -137,7 +138,7 @@ strong { color:#000; }
     }
     
     #nav ul#main_nav li a {
-      background:url(../images/tab.jpg) bottom left no-repeat #333;
+      background:url(../images/tab.jpg) bottom left no-repeat #fff;
       width:110px;
       height:23px;
       line-height:23px;
@@ -174,7 +175,7 @@ strong { color:#000; }
 
     /** Individual Sub-nav items **/
     
-    #nav a.Ticket { background:url(../images/icons/my_tickets.gif) 0 5px no-repeat #ececec; }
+    #nav a.Ticket { background:url(../images/icons/open_tickets.gif) 0 5px no-repeat #ececec; }
     #nav a.assignedTickets { background:url(../images/icons/assigned_tickets.gif) 0 5px no-repeat #ececec; }
     #nav a.overdueTickets { background:url(../images/icons/overdue_tickets.gif) 0 5px no-repeat #ececec; }
     #nav a.answeredTickets { background:url(../images/icons/answered_tickets.gif) 0 5px no-repeat #ececec; }
@@ -228,13 +229,13 @@ strong { color:#000; }
     }
 
     .Icon.Ticket { background:url(../images/icons/ticket.gif) 0 2px no-repeat; }
-    .Icon.webTicket { background:url(../images/icons/ticket_source_web.gif) 0 2px no-repeat; }
-    .Icon.emailTicket { background:url(../images/icons/ticket_source_email.gif) 0 2px no-repeat; }
-    .Icon.phoneTicket { background:url(../images/icons/ticket_source_phone.gif) 0 2px no-repeat; }
-    .Icon.otherTicket { background:url(../images/icons/ticket_source_other.gif) 0 2px no-repeat; }
-    .Icon.overdueTicket { background:url(../images/icons/overdue_ticket.gif) 0 2px no-repeat; }
-    .Icon.assignedTicket { background:url(../images/icons/assigned_ticket.gif) 0 2px no-repeat; }
-    .Icon.lockedTicket { background:url(../images/icons/locked_ticket.gif) 0 2px no-repeat; }
+    .Icon.webTicket { background:url(../images/icons/ticket_source_web.gif) 0 0 no-repeat; }
+    .Icon.emailTicket { background:url(../images/icons/ticket_source_email.gif) 0 0 no-repeat; }
+    .Icon.phoneTicket { background:url(../images/icons/ticket_source_phone.gif) 0 0 no-repeat; }
+    .Icon.otherTicket { background:url(../images/icons/ticket_source_other.gif) 0 0 no-repeat; }
+    .Icon.overdueTicket { background:url(../images/icons/overdue_ticket.gif) 0 0 no-repeat; }
+    .Icon.assignedTicket { background:url(../images/icons/assigned_ticket.gif) 0 0 no-repeat; }
+    .Icon.lockedTicket { background:url(../images/icons/locked_ticket.gif) 0 0 no-repeat; }
     .Icon.editTicket { background-image: url(../images/icons/edit_ticket.png); }
 
    
@@ -254,3 +255,16 @@ strong { color:#000; }
     .Icon.debugLog { background:url(../images/icons/log_debug.gif) 0 2px no-repeat; }
     .Icon.alertLog { background:url(../images/icons/log_alert.gif) 0 2px no-repeat; }
     .Icon.errorLog { background:url(../images/icons/log_error.gif) 0 2px no-repeat; }
+
+    /*System Notice */
+        #system_notice {
+                width:790px;
+                text-align:left;
+                font-size: 12px;
+                margin:0 auto -5px auto;
+                padding:5px 10px 5px 40px;
+                border:1px solid #9FABB9;
+                background:url(../images/alert.png) 5px 50% no-repeat #ffd;
+        }
+
+        #system_notice a { color:#600; font-weight: bold;}

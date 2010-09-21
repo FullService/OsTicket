@@ -13,7 +13,7 @@ if($dept && $_REQUEST['a']!='new'){
     $info['ticket_auto_response']=isset($info['ticket_auto_response'])?$info['ticket_auto_response']:1;
     $info['message_auto_response']=isset($info['message_auto_response'])?$info['message_auto_response']:1;
 }
-$info=Format::htmlchars(($errors && $_POST)?$_POST:$info);
+$info=($errors && $_POST)?Format::input($_POST):Format::htmlchars($info);
 
 ?>
 <div class="msg"><?=$title?></div>

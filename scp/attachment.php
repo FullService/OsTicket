@@ -5,7 +5,7 @@
     Handles attachment downloads. Validates the download.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -17,12 +17,12 @@
 require('staff.inc.php');
 //TODO: alert admin on any error on this file.
 if(!$thisuser || !$thisuser->isStaff() || !$_GET['id'] || !$_GET['ref']) die('Access Denied');
-$sql='SELECT attach_id,ref_id,ticket.ticket_id,dept_id,file_name,file_key,staff_id FROM '.TICKET_ATTACHMENT_TABLE.
+$sql='SELECT attach_id,ref_id,ticket.ticket_id,dept_id,file_name,file_key,staff_id,ticket.created FROM '.TICKET_ATTACHMENT_TABLE.
     ' LEFT JOIN '.TICKET_TABLE.' ticket USING(ticket_id) '.
     ' WHERE attach_id='.db_input($_GET['id']);
 //valid ID??
 if(!($resp=db_query($sql)) || !db_num_rows($resp)) die('Invalid file');
-list($id,$refid,$tid,$deptID,$filename,$key,$staffId)=db_fetch_row($resp);
+list($id,$refid,$tid,$deptID,$filename,$key,$staffId,$createDate)=db_fetch_row($resp);
 //Still paranoid...:)...check the secret session based hash.
 $hash=MD5($tid*$refid.session_id());
 if(!$_GET['ref'] || strcmp($hash,$_GET['ref'])) die('Access Denied');
@@ -30,7 +30,14 @@ if(!$_GET['ref'] || strcmp($hash,$_GET['ref'])) die('Access Denied');
 if($staffId!=$thisuser->getId() && !$thisuser->canAccessDept($deptID)) die("You do not have access to the ticket");
 
 //see if the file actually exits.
-$file= rtrim($cfg->getUploadDir(),'/').'/'.$key.'_'.$filename;
+
+
+//see if the file actually exits.
+$month=date('my',strtotime($createDate));
+$file=rtrim($cfg->getUploadDir(),'/')."/$month/$key".'_'.$filename;
+if(!file_exists($file))
+    $file=rtrim($cfg->getUploadDir(),'/')."/$key".'_'.$filename;
+
 if(!file_exists($file)) die('No such file');
 $extension =substr($filename,-3);
 switch(strtolower($extension))

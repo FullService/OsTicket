@@ -103,7 +103,6 @@ function lcs(ielem) {
 	getObj('fc').style.top=Top(ielem)+ielem.offsetHeight+'px';
 	getObj('fc').style.display='';
 
-    ielem.innerHTML ='<table id="sdsd"><tr><td>sdsdsd</td></tr></table>';
 	// First check date is valid
 	curdt=ielem.value;
 	curdtarr=curdt.split('/');

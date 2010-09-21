@@ -3,7 +3,7 @@ if(!defined('OSTSCPINC') || !@$thisuser->isStaff()) die('Access Denied');
 
 $qstr='&t=syslog'; //Query string collector
 if($_REQUEST['type']) { 
-    $qstr.='type='.urlencode($_REQUEST['type']);
+    $qstr.='&amp;type='.urlencode($_REQUEST['type']);
 }
 
 $type=null;
@@ -68,6 +68,7 @@ $qfrom=' FROM '.SYSLOG_TABLE.' log ';
 //get log count based on the query so far..
 $total=db_count("SELECT count(*) $qfrom $qwhere");
 $pagelimit=30;
+$page = ($_GET['p'] && is_numeric($_GET['p']))?$_GET['p']:1;  
 //pagenate
 $pageNav=new Pagenate($total,$page,$pagelimit);
 $pageNav->setURL('admin.php',$qstr);
@@ -84,11 +85,11 @@ $showing=db_num_rows($resp)?$pageNav->showing():"";
         Date Span:
         &nbsp;From&nbsp;<input id="sd" size=15 name="startDate" value="<?=Format::htmlchars($_REQUEST['startDate'])?>" 
                 onclick="event.cancelBubble=true;calendar(this);" autocomplete=OFF>
-            <a href="#" onclick="event.cancelBubble=true;calendar(getObj('sd'));"><img src='images/cal.png'border=0 alt=""></a>
+            <a href="#" onclick="event.cancelBubble=true;calendar(getObj('sd')); return false;"><img src='images/cal.png'border=0 alt=""></a>
             &nbsp;&nbsp; to &nbsp;&nbsp;
             <input id="ed" size=15 name="endDate" value="<?=Format::htmlchars($_REQUEST['endDate'])?>" 
                 onclick="event.cancelBubble=true;calendar(this);" autocomplete=OFF >
-                <a href="#" onclick="event.cancelBubble=true;calendar(getObj('ed'));"><img src='images/cal.png'border=0 alt=""></a>
+                <a href="#" onclick="event.cancelBubble=true;calendar(getObj('ed')); return false;"><img src='images/cal.png'border=0 alt=""></a>
             &nbsp;&nbsp;
             &nbsp;Type:
             <select name='type'>

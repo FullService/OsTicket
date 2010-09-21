@@ -31,6 +31,7 @@ if(!defined('OSTSCPINC') || !is_object($thisuser)) die('Kwaheri');
         <td>
             <input type="text" name="phone" value="<?=$rep['phone']?>" ><font class="error">&nbsp;<?=$errors['phone']?></font>&nbsp;Ext&nbsp;
             <input type="text" name="phone_ext" size=6 value="<?=$rep['phone_ext']?>" >
+            <font class="error">&nbsp;<?=$errors['phone_ext']?></font>
         </td>
     </tr>
     <tr>

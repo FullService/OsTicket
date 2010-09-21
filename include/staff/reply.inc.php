@@ -1,6 +1,6 @@
 <?php
 if(!defined('OSTSCPINC') or !$thisuser->canManageKb()) die('Access Denied');
-$info=Format::htmlchars(($errors && $_POST)?$_POST:$answer);
+$info=($errors && $_POST)?Format::input($_POST):Format::htmlchars($answer);
 if($answer && $_REQUEST['a']!='add'){
     $title='Edit Premade Reply';
     $action='update';
@@ -53,7 +53,7 @@ if($answer && $_REQUEST['a']!='add'){
         </td>
     </tr>
     <tr><td valign="top">Answer:</td>
-        <td>Premade Reply&nbsp;<font class="error">*&nbsp;<?=$errors['answer']?></font><br/>
+        <td>Premade Reply - Ticket's base variables are supported.&nbsp;<font class="error">*&nbsp;<?=$errors['answer']?></font><br/>
             <textarea name="answer" id="answer" cols="90" rows="9" wrap="soft" style="width:80%"><?=$info['answer']?></textarea>
         </td>
     </tr>

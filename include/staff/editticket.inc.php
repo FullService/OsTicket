@@ -4,13 +4,15 @@ if(!defined('OSTSCPINC') || !is_object($ticket) || !is_object($thisuser) || !$th
 if(!($thisuser->canEditTickets() || ($thisuser->isManager() && $ticket->getDeptId()==$thisuser->getDeptId()))) die('Access Denied. Perm error.');
 
 if($_POST && $errors){
-    $info=Format::htmlchars($_POST);
+    $info=Format::input($_POST);
 }else{
     $info=array('email'=>$ticket->getEmail(),
                 'name' =>$ticket->getName(),
                 'phone'=>$ticket->getPhone(),
                 'phone_ext'=>$ticket->getPhoneExt(),
                 'pri'=>$ticket->getPriorityId(),
+                'topicId'=>$ticket->getTopicId(),
+                'topic'=>$ticket->getHelpTopic(),
                 'subject' =>$ticket->getSubject(),
                 'duedate' =>$ticket->getDueDate()?(Format::userdate('m/d/Y',Misc::db2gmtime($ticket->getDueDate()))):'',
                 'time'=>$ticket->getDueDate()?(Format::userdate('G:i',Misc::db2gmtime($ticket->getDueDate()))):'',
@@ -32,7 +34,8 @@ if($_POST && $errors){
   <form action="tickets.php?id=<?=$ticket->getId()?>" method="post">
     <input type='hidden' name='id' value='<?=$ticket->getId()?>'>
     <input type='hidden' name='a' value='update'>
-    <tr><td align="left" colspan=2 class="msg">Update Ticket #<?=$ticket->getExtId()?><br></td></tr>
+    <tr><td align="left" colspan=2 class="msg">
+        Update Ticket #<?=$ticket->getExtId()?>&nbsp;&nbsp;(<a href="tickets.php?id=<?=$ticket->getId()?>" style="color:black;">View Ticket</a>)<br></td></tr>
     <tr>
         <td align="left" nowrap width="120"><b>Email Address:</b></td>
         <td>
@@ -67,7 +70,7 @@ if($_POST && $errors){
             <i>Time is based on your time zone (GM <?=$thisuser->getTZoffset()?>)</i>&nbsp;<font class="error">&nbsp;<?=$errors['time']?></font><br>
             <input id="duedate" name="duedate" value="<?=Format::htmlchars($info['duedate'])?>"
                 onclick="event.cancelBubble=true;calendar(this);" autocomplete=OFF>
-            <a href="#" onclick="event.cancelBubble=true;calendar(getObj('duedate'));"><img src='images/cal.png'border=0 alt=""></a>
+            <a href="#" onclick="event.cancelBubble=true;calendar(getObj('duedate')); return false;"><img src='images/cal.png'border=0 alt=""></a>
             &nbsp;&nbsp;
             <?php
              $min=$hr=null;
@@ -93,6 +96,32 @@ if($_POST && $errors){
         </td>
        </tr>
     <? }?>
+
+    <?php
+    $services= db_query('SELECT topic_id,topic,isactive FROM '.TOPIC_TABLE.' ORDER BY topic');
+    if($services && db_num_rows($services)){ ?>
+    <tr>
+        <td align="left" valign="top">Help Topic:</td>
+        <td>
+            <select name="topicId">    
+                <option value="0" selected >None</option>
+                <?if(!$info['topicId'] && $info['topic']){ //old helptopic?>
+                <option value="0" selected ><?=$info['topic']?> (deleted)</option>
+                <?
+                }
+                 while (list($topicId,$topic,$active) = db_fetch_row($services)){
+                    $selected = ($info['topicId']==$topicId)?'selected':'';
+                    $status=$active?'Active':'Inactive';
+                    ?>
+                    <option value="<?=$topicId?>"<?=$selected?>><?=$topic?>&nbsp;&nbsp;&nbsp;(<?=$status?>)</option>
+                <?
+                 }?>
+            </select>
+            &nbsp;(optional)<font class="error">&nbsp;<?=$errors['topicId']?></font>
+        </td>
+    </tr>
+    <?
+    }?>
     <tr>
         <td align="left" valign="top"><b>Internal Note:</b></td>
         <td>

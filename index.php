@@ -43,7 +43,7 @@ require(CLIENTINC_DIR.'header.inc.php');
   <h3><?= $trl->translate('TITLE_OPEN_PREVIUS_TICKET'); ?></h3>
   <?= $trl->translate('TEXT_OPEN_PREVIUS_TICKET'); ?>
   <br /><br />
-  <form class="status_form" action="tickets.php" method="post">
+  <form class="status_form" action="login.php" method="post">
     <fieldset>
       <label><?= $trl->translate('LABEL_EMAIL'); ?></label>
       <input type="text" name="lemail">

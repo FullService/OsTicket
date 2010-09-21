@@ -6,7 +6,7 @@
     File requested as 1X1 image on the footer of every staff's page
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -31,12 +31,14 @@ ob_start(); //Keep the image output clean. Hide our dirt.
 //TODO: Make cron DB based to allow for better time limits. Direct calls for now sucks big time.
 //We DON'T want to spawn cron on every page load...we record the lastcroncall on the session per user
 $sec=time()-$_SESSION['lastcroncall'];
-if($cfg && $cfg->enableAutoCron() && $sec>180 ): //user can call cron once every 3 minutes.
+if($sec>180): //user can call cron once every 3 minutes.
     require_once(INCLUDE_DIR.'class.cron.php');
+Cron::TicketMonitor(); //Age tickets: We're going to age tickets ever regardless of cron settings. 
+if($cfg && $cfg->enableAutoCron()){ //ONLY fetch tickets if autocron is enabled!
     Cron::MailFetcher();  //Fetch mail.
-    Cron::TicketMonitor(); //Age tickets
-    $_SESSION['lastcroncall']=time();
     Sys::log(LOG_DEBUG,'Autocron','cron job executed ['.$thisuser->getUserName().']');
+}    
+$_SESSION['lastcroncall']=time();
 endif;
 $output = ob_get_contents();
 ob_end_clean();

@@ -87,12 +87,12 @@ if(!$depts or !is_array($depts) or !count($depts)){
 
 //STATUS
 if($status){
-    $qwhere.=' AND status='.db_input($status);    
+    $qwhere.=' AND status='.db_input(strtolower($status));    
 }
 
 //Sub-statuses Trust me!
 if($staffId && ($staffId==$thisuser->getId())) { //Staff's assigned tickets.
-    $results_type=$trl->translate(TEXT_ASSIGNED_TICKETS);
+    $results_type='Assigned Tickets';
     $qwhere.=' AND ticket.staff_id='.db_input($staffId);    
 }elseif($showoverdue) { //overdue
     $qwhere.=' AND isoverdue=1 ';
@@ -130,7 +130,16 @@ if($search):
             //This sucks..mass scan! search anything that moves! 
             
             $deep_search=true;
-          
+            if($_REQUEST['stype'] && $_REQUEST['stype']=='FT') { //Using full text on big fields.
+                $qwhere.=" AND ( ticket.email LIKE '%$queryterm%'".
+                            " OR ticket.name LIKE '%$queryterm%'".
+                            " OR ticket.subject LIKE '%$queryterm%'".
+                            " OR note.title LIKE '%$queryterm%'".
+                            " OR MATCH(message.message)   AGAINST('$queryterm')".
+                            " OR MATCH(response.response) AGAINST('$queryterm')".
+                            " OR MATCH(note.note) AGAINST('$queryterm')".
+                            ' ) ';
+            }else{
             $qwhere.=" AND ( ticket.email LIKE '%$queryterm%'".
                         " OR ticket.name LIKE '%$queryterm%'".
                         " OR ticket.subject LIKE '%$queryterm%'".
@@ -140,6 +149,7 @@ if($search):
                         " OR note.title LIKE '%$queryterm%'".
                         ' ) ';
         }
+    }
     }
     //department
     if($_REQUEST['dept'] && ($thisuser->isadmin() || in_array($_REQUEST['dept'],$thisuser->getDepts()))) {
@@ -189,7 +199,7 @@ if(!$order_by && $showanswered) {
 }
 
 
-$order_by =$order_by?$order_by:'priority_urgency,ticket.created';
+$order_by =$order_by?$order_by:'priority_urgency,effective_date DESC ,ticket.created';
 $order=$order?$order:'DESC';
 $pagelimit=$_GET['limit']?$_GET['limit']:$thisuser->getPageLimit();
 $pagelimit=$pagelimit?$pagelimit:PAGE_LIMIT; //true default...if all fails.
@@ -216,7 +226,7 @@ $pageNav->setURL('tickets.php',$qstr.'&sort='.urlencode($_REQUEST['sort']).'&ord
 //
 //Ok..lets roll...create the actual query
 //ADD attachment,priorities and lock crap
-$qselect.=' ,count(attach.attach_id) as attachments ';
+$qselect.=' ,count(attach.attach_id) as attachments, IF(ticket.reopened is NULL,ticket.created,ticket.reopened) as effective_date';
 $qfrom.=' LEFT JOIN '.TICKET_PRIORITY_TABLE.' pri ON ticket.priority_id=pri.priority_id '.
         ' LEFT JOIN '.TICKET_LOCK_TABLE.' tlock ON ticket.ticket_id=tlock.ticket_id AND tlock.expire>NOW() '.
         ' LEFT JOIN '.TICKET_ATTACHMENT_TABLE.' attach ON  ticket.ticket_id=attach.ticket_id ';
@@ -226,7 +236,7 @@ $query="$qselect $qfrom $qwhere $qgroup ORDER BY $order_by $order LIMIT ".$pageN
 $tickets_res = db_query($query);
 $showing=db_num_rows($tickets_res)?$pageNav->showing():"";
 if(!$results_type) {
-    $results_type=($search)?$trl->translate(TEXT_SEARCH_RESULTS):$trl->translate('TEXT_'.strtoupper($status).'_TICKETS');
+    $results_type=($search)?$trl->translate(TEXT_SEARCH_RESULTS):$trl->translate('TEXT_'.ucfirst($status).'_TICKETS');
 }
 $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
 
@@ -302,12 +312,21 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
             &nbsp;&nbsp; <?php echo $trl->translate('LABEL_TO');?> &nbsp;&nbsp;
             <input id="ed" name="endDate" value="<?=Format::htmlchars($_REQUEST['endDate'])?>" 
                 onclick="event.cancelBubble=true;calendar(this);" autocomplete=OFF >
-                <a href="#" onclick="event.cancelBubble=true;calendar(getObj('ed'));"><img src='images/cal.png'border=0 alt=""></a>
+                <a href="#" onclick="event.cancelBubble=true;calendar(getObj('ed')); return false;"><img src='images/cal.png'border=0 alt=""></a>
             &nbsp;&nbsp;
     </div>
     <table>
     <tr>
-       <td><?php echo $trl->translate('LABEL_SORT_BY');?>:</td><td>
+       <td>Type:</td>
+       <td>       
+        <select name="stype">
+            <option value="LIKE" <?=(!$_REQUEST['stype'] || $_REQUEST['stype'] == 'LIKE') ?'selected':''?>>Scan (%)</option>
+            <option value="FT"<?= $_REQUEST['stype'] == 'FT'?'selected':''?>>Fulltext</option>
+        </select>
+ 
+
+       </td>
+       <td><?php echo $trl->translate('LABEL_SORT_BY');?>::</td><td>
         <? 
          $sort=$_GET['sort']?$_GET['sort']:'date';
         ?>

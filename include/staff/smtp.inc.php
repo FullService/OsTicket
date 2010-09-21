@@ -2,7 +2,7 @@
 if(!defined('OSTADMININC') || basename($_SERVER['SCRIPT_NAME'])==basename(__FILE__)) die('Habari/Jambo rafiki? '); //Say hi to our friend..
 if(!$thisuser || !$thisuser->isadmin()) die('Access Denied');
 
-$info=Format::htmlchars(($_POST && $errors)?$_POST:$cfg->getSMTPInfo());
+$info=($_POST && $errors)?Format::input($_POST):Format::htmlchars($cfg->getSMTPInfo());
 ?>
 <div class="msg"><?=$title?></div>
 <table width="98%" border="0" cellspacing=0 cellpadding=0>

@@ -5,14 +5,14 @@
     Navigation helper classes. Pointless BUT helps keep navigation clean and free from errors.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
     See LICENSE.TXT for details.
 
     vim: expandtab sw=4 ts=4 sts=4:
-    $Id: class.nav.php,v 1.1.2.2 2009/11/29 22:03:28 carlos.delfino Exp $
+    $Id: $
 **********************************************************************/
 class StaffNav {
     var $tabs=array();
@@ -21,15 +21,9 @@ class StaffNav {
     var $activetab;
     var $ptype;
 
-	function StaffNav($pagetype='staff',$trl = null){
+    function StaffNav($pagetype='staff'){
 		global $thisuser;
 
-		if(isset($trl)){
-			$this->trl = $trl;
-		}else{
-			$this->trl = new Translate();
-		}
-		
 		$this->ptype=$pagetype;
 		$tabs=array();
 		if($thisuser->isAdmin() && strcasecmp($pagetype,'admin')==0) {

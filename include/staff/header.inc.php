@@ -2,6 +2,11 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<?php
+if(defined('AUTO_REFRESH') && is_numeric(AUTO_REFRESH_RATE) && AUTO_REFRESH_RATE>0){ //Refresh rate
+echo '<meta http-equiv="refresh" content="'.AUTO_REFRESH_RATE.'" />';
+}
+?>
 <title>osTicket :: Staff Control Panel</title>
 <link rel="stylesheet" href="css/main.css" media="screen">
 <link rel="stylesheet" href="css/style.css" media="screen">
@@ -12,11 +17,17 @@
 <script type="text/javascript" src="js/tabber.js"></script>
 <script type="text/javascript" src="js/calendar.js"></script>
 <script type="text/javascript" src="js/bsn.AutoSuggest_2.1.3.js" charset="utf-8"></script>
-<?if($cfg && $cfg->getLockTime()) { //autoLocking enabled.?>
+<?php
+if($cfg && $cfg->getLockTime()) { //autoLocking enabled.?>
 <script type="text/javascript" src="js/autolock.js" charset="utf-8"></script>
 <?}?>
 </head>
 <body>
+<?php
+if($sysnotice){?>
+<div id="system_notice"><?php echo $sysnotice; ?></div>
+<?php 
+}?>
 <div id="container">
     <div id="header">
         <a id="logo" href="index.php" title="osTicket"><img src="images/ostlogo.jpg" width="188" height="72" alt="osTicket"></a>

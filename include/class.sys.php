@@ -5,7 +5,7 @@
     System core helper.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -23,7 +23,7 @@ class Sys {
 
     var $loglevel=array(1=>'Error','Warning','Debug');
 
-	static $trl ;
+static $trl ;
 	
 	static function getTranslatorToLocale($str="us"){
 		if(!isset(self::$trl[$str])){
