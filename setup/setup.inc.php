@@ -5,7 +5,7 @@
     Master include file for setup/install scripts.
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -35,19 +35,49 @@ function replace_table_prefix($query) {
     return str_replace('%TABLE_PREFIX%',PREFIX, $query);
 }
 
+
+function load_sql_schema($schema,&$errors,$debug=false){
+
+    //Get database schema
+    if(!file_exists($schema) || !($schema=file_get_contents($schema))) {
+        $errors['err']='Internal error. Please make sure your download is the latest';
+        $errors[]='Error accessing SQL schema';
+    }else{
+        //Loadup SQL schema.
+        $queries =array_map('replace_table_prefix',array_filter(array_map('trim',explode(';',$schema)))); //Don't fail me bro!
+        if($queries && count($queries)) {
+            @mysql_query('SET SESSION SQL_MODE =""');
+            foreach($queries as $k=>$sql) {
+                if(!mysql_query($sql)){
+                    if($debug) echo $sql;
+                    //Aborting on error.
+                    $errors['err']='Invalid SQL schema. Get help from Developers';
+                    $errors['sql']="[$sql] - ".mysql_error();
+                    break;
+                }
+            }
+        }else{
+            $errors['err']='Error parsing SQL schema! Get help from developers';
+        }
+    }
+
+    return $errors?false:true;
+}
+
+
 #Some messages....
 
 ob_start();
 echo "
 Thank you for choosing osTicket.
     
-Make sure you join osTicket forums http://osticket.com/forums to stay upto date on the latest news, security alerts and updates. osTicket forums is also a great place to get assistance, guidance, tips and help from osTicket users. In addition to the forums, osTicket wiki provides useful collection of educational materials, documentation, and notes from the community. Your contribution to osTicket community will be appreciated!
+Please make sure you join the osTicket forums at http://osticket.com/forums to stay up to date on the latest news, security alerts and updates. The osTicket forums are also a great place to get assistance, guidance, tips, and help from other osTicket users. In addition to the forums, the osTicket wiki provides a useful collection of educational materials, documentation, and notes from the community. We welcome your contributions to the osTicket community.
 
-If you are looking for greater level of support, we provide professional services and commercial support with guaranteed response times, and access to the core development team. We can also help customize or even add new features to the system to meet your unique needs.
+If you are looking for a greater level of support, we provide professional services and commercial support with guaranteed response times, and access to the core development team. We can also help customize osTicket or even add new features to the system to meet your unique needs.
 
-For more information or to discuss your needs, please contact us today at http://osticket.com/support/. Any feedback will be appreciated!
+For more information or to discuss your needs, please contact us today at http://osticket.com/support/. Your feedback is greatly appreciated!
 
-osTicket Team";
+- The osTicket Team";
 $msg1 = ob_get_contents();
 ob_end_clean();
 define('OSTICKET_INSTALLED',trim($msg1));
@@ -58,9 +88,9 @@ osTicket upgraded!
 
 Please make sure you join osTicket forums http://osticket.com/forums, if you haven't done so already, to stay upto date on the latest news, security alerts and updates. Your contribution to osTicket community will be appreciated!
 
-osTicket team is committed to providing support to all users through our free online resources and a full range of commercial support packages and services. For more information or to discuss your needs, please contact us today at http://osticket.com/support/. Any feedback will be appreciated!
+The osTicket team is committed to providing support to all users through our free online resources and a full range of commercial support packages and services. For more information, or to discuss your needs, please contact us today at http://osticket.com/support/. Any feedback will be appreciated!
 
-osTicket Team";
+- The osTicket Team";
 $msg2 = ob_get_contents();
 ob_end_clean();
 define('OSTICKET_UPGRADED',trim($msg2));

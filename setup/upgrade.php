@@ -5,7 +5,7 @@
     osTicket upgrade script
 
     Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006,2007,2008,2009 osTicket
+    Copyright (c)  2006-2010 osTicket
     http://www.osticket.com
 
     Released under the GNU General Public License WITHOUT ANY WARRANTY.
@@ -33,7 +33,7 @@ if(!is_object($thisuser) || !$thisuser->getId() || !$thisuser->isValid() || !$th
 //Let's roll.
 $errors=array();
 $fp=null;
-define('VERSION','1.6 RC5'); //Current version number
+define('VERSION','1.6 ST'); //Current version number
 define('SCHEMAFILE','./inc/v16rc5.sql'); //osTicket upgrade SQL schema.
 define('PREFIX',TABLE_PREFIX);
 
@@ -52,39 +52,27 @@ if(!strcasecmp($cfg->getVersion(),VERSION)) {
     $errors['err']='Short open tag disabled! - osTicket requires it turned on.';
     $inc='shortopentag.inc.php';
 }elseif($_POST && !$errors){
+    $step=(!strcasecmp($cfg->getVersion(),'1.6 RC5'))?2:1; //gods help us!
+    //die("Step #$step");
+
+    switch($step):
+    case 1: //Upgrading to RC5 from any old version.. RC1-RC4.
+        $schema='./inc/v1.6rc5-upgrade.sql';
     $vars=$errors=array();
-    //Get database schema
-    if(!file_exists(SCHEMAFILE) || !($schema=file_get_contents(SCHEMAFILE))) {
-        $errors['err']='Internal error. Please make sure your download is the latest';
-        $errors[]='Error accessing SQL schema';
-    }else{
-        //Loadup SQL schema.
-        $queries =array_map('replace_table_prefix',array_filter(array_map('trim',explode(';',$schema)))); //Don't fail me bro!
-        if($queries && count($queries)) {
-            //get info we need from DB b4 we start altering it.
+            
             $result=db_query('SELECT alert_email,noreply_email,api_whitelist,api_key,default_dept FROM '.CONFIG_TABLE.' WHERE id=1');
             if($result && db_num_rows($result)) {
                 $vars=db_fetch_array($result);
-                @mysql_query('SET SESSION SQL_MODE =""');
-                foreach($queries as $k=>$sql) {
-                    if(!mysql_query($sql)){
-                        //Aborting on error.
-                        $errors['err']='Invalid SQL schema. Get help from Developers';
-                        $errors['sql']="[$sql] - ".mysql_error();
-                        break;
-                    }
-                }
-            }else{
-                $errors['err']='Error accessing current config table';
-            }
-        }else{
+            if(!load_sql_schema($schema,$errors) && !$errors['err'])
             $errors['err']='Error parsing SQL schema! Get help from developers';
+        }else{
+             $errors['err']='Db problems - Get help from developers';
         }
    
         if(!$errors) {
             
             //update version.
-            db_query('UPDATE '.CONFIG_TABLE.' SET ostversion='.db_input(VERSION));
+            db_query('UPDATE '.CONFIG_TABLE.' SET ostversion='.db_input('1.6 RC5'));
             //API keys
             $ips=array_filter(explode(',',ereg_replace(' ','',$vars['api_whitelist'])));
             foreach($ips as $ip) {
@@ -142,20 +130,68 @@ if(!strcasecmp($cfg->getVersion(),VERSION)) {
             db_query('ALTER TABLE '.PREFIX.'config DROP `noreply_email` ,DROP `alert_email` ,DROP `api_whitelist`');
             db_query('TRUNCATE TABLE '.PREFIX.'email_pop3');
             db_query('DROP TABLE '.PREFIX.'email_pop3');
+        }
+        if($errors) break; //break on any errors.
+    case 2: //upgrading v1.6 ST (latest release).
+        $schema='./inc/v1.6st-upgrade.sql';
+        $vars=$errors=array();
+                    
+        if(!load_sql_schema($schema,$errors) && !$errors['err'])
+            $errors['err']='Error parsing SQL schema! Get help from developers';
+        
+        if(!$errors) {
+            //update the version to the latest
+            $sendnotices=$cfg->autoRespONNewTicket()?1:0;
+            db_query('UPDATE '.CONFIG_TABLE.' SET ostversion='.db_input(VERSION).',ticket_notice_active='.db_input($sendnotice));
+            //Fix attachment issues.
+            require_once(INCLUDE_DIR.'class.ticket.php');
+            $sql='SELECT ticket.ticket_id, count(attach_id) as attachments FROM '.TICKET_TABLE.' ticket '.
+                 'LEFT JOIN '.TICKET_ATTACHMENT_TABLE.' attach ON  ticket.ticket_id=attach.ticket_id '.
+                 'GROUP BY ticket.ticket_id';
+            //echo $sql;
+            $resp = db_query($sql);
+            if($resp && db_num_rows($resp)){
+                while(list($id,$files)=db_fetch_row($resp)){
+                    if(!$files) continue;
+                    $ticket = new Ticket($id);
+                    $ticket->fixAttachments();
+                }
+            }
+            $sql='SELECT tpl_id,ticket_overlimit_subj,ticket_overlimit_body FROM '.PREFIX.'email_template';
+            if(($result=db_query($sql)) && db_num_rows($result)) {
+                while($row=db_fetch_array($result)) {
 
+                    $sql='UPDATE '.PREFIX.'email_template SET updated=NOW() '.
+                          ',ticket_overlimit_subj='.db_input(str_replace('%ticket','%id',$row['ticket_overlimit_subj'])).
+                          ',ticket_overlimit_body='.db_input(str_replace('%ticket','%id',$row['ticket_overlimit_body'])).
+                         ' WHERE tpl_id='.db_input($row['tpl_id']);
+                    db_query($sql);
+                }
+                //Update
+                $sql='UPDATE '.PREFIX.'email_template SET updated=NOW() '.
+                     ',ticket_notice_subj = "[#%ticket] %subject"'.
+                     ',ticket_notice_body = "%name,\r\n\r\nOur customer care team personnel has created a ticket #%ticket on your behalf, with the following message;\r\n\r\n%message\r\n\r\nIf you wish to provide additional comments or information regarding this issue, please don\'t open a new ticket. You can update or view this ticket\'s progress online here: %url/view.php?e=%email&t=%ticket.\r\n\r\n%signature"';
+                    db_query($sql);
+            }
+        }
+
+    endswitch;
+
+    if(!$errors) { //upgrade went smooth!
             //Log a message.
             $log=sprintf("Congratulations osTicket upgraded to version %s by %s \n\nThank you for choosing osTicket!",VERSION,$thisuser->getName());
             $sql='INSERT INTO '.PREFIX.'syslog SET created=NOW(),updated=NOW() '.
-                 ',title="osTicket installed!",log_type="Debug" '.
+             ',title="osTicket upgraded!",log_type="Debug" '.
                  ',log='.db_input($log).
                  ',ip_address='.db_input($_SERVER['REMOTE_ADDR']);
             mysql_query($sql);
 
             //Create a ticket
             $sql='INSERT INTO '.PREFIX.'ticket SET created=NOW(),ticketID='.db_input(Misc::randNumber(6)).
-                 ',dept_id='.db_input($cfg->getDefaultDeptId()).
+             ',dept_id='.db_input($deptId?$deptId:$cfg->getDefaultDeptId()).
                  ",priority_id=2,email='support@osticket.com',name='osTicket Support' ".
-                 ",subject='osTicket Upgraded!',topic='osTicket Support',status='open',source='Web'";
+             ",subject='osTicket Upgraded!',helptopic='osTicket Support',status='open',source='Web'";
+            
             if(db_query($sql) && ($id=db_insert_id())){
                 $sql='INSERT INTO '.PREFIX.'ticket_message SET created=NOW(), updated=NOW(), source="Web" '.
                      ',ticket_id='.db_input($id).
@@ -166,17 +202,13 @@ if(!strcasecmp($cfg->getVersion(),VERSION)) {
             //Report the good news.
             $inc='upgradedone.inc.php';
             $msg='osTicket upgraded to version '.VERSION;
-        }
-        
-        if($errors) { //Something really bad went wrong...
+    }else{ //errors....aborting.
              $inc='abortedupgrade.inc.php';
              $errors['err']=$errors['err']?$errors['err']:'Yikes! upgrade error(s) occured';
              $_SESSION['abort']=true;
         }
-
-    }
 }
-$title=sprintf('osTicket upgrade wizard v %s',VERSION);
+$title=sprintf('osTicket upgrade wizard v %s','1.6 ST (stable)');
 ?>
 <html>
 <head>
