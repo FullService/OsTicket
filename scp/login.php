@@ -31,9 +31,10 @@ if($_POST && (!empty($_POST['username']) && !empty($_POST['passwd']))){
     //$_SESSION['_staff']=array(); #Uncomment to disable login strikes.
     $msg=$trl->translate('TEXT_INVALID_LOGIN');
     if($_SESSION['_staff']['laststrike']) {
-        if((time()-$_SESSION['_staff']['laststrike'])<$cfg->getStaffLoginTimeout()) {
-            $msg=$trl->translate('TEXT_EXCESSIVE_FAILED_LOGIN_ATTEMPTS');
-            $errors['err']=$cfg-translate('TEXT_YOUVE_REACHED_MAXIMUM_FAILED_LOGIN_ATTEMPTS_ALLOWED');
+       $fatorLastStrike = (time()-$_SESSION['_staff']['laststrike']);
+	   if($fatorLastStrike<$cfg->getStaffLoginTimeout()) {
+           $msg=$trl->translate('TEXT_EXCESSIVE_FAILED_LOGIN_ATTEMPTS');
+            $errors['err']=$cfg-translate('TEXT_YOUVE_REACHED_MAXIMUM_FAILED_LOGIN_ATTEMPTS_ALLOWED',$fatorLastStrike);
         }else{ //Timeout is over.
             //Reset the counter for next round of attempts after the timeout.
             $_SESSION['_staff']['laststrike']=null;
