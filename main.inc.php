@@ -65,7 +65,6 @@
         $configfile=ROOT_DIR.'ostconfig.php';
         if(defined(DEFAULT_LANGUAGE))
                 define('OSTLANG',DEFAULT_LANGUAGE);
-        }
     elseif(file_exists(INCLUDE_DIR.'settings.php')) //OLD config file.. v 1.6 RC5
         $configfile=INCLUDE_DIR.'settings.php';
     elseif(file_exists(INCLUDE_DIR.'ost-config.php')) //NEW config file v 1.6 stable ++
