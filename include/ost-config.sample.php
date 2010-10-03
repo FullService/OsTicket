@@ -44,4 +44,8 @@ define('DBPASS','%CONFIG-DBPASS');
 #Table prefix
 define('TABLE_PREFIX','%CONFIG-PREFIX');
 
+
+#Translator Configure
+define('OSTLANG','%CONFIG-OSTLANG');
+
 ?>
