@@ -79,7 +79,8 @@ $thisuser->refreshSession();
 $_SESSION['TZ_OFFSET']=$thisuser->getTZoffset();
 //Clear some vars. we use in all pages.
 $errors=array();
-$msg=$warn=$sysnotice'';
+$msg=$warn=$sysnotice='';
+
 $tabs=array();
 $submenu=array();
 
