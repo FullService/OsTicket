@@ -47,6 +47,16 @@ class Translator
 		return $language;
 	}
 
+	/**
+	 * Alias function to getLanguage();
+	 */
+	function getLang(){
+		return $this->getLanguage();
+	}
+	
+	/**
+	 * Return the Language code;
+	 */
 	function getLanguage()
 	{
 		if(!isset($this->language)){

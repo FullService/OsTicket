@@ -3,7 +3,7 @@ $title=($cfg && is_object($cfg))?$cfg->getTitle():'osTicket :: Support Ticket Sy
 $trl->sendHeader();
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<html lang="<?php echo $trl->getLang(); ?>">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=<?php echo $trl->getCharset(); ?>">
     <title><?=Format::htmlchars($title)?></title>
