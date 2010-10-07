@@ -169,5 +169,27 @@ class Translator
 		sort($langs);
 		return $langs;
 	}
+	
+	/**
+	 * Send RAW Header to browser use the correct charset;
+	 * 
+	 * You can inform the content-type to send.
+	 */
+	public function sendHeader($content="text/html"){
+		$charset = $this->getCharset();
+		header ("Content-type: $content; charset=$charset");
+	}	
+	
+	public function getCodePage(){
+		$dir = $this->LANG['CODEPAGE'];
+			if(isset($dir)){
+				return $dir;
+			}else{
+				return 'UTF-8';
+			}
+	}
+	public function getCharset(){ 
+		return strtolower($this->getCodePage());
+	}
 }
 ?>
