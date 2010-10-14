@@ -1,1 +1,3 @@
+<IfModule mod_php5.c>
 php_flag session.auto_start off
+</IfModule>
