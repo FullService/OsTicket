@@ -33,6 +33,9 @@ $_SESSION['abort']=false;
 define('VERSION','1.6 ST'); //Current version number
 define('VERSION_VERBOSE','1.6 Stable'); //What the user sees during installation process.
 define('CONFIGFILE','../include/ost-config.php'); //osTicket config file full path.
+// TODO (issue 6)insert here code to select language to install
+// how use a constant, need redefine the constant if 
+//language  change on first instaltion screen
 define('SCHEMAFILE','./inc/osticket-v1.6.sql'); //osTicket SQL schema.
 define('URL',rtrim('http'.(($_SERVER['HTTPS']=='on')?'s':'').'://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']),'setup'));
 
@@ -70,6 +73,7 @@ if(file_exists('../ostconfig.php') || file_exists('../include/settings.php')) { 
         $inc='unclean.inc.php';
     }elseif($_POST){
         $f=array();
+        $f['ostlang']   = array('type'=>'string', 'required'=>1, 'error'=>'OsTicket Language is Required');
         $f['title']     = array('type'=>'string', 'required'=>1, 'error'=>'Title required');
         $f['sysemail']  = array('type'=>'email',  'required'=>1, 'error'=>'Valid email required');
         $f['username']  = array('type'=>'username', 'required'=>1, 'error'=>'Username required');
@@ -116,6 +120,7 @@ if(file_exists('../ostconfig.php') || file_exists('../include/settings.php')) { 
             }
         }
         //Get database schema
+		// TODO (issue 6)
         if(!$errors && !file_exists(SCHEMAFILE)) {
             $errors['err']='Internal error. Please make sure your download is the latest';
             $errors['mysql']='Missing SQL schema file';
@@ -131,6 +136,8 @@ if(file_exists('../ostconfig.php') || file_exists('../include/settings.php')) { 
             define('PREFIX',$_POST['prefix']); //Table prefix
             
             $debug=false; //Change it to true to show failed query
+			
+			// TODO (issue 6)
             if(!load_sql_schema(SCHEMAFILE,$errors,$debug) && !$errors['err'])
                 $errors['err']='Error parsing SQL schema! Get help from developers';
 
@@ -138,6 +145,8 @@ if(file_exists('../ostconfig.php') || file_exists('../include/settings.php')) { 
                 $info=$support;
 
                 //Rewrite the config file.
+                
+                $configfile= str_replace('%CONFIG-OSTLANG',$_POST['ostlang'],$configfile);
                 $configfile= str_replace("define('OSTINSTALLED',FALSE);","define('OSTINSTALLED',TRUE);",$configfile);
                 $configfile= str_replace('%ADMIN-EMAIL',$_POST['email'],$configfile);
                 $configfile= str_replace('%CONFIG-DBHOST',$_POST['dbhost'],$configfile);

@@ -19,35 +19,48 @@ if(!isset($info['prefix'])) {
 &nbsp;All fields are required.
 <form action=install.php method=post name=setup>
 <table width="100%" cellspacing="0" cellpadding="2" class="setup">
+	<!-- (issue 6) -->
+	<tr>
+        <td>OSTicket Language:</td><td>
+        <?php 
+        $langs = Translator::listLanguages();
+        ?>
+        <select name="ostlang" id="ostlang" onChange="var uri = '<?php 
+	$uri = $_SERVER['PHP_SELF'];
+	if(strpos($uri, '?')){
+		$uri.='&';
+	}else{
+		$uri.='?';
+	} 
+	$uri .= 'ostlang=';
+	echo $uri;
+?>';
+var option=this.options[this.selectedIndex];
+if (option.value!='nothing'){
+	document.location = uri+option.value ;
+}">
+        <?php   
+        foreach($langs as  $lang ) {
+        	$option = "<option value=\"". $lang ."\" "; 
+        	if($lang == $info['ostlang'] || $lang == $_GET['ostlang']){
+        		$option .= "selected='selected'";
+        	} 
+        	$option .= ">";
+        	$nameLang = Translator::languageName($lang);
+        	$option .= "($lang) $nameLang </option>\n";
+        	echo $option;
+        }
+        ?>
+        </select> 
+            &nbsp;<p><font class="error"><?php echo $errors['ostlang']; ?></font></p>
+        </td>
+    </tr>
     <tr class="title"><td colspan=2>osTicket web path and title</td></tr>
     <tr class="subtitle"><td colspan=2>Url to osTicket installation on your server and the title.</td></tr>
     <tr><td width=150>HelpDesk URL:</td><td><b><?=URL?></b></td></tr>
     <tr>
         <td>HelpDesk Title:</td><td><input type=text name=title size=40 value="<?=$info['title']?>">
             &nbsp;<font class="error"><?=$errors['title']?></font></td>
-    </tr>
-    <tr>
-        <td>OSTicket Language:</td><td>
-        <?php 
-        $langs = Translator::listLanguages();
-        ?>
-        <select name="ostlang">
-        <?php   
-        foreach($langs as  $lang ) {
-        	$option = "<option value=\"". $lang ."\" "; 
-        	if($lang == $info['ostlang']){
-        		$option .= "selected=\"true\"";
-        	} 
-        	$option .= ">";
-        	echo $lang;
-        	$nameLang = Translator::languageName($lang);
-        	$option .= $nameLang ."</option>\n";
-        	echo $option;
-        }
-        ?>
-        </select>
-        <!-- input type=text name=ostlang size=5 value="<?=$info['ostlang']?>" -->
-            &nbsp;<font class="error"><?=$errors['ostlang']?></font></td>
     </tr>
     <tr class="title"><td colspan=2>System email</td></tr>
     <tr class="subtitle"><td colspan=2>Default system email (e.g support@yourdomain.com) You can change or add more emails later.</td></tr>
@@ -98,4 +111,4 @@ if(!isset($info['prefix'])) {
     <input class="button" type=reset name=reset value="Reset">
 </div>
 </form>
-</div>
+</div> 

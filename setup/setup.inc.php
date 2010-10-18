@@ -35,7 +35,7 @@ function replace_table_prefix($query) {
     return str_replace('%TABLE_PREFIX%',PREFIX, $query);
 }
 
-
+// TODO (issue 6)
 function load_sql_schema($schema,&$errors,$debug=false){
 
     //Get database schema
