@@ -12,13 +12,75 @@
  **********************************************************************/
 
 if(defined('ROOT_DIR'))
-	define('TRANSLATE_DIR',ROOT_DIR.'translate/'); // Dir with Translations
+define('TRANSLATE_DIR',ROOT_DIR.'translate/'); // Dir with Translations
 else{
 	define('ROOT_DIR',str_replace('\\\\', '/', realpath(dirname(__FILE__))).'/'); #Get real path for root dir ---linux and windows
 	define('TRANSLATE_DIR',ROOT_DIR.'translate/'); // Dir with Translations
 }
 
 define('TRANSLATE_PATH','translate/');
+
+/**
+ * Improvements in Translation API Library to use simple functions like:
+ * t(TRL)              --> Return the translation of the TRL argument.
+ * te(TRL)             --> Echo the translation of the TRL argument.
+ * ti(TRL)             --> Return the img path from tranlation of the TRL argument.
+ * tei(TRL)            --> Echo the img path translation of the TRL argument.
+ * teimg(TRL, array_of_img_param) --> Echo the img tag translation of the TRL argument
+ *
+ */
+/**
+ * Return the translation of the TRL argument.
+ *
+ * @param String $trl
+ * @param String $replace
+ */
+function t($trl,$replace=null) {
+	return Translator::$trl->translate($trl,$replace);
+}
+
+/**
+ * Return the img path from tranlation of the TRL argument.
+ * 
+ * @param String $str
+ */
+function ti($str) {
+	return Translator::$trl->image($str);
+}
+
+/**
+ * Echo the translation of the TRL argument.
+ * 
+ * @param String $trl
+ * @param String $replace
+ */
+function te($trl,$replace) {
+	echo t($trl,$replace);
+}
+
+/**
+ * Echo the img path translation of the TRL argument.
+ * 
+ * @param String $str
+ */
+function tei($str) {
+	echo ti($str);
+}
+
+/**
+ * Echo the img tag translation of the TRL argument
+ *
+ * @param String $param -- String to Translate
+ * @param Array $parans -- Array of Img Tag.
+ */
+function teimg($str, $parans = array()) {
+	$parans = " ";
+	foreach ($parans as $key => $value) {
+		$parans .= " $key='$value' ";
+	};
+	$img = ti($str);
+	echo "<img src='$img' $parans />";
+}
 
 class Translator
 {
@@ -27,10 +89,16 @@ class Translator
 	'.cvs','.CVS','cvs','CVS',
 	'.svn','.SVN','svn','SVN');
 
+	static $trl;
+
+	static function init($cfg){
+		self::$trl = new Translator($cfg);
+	}
+
 	var $cfg;
 	var $LANG = array ();
 
-	function Translator($cfg = false )
+	private function Translator($cfg = false )
 	{
 		$this->cfg = $cfg;
 		$this->loadTranslate();
@@ -53,7 +121,7 @@ class Translator
 	function getLang(){
 		return $this->getLanguage();
 	}
-	
+
 	/**
 	 * Return the Language code;
 	 */
@@ -128,7 +196,7 @@ class Translator
 						$str = str_replace('{0}', $replace, $str);
 					}
 				}
-			}	
+			}
 		}
 		return $str;
 	}
@@ -166,9 +234,9 @@ class Translator
 		while ($file = readdir($dir_handle))
 		{
 			if( is_dir(TRANSLATE_DIR.$file)
-				&& $file != "."
-				&& $file != ".."
-				&& !in_array( $file, self::$omit ) ){
+			&& $file != "."
+			&& $file != ".."
+			&& !in_array( $file, self::$omit ) ){
 				$langs[] = $file ;
 			}
 		}
@@ -179,26 +247,26 @@ class Translator
 		sort($langs);
 		return $langs;
 	}
-	
+
 	/**
 	 * Send RAW Header to browser use the correct charset;
-	 * 
+	 *
 	 * You can inform the content-type to send.
 	 */
 	public function sendHeader($content="text/html"){
 		$charset = $this->getCharset();
 		header ("Content-type: $content; charset=$charset");
-	}	
-	
+	}
+
 	public function getCodePage(){
 		$dir = $this->LANG['CODEPAGE'];
-			if(isset($dir)){
-				return $dir;
-			}else{
-				return 'UTF-8';
-			}
+		if(isset($dir)){
+			return $dir;
+		}else{
+			return 'UTF-8';
+		}
 	}
-	public function getCharset(){ 
+	public function getCharset(){
 		return strtolower($this->getCodePage());
 	}
 }
