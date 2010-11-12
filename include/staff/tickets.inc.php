@@ -498,6 +498,26 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
         <? }
     } ?>
     </form>
+    <!--@Modification OnlineList -->
+    <?php 
+   //TODO insert on ost_staff a new colum lastlogin;
+    // see details in: http://osticket.com/forums/showthread.php?t=539
+    if ($thisuser->isadmin()) {    ?>
+    <tr><td></td></tr>
+    <tr><th align="left">Last active (15 mins)</th></tr>
+    <tr><td colspan="8">
+    <?php
+    $qry = mysql_query("SELECT staff_id,firstname,lastlogin FROM ost_staff ORDER BY lastlogin DESC");
+    	while($row = mysql_fetch_array($qry)) {
+       		$staff=$row['firstname'];
+       		$staffid=$row['staff_id'];
+       		$activity=strtotime($row['lastlogin']);
+       		$currently=time();
+       		if ($currently - $activity < 600) {
+           		echo '<a href="admin.php?t=staff&id='.$row['staff_id'].'"><span title="'.$row['lastlogin'].'">'.$staff.'</span></a>, ';
+       		}
+    	}
+    }?>
  </table>
 </div>
 

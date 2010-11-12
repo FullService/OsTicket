@@ -1,5 +1,14 @@
-<? if(!defined('OSTSCPINC') || !is_object($thisuser) || !$thisuser->isStaff() || !is_object($nav)) die('Access Denied'); 
+<?php if(!defined('OSTSCPINC') || !is_object($thisuser) || !$thisuser->isStaff() || !is_object($nav)) die('Access Denied'); 
 $trl->sendHeader();
+
+if(is_object($thisuser) && $thisuser->isStaff()) 
+{
+//@Modification: Online List
+    $staffid=$thisuser->getId();
+    //TODO insert on ost_staff a new colum lastlogin;
+    // see details in: http://osticket.com/forums/showthread.php?t=539
+    $qry = mysql_query("UPDATE ost_staff SET `lastlogin` = NOW() WHERE staff_id = '$staffid'");
+    }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="<?php echo $trl->getLang(); ?>">
