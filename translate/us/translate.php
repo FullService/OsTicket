@@ -85,12 +85,14 @@ $LANG['LABEL_POST_REPLY']='Post Reply';
 $LANG['LABEL_PRIORITY'] = 'Priority';
 $LANG['LABEL_QUERY'] = 'Query';
 $LANG['LABEL_RESET'] = 'Reset';
+$LANG['LABEL_SEARCH'] = 'Search';
+$LANG['LABEL_SORT_BY'] = 'Sort by';
+$LANG['LABEL_STAFF_PANEL'] = 'Staff Panel';
+$LANG['LABEL_STATUS_IS'] = 'Status is';
 $LANG['LABEL_SUBJECT'] = 'Subject';
 $LANG['LABEL_SUBMIT'] = 'Submit';
 $LANG['LABEL_SUBMIT_TICKET'] = 'Submit Ticket';
-$LANG['LABEL_STAFF_PANEL'] = 'Staff Panel';
-$LANG['LABEL_SEARCH'] = 'Search';
-$LANG['LABEL_STATUS_IS'] = 'Status is';
+$LANG['LABEL_RESULTS_PER_PAGE'] = 'Results Per Page';
 $LANG['LABEL_TELEPHONE'] = 'Telephone';
 $LANG['LABEL_TICKET_NUMBER'] = 'Ticket#';
 $LANG['LABEL_TICKET_STATUS'] = 'Ticket Status';
@@ -99,8 +101,6 @@ $LANG['LABEL_TO'] = 'To.';
 $LANG['LABEL_TRANSFER'] = 'Transfer';
 $LANG['LABEL_USERNAME'] = 'Username';
 $LANG['LABEL_VIEW_STATUS'] = 'View Status'; 
-$LANG['LABEL_SORT_BY'] = 'Sort by';
-$LANG['LABEL_RESULTS_PER_PAGE'] = 'Results Per Page';
 
 # Generic text for all site, if have to text repeted in 
 # Client or Staff ends, is prefixed with correct name.

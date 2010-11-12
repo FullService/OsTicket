@@ -15,17 +15,17 @@ $LANG['DIRECTION'] = 'ltr';
 $LANG['CODEPAGE'] = 'UTF-8';
 
 # Error Mensages
+$LANG['ERROR_EMAIL_PARSE_FAILED'] = 'Falha ao tratar o Email';
+$LANG['ERROR_INVALID_FILE_TYPE'] = 'Tipo de arquivo inválido.';
+$LANG['ERROR_INVALID_FROM_ADDRESS'] = 'Endereço Informado no FROM é invalido';
 $LANG['ERROR_NAME_REQUIRED'] = 'O nome é obrigatório';
 $LANG['ERROR_MESSAGE_REQUIRED'] = 'o Texto da Mensagem é obrigatório';
-$LANG['ERROR_INVALID_FROM_ADDRESS'] = 'Endereço Informado no FROM é invalido';
-$LANG['ERROR_EMAIL_PARSE_FAILED'] = 'Falha ao tratar o Email';
-$LANG['ERROR_SERVICES_NOT_AVAILABLE'] = 'Serviços indisponívels!';
+$LANG['ERROR_OCCURED'] = 'Ocorreu um Erro! Tente novamente';
 $LANG['ERROR_POSSIBLY_INVALID_TICKET'] = 'Acesso Negado. O ticket informado pode estar errado.';
 $LANG['ERROR_SECURITY_REPEAT_RESULT_LOCK'] = 'Violação de Regras de Segurança. Novas ocorrências resultarão em bloqueio de sua conta.';
-$LANG['ERROR_INVALID_FILE_TYPE'] = 'Tipo de arquivo inválido.';
+$LANG['ERROR_SERVICES_NOT_AVAILABLE'] = 'Serviços indisponívels!';
 $LANG['ERROR_YOU_HAVE_REACHED_MAXIMUM_FAILED_LOGIN'] = 'Você atingiu o máximo número de tentativas de login permitido. Tente após 5 minutos ou <a href="open.php">abra um novo ticket</a>';
 $LANG['ERROR_UNABLE_SEND_MESSAGE_TRY_AGAIN'] = 'Não foi possível enviar a mensagem, tente novamente!';
-$LANG['ERROR_OCCURED'] = 'Ocorreu um Erro! Tente novamente';
 $LANG['ERROR_UNKNOW_ACTION'] = 'Ação desconhecida!';
 
 
@@ -52,131 +52,58 @@ $LANG['IMAGE_STAFF_VIEW_CLOSED'] = 'staff/view_closed.gif';
 $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 
 # Labels for Bottons and Headers on Tables, Selections and others
-$LANG['LABEL_EMAIL'] = 'E-Mail';
-$LANG['LABEL_TICKET_NUMBER'] = 'Num. do Ticket';
-$LANG['LABEL_FULL_NAME'] = 'Nome Completo';
-$LANG['LABEL_NAME'] = 'Name';
-$LANG['LABEL_EMAIL_ADDRESS'] = 'E-Mail';
-$LANG['LABEL_EMAIL'] = 'Email';
-$LANG['LABEL_TELEPHONE'] = 'Telefone';
-$LANG['LABEL_PHONE'] = 'Fone';
-$LANG['LABEL_HELP_TOPIC'] = 'Ajuda Relacionada';
-$LANG['LABEL_SUBJECT'] = 'Assunto';
-$LANG['LABEL_MESSAGE'] = 'Mensagem';
-$LANG['LABEL_PRIORITY'] = 'Prioridade';
+$LANG['LABEL_ADMIN_PANEL'] = 'Administração';
+$LANG['LABEL_ADVANCED'] = 'Avançado';
+$LANG['LABEL_ASCENDING'] = 'Ascendente';
 $LANG['LABEL_ATTACHMENT'] = 'Anexo';
-$LANG['LABEL_TICKET_STATUS'] = 'Situação do Ticket'; 
-$LANG['LABEL_VIEW_STATUS'] = 'Verificar Ticket';
-$LANG['LABEL_DEPARTMENT'] = 'Departamento';
+$LANG['LABEL_BASIC'] = 'Basico';
+$LANG['LABEL_CANCEL'] = 'Cancelar';
+$LANG['LABEL_CHECK_STATUS'] = 'Verificar Status';
 $LANG['LABEL_CREATE_DATE'] = 'Criação';
-$LANG['LABEL_USERNAME'] = 'Nome do Usuário';
+$LANG['LABEL_DATE_SPAN'] = 'Data Entre';
+$LANG['LABEL_DEPARTMENT'] = 'Departamento';
+$LANG['LABEL_DEPT'] = 'Dept.';
+$LANG['LABEL_DESCENDING'] = 'Descendente';
+$LANG['LABEL_EMAIL'] = 'E-Mail';
+$LANG['LABEL_EMAIL_ADDRESS'] = 'E-Mail';
+$LANG['LABEL_FROM'] = 'De';
+$LANG['LABEL_FULL_NAME'] = 'Nome Completo';
+$LANG['LABEL_HELP_TOPIC'] = 'Ajuda Relacionada';
+$LANG['LABEL_NAME'] = 'Name';
+$LANG['LABEL_MESSAGE'] = 'Mensagem';
+$LANG['LABEL_OPEN_NEW_TICKET'] = 'Abrir Novo Ticket';
+$LANG['LABEL_OPEN_TICKET'] = 'Criar Ticket';
 $LANG['LABEL_PASSWORD'] = 'Senha';
 $LANG['LABEL_PASSWORD_AGAIN'] = 'Senha (novamente)';
-$LANG['LABEL_OPEN_TICKET'] = 'Criar Ticket';
-$LANG['LABEL_RESET'] = 'Limpar';
-$LANG['LABEL_CANCEL'] = 'Cancelar';
 $LANG['LABEL_POST_REPLY'] = 'Enviar Resposta';
-$LANG['LABEL_OPEN_NEW_TICKET'] = 'Abrir Novo Ticket';
-$LANG['LABEL_ADMIN_PANEL'] = 'Administração';
+$LANG['LABEL_PRIORITY'] = 'Prioridade';
+$LANG['LABEL_PHONE'] = 'Fone';
+$LANG['LABEL_QUERY'] = 'Consulta';
+$LANG['LABEL_RESET'] = 'Limpar';
+$LANG['LABEL_RESULTS_PER_PAGE'] = 'Número de Resultados por Paginas';
+$LANG['LABEL_SEARCH'] = 'Pesquisa';
 $LANG['LABEL_STAFF_PANEL'] = 'Equipe';
-$LANG['LABEL_CHECK_STATUS'] = 'Verificar Status';
+$LANG['LABEL_STATUS_IS'] = 'No Estado';
+$LANG['LABEL_SUBMIT_TICKET'] = 'Enviar Ticket';
+$LANG['LABEL_SORT_BY'] = 'Ordenado por';
+$LANG['LABEL_SUBJECT'] = 'Assunto';
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$LANG['LABEL_TICKET_NUMBER'] = 'Num. do Ticket';
+$LANG['LABEL_TELEPHONE'] = 'Telefone';
+$LANG['LABEL_TICKET_STATUS'] = 'Situação do Ticket'; 
+$LANG['LABEL_TICKET_ID'] = 'Ticket ID';
+$LANG['LABEL_TO'] = 'Até';
+$LANG['LABEL_TRANSFER'] = 'Transferir';
+$LANG['LABEL_USERNAME'] = 'Nome do Usuário';
+$LANG['LABEL_VIEW_STATUS'] = 'Verificar Ticket';
 
 
 # Generic text for all site, if have to text repeted in 
 # Client or Staff ends, is prefixed with correct name.
-$LANG['LABEL_ADVANCED'] = 'Avançado';
-$LANG['LABEL_ASCENDING'] = 'Ascendente';
-$LANG['LABEL_BASIC'] = 'Basico';
-$LANG['LABEL_DATE_SPAN'] = 'Data Entre';
-$LANG['LABEL_DEPT'] = 'Dept.';
-$LANG['LABEL_DESCENDING'] = 'Descendente';
-$LANG['LABEL_FROM'] = 'De.';
-$LANG['LABEL_QUERY'] = 'Consulta';
-$LANG['LABEL_SEARCH'] = 'Pesquisa';
-$LANG['LABEL_STATUS_IS'] = 'No Estado';
-$LANG['LABEL_SUBMIT_TICKET'] = 'Enviar Ticket';
-$LANG['LABEL_SORT_BY'] = 'Ordenado por';
-$LANG['LABEL_RESULTS_PER_PAGE'] = 'Número de Resultados por Paginas';
-$LANG['LABEL_TO'] = 'Até.';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#Alert Messages, normally used with JavaScript dialog box.
 $LANG['TEXT_CREATE_FAILED'] = 'Falha na Criação do Ticket';
 $LANG['TEXT_WELCOME_BACK'] = 'Bem Vindo';
 $LANG['TEXT_LOG_OUT'] = 'Sair';
@@ -188,8 +115,7 @@ $LANG['TEXT_TICKETS_STATUS'] = 'Situação dos Tickets';
 $LANG['TEXT_NEW_TICKET'] = 'Novo Ticket';
 $LANG['TEXT_HOME'] = 'Início';
 $LANG['TEXT_SUPPORT_CENTER'] = 'Centro de Suporte FullService';
-$LANG['TEXT_WELCOME_TITLE'] = 'Bem Vindo ao Centro de Suporte';
-$LANG['LABEL_TICKET_ID'] = 'Ticket ID';
+$LANG['TEXT_WELCOME_TITLE'] = 'Bem Vindo ao Centro de Suporte'; 
 
 
 
@@ -245,19 +171,12 @@ $LANG['TEXT_ANY_STATUS'] = 'Alguma Situação';
 $LANG['TEXT_OPEN'] = 'Aberto';
 $LANG['TEXT_CLOSED'] = 'Fechado';
 $LANG['TEXT_OVERDUE'] = 'Atrasado';
-
-
-
-
-
-
-
-
 $LANG['TEXT_SHOW_FROM_TO_OF_ALL'] = 'Exibindo {0} - {1} de {2}';
 $LANG['TEXT_SHOW_ZERO'] = 'Exibindo 0 (zero)';
 
 
 
+#Alert Messages, normally used with JavaScript dialog box.
 $LANG['ALERT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT'] = 'Tentativas de Login pelo cliente excessivas'."\n".
 'Email: {0}'."\n".
 'Ticket#: {1}'."\n".
