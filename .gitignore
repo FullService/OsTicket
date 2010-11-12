@@ -4,3 +4,6 @@
 .project.orig
 .cvsignore
 .DS_Store
+.cvsignore
+ost-config.primeiro.teste.php
+ost-config.php
