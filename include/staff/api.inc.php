@@ -1,6 +1,7 @@
 <?php
 if(!defined('OSTADMININC') || !$thisuser->isadmin()) die('Access Denied');
 
+global $trl;
 
 $info['phrase']=($errors && $_POST['phrase'])?Format::htmlchars($_POST['phrase']):$cfg->getAPIPassphrase();
 $select='SELECT * ';
@@ -23,7 +24,7 @@ $order_by=" ORDER BY $order_column $order ";
 $total=db_count('SELECT count(*) '.$from.' '.$where);
 $pagelimit=1000;//No limit.
 $page=($_GET['p'] && is_numeric($_GET['p']))?$_GET['p']:1;
-$pageNav=new Pagenate($total,$page,$pagelimit);
+$pageNav=new Pagenate($total,$page,$pagelimit, $trl);
 $pageNav->setURL('admin.php',$qstr.'&sort='.urlencode($_REQUEST['sort']).'&order='.urlencode($_REQUEST['order']));
 $query="$select $from $where $order_by";
 //echo $query;
