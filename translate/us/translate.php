@@ -94,6 +94,7 @@ $LANG['LABEL_STATUS_IS'] = 'Status is';
 $LANG['LABEL_TELEPHONE'] = 'Telephone';
 $LANG['LABEL_TICKET_NUMBER'] = 'Ticket#';
 $LANG['LABEL_TICKET_STATUS'] = 'Ticket Status';
+$LANG['LABEL_TICKET_ID'] = 'Ticket ID';
 $LANG['LABEL_TO'] = 'To.';
 $LANG['LABEL_TRANSFER'] = 'Transfer';
 $LANG['LABEL_USERNAME'] = 'Username';
