@@ -29,11 +29,13 @@ $LANG['ERROR_SERVICES_NOT_AVAILABLE'] = 'Services not available!';
 $LANG['ERROR_SECURITY_REPEAT_RESULT_LOCK'] = 'Security violation. Repeated violations will result in your account being locked.';
 $LANG['ERROR_SECURITY_VIOLATION_YOUR_ACCOUNT_WILL_LOCKED'] = 'Security violation. Repeated violations will result in your account being locked';
 $LANG['ERROR_UNABLE_SEND_MESSAGE_TRY_AGAIN'] = 'Unable to post the message. Try again';
+$LANG['ERROR_UNABLE_TO_POST_THE_RESPONSE']='Unable to post the response';
 $LANG['ERROR_UNKNOW_ACTION'] = 'Uknown action';
 $LANG['ERROR_UNABLE_TO_POST_MESSAGE'] = 'Unable to post the message. Try again';
 $LANG['ERROR_UKNOW_ACTION'] = 'Unknown action';
 $LANG['ERROR_YOU_HAVE_REACHED_MAXIMUM_FAILED_LOGIN']='You\'ve reached maximum failed login attempts allowed. Try again after 5 minutes or <a href="open.php">open a new ticket</a>'; 
 $LANG['ERROR_YOU_MUST_CHANGE_PASSWORD'] = 'You must change your password to continue.';
+$LANG['ERROR_SEARCH_TERM_MORE_3']='Search term must be more than 3 chars';
 
 # Titles on pages and web pages
 $LANG['TITLE'] = 'Tickets FullService'; 
@@ -41,6 +43,7 @@ $LANG['TITLE_BOX_NEW_TICKET'] = 'New Ticket';
 $LANG['TITLE_BAR_OFFLINE'] = 'Support Ticket System';
 $LANG['TITLE_OFFLINE'] = 'Support Ticket System Offline';
 $LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Open Previus Ticket';
+$LANG['TITLE_CLOSED_TICKETS'] = 'Closed Tickets';
 
 # Images for Staff and Clients Ends
 // relative path of imagens in "translate/".$LANG['LANGUAGE']."/"
@@ -61,6 +64,7 @@ $LANG['LABEL_BASIC'] = 'Basic';
 $LANG['LABEL_CANCEL'] = 'Cancel';
 $LANG['LABEL_CHANGE_PASSWORD'] = 'Change Password';
 $LANG['LABEL_CHECK_STATUS'] = 'Check Status';
+$LANG['LABEL_Closed'] = 'fechado';
 $LANG['LABEL_CREATE_DATE'] = 'Create Date';
 $LANG['LABEL_DATE_SPAN'] = 'Date Span';
 $LANG['LABEL_DEPARTMENT'] = 'Department';
@@ -75,6 +79,8 @@ $LANG['LABEL_MESSAGE'] = 'Message';
 $LANG['LABEL_MY_PREFERENCES'] = 'My Preferences';
 $LANG['LABEL_MY_PROFILE'] = 'My Profile';
 $LANG['LABEL_NAME'] = 'Name';
+$LANG['LABEL_NEW_TICKET'] = 'Novo Ticket';
+$LANG['LABEL_Open'] = 'aberto';
 $LANG['LABEL_OPEN_TICKET'] = 'Open Ticket';
 $LANG['LABEL_OPEN_NEW_TICKET'] = 'Open New Ticket';
 $LANG['LABEL_PREFERENCES'] = 'Preferences';
@@ -105,6 +111,7 @@ $LANG['LABEL_VIEW_STATUS'] = 'View Status';
 # Generic text for all site, if have to text repeted in 
 # Client or Staff ends, is prefixed with correct name.
 $LANG['TEXT_ACCESS_DENIED']='Access Denied';
+$LANG['TEXT_Answered_STATS'] = 'Tickets Respondidos ({0})';
 $LANG['TEXT_ANSWERED_TICKETS'] = 'Answered Tickets';
 $LANG['TEXT_ASSIGNED_TICKETS'] = 'Assigned Tickets';
 $LANG['TEXT_AUTHENTICATION_REQUIRED']='Authentication Required';
@@ -140,6 +147,7 @@ $LANG['TEXT_OPEN_NEW_TICKET'] = 'Open new Ticket';
 $LANG['TEXT_OPEN_PREVIUS_TICKET'] = 'Check status of previously opened ticket. we provide archives and history of all your support requests complete with responses.';
 $LANG['TEXT_OPEN_TICKETS'] = 'Open Tickets';
 $LANG['TEXT_OPEN'] = 'Open';
+$LANG['TEXT_OVERDUE_STATS'] = 'Overdue ({0})';
 $LANG['TEXT_OVERDUE_TICKETS'] = 'Overdue Tickets';
 $LANG['TEXT_OVERDUE'] = 'Overdue';
 $LANG['TEXT_OFFLINE']='Thank you for your interest in contacting us.<br>'.
@@ -160,11 +168,12 @@ $LANG['TEXT_SUPPORT_TEAM'] = 'Support Tean';
 $LANG['TEXT_SUPPORT_TICKET_SISTEM'] = '<span>SUPPORT TICKET</span> SYSTEM';
 $LANG['TEXT_SUPPORT_CENTER'] = 'Support Center';
 $LANG['TEXT_TICKET_CREATED'] = 'Support ticket request created';
-$LANG['TEXT_THANKS_NEW_TICKET'] = 'Thank you for contacting us.<br>A support ticket request has been created and a representative will be getting back to you shortly if necessary.';
-$LANG['TEXT_TICKETS_STATUS'] = 'Tickets Status';
+$LANG['TEXT_Ticket_status_changed_to'] = 'Situação do Ticket alterada para {0}';
 $LANG['TEXT_TICKET_NUMBER'] = 'Ticket #';
 $LANG['TEXT_TICKET_THREAD'] = 'Ticket Thread';
 $LANG['TEXT_TICKET_WILL_REOPEN_NEW_POST']='Ticket will be reopened on message post';
+$LANG['TEXT_TICKETS_STATUS'] = 'Tickets Status';
+$LANG['TEXT_THANKS_NEW_TICKET'] = 'Thank you for contacting us.<br>A support ticket request has been created and a representative will be getting back to you shortly if necessary.';
 $LANG['TEXT_UNABLE_CREATE_TICKET'] = 'Unable to create a ticket. Please correct errors below and try again!';
 $LANG['TEXT_VIEW_OPEN']='View Open';
 $LANG['TEXT_VIEW_CLOSED']='View Closed';

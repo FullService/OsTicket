@@ -26,6 +26,7 @@ $LANG['ERROR_SECURITY_REPEAT_RESULT_LOCK'] = 'Violação de Regras de Segurança
 $LANG['ERROR_SERVICES_NOT_AVAILABLE'] = 'Serviços indisponívels!';
 $LANG['ERROR_YOU_HAVE_REACHED_MAXIMUM_FAILED_LOGIN'] = 'Você atingiu o máximo número de tentativas de login permitido. Tente após 5 minutos ou <a href="open.php">abra um novo ticket</a>';
 $LANG['ERROR_UNABLE_SEND_MESSAGE_TRY_AGAIN'] = 'Não foi possível enviar a mensagem, tente novamente!';
+$LANG['ERROR_UNABLE_TO_POST_THE_RESPONSE']='Unable to post the response';
 $LANG['ERROR_UNKNOW_ACTION'] = 'Ação desconhecida!';
 
 
@@ -34,6 +35,7 @@ $LANG['ERROR_UNKNOW_ACTION'] = 'Ação desconhecida!';
 
 
 
+$LANG['ERROR_SEARCH_TERM_MORE_3']='A termo usado na busca deve ter mais de 3 caracteres';
 
 # Titles on pages and web pages
 $LANG['TITLE'] = 'Tickets FullService';
@@ -41,6 +43,7 @@ $LANG['TITLE_BOX_NEW_TICKET'] = 'Novo Ticket';
 $LANG['TITLE_BAR_OFFLINE'] = 'Sistema de Ticket para Suporte';
 $LANG['TITLE_OFFLINE'] = 'Sistema de ticket para Suporte está Offline';
 $LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Abrir ticket existente';
+$LANG['TITLE_CLOSED_TICKETS'] = 'Closed Tickets';
 
 # Images for Staff and Clients Ends
 // relative path of imagens in "translate/".$LANG['LANGUAGE']."/"
@@ -59,6 +62,7 @@ $LANG['LABEL_ATTACHMENT'] = 'Anexo';
 $LANG['LABEL_BASIC'] = 'Basico';
 $LANG['LABEL_CANCEL'] = 'Cancelar';
 $LANG['LABEL_CHECK_STATUS'] = 'Verificar Status';
+$LANG['LABEL_Closed'] = 'fechado';
 $LANG['LABEL_CREATE_DATE'] = 'Criação';
 $LANG['LABEL_DATE_SPAN'] = 'Data Entre';
 $LANG['LABEL_DEPARTMENT'] = 'Departamento';
@@ -69,8 +73,10 @@ $LANG['LABEL_EMAIL_ADDRESS'] = 'E-Mail';
 $LANG['LABEL_FROM'] = 'De';
 $LANG['LABEL_FULL_NAME'] = 'Nome Completo';
 $LANG['LABEL_HELP_TOPIC'] = 'Ajuda Relacionada';
+$LANG['LABEL_NEW_TICKET'] = 'Novo Ticket';
 $LANG['LABEL_NAME'] = 'Name';
 $LANG['LABEL_MESSAGE'] = 'Mensagem';
+$LANG['LABEL_Open'] = 'aberto';
 $LANG['LABEL_OPEN_NEW_TICKET'] = 'Abrir Novo Ticket';
 $LANG['LABEL_OPEN_TICKET'] = 'Criar Ticket';
 $LANG['LABEL_PASSWORD'] = 'Senha';
@@ -104,12 +110,20 @@ $LANG['LABEL_VIEW_STATUS'] = 'Verificar Ticket';
 
 # Generic text for all site, if have to text repeted in 
 # Client or Staff ends, is prefixed with correct name.
+$LANG['TEXT_ACCESS_DENIED']='Acesso Negado';
+$LANG['TEXT_Answered_STATS'] = 'Tickets Respondidos ({0})';
+$LANG['TEXT_ANSWERED_TICKETS'] = 'Tickets Respondidos';
+$LANG['TEXT_ANY_STATUS'] = 'Alguma Situação';
+$LANG['TEXT_ASSIGNED_TICKETS'] = 'Tickets atribuídos';
+$LANG['TEXT_ATTACH_FILE'] = 'Anexe seu arquivo';
+$LANG['TEXT_AUTHENTICATION_REQUIRED'] = 'Autenticação Obrigatória';
 $LANG['TEXT_CREATE_FAILED'] = 'Falha na Criação do Ticket';
 $LANG['TEXT_WELCOME_BACK'] = 'Bem Vindo';
 $LANG['TEXT_LOG_OUT'] = 'Sair';
 $LANG['TEXT_MY_PREFERENCES'] = 'Minhas Configurações';
 $LANG['TEXT_MY_ACCOUNT'] = 'Minha Conta';
 $LANG['TEXT_SUPPORT_TICKET_SISTEM'] = 'Sistema FullSErvice de <span>TICKET para Suporte</span>';
+$LANG['TEXT_My Tickets_STATS'] = 'Meus Tickets ({0})';
 $LANG['TEXT_MY_TICKETS'] = 'Meus Tickets'; 
 $LANG['TEXT_TICKETS_STATUS'] = 'Situação dos Tickets';
 $LANG['TEXT_NEW_TICKET'] = 'Novo Ticket';
@@ -126,6 +140,7 @@ $LANG['TEXT_BOX_NEW_TICKET'] = 'Envie uma nova requisição de suporte. Por favo
 $LANG['TEXT_OPEN_NEW_TICKET'] = 'Abrir novo Ticket';
 $LANG['TEXT_OPEN_PREVIUS_TICKET'] = 'Verificar o status de um Ticket criado anteriormente. É mantido um histórico e arquivo de todos as requisições de suporte com suas respostas.';
 $LANG['TEXT_TICKET_CREATED'] = 'Ticket para requisição criado!';
+$LANG['TEXT_Ticket_status_changed_to'] = 'Situação do Ticket alterada para {0}';
 $LANG['TEXT_UNABLE_CREATE_TICKET'] = 'Não foi possível criar o Ticket. Por favor corrija os erros abaixo e tente novamente!';
 $LANG['TEXT_PLEASE_FILL_FORM_NEW_TICKET'] = 'Por favor preencha o formulário abaixo para abir um novo Ticket.';
 $LANG['TEXT_NOT_THIS_USER'] = 'Não sou este usuário';
@@ -137,7 +152,6 @@ $LANG['TEXT_TICKET_NUMBER'] = 'Número do Ticket';
 $LANG['TEXT_TICKET_THREAD'] = 'Histórico do Ticket';
 $LANG['TEXT_TICKET_WILL_REOPEN_NEW_POST'] = 'O ticket será reaberto se houver uma nova postagem!';
 $LANG['TEXT_ENTER_MESSAGE'] = 'Entre sua mensagem';
-$LANG['TEXT_ATTACH_FILE'] = 'Anexe seu arquivo';
 $LANG['TEXT_POST_REPLY'] = 'Enviar Resposta';
 $LANG['TEXT_VIEW_OPEN'] = 'Verificar Abertos';
 $LANG['TEXT_VIEW_CLOSED'] = 'Verificar Fechados';
@@ -146,9 +160,9 @@ $LANG['TEXT_SORT_BY_TICKET_ID'] = 'Ordenar por Número do Ticket';
 $LANG['TEXT_SORT_BY_DATE'] = 'Ordenar por Data';
 $LANG['TEXT_SORT_BY_DEPARTMENT'] = 'Ordenar por Departamento';
 $LANG['TEXT_NO_TICKETS_FOUND'] = 'Nenhum Ticket encontrado.';
-$LANG['TEXT_AUTHENTICATION_REQUIRED'] = 'Autenticação Obrigatória';
 $LANG['TEXT_INVALID_LOGIN'] = 'Login Inválido';
 $LANG['TEXT_FORGOT_YOUR_LOGIN_INFO'] = 'Esqueceu suas informações de login? Por favor <a href="open.php">Abra um novo ticket</a>.';
+$LANG['TEXT_EXCESSIVE_FAILED_LOGIN_ATTEMPTS'] = 'Tentativas de Login Excessivas';
 $LANG['TEXT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT'] = 'Tentativas de Login Excessivas (cliente)';
 $LANG['TEXT_LOGIN_VIEW_STATUS_OF_TICKET'] = 'Para visualizar a situação de um Ticket, forneça as informações de login abaixo.<br>'.
 'Se é a primeira vez que está nos contactando ou você perdeu o número de seu ticket, por favor <a href="open.php">abra um novo ticket</a>';
@@ -158,16 +172,15 @@ $LANG['TEXT_WELCOME_BACK_STAFF'] = 'Bem Vindo, <strong>{0}</strong>';
 $LANG['TEXT_SHOW_FROM_TO_OF_ALL'] = 'Exibindo {0} - {1} de {2}';
 $LANG['TEXT_SHOW_ZERO'] = 'Exibindo 0 (zero)';
 $LANG['TEXT_GENERAL_INQUIRY'] = 'Assunto Geral';
+$LANG['TEXT_OVERDUE_STATS'] = 'Atrasado ({0})';
 $LANG['TEXT_OVERDUE_TICKETS'] = 'Tickets Atrasados';
-$LANG['TEXT_ANSWERED_TICKETS'] = 'Tickets Respondidos';
-$LANG['TEXT_ASSIGNED_TICKETS'] = 'Tickets atribuídos';
 $LANG['TEXT_SEARCH_RESULTS'] = 'Resultado de Pesquisa';
 $LANG['TEXT_OPEN_TICKETS'] = 'Tickets Abertos';
+$LANG['TEXT_OPEN_STATS'] = 'Abertos ({0})' ;
 $LANG['TEXT_CLOSED_TICKETS'] = 'Tickets Fechados';
 $LANG['TEXT_OVERDUE_TICKETS'] = 'Tickets Atrasados';
 $LANG['TEXT_LOGIN_VIEW_STATUS_OF_TICKET']='Para visualizar a situação de um ticket, forneça-nos as informações para sua identificação nos campos abaixo.<br/>'.
         'Se esta é seu primeiro contato, ou você perdeu o número de seu ticket (Atendimento), por-favor <a href="open.php">clique aqui</a> para abrir um novo ticket.';	
-$LANG['TEXT_ANY_STATUS'] = 'Alguma Situação';
 $LANG['TEXT_OPEN'] = 'Aberto';
 $LANG['TEXT_CLOSED'] = 'Fechado';
 $LANG['TEXT_OVERDUE'] = 'Atrasado';
