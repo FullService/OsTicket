@@ -1,5 +1,5 @@
 <?php
-if(!defined('OSTSCPINC') || !is_object($thisuser) || !$thisuser->isStaff()) die('Access Denied');
+if(!defined('OSTSCPINC') || !is_object($thisuser) || !$thisuser->isStaff()) die($trl->translate("TEXT_ACCESS_DENIED"));
 $info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the post data
 ?>
 <div width="100%">

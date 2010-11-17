@@ -17,7 +17,7 @@
 **********************************************************************/
 require('secure.inc.php');
 //TODO: alert admin on any error on this file.
-if(!$thisclient || !$thisclient->isClient() || !$_GET['id'] || !$_GET['ref']) die('Access Denied');
+if(!$thisclient || !$thisclient->isClient() || !$_GET['id'] || !$_GET['ref']) die($trl->translate("TEXT_ACCESS_DENIED"));
 
 $sql='SELECT attach_id,ref_id,ticket.ticket_id,ticketID,ticket.created,dept_id,file_name,file_key,email FROM '.TICKET_ATTACHMENT_TABLE.
     ' LEFT JOIN '.TICKET_TABLE.' ticket USING(ticket_id) '.

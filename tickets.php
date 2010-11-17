@@ -16,7 +16,7 @@
     $Id: $
 **********************************************************************/
 require('secure.inc.php');
-if(!is_object($thisclient) || !$thisclient->isValid()) die('Access denied'); //Double check again.
+if(!is_object($thisclient) || !$thisclient->isValid()) die($trl->translate("TEXT_ACCESS_DENIED")); //Double check again.
 
 require_once(INCLUDE_DIR.'class.ticket.php');
 $ticket=null;

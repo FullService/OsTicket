@@ -1,6 +1,6 @@
 <?php
 if(!defined('OSTADMININC') || basename($_SERVER['SCRIPT_NAME'])==basename(__FILE__)) die('Habari/Jambo rafiki? '); //Say hi to our friend..
-if(!$thisuser || !$thisuser->isadmin()) die('Access Denied');
+if(!$thisuser || !$thisuser->isadmin()) die($trl->translate("TEXT_ACCESS_DENIED"));
 
 $info=($_POST && $errors)?Format::input($_POST):Format::htmlchars($cfg->getSMTPInfo());
 ?>

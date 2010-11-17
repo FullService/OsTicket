@@ -1,5 +1,5 @@
 <?php
-if(!defined('OSTSCPINC') or !is_object($thisuser) or !$thisuser->canManageKb()) die('Access Denied');
+if(!defined('OSTSCPINC') or !is_object($thisuser) or !$thisuser->canManageKb()) die($trl->translate("TEXT_ACCESS_DENIED"));
 
 global $trl;
 

@@ -1,5 +1,5 @@
 <?php
-if(!defined('OSTSCPINC') || !@$thisuser->isStaff()) die('Access Denied');
+if(!defined('OSTSCPINC') || !@$thisuser->isStaff()) die($trl->translate("TEXT_ACCESS_DENIED"));
 
 global $trl;
 
