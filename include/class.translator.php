@@ -101,14 +101,24 @@ class Translator
 		}
 			
 	}
-	
+
 	/**
-	 *  Alias to Translator::translate($str,$replace);
-	 *  
+	 *  echo the string returned from Translator::translate($str,$replace);
+	 *
 	 * @param String $str
 	 * @param mix $replace
 	 */
 	function _($str,$replace = null){
+		echo $this->translate($str,$replace);
+	}
+	
+	/**
+	 *  return from Translator::translate($str,$replace);
+	 *
+	 * @param String $str
+	 * @param mix $replace
+	 */
+	function _t($str,$replace = null) {
 		return $this->translate($str,$replace);
 	}
 	/**
@@ -120,7 +130,7 @@ class Translator
 		$str = preg_replace('/\s{2,}/m', ' ', $str);
 		$str = str_replace(" ", "_", $str);
 		$str = strtoupper($str);
-		
+
 		if (!is_null($str))
 		{
 			if(array_key_exists($str,$this->LANG)){
