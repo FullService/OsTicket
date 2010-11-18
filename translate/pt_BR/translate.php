@@ -79,6 +79,7 @@ $LANG['LABEL_MESSAGE'] = 'Mensagem';
 $LANG['LABEL_Open'] = 'aberto';
 $LANG['LABEL_OPEN_NEW_TICKET'] = 'Abrir Novo Ticket';
 $LANG['LABEL_OPEN_TICKET'] = 'Criar Ticket';
+$LANG['LABEL_OTHER'] = 'Outro';
 $LANG['LABEL_PASSWORD'] = 'Senha';
 $LANG['LABEL_PASSWORD_AGAIN'] = 'Senha (novamente)';
 $LANG['LABEL_POST_REPLY'] = 'Enviar Resposta';
@@ -88,6 +89,8 @@ $LANG['LABEL_QUERY'] = 'Consulta';
 $LANG['LABEL_RESET'] = 'Limpar';
 $LANG['LABEL_RESULTS_PER_PAGE'] = 'Número de Resultados por Paginas';
 $LANG['LABEL_SEARCH'] = 'Pesquisa';
+$LANG['LABEL_SELECT_SOURCE'] = 'Selecione a origem';
+$LANG['LABEL_SELECT_DEPARTMENT'] = 'Selecione o Departamento';
 $LANG['LABEL_STAFF_PANEL'] = 'Equipe';
 $LANG['LABEL_STATUS_IS'] = 'No Estado';
 $LANG['LABEL_SUBMIT_TICKET'] = 'Enviar Ticket';
@@ -98,8 +101,10 @@ $LANG['LABEL_SUBJECT'] = 'Assunto';
 
 
 
+$LANG['LABEL_ISSUE_SUMMARY'] = 'Resumo do ocorrido';
 $LANG['LABEL_TICKET_NUMBER'] = 'Num. do Ticket';
 $LANG['LABEL_TELEPHONE'] = 'Telefone';
+$LANG['LABEL_TICKET_SOURCE'] = 'Origem do Ticket';
 $LANG['LABEL_TICKET_STATUS'] = 'Situação do Ticket'; 
 $LANG['LABEL_TICKET_ID'] = 'Ticket ID';
 $LANG['LABEL_TO'] = 'Até';
@@ -142,6 +147,7 @@ $LANG['TEXT_OPEN_PREVIUS_TICKET'] = 'Verificar o status de um Ticket criado ante
 $LANG['TEXT_TICKET_CREATED'] = 'Ticket para requisição criado!';
 $LANG['TEXT_Ticket_status_changed_to'] = 'Situação do Ticket alterada para {0}';
 $LANG['TEXT_UNABLE_CREATE_TICKET'] = 'Não foi possível criar o Ticket. Por favor corrija os erros abaixo e tente novamente!';
+$LANG['TEXT_PLEASE_FILL_STAFF_FORM_BELOW_OPEN_NEW_TICKET'] = 'Por Favor, preencha o formulário abaixo para abrir um novo ticket.';
 $LANG['TEXT_PLEASE_FILL_FORM_NEW_TICKET'] = 'Por favor preencha o formulário abaixo para abir um novo Ticket.';
 $LANG['TEXT_NOT_THIS_USER'] = 'Não sou este usuário';
 $LANG['TEXT_THANKS_NEW_TICKET'] = 'Obrigado por nos contactar.<br>Um ticket para sua requisição foi criado e um de nossos representantes irá retornar para você o mais rapido possível!';
@@ -155,6 +161,8 @@ $LANG['TEXT_ENTER_MESSAGE'] = 'Entre sua mensagem';
 $LANG['TEXT_POST_REPLY'] = 'Enviar Resposta';
 $LANG['TEXT_VIEW_OPEN'] = 'Verificar Abertos';
 $LANG['TEXT_VIEW_CLOSED'] = 'Verificar Fechados';
+$LANG['TEXT_VISIBLE_TO_CLIENT'] = 'Visivel pelo Cliente.';
+
 $LANG['TEXT_REFRESH'] = 'Atualizar';
 $LANG['TEXT_SORT_BY_TICKET_ID'] = 'Ordenar por Número do Ticket';
 $LANG['TEXT_SORT_BY_DATE'] = 'Ordenar por Data';

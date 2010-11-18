@@ -434,14 +434,14 @@ $stats=db_fetch_array(db_query($sql));
 $nav->setTabActive('tickets');
 
 if($cfg->showAnsweredTickets()) {
-    $nav->addSubMenu(array('desc'=>$trl->_('TEXT_Open_STATS',($stats['open']+$stats['answered']))
+    $nav->addSubMenu(array('desc'=>$trl->_t('TEXT_Open_STATS',($stats['open']+$stats['answered']))
                             ,'title'=>'Open Tickets', 'href'=>'tickets.php', 'iconclass'=>'Ticket'));
 }else{
     if($stats['open'])
-        $nav->addSubMenu(array('desc'=>$trl->_('TEXT_Open_STATS',$stats['open']),'title'=>$trl->_('TITLE_Open Tickets'), 'href'=>'tickets.php', 'iconclass'=>'Ticket'));
+        $nav->addSubMenu(array('desc'=>$trl->_t('TEXT_Open_STATS',$stats['open']),'title'=>$trl->_t('TITLE_Open Tickets'), 'href'=>'tickets.php', 'iconclass'=>'Ticket'));
     if($stats['answered']) {
-        $nav->addSubMenu(array('desc'=>$trl->_('TEXT_Answered_STATS',$stats['answered']),
-                           'title'=>$trl->_('TITLE_Answered Tickets'), 'href'=>'tickets.php?status=answered', 'iconclass'=>'answeredTickets')); 
+        $nav->addSubMenu(array('desc'=>$trl->_t('TEXT_Answered_STATS',$stats['answered']),
+                           'title'=>$trl->_t('TITLE_Answered Tickets'), 'href'=>'tickets.php?status=answered', 'iconclass'=>'answeredTickets')); 
     }
 }
 
@@ -449,23 +449,23 @@ if($stats['assigned']) {
     if(!$sysnotice && $stats['assigned']>10)
         $sysnotice=$stats['assigned'].' assigned to you!';
 
-    $nav->addSubMenu(array('desc'=>$trl->_('TEXT_My Tickets_STATS',$stats['assigned']),'title'=>$trl->_('TITLE_Assigned Tickets'),
+    $nav->addSubMenu(array('desc'=>$trl->_t('TEXT_My Tickets_STATS',$stats['assigned']),'title'=>$trl->_t('TITLE_Assigned Tickets'),
                     'href'=>'tickets.php?status=assigned','iconclass'=>'assignedTickets'));
 }
 
 if($stats['overdue']) {
-    $nav->addSubMenu(array('desc'=>$trl->_('TEXT_Overdue_STATS',$stats['overdue']),'title'=>$trl->_('TITLE_Stale Tickets'),
+    $nav->addSubMenu(array('desc'=>$trl->_t('TEXT_Overdue_STATS',$stats['overdue']),'title'=>$trl->_t('TITLE_Stale Tickets'),
                     'href'=>'tickets.php?status=overdue','iconclass'=>'overdueTickets'));
 
     if(!$sysnotice && $stats['overdue']>10)
         $sysnotice=$stats['overdue'] .' overdue tickets!';
 }
 
-$nav->addSubMenu(array('desc'=>$trl->_('TEXT_Closed_Tickets'),'title'=>$trl->_('TITLE_Closed  Tickets'), 'href'=>'tickets.php?status=closed', 'iconclass'=>'closedTickets'));
+$nav->addSubMenu(array('desc'=>$trl->_t('TEXT_Closed_Tickets'),'title'=>$trl->_t('TITLE_Closed  Tickets'), 'href'=>'tickets.php?status=closed', 'iconclass'=>'closedTickets'));
 
 
 if($thisuser->canCreateTickets()) {
-    $nav->addSubMenu(array('desc'=>$trl->_('TEXT_New_Ticket'),'href'=>'tickets.php?a=open','iconclass'=>'newTicket'));    
+    $nav->addSubMenu(array('desc'=>$trl->_t('TEXT_New_Ticket'),'href'=>'tickets.php?a=open','iconclass'=>'newTicket'));    
 }
 
 //Render the page...

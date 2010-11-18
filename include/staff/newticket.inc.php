@@ -11,12 +11,12 @@ $info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the po
         <p class="warnmessage"><?=$warn?></p>
     <?}?>
 </div>
-<table width="80%" border="0" cellspacing=1 cellpadding=2>
-   <form action="tickets.php" method="post" enctype="multipart/form-data">
-    <input type='hidden' name='a' value='open'>
-    <tr><td align="left" colspan=2>Please fill in the form below to open a new ticket.</td></tr>
+<form action="tickets.php" method="post" enctype="multipart/form-data">
+<input type='hidden' name='a' value='open'>
+<table width="80%" border="0" cellspacing="1" cellpadding="2">
+    <tr><td align="left" colspan=2><?php  $trl->_('TEXT_PLEASE_FILL_STAFF_FORM_BELOW_OPEN_NEW_TICKET')?></td></tr>
     <tr>
-        <td align="left" nowrap width="20%"><b>Email Address:</b></td>
+        <td align="left" nowrap width="20%"><b><?php  $trl->_('LABEL_EMAIL_ADDRESS')?>:</b></td>
         <td>
             <input type="text" id="email" name="email" size="25" value="<?=$info['email']?>">
             &nbsp;<font class="error"><b>*</b>&nbsp;<?=$errors['email']?></font>
@@ -27,36 +27,36 @@ $info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the po
         </td>
     </tr>
     <tr>
-        <td align="left" ><b>Full Name:</b></td>
+        <td align="left" ><b><?php $trl->_('LABEL_FULL_NAME');?>:</b></td>
         <td>
             <input type="text" id="name" name="name" size="25" value="<?=$info['name']?>">
             &nbsp;<font class="error"><b>*</b>&nbsp;<?=$errors['name']?></font>
         </td>
     </tr>
     <tr>
-        <td align="left">Telephone:</td>
+        <td align="left"><?php $trl->_('LABEL_TELEPHONE')?>:</td>
         <td><input type="text" name="phone" size="25" value="<?=$info['phone']?>">
             &nbsp;Ext&nbsp;<input type="text" name="phone_ext" size="6" value="<?=$info['phone_ext']?>">
             <font class="error">&nbsp;<?=$errors['phone']?></font></td>
     </tr>
     <tr height="2px"><td align="left" colspan=2 >&nbsp;</td></tr>
     <tr>
-        <td align="left"><b>Ticket Source:</b></td>
+        <td align="left"><b><?php $trl->_('LABEL_TICKET_SOURCE')?>:</b></td>
         <td>
             <select name="source">
-                <option value="" selected >Select Source</option>
-                <option value="Phone" <?=($info['source']=='Phone')?'selected':''?>>Phone</option>
-                <option value="Email" <?=($info['source']=='Email')?'selected':''?>>Email</option>
-                <option value="Other" <?=($info['source']=='Other')?'selected':''?>>Other</option>
+                <option value="" selected ><?php $trl->_('LABEL_SELECT_SOURCE')?></option>
+                <option value="Phone" <?=($info['source']=='Phone')?'selected':''?>><?php $trl->_('LABEL_PHONE')?></option>
+                <option value="Email" <?=($info['source']=='Email')?'selected':''?>><?php $trl->_('LABEL_EMAIL')?></option>
+                <option value="Other" <?=($info['source']=='Other')?'selected':''?>><?php $trl->_('LABEL_OTHER')?></option>
             </select>
             &nbsp;<font class="error"><b>*</b>&nbsp;<?=$errors['source']?></font>
         </td>
     </tr>
     <tr>
-        <td align="left"><b>Department:</b></td>
+        <td align="left"><b><?php $trl->_('LABEL_DEPARTMENT')?>:</b></td>
         <td>
             <select name="deptId">
-                <option value="" selected >Select Department</option>
+                <option value="" selected ><?php $trl->_('LABEL_SELECT_DEPARTMENT')?></option>
                 <?
                  $services= db_query('SELECT dept_id,dept_name FROM '.DEPT_TABLE.' ORDER BY dept_name');
                  while (list($deptId,$dept) = db_fetch_row($services)){
@@ -69,16 +69,16 @@ $info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the po
         </td>
     </tr>
     <tr>
-        <td align="left"><b>Subject:</b></td>
+        <td align="left"><b><?php $trl->_('LABEL_SUBJECT')?>:</b></td>
         <td>
             <input type="text" name="subject" size="35" value="<?=$info['subject']?>">
             &nbsp;<font class="error">*&nbsp;<?=$errors['subject']?></font>
         </td>
     </tr>
     <tr>
-        <td align="left" valign="top"><b>Issue Summary:</b></td>
+        <td align="left" valign="top"><b><?php $trl->_('LABEL_ISSUE_SUMMARY')?>:</b></td>
         <td>
-            <i>Visible to client/customer.</i><font class="error"><b>*&nbsp;<?=$errors['issue']?></b></font><br/>
+            <i><?php $trl->_('TEXT_Visible to client')?></i><font class="error"><b>*&nbsp;<?=$errors['issue']?></b></font><br/>
             <?
             $sql='SELECT premade_id,title FROM '.KB_PREMADE_TABLE.' WHERE isenabled=1';
             $canned=db_query($sql);
@@ -208,8 +208,8 @@ $info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the po
             <input class="button" type="button" name="cancel" value="Cancel" onClick='window.location.href="tickets.php"'>    
         </td>
     </tr>
-  </form>
 </table>
+  </form>
 <script type="text/javascript">
     
     var options = {
