@@ -116,7 +116,7 @@ $LANG['LABEL_VIEW_STATUS'] = 'Verificar Ticket';
 # Generic text for all site, if have to text repeted in 
 # Client or Staff ends, is prefixed with correct name.
 $LANG['TEXT_ACCESS_DENIED']='Acesso Negado';
-$LANG['TEXT_Answered_STATS'] = 'Tickets Respondidos ({0})';
+$LANG['TEXT_ANSWERED_STATS'] = 'Tickets Respondidos ({0})';
 $LANG['TEXT_ANSWERED_TICKETS'] = 'Tickets Respondidos';
 $LANG['TEXT_ANY_STATUS'] = 'Alguma Situação';
 $LANG['TEXT_ASSIGNED_TICKETS'] = 'Tickets atribuídos';
@@ -130,6 +130,7 @@ $LANG['TEXT_MY_ACCOUNT'] = 'Minha Conta';
 $LANG['TEXT_SUPPORT_TICKET_SISTEM'] = 'Sistema FullSErvice de <span>TICKET para Suporte</span>';
 $LANG['TEXT_My Tickets_STATS'] = 'Meus Tickets ({0})';
 $LANG['TEXT_MY_TICKETS'] = 'Meus Tickets'; 
+$LANG['TEXT_MY_TICKETS_STATS'] = 'Meus Tickets ({0})'; 
 $LANG['TEXT_TICKETS_STATUS'] = 'Situação dos Tickets';
 $LANG['TEXT_NEW_TICKET'] = 'Novo Ticket';
 $LANG['TEXT_HOME'] = 'Início';

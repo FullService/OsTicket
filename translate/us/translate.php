@@ -80,7 +80,7 @@ $LANG['LABEL_MY_PREFERENCES'] = 'My Preferences';
 $LANG['LABEL_MY_PROFILE'] = 'My Profile';
 $LANG['LABEL_NAME'] = 'Name';
 $LANG['LABEL_NEW_TICKET'] = 'Novo Ticket';
-$LANG['LABEL_Open'] = 'aberto';
+$LANG['LABEL_OPEN'] = 'aberto';
 $LANG['LABEL_OPEN_TICKET'] = 'Open Ticket';
 $LANG['LABEL_OPEN_NEW_TICKET'] = 'Open New Ticket';
 $LANG['LABEL_OTHER'] = 'Outro';
@@ -114,7 +114,7 @@ $LANG['LABEL_VIEW_STATUS'] = 'View Status';
 # Generic text for all site, if have to text repeted in 
 # Client or Staff ends, is prefixed with correct name.
 $LANG['TEXT_ACCESS_DENIED']='Access Denied';
-$LANG['TEXT_Answered_STATS'] = 'Tickets Respondidos ({0})';
+$LANG['TEXT_ANSWERED_STATS'] = 'Tickets Respondidos ({0})';
 $LANG['TEXT_ANSWERED_TICKETS'] = 'Answered Tickets';
 $LANG['TEXT_ASSIGNED_TICKETS'] = 'Assigned Tickets';
 $LANG['TEXT_AUTHENTICATION_REQUIRED']='Authentication Required';
@@ -141,7 +141,8 @@ $LANG['TEXT_LOGIN_VIEW_STATUS_OF_TICKET']='To view the status of a ticket, provi
 $LANG['TEXT_LOG_OUT'] = 'Log Out';
 $LANG['TEXT_MESSAGE_POSTED_SUCCESS'] = 'Message Posted Successfully';
 $LANG['TEXT_MY_TICKETS'] = 'My Tickets';
-$LANG['TEXT_MY_ACCOUNT'] = 'My ACCOUNT';
+$LANG['TEXT_MY_TICKETS'] = 'My Tickets ({0})';
+$LANG['TEXT_MY_ACCOUNT'] = 'My Account';
 $LANG['TEXT_NEW_TICKET'] = 'New Ticket';
 $LANG['TEXT_NOT_THIS_USER'] = 'I am not this user';
 $LANG['TEXT_NEW_TICKET_AUTO_RESPONSE'] = 'An email with the ticket number has been sent to <b>{0}</b>.You\'ll need the ticket number along with your email to view status and progress online.<br><br>If you wish to send additional comments or information regarding same issue, please follow the instructions on the email.';
