@@ -170,6 +170,25 @@ class Translator
 			
 	}
 	/**
+	 *  echo the string returned from Translator::translate($str,$replace);
+	 *
+	 * @param String $str
+	 * @param mix $replace
+	 */
+	function _($str,$replace = null){
+		echo $this->translate($str,$replace);
+	}
+	
+	/**
+	 *  return from Translator::translate($str,$replace);
+	 *
+	 * @param String $str
+	 * @param mix $replace
+	 */
+	function _t($str,$replace = null) {
+		return $this->translate($str,$replace);
+	}
+	/**
 	 *
 	 */
 	function translate($str, $replace = null)
