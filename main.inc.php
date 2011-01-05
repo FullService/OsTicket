@@ -90,6 +90,7 @@
    
 
     #include required files
+    require(INCLUDE_DIR.'class.extensionsManager.php'); // class for help to extend the OsTicket with modules and plugins;
     require(INCLUDE_DIR.'class.usersession.php');
     require(INCLUDE_DIR.'class.pagenate.php'); //Pagenate helper!
     require(INCLUDE_DIR.'class.sys.php'); //system loader & config & logger.
@@ -99,7 +100,7 @@
     require(INCLUDE_DIR.'class.validator.php'); //Class to help with basic form input validation...please help improve it.
     require(INCLUDE_DIR.'mysql.php');
     require(INCLUDE_DIR.'class.translator.php'); // class for help to translate the application;
-
+    
     #CURRENT EXECUTING SCRIPT.
     define('THISPAGE',Misc::currentURL());
 

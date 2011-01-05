@@ -1,0 +1,59 @@
+An extension may be a plugin or a module.
+
+When an extension is a plugin it reacts to events that
+must be issued by the parties concerned code.
+
+Ideally we use to inject aspects of the triggers
+events but we are not sure that all code will be
+structured to allow for such insertion point.
+
+So as demand should be inserted the codes
+release events.
+
+The code for an event should lanamento presented the
+below:
+
+ExtensionsManager: triggerEvent ('EVENT_NAME', 'VIEW')
+
+EVENT_NAME is the name of the event, and VIEW indicates whether an event
+specific to client or staff, but is not informed
+will be released as the section of the software in question.
+
+The ExtensionsManager checks which software is being
+used by the constant presence OSTCLIENTINC.
+
+If you want an event to be released only to a group
+plugin is for performance reasons or for any
+another question, one must use the following code:
+ 
+ExtensionsManager: triggerEvent ('EVENT_NAME', 'VIEW', 'GROUP');
+
+If there is no plugin in the group, the function will return false.
+
+But if you use the function:
+
+ExtensionsManager: triggerAsyncEvent ('EVENT_NAME', 'VIEW')
+
+Nothing is returned, since the function only fires the event and
+not expect the implementation of the plugins.
+
+Because PHP does not work completely with Multi-threaded, it is
+need to create ways for this, what will be done by the
+ExtensionsManager by calling:
+
+ExtensionsManager: runThread ($ thread);
+
+The variable $ thread should be an instance of a class that implements
+ExtensionThread interface. You may also be the name of the class.
+
+But if the extension is a module, this first version of the module
+may be presented in five different ways:
+
+Header (appears above the menu)
+Footer (appears below the general content of the site)
+Left (appears on the left side of site)
+Right (shown on the right side of site)
+Menu (serves as a component that inserts a menu item, which when clicked 
+      executes a procedure and presents the center of the page as its content.)
+ 
+
