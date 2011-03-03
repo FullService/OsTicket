@@ -4,13 +4,21 @@
 if (!strcasecmp(basename($_SERVER['SCRIPT_NAME']), basename( __FILE__ ))) die ('kwaheri rafiki!');
 
 $LANG = array ();
+
+# Language identification
 $LANG['LANGUAGE'] = 'es';
-//Word Name (english name)
+//Word Name (espanishish name)
 $LANG['LANGUAGE_NAME'] = 'Espanish';
 //Native name of language (in the original language)
 $LANG['LANGUAGE_NATIVE_NAME'] = 'Espanish';
-
+$LANG['DIRECTION'] = 'ltr';
 $LANG['CODEPAGE'] = 'UTF-8';
+
+$LANG['TITLE'] = 'Tickets FullService';
+$LANG['TITLE_BOX_NEW_TICKET'] = 'Nuevo Ticket';
+$LANG['TITLE_BAR_OFFLINE'] = 'Sistema de Ticket para Soporte';
+$LANG['TITLE_OFFLINE'] = 'Sistema de ticket para Soporte está Offline';
+$LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Abrir ticket existente';
 
 $LANG['ERROR_NAME_REQUIRED'] = 'Nombre requerido';
 $LANG['ERROR_MESSAGE_REQUIRED'] = 'Mensaje requerido';
@@ -25,14 +33,15 @@ $LANG['ERROR_UNABLE_SEND_MESSAGE_TRY_AGAIN'] = 'No se púdo enviar el mensaje. I
 $LANG['ERROR_OCCURED'] = 'Ocurrió un error(es) . Por favor, inténtelo de nuevo';
 $LANG['ERROR_UNKNOW_ACTION'] = 'Acción desconocida';
 $LANG['ERROR_YOU_HAVE_REACHED_MAXIMUM_FAILED_LOGIN']='Ha alcanzado el máximo de intentos fallidos permitido. Inténtelo de nuevo después de 5 minutos o <a href="open.php">abra un nuevo ticket</a>';
-$LANG['ERROR_YOU_MUST_CHANGE_PASSWORD'] = 'You must change your password to continue.';
-
-$LANG['TITLE'] = 'Tickets FullService';
+$LANG['ERROR_YOU_MUST_CHANGE_PASSWORD'] = 'Debe cambiar su clave para continuar.';
 
 // relative path of imagens in "translate/".$LANG['LANGUAGE']."/"
 $LANG['IMAGE_STAFF_VIEW_OPEN'] = 'staff/view_open.gif';
 $LANG['IMAGE_STAFF_VIEW_CLOSED'] = 'staff/view_closed.gif';
 $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
+$LANG['IMAGE_CLIENT_VIEW_OPEN'] = 'client/view_open.gif';
+$LANG['IMAGE_CLIENT_VIEW_CLOSED'] = 'client/view_closed.gif';
+$LANG['IMAGE_CLIENT_REFRESH'] = 'client/refresh.gif';
 
 $LANG['LABEL_EMAIL'] = 'E-Mail';
 $LANG['LABEL_TICKET_NUMBER'] = 'Ticket#';
@@ -47,36 +56,45 @@ $LANG['LABEL_SUBJECT'] = 'Asunto';
 $LANG['LABEL_MESSAGE'] = 'Mensaje';
 $LANG['LABEL_PRIORITY'] = 'Prioridad';
 $LANG['LABEL_ATTACHMENT'] = 'Adjunto';
-$LANG['LABEL_TICKET_STATUS'] = 'Estado del Ticket';
+$LANG['LABEL_TICKET_STATUS'] = 'Estado';
 $LANG['LABEL_VIEW_STATUS'] = 'Ver Estado'; 
 $LANG['LABEL_DEPARTMENT'] = 'Departamento';
-$LANG['LABEL_CREATE_DATE'] = 'Crear Fecha';
-$LANG['LABEL_OPEN_TICKET'] = 'Abrir Ticket';
+$LANG['LABEL_CREATE_DATE'] = 'Fecha';
+$LANG['LABEL_USERNAME'] = 'Usuario';
+$LANG['LABEL_PASSWORD'] = 'Contraseña';
+$LANG['LABEL_PASSWORD_AGAIN'] = 'Contraseña (nuevamente)';
+$LANG['LABEL_OPEN_TICKET'] = 'Crear Ticket';
 $LANG['LABEL_RESET'] = 'Reset';
 $LANG['LABEL_CANCEL'] = 'Cancelar';
 $LANG['LABEL_POST_REPLY']='Publicar respuesta';
+$LANG['LABEL_OPEN_NEW_TICKET'] = 'Abrir Nuevo Ticket';
+$LANG['LABEL_ADMIN_PANEL'] = 'Administracion';
+$LANG['LABEL_STAFF_PANEL'] = 'Equipo';
 $LANG['LABEL_CHECK_STATUS'] = 'Comprobar Estado';
 $LANG['TEXT_SELECT_ONE_TOPIC'] = 'Seleccione Uno';
+$LANG['LABEL_SUBMIT_TICKET'] = 'Enviar Ticket';
 $LANG['LABEL_MY_PREFERENCES'] = 'Mis Preferencias';
 $LANG['LABEL_ADMIN_PANEL'] = 'Panel de Administración';
 $LANG['LABEL_STAFF_PANEL'] = 'Panel de Empleado';
 $LANG['LABEL_QUERY'] = 'Query';
-$LANG['LABEL_SEARCH'] = 'Search';
-$LANG['LABEL_ADVANCED'] = 'Advances';
+$LANG['LABEL_SEARCH'] = 'Buscar';
+$LANG['LABEL_ADVANCED'] = 'Advanzado';
+$LANG['LABEL_BASIC'] = 'Basico';
 $LANG['LABEL_STATUS_IS'] = 'Status is';
-$LANG['LABEL_DEPT'] = 'Dept.';
+$LANG['LABEL_DEPT'] = 'Depto.';
 $LANG['LABEL_DATE_SPAN'] = 'Date Span';
-$LANG['LABEL_FROM'] = 'From.';
-$LANG['LABEL_TO'] = 'To.';
-$LANG['LABEL_SORT_BY'] = 'Sort by';
-$LANG['LABEL_ASCENDING'] = 'Ascending';
-$LANG['LABEL_DESCENDING'] = 'Descending';
-$LANG['LABEL_RESULTS_PER_PAGE'] = 'Results Per Page';
+$LANG['LABEL_FROM'] = 'Desde.';
+$LANG['LABEL_TO'] = 'Para.';
+$LANG['LABEL_SORT_BY'] = 'Ordenar por';
+$LANG['LABEL_ASCENDING'] = 'Ascendente';
+$LANG['LABEL_DESCENDING'] = 'Descendente';
+$LANG['LABEL_RESULTS_PER_PAGE'] = 'Resultados Por Pagina';
 
 $LANG['TEXT_GENERAL_INQUIRY'] = 'Consulta General';
 $LANG['TEXT_CREATE_FAILED'] = 'No se púdo crear ';
 $LANG['TEXT_WELCOME_BACK'] = 'Bienvenido nuevamente';
 $LANG['TEXT_LOG_OUT'] = 'Salir';
+$LANG['TEXT_MY_PREFERENCES'] = 'Mis Preferenciass';
 $LANG['TEXT_MY_ACCOUNT'] = 'Mi Cuenta';
 $LANG['TEXT_SUPPORT_TICKET_SISTEM'] = '<span>SUPPORT TICKET</span> SYSTEM';
 $LANG['TEXT_MY_TICKETS'] = 'Mis Tickets';
@@ -115,29 +133,29 @@ $LANG['TEXT_INVALID_LOGIN']='Inicio de sesión no válido';
 $LANG['TEXT_FORGOT_YOUR_LOGIN_INFO']='¿Olvidaste tus datos de acceso? Por favor <a href="open.php">abra un nuevo ticket</a>.';
 $LANG['TEXT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT']='Excesivos intentos de acceso (cliente)';
 $LANG['TEXT_LOGIN_VIEW_STATUS_OF_TICKET']='Para ver el estado de un ticket, proporcionenos sus datos de acceso.<br/>'.
-        'Si esta es su primera vez en contacto con nosotros o ha perdido el ID del ticket , por favor, <a href="open.php">haga clic aquí</a> para abrir un nuevo ticket.';	
+'Si esta es su primera vez en contacto con nosotros o ha perdido el ID del ticket , por favor, <a href="open.php">haga clic aquí</a> para abrir un nuevo ticket.';	
 $LANG['TEXT_SESSION_TIMED_OUT_DUE_TO_INACTIVITY']='Tiempo de espera de Sesión agotado debido a la inactividad';
-$LANG['TEXT_WELCOME_BACK_VACATION']= 'Welcome back! You are listed as \'on vacation\' Please let admin or your manager know that you are back.';
-$LANG['TEXT_WELCOME_BACK_CLIENT'] = 'Welcome back, <strong>{0}</strong>';
-$LANG['TEXT_WELCOME_BACK_STAFF'] = 'Welcome back, <strong>{0}</strong>';
-$LANG['TEXT_SHOW_FROM_TO_OF_ALL'] = 'Showing {0} - {1} of {2}';
-$LANG['TEXT_SHOW_ZERO'] = 'Showing 0 (zero)';
-$LANG['TEXT_OVERDUE_TICKETS'] = 'Overdue Tickets';
-$LANG['TEXT_ANSWERED_TICKETS'] = 'Answered Tickets';
-$LANG['TEXT_ASSIGNED_TICKETS'] = 'Assigned Tickets';
-$LANG['TEXT_SEARCH_RESULTS'] = 'Search Results';
-$LANG['TEXT_OPEN_TICKETS'] = 'Open Tickets';
-$LANG['TEXT_CLOSED_TICKETS'] = 'Closed Tickets';
-$LANG['TEXT_OVERDUE_TICKETS'] = 'Overdue Tickets';
-$LANG['TEXT_ANY_STATUS'] = 'Any status';
-$LANG['TEXT_OPEN'] = 'Open';
-$LANG['TEXT_CLOSED'] = 'Closed';
-$LANG['TEXT_OVERDUE'] = 'Overdue';
+$LANG['TEXT_WELCOME_BACK_VACATION']= 'Bienvenido! Esta catalogado como \'de vacaciones\' Cambie su estado o dígale al administrador.';
+$LANG['TEXT_WELCOME_BACK_CLIENT'] = 'Bienvenido!, <strong>{0}</strong>';
+$LANG['TEXT_WELCOME_BACK_STAFF'] = 'Bienvenido!, <strong>{0}</strong>';
+$LANG['TEXT_SHOW_FROM_TO_OF_ALL'] = 'Listado {0} - {1} of {2}';
+$LANG['TEXT_SHOW_ZERO'] = 'Listado 0 (zero)';
+$LANG['TEXT_GENERAL_INQUIRY'] = 'Asunto General';
+$LANG['TEXT_OVERDUE_TICKETS'] = 'Tickets Atrasados (Overdue)';
+$LANG['TEXT_ANSWERED_TICKETS'] = 'Tickets Respondidos (Answered)';
+$LANG['TEXT_ASSIGNED_TICKETS'] = 'Tickets Asignados';
+$LANG['TEXT_SEARCH_RESULTS'] = 'Buscar Resultados';
+$LANG['TEXT_Open_TICKETS'] = 'Tickets Abiertos';
+$LANG['TEXT_CLOSED_TICKETS'] = 'Tickets Cerrados';
+$LANG['TEXT_ANY_STATUS'] = 'Cualquier Estado';
+$LANG['TEXT_OPEN'] = 'Abiertos';
+$LANG['TEXT_CLOSED'] = 'Cerrados';
+$LANG['TEXT_OVERDUE'] = 'Atrasados';
 
 $LANG['ALERT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT']='Excesivos intentos de acceso por cliente'."\n".
-                'Email: {0}'."\n".
-				'Ticket#: {1}'."\n".
-                'IP: {2}'."\n".
-				'Hora: {3}'."\n\n".
-                'Intentos #{4}';
+'Email: {0}'."\n".
+'Ticket#: {1}'."\n".
+'IP: {2}'."\n".
+'Hora: {3}'."\n\n".
+'Intentos #{4}';
 ?>
