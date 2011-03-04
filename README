@@ -1,11 +1,17 @@
-This is my first Github repository AND first repository ever so patience is a virtue for anyone committing to this project or using the software.
+# Em Inglês:
 
-OsTicket Reloaded is an OsTicket which supports several localizations or languages.
+# Em Português:
+Este projeto é o OsTicket Translator Original, ele foi criado pela "FullService consultoria e Serviços - Ltda" através de seu diretor e proprietário que é Analista e Programador Pleno em diversas linguagens, dentre elas PHP.
 
-Developers, who would like to contribute to make this osTicket fork successful are more than welcome to join osTicket Reloaded to make this for the best multilingual osTicket fork ever! Contact admin@full.srv.br for development question.
+Este projeto nasceu da necessidade de se ter um software simples e funcional para gerenciamento dos chamados de nossos clientes. Porem não encontramos nenhum software no meu idioma de origem (Português Brasileiro), apesar de  existirem vários, mas nenhum atingiu nossa expectativa.
 
-This fork is based on OsTicket fork from Carlos Delfino (admin@full.srv.br - http://www.full.srv.br) Version1.6 RC5 and now is based on new work on Version 1.6 ST.
+Então iniciei a tradução do projeto Original OsTicket que pode ser encontrado no site: www.osticket.com e é um trabalho original de Peter Rotich <peter@osticket.com>. 
 
-Contact jasperfrumau <at] gmail.com for collaboration.
+Objetivando permitir que meu trabalho frutificasse um resultado simples para que outros traduzissem também e inclusive personaliza-se o OsTicket mais rapidamente, optei em construir um Framework seguindo a filosofia do Joomla para tradução.
 
+O projeto se tornou um sucesso e foi traduzido para 8 idiomas, dentre eles: Português, Espanhol, Italiano, Holandês, porem durante o processo a versão 1.6  do OsTicket Original começou a ser testada, e como optei em terminar na versão 1.5 este perdeu força, retomando quando o WebDesigner Jasper Frumau, tradutor no Holandês, optou em distribui-lo como seu próprio fork chamado  OsTicket Reload (por sinal um excelente nome), com isto renegociei com Jasper Frumau minha atuação no projeto, até mesmo porque até então eu não conhecia bem o GitHub e não tinha capitado 100% sua filosofia.
+
+Quando percebi que a filosofia do GitHub era 100% compatível com meus ideias de compartilhamento de conhecimento, respeito ao direito autoral, e troca de informação abertamente, vi que estava no lugar certo, então também percebi que poderia retomar o trabalho de tradução em um Fork mantendo minha autoria original no projeto, sem descartar o esforço de Jasper Frumau em manter o projeto vivo.
+
+Hoje o projeto já está totalmente adaptado a versão 1.6 e existem diversos branchs de atuação para desenvolvimento de soluções sugeridas no forum do OsTicket Original e também para merge destes novos recursos com a versão traduzida, OsTicket Translator.
 
