@@ -77,3 +77,23 @@ Oggi il progetto è già completamente adattato alla versione 1.6 e ci sono dive
 OsTicket Translator è per interfacciarsi con il cliente completamente tradotto, e gran parte dell'interfaccia di amministrazione e di squadra. Il vostro aiuto è fondamentale per il progetto.
 
 Per partecipare è molto semplice per iniziare a leggere il nostro wiki all'indirizzo: https: / / github.com / Servizio completo / osTicket / wiki 
+
+# Français
+
+Ce projet est osTicket Translator l'origine, il a été créé par "Fullservice Consulting & Services - LLC" par son directeur et le propriétaire qui est analyste et de programmeur en plusieurs langues, parmi eux PHP.
+
+Ce projet est né de la nécessité d'avoir un logiciel simple et fonctionnelle pour la gestion des appels de nos clients. Mais n'a pas trouvé de logiciel dans ma langue maternelle (le portugais brésilien), bien qu'il y en a plusieurs, mais aucun n'a atteint nos attentes.
+
+J'ai donc commencé la traduction de la osTicket projet original qui se trouve à l'adresse: www.osticket.com et est une œuvre originale de Peter Rotich <peter@osticket.com>.
+
+Visant à permettre à un résultat fructueux de mon travail tout simplement pour que d'autres traduisent aussi et même le personnaliser si osTicket bientôt, j'ai décidé de construire un cadre dans la philosophie de la traduction pour Joomla.
+
+Le projet est devenu un succès et a été traduit en huit langues, y compris le portugais, espagnol, italien, néerlandais, mais au cours du processus de la version 1.6 de la osTicket Original a commencé à être testés, et comment j'ai choisi de finir dans cette version affaiblie 1,5 , la reprise lorsque le WebDesigner Frumau Jasper, le traducteur en néerlandais, nous avons décidé de le distribuer en tant que votre propre fourchette appelé osTicket Reload (par la façon dont un grand nom), il a renégocié Jasper Frumau mon rôle dans le projet, alors même que je n'avais jamais GitHub connaissait bien et avait 100% capitatum sa philosophie.
+
+Quand j'ai réalisé que la philosophie de GitHub était de 100% compatible avec mes idées de partage des connaissances, le respect des droits d'auteur, et l'échange d'informations ouvertement, je me suis retrouvé au bon endroit, puis également réalisé qu'il ne pouvait reprendre le travail de traduction sur une fourche garder mon propre design original, sans entraîner de rejets dans l'effort de Jasper Frumau vivre ce projet.
+
+Aujourd'hui, le projet est déjà complètement adapté à la version 1.6 et il ya plusieurs branchements d'action pour le développement de solutions proposées dans le forum osTicket originale et également de fusionner ces nouvelles fonctionnalités avec la version traduite osTicket, Translator.
+
+OsTicket Translator est à l'interface avec le client entièrement traduit, et une grande partie de l'interface d'administration et de l'équipe. Votre aide est essentielle au projet.
+
+Pour participer c'est très simple de commencer à lire notre wiki à l'adresse: https: / / github.com / Fullservice / osTicket / wiki 
