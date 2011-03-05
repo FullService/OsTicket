@@ -106,6 +106,8 @@ class Translator
 	 */
 	function translate($str, $replace = null)
 	{
+		$str = trim($str);
+		$str = str_replace(' ', '_', $str);
 		if (!is_null($str))
 		{
 			if(array_key_exists($str,$this->LANG)){
