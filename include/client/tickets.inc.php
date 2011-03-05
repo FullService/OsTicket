@@ -1,6 +1,8 @@
 <?php
 if(!defined('OSTCLIENTINC') || !is_object($thisclient) || !$thisclient->isValid()) die('Kwaheri');
 
+global $trl; 
+
 //Get ready for some deep shit.
 $qstr='&'; //Query string collector
 $status=null;
@@ -49,7 +51,7 @@ $qselect = 'SELECT ticket.ticket_id,ticket.ticketID,ticket.dept_id,isanswered,is
 $qfrom=' FROM '.TICKET_TABLE.' ticket LEFT JOIN '.DEPT_TABLE.' dept ON ticket.dept_id=dept.dept_id ';
 //Pagenation stuff....wish MYSQL could auto pagenate (something better than limit)
 $total=db_count('SELECT count(*) '.$qfrom.' '.$qwhere);
-$pageNav=new Pagenate($total,$page,$pagelimit);
+$pageNav=new Pagenate($total,$page,$pagelimit,$trl);
 $pageNav->setURL('view.php',$qstr.'&sort='.urlencode($_REQUEST['sort']).'&order='.urlencode($_REQUEST['order']));
 
 //Ok..lets roll...create the actual query

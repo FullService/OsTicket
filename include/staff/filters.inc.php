@@ -1,5 +1,7 @@
 <?php
-if(!defined('OSTADMININC') || !$thisuser->isadmin()) die('Access Denied');
+if(!defined('OSTADMININC') || !$thisuser->isadmin()) die($trl->translate("TEXT_ACCESS_DENIED"));
+
+global $trl;
 
 $select='SELECT * ';
 $from='FROM '.BANLIST_TABLE;
@@ -43,7 +45,7 @@ $total=db_count('SELECT count(*) '.$from.' '.$where);
 $pagelimit=$thisuser->getPageLimit();
 $pagelimit=$pagelimit?$pagelimit:PAGE_LIMIT; //true default...if all fails.
 $page=($_GET['p'] && is_numeric($_GET['p']))?$_GET['p']:1;
-$pageNav=new Pagenate($total,$page,$pagelimit);
+$pageNav=new Pagenate($total,$page,$pagelimit, $trl);
 $pageNav->setURL('admin.php',$qstr.'&sort='.urlencode($_REQUEST['sort']).'&order='.urlencode($_REQUEST['order']));
 //Ok..lets roll...create the actual query
 $query="$select $from $where $order_by LIMIT ".$pageNav->getStart().",".$pageNav->getLimit();

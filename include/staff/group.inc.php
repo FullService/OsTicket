@@ -1,5 +1,5 @@
 <?php
-if(!defined('OSTADMININC') || !$thisuser->isadmin()) die('Access Denied');
+if(!defined('OSTADMININC') || !$thisuser->isadmin()) die($trl->translate("TEXT_ACCESS_DENIED"));
 
 $info=($errors && $_POST)?Format::input($_POST):Format::htmlchars($group);
 if($group && $_REQUEST['a']!='new'){

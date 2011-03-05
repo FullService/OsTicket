@@ -1,5 +1,5 @@
 <?php
-if(!defined('OSTSCPINC') || !is_object($ticket) || !is_object($thisuser) || !$thisuser->isStaff()) die('Access Denied');
+if(!defined('OSTSCPINC') || !is_object($ticket) || !is_object($thisuser) || !$thisuser->isStaff()) die($trl->translate("TEXT_ACCESS_DENIED"));
 
 if(!($thisuser->canEditTickets() || ($thisuser->isManager() && $ticket->getDeptId()==$thisuser->getDeptId()))) die('Access Denied. Perm error.');
 

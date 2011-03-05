@@ -1,5 +1,5 @@
 <?php
-if(!defined('OSTSCPINC') || !@$thisuser->isStaff()) die('Access Denied');
+if(!defined('OSTSCPINC') || !@$thisuser->isStaff()) die($trl->translate("TEXT_ACCESS_DENIED"));
 
 //Get ready for some deep shit..(I admit..this could be done better...but the shit just works... so shutup for now).
 
@@ -17,7 +17,7 @@ if($search) {
   if( ($_REQUEST['query'] && strlen($_REQUEST['query'])<3) 
       || (!$_REQUEST['query'] && isset($_REQUEST['basic_search'])) ){ //Why do I care about this crap...
       $search=false; //Instead of an error page...default back to regular query..with no search.
-      $errors['err']='Search term must be more than 3 chars';
+      $errors['err']=$trl->translate('ERROR_Search_term_more_3');
       $searchTerm='';
   }
 }
@@ -92,7 +92,7 @@ if($status){
 
 //Sub-statuses Trust me!
 if($staffId && ($staffId==$thisuser->getId())) { //Staff's assigned tickets.
-    $results_type='Assigned Tickets';
+    $results_type=$trl->translate('TEXT_Assigned_Tickets');
     $qwhere.=' AND ticket.staff_id='.db_input($staffId);    
 }elseif($showoverdue) { //overdue
     $qwhere.=' AND isoverdue=1 ';
@@ -236,7 +236,7 @@ $query="$qselect $qfrom $qwhere $qgroup ORDER BY $order_by $order LIMIT ".$pageN
 $tickets_res = db_query($query);
 $showing=db_num_rows($tickets_res)?$pageNav->showing():"";
 if(!$results_type) {
-    $results_type=($search)?$trl->translate(TEXT_SEARCH_RESULTS):$trl->translate('TEXT_'.strtoupper($status).'_TICKETS');
+    $results_type=($search)?$trl->translate(TEXT_SEARCH_RESULTS):$trl->translate('TEXT_'.$status.'_TICKETS');
 }
 $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
 

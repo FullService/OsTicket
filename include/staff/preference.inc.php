@@ -1,5 +1,5 @@
 <?php
-if(!defined('OSTADMININC') || !$thisuser->isadmin()) die('Access Denied');
+if(!defined('OSTADMININC') || !$thisuser->isadmin()) die($trl->translate("TEXT_ACCESS_DENIED"));
 
 //Get the config info.
 $config=($errors && $_POST)?Format::input($_POST):Format::htmlchars($cfg->getConfig());
