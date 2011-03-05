@@ -1,5 +1,7 @@
 <?php
-if(!defined('OSTSCPINC') || !@$thisuser->isStaff()) die('Access Denied');
+if(!defined('OSTSCPINC') || !@$thisuser->isStaff()) die($trl->translate("TEXT_ACCESS_DENIED"));
+
+global $trl;
 
 $qstr='&t=syslog'; //Query string collector
 if($_REQUEST['type']) { 
@@ -70,7 +72,7 @@ $total=db_count("SELECT count(*) $qfrom $qwhere");
 $pagelimit=30;
 $page = ($_GET['p'] && is_numeric($_GET['p']))?$_GET['p']:1;  
 //pagenate
-$pageNav=new Pagenate($total,$page,$pagelimit);
+$pageNav=new Pagenate($total,$page,$pagelimit, $trl);
 $pageNav->setURL('admin.php',$qstr);
 $query="$qselect $qfrom $qwhere ORDER BY log.created DESC LIMIT ".$pageNav->getStart().",".$pageNav->getLimit();
 //echo $query;

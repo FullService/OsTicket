@@ -1,6 +1,7 @@
 <?php
-if(!defined('OSTADMININC') || !$thisuser->isadmin()) die('Access Denied');
+if(!defined('OSTADMININC') || !$thisuser->isadmin()) die($trl->translate("TEXT_ACCESS_DENIED"));
 
+global $trl;
 
 $select='SELECT tpl.*,count(dept.tpl_id) as depts ';
 $from='FROM '.EMAIL_TEMPLATE_TABLE.' tpl '.
@@ -23,7 +24,7 @@ $order_by=" ORDER BY $order_column $order ";
 $total=db_count('SELECT count(*) '.$from.' '.$where);
 $pagelimit=1000;//No limit.
 $page=($_GET['p'] && is_numeric($_GET['p']))?$_GET['p']:1;
-$pageNav=new Pagenate($total,$page,$pagelimit);
+$pageNav=new Pagenate($total,$page,$pagelimit, $trl);
 $pageNav->setURL('admin.php',$qstr.'&sort='.urlencode($_REQUEST['sort']).'&order='.urlencode($_REQUEST['order']));
 $query="$select $from $where GROUP BY tpl.tpl_id $order_by";
 //echo $query;

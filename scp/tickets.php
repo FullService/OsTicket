@@ -89,7 +89,9 @@ if($_POST && !$errors):
                 if(isset($_POST['ticket_status']) && $_POST['ticket_status']) {
                    if($ticket->setStatus($_POST['ticket_status']) && $ticket->reload()) {
                        $note=sprintf('%s %s the ticket on reply',$thisuser->getName(),$ticket->isOpen()?'reopened':'closed');
-                       $ticket->logActivity('Ticket status changed to '.($ticket->isOpen()?'Open':'Closed'),$note);
+                       $statusmsg = ($ticket->isOpen()?$trl->translate('LABEL_Open'):$trl->translate('LABEL_Closed'));
+                       $logmsg = $trl->translate("TEXT_Ticket_status_changed_to",$statusmsg);
+                       $ticket->logActivity($logmsg,$note);
                    }
                 }
                 //Finally upload attachment if any
@@ -104,7 +106,7 @@ if($_POST && !$errors):
                     $page=$ticket=null; //Going back to main listing.
                 }
             }elseif(!$errors['err']){
-                $errors['err']='Unable to post the response.';
+                $errors['err']=$trl->translate('ERROR_Unable_to_post_the_response');
             }
             break;
         case 'transfer':
@@ -432,20 +434,14 @@ $stats=db_fetch_array(db_query($sql));
 $nav->setTabActive('tickets');
 
 if($cfg->showAnsweredTickets()) {
-	$desc = $trl->translate("TEXT_TOTAL_OPEN_TICKETS",($stats['open']+$stats['answered']));
-	$title = $trl->translate("LABEL_OPEN_TICKETS");
-    $nav->addSubMenu(array('desc'=>$desc
-                            ,'title'=>$title, 'href'=>'tickets.php', 'iconclass'=>'Ticket'));
+    $nav->addSubMenu(array('desc'=>$trl->_t('TEXT_Open_STATS',($stats['open']+$stats['answered']))
+                            ,'title'=>'Open Tickets', 'href'=>'tickets.php', 'iconclass'=>'Ticket'));
 }else{
     if($stats['open'])
-    	$desc = $trl->translate("TEXT_TOTAL_OPEN_TICKETS",$stats['open']);
-    	$title = $trl->translate("TEXT_OPEN_TICKETS");
-        $nav->addSubMenu(array('desc'=>$desc,'title'=>$title, 'href'=>'tickets.php', 'iconclass'=>'Ticket'));
+        $nav->addSubMenu(array('desc'=>$trl->_t('TEXT_Open_STATS',$stats['open']),'title'=>$trl->_t('TITLE_Open Tickets'), 'href'=>'tickets.php', 'iconclass'=>'Ticket'));
     if($stats['answered']) {
-    	$desc = $trl->translate("TEXT_TOTAL_ANSWERED_TICKETS",$stats['answered']);
-    	$title = $trl->translate("TEXT_ANSWERED_TICKETS");
-        $nav->addSubMenu(array('desc'=>$desc,
-                           'title'=>$title, 'href'=>'tickets.php?status=answered', 'iconclass'=>'answeredTickets')); 
+        $nav->addSubMenu(array('desc'=>$trl->_t('TEXT_Answered_STATS',$stats['answered']),
+                           'title'=>$trl->_t('TITLE_Answered Tickets'), 'href'=>'tickets.php?status=answered', 'iconclass'=>'answeredTickets')); 
     }
 }
 
@@ -453,27 +449,23 @@ if($stats['assigned']) {
     if(!$sysnotice && $stats['assigned']>10)
         $sysnotice=$stats['assigned'].' assigned to you!';
 
-    $desc = $trl->translate('TEXT_TOTAL_MY_TICKETS',$stats['assigned']);
-    $title = $trl->translate('LABLE_ASSIGNED_TICKETS');
-    $nav->addSubMenu(array('desc'=>$desc,'title'=>$title,
+    $nav->addSubMenu(array('desc'=>$trl->_t('TEXT_My Tickets_STATS',$stats['assigned']),'title'=>$trl->_t('TITLE_Assigned Tickets'),
                     'href'=>'tickets.php?status=assigned','iconclass'=>'assignedTickets'));
 }
 
 if($stats['overdue']) {
-    $nav->addSubMenu(array('desc'=>'Overdue ('.$stats['overdue'].')','title'=>'Stale Tickets',
+    $nav->addSubMenu(array('desc'=>$trl->_t('TEXT_Overdue_STATS',$stats['overdue']),'title'=>$trl->_t('TITLE_Stale Tickets'),
                     'href'=>'tickets.php?status=overdue','iconclass'=>'overdueTickets'));
 
     if(!$sysnotice && $stats['overdue']>10)
         $sysnotice=$stats['overdue'] .' overdue tickets!';
 }
 
-$desc = $trl->translate('LABEL_CLOSED_TICKETS');
-$nav->addSubMenu(array('desc'=>$desc,'title'=>$desc, 'href'=>'tickets.php?status=closed', 'iconclass'=>'closedTickets'));
+$nav->addSubMenu(array('desc'=>$trl->_t('TEXT_Closed_Tickets'),'title'=>$trl->_t('TITLE_Closed  Tickets'), 'href'=>'tickets.php?status=closed', 'iconclass'=>'closedTickets'));
 
 
 if($thisuser->canCreateTickets()) {
-	$desc = $trl->translate('LABEL_NEW_TICKET');
-    $nav->addSubMenu(array('desc'=>$desc,'href'=>'tickets.php?a=open','iconclass'=>'newTicket'));    
+    $nav->addSubMenu(array('desc'=>$trl->_t('TEXT_New_Ticket'),'href'=>'tickets.php?a=open','iconclass'=>'newTicket'));    
 }
 
 //Render the page...

@@ -1,5 +1,7 @@
 <?php
-if(!defined('OSTSCPINC') or !is_object($thisuser) or !$thisuser->canManageKb()) die('Access Denied');
+if(!defined('OSTSCPINC') or !is_object($thisuser) or !$thisuser->canManageKb()) die($trl->translate("TEXT_ACCESS_DENIED"));
+
+global $trl;
 
 //List premade answers.
 $select='SELECT premade.*,dept_name ';
@@ -43,7 +45,7 @@ $total=db_count('SELECT count(*) '.$from.' '.$where);
 $pagelimit=$thisuser->getPageLimit();
 $pagelimit=$pagelimit?$pagelimit:PAGE_LIMIT; //true default...if all fails.
 $page=($_GET['p'] && is_numeric($_GET['p']))?$_GET['p']:1;
-$pageNav=new Pagenate($total,$page,$pagelimit);
+$pageNav=new Pagenate($total,$page,$pagelimit, $trl);
 $pageNav->setURL('kb.php',$qstr.'&sort='.urlencode($_REQUEST['sort']).'&order='.urlencode($_REQUEST['order']));
 //Ok..lets roll...create the actual query
 $query="$select $from $where $order_by LIMIT ".$pageNav->getStart().",".$pageNav->getLimit();

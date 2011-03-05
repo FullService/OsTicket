@@ -16,7 +16,7 @@
 **********************************************************************/
 
 require('staff.inc.php');
-if(!$thisuser->canManageKb() && !$thisuser->isadmin()) die('Access denied');
+if(!$thisuser->canManageKb() && !$thisuser->isadmin()) die($trl->translate("TEXT_ACCESS_DENIED"));
 
 $page='';
 $answer=null; //clean start.

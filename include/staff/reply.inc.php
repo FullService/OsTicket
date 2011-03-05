@@ -1,5 +1,5 @@
 <?php
-if(!defined('OSTSCPINC') or !$thisuser->canManageKb()) die('Access Denied');
+if(!defined('OSTSCPINC') or !$thisuser->canManageKb()) die($trl->translate("TEXT_ACCESS_DENIED"));
 $info=($errors && $_POST)?Format::input($_POST):Format::htmlchars($answer);
 if($answer && $_REQUEST['a']!='add'){
     $title='Edit Premade Reply';
