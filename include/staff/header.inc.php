@@ -37,11 +37,11 @@ if($sysnotice){?>
         <p id="info"><?php echo $trl->translate('TEXT_WELCOME_BACK_STAFF',$thisuser->getUsername()); ?> 
            <?php
             if($thisuser->isAdmin() && !defined('ADMINPAGE')) { ?>
-            | <a href="admin.php">Admin Panel</a> 
+            | <a href="admin.php"><?php echo $trl->translate('LABEL_ADMIN_PANEL');?></a> 
             <?}else{?>
-            | <a href="index.php">Staff Panel</a>
+            | <a href="index.php"><?php echo $trl->translate('LABEL_STAFF_PANEL');?></a>
             <?}?>
-            | <a href="profile.php?t=pref">My Preference</a> | <a href="logout.php">Log Out</a></p>
+            | <a href="profile.php?t=pref"><?php echo $trl->translate('LABEL_MY_PREFERENCE');?></a> | <a href="logout.php"><?php echo $trl->translate('LABEL_LOG_OUT');?></a></p>
     </div>
     <div id="nav">
         <ul id="main_nav" <?=!defined('ADMINPAGE')?'class="dist"':''?>>
@@ -51,14 +51,14 @@ if($sysnotice){?>
                 <li><a <?=$tab['active']?'class="active"':''?> href="<?=$tab['href']?>" title="<?=$tab['title']?>"><?=$tab['desc']?></a></li>
             <?}
             }else{ //?? ?>
-                <li><a href="profile.php" title="My Preference">My Account</a></li>
+                <li><a href="profile.php" title="<?php echo $trl->translate('LABEL_MY_PREFERENCE');?>"><?php echo $trl->translate('LABEL_MY_ACCOUNT');?></a></li>
             <?}?>
         </ul>
         <ul id="sub_nav">
             <?php
             if(($subnav=$nav->getSubMenu()) && is_array($subnav)){
               foreach($subnav as $item) { ?>
-                <li><a class="<?=$item['iconclass']?>" href="<?=$item['href']?>" title="<?=$item['title']?>"><?=$item['desc']?></a></li>
+                <li><a class="<?=$item['iconclass']?>" href="<?=$item['href']?>" title="<?echo $item['title'];?>"><?=$item['desc']?></a></li>
               <?}
             }?>
         </ul>

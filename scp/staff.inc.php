@@ -87,8 +87,8 @@ $submenu=array();
 if(defined('THIS_VERSION') && strcasecmp($cfg->getVersion(),THIS_VERSION)) {
     $errors['err']=$sysnotice=sprintf('The script is version %s while the database is version %s',THIS_VERSION,$cfg->getVersion());
 }elseif($cfg->isHelpDeskOffline()){
-    $sysnotice='<strong>System is set to offline mode</strong> - Client interface is disabled and ONLY admins can access staff control panel.';
-    $sysnotice.=' <a href="admin.php?t=pref">Enable</a>.';
+    $sysnotice=$trl->translate('TEXT_SYSTEM_IS_OFF_LINE');
+    $sysnotice.=' <a href="admin.php?t=pref">'.$trl->translate('LABEL_ENABLE_SYSTEM_OFF_LINE').'</a>.';
 }
 
 $nav = new StaffNav(strcasecmp(basename($_SERVER['SCRIPT_NAME']),'admin.php')?'staff':'admin',$trl);

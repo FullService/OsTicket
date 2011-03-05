@@ -39,6 +39,7 @@ $LANG['ERROR_UNKNOW_ACTION'] = 'Ação desconhecida!';
 $LANG['TITLE'] = 'Tickets FullService';
 $LANG['TITLE_BOX_NEW_TICKET'] = 'Novo Ticket';
 $LANG['TITLE_BAR_OFFLINE'] = 'Sistema de Ticket para Suporte';
+$LANG['TITLE_MY_PREFERENCES'] = 'Minhas Preferências';
 $LANG['TITLE_OFFLINE'] = 'Sistema de ticket para Suporte está Offline';
 $LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Abrir ticket existente';
 
@@ -58,16 +59,36 @@ $LANG['LABEL_FULL_NAME'] = 'Nome Completo';
 $LANG['LABEL_NAME'] = 'Name';
 $LANG['LABEL_EMAIL_ADDRESS'] = 'E-Mail';
 $LANG['LABEL_EMAIL'] = 'Email';
+
+
+
+
+
+
+
+
+
+
+$LANG['LABEL_ENABLE_SYSTEM_OFF_LINE'] = 'Abilitar (liberar acesso)'; 
 $LANG['LABEL_TELEPHONE'] = 'Telefone';
 $LANG['LABEL_PHONE'] = 'Fone';
 $LANG['LABEL_HELP_TOPIC'] = 'Ajuda Relacionada';
 $LANG['LABEL_SUBJECT'] = 'Assunto';
+$LANG['LABEL_KNOWLEDGE_BASE'] = 'Conhecimento (KB)';
+$LANG['LABEL_KNOWLEDGE_BASE_PREMATE'] = 'Base de Conhecimento: Premade';
+$LANG['LABEL_LOG_OUT'] = 'Sair';
 $LANG['LABEL_MESSAGE'] = 'Mensagem';
+$LANG['LABEL_MY_ACCOUNT'] = 'Minha Conta';
+$LANG['LABEL_MY_PREFERENCE'] = 'Minhas Configurações';
+$LANG['LABEL_MY_PROFILE'] = 'Meu Perfil';
+$LANG['LABEL_NEW_TICKET'] = 'Novo Ticket';
 $LANG['LABEL_PRIORITY'] = 'Prioridade';
+$LANG['LABEL_PREFERENCES'] = 'Configurações';
 $LANG['LABEL_ATTACHMENT'] = 'Anexo';
 $LANG['LABEL_TICKET_STATUS'] = 'Situação do Ticket'; 
 $LANG['LABEL_VIEW_STATUS'] = 'Verificar Ticket';
 $LANG['LABEL_DEPARTMENT'] = 'Departamento';
+$LANG['LABEL_CLOSED_TICKETS'] = 'Tickets Fechados';
 $LANG['LABEL_CREATE_DATE'] = 'Criação';
 $LANG['LABEL_USERNAME'] = 'Nome do Usuário';
 $LANG['LABEL_PASSWORD'] = 'Senha';
@@ -77,9 +98,11 @@ $LANG['LABEL_RESET'] = 'Limpar';
 $LANG['LABEL_CANCEL'] = 'Cancelar';
 $LANG['LABEL_POST_REPLY'] = 'Enviar Resposta';
 $LANG['LABEL_OPEN_NEW_TICKET'] = 'Abrir Novo Ticket';
-$LANG['LABEL_ADMIN_PANEL'] = 'Administração';
+$LANG['LABEL_ADMIN_PANEL'] = 'Painel de Administração';
 $LANG['LABEL_STAFF_PANEL'] = 'Equipe';
 $LANG['LABEL_CHECK_STATUS'] = 'Verificar Status';
+$LANG['LABEL_CHANGE_PASSWORD'] = 'Trocar Senha';
+$LANG['LABEL_STAFF_PANEL'] = 'Painel de Equipe';
 
 
 
@@ -110,6 +133,8 @@ $LANG['LABEL_BASIC'] = 'Basico';
 $LANG['LABEL_DATE_SPAN'] = 'Data Entre';
 $LANG['LABEL_DEPT'] = 'Dept.';
 $LANG['LABEL_DESCENDING'] = 'Descendente';
+$LANG['LABEL_DIRECTORY'] = 'Agenda';
+$LANG['LABEL_DIRETORY_STAFF'] = 'Agenda de Contatos da Equipe';
 $LANG['LABEL_FROM'] = 'De.';
 $LANG['LABEL_QUERY'] = 'Consulta';
 $LANG['LABEL_SEARCH'] = 'Pesquisa';
@@ -225,7 +250,7 @@ $LANG['TEXT_INVALID_LOGIN'] = 'Login Inválido';
 $LANG['TEXT_FORGOT_YOUR_LOGIN_INFO'] = 'Esqueceu suas informações de login? Por favor <a href="open.php">Abra um novo ticket</a>.';
 $LANG['TEXT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT'] = 'Tentativas de Login Excessivas (cliente)';
 $LANG['TEXT_LOGIN_VIEW_STATUS_OF_TICKET'] = 'Para visualizar a situação de um Ticket, forneça as informações de login abaixo.<br>'.
-'Se é a primeira vez que está nos contactando ou você perdeu o número de seu ticket, por favor <a href="open.php">abra um novo ticket</a>';
+											'Se é a primeira vez que está nos contactando ou você perdeu o número de seu ticket, por favor <a href="open.php">abra um novo ticket</a>';
 $LANG['TEXT_SESSION_TIMED_OUT_DUE_TO_INACTIVITY'] = 'Devido a inatividade, sua seção expirou!';
 $LANG['TEXT_WELCOME_BACK_CLIENT'] = 'Bem Vindo, <strong>{0}</strong>';
 $LANG['TEXT_WELCOME_BACK_STAFF'] = 'Bem Vindo, <strong>{0}</strong>';
@@ -237,6 +262,10 @@ $LANG['TEXT_ANSWERED_TICKETS'] = 'Tickets Respondidos';
 $LANG['TEXT_ASSIGNED_TICKETS'] = 'Tickets atribuídos';
 $LANG['TEXT_SEARCH_RESULTS'] = 'Resultado de Pesquisa';
 $LANG['TEXT_OPEN_TICKETS'] = 'Tickets Abertos';
+$LANG['TEXT_TOTAL_OPEN_TICKETS'] = "Abertos ({0})";
+$LANG['TEXT_TOTAL_ANSWERED_TICKETS'] = "Respondidos ({0})";
+$LANG['TEXT_TOTAL_MY_TICKETS'] = 'Meus Tickets ({0})';
+$LANG['LABLE_ASSIGNED_TICKETS'] = 'Tickets Designados';
 $LANG['TEXT_CLOSED_TICKETS'] = 'Tickets Fechados';
 $LANG['TEXT_OVERDUE_TICKETS'] = 'Tickets Atrasados';
 $LANG['TEXT_LOGIN_VIEW_STATUS_OF_TICKET']='Para visualizar a situação de um ticket, forneça-nos as informações para sua identificação nos campos abaixo.<br/>'.
@@ -253,6 +282,7 @@ $LANG['TEXT_OVERDUE'] = 'Atrasado';
 
 
 
+$LANG['TEXT_SYSTEM_IS_OFF_LINE'] = '<strong>O Sistema está definido como desativado (Off-Line)</strong> - A interface com o cliente está desativada e somente os administadores podem acessar o painel de controle.';
 $LANG['TEXT_SHOW_FROM_TO_OF_ALL'] = 'Exibindo {0} - {1} de {2}';
 $LANG['TEXT_SHOW_ZERO'] = 'Exibindo 0 (zero)';
 

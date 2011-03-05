@@ -1,33 +1,37 @@
 <?php
 /*********************************************************************
-    class.nav.php
+ class.nav.php
 
-    Navigation helper classes. Pointless BUT helps keep navigation clean and free from errors.
+ Navigation helper classes. Pointless BUT helps keep navigation clean and free from errors.
 
-    Peter Rotich <peter@osticket.com>
-    Copyright (c)  2006-2010 osTicket
-    http://www.osticket.com
+ Peter Rotich <peter@osticket.com>
+ Copyright (c)  2006-2010 osTicket
+ http://www.osticket.com
 
-    Released under the GNU General Public License WITHOUT ANY WARRANTY.
-    See LICENSE.TXT for details.
+ Released under the GNU General Public License WITHOUT ANY WARRANTY.
+ See LICENSE.TXT for details.
 
-    vim: expandtab sw=4 ts=4 sts=4:
-    $Id: $
-**********************************************************************/
+ vim: expandtab sw=4 ts=4 sts=4:
+ $Id: $
+ **********************************************************************/
 class StaffNav {
-    var $tabs=array();
-    var $submenu=array();
+	var $tabs=array();
+	var $submenu=array();
 
-    var $activetab;
-    var $ptype;
+	var $activetab;
+	var $ptype;
 
-    function StaffNav($pagetype='staff'){
+	function StaffNav($pagetype='staff'){
 		global $thisuser;
+
+		$trl = $_SESSION['trl'];
 
 		$this->ptype=$pagetype;
 		$tabs=array();
 		if($thisuser->isAdmin() && strcasecmp($pagetype,'admin')==0) {
-			$tabs['dashboard']=array('desc'=>'Dashboard','href'=>'admin.php?t=dashboard','title'=>'Admin Dashboard');
+			$desc = $trl->translate("LABEL_DASHBOARD");
+			$title = $trl->translate("LABEL_ADMIN_DASHBOARD");
+			$tabs['dashboard']=array('desc'=>$trl,'href'=>'admin.php?t=dashboard','title'=>$tile);
 			$tabs['settings']=array('desc'=>'Settings','href'=>'admin.php?t=settings','title'=>'System Settings');
 			$tabs['emails']=array('desc'=>'Emails','href'=>'admin.php?t=email','title'=>'Email Settings');
 			$tabs['topics']=array('desc'=>'Help Topics','href'=>'admin.php?t=topics','title'=>'Help Topics');
@@ -36,9 +40,13 @@ class StaffNav {
 		}else {
 			$tabs['tickets']=array('desc'=>'Tickets','href'=>'tickets.php','title'=>'Ticket Queue');
 			if($thisuser && $thisuser->canManageKb()){
-				$tabs['kbase']=array('desc'=>'Knowledge Base','href'=>'kb.php','title'=>'Knowledge Base: Premade');
+				$desc = $trl->translate('LABEL_KNOWLEDGE_BASE');
+				$title = $trl->translate('LABEL_KNOWLEDGE_BASE_PREMATE');
+				$tabs['kbase']=array('desc'=>$desc,'href'=>'kb.php','title'=>$title);
 			}
-			$tabs['directory']=array('desc'=>'Directory','href'=>'directory.php','title'=>'Staff Directory');
+			$desc = $trl->translate('LABEL_DIRECTORY');
+			$title = $trl->translate('LABEL_DIRETORY_STAFF');
+			$tabs['directory']=array('desc'=>$desc,'href'=>'directory.php','title'=>$title);
 			$tabs['profile']=array('desc'=>'My Account','href'=>'profile.php','title'=>'My Profile');
 		}
 		$this->tabs=$tabs;
@@ -65,7 +73,7 @@ class StaffNav {
 
 
 
-    function getActiveTab(){
+	function getActiveTab(){
 		return $this->activetab;
 	}
 
