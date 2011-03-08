@@ -60,6 +60,8 @@ $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 $LANG['LABEL_ADMIN_DASHBOARD'] = 'Admin Dashboard';
 $LANG['LABEL_ADMIN_PANEL'] = 'Admin Panel';
 $LANG['LABEL_ADVANCED'] = 'Advanced';
+$LANG['LABEL_ALL'] = 'All';
+$LANG['LABEL_ALL_DEPARTMENTS'] = 'All Departments';
 $LANG['LABEL_ASSIGN'] = 'Assign';
 $LANG['LABEL_ATTACHMENT'] = 'Attachment';
 $LANG['LABEL_ASCENDING'] = 'Ascending';
@@ -69,6 +71,8 @@ $LANG['LABEL_BASIC'] = 'Basic';
 // Label C
 $LANG['LABEL_CLOSED_TICKETS'] = 'Closed Tickets';
 $LANG['LABEL_CANCEL'] = 'Cancel';
+$LANG['LABEL_CATEGORY'] = 'category';
+$LANG['LABEL_CATEGORY_DEPT'] = 'Category/Dept';
 $LANG['LABEL_CHANGE_PASSWORD'] = 'Change Password';
 $LANG['LABEL_CHECK_STATUS'] = 'Check Status';
 $LANG['LABEL_Closed'] = 'Closed';
@@ -88,6 +92,8 @@ $LANG['LABEL_ENABLE_SYSTEM_OFF_LINE'] = 'Enable';
 // Label F
 $LANG['LABEL_FROM'] = 'From.';
 $LANG['LABEL_FULL_NAME'] = 'Full Name';
+// Label G
+$LANG['LABEL_GO'] = 'GO';
 // Label H
 $LANG['LABEL_HELP_TOPIC'] = 'Help Topic';
 // Label I
@@ -107,6 +113,8 @@ $LANG['LABEL_MY_PROFILE'] = 'My Profile';
 // Label N
 $LANG['LABEL_NAME'] = 'Name';
 $LANG['LABEL_NEW_TICKET'] = 'Novo Ticket';
+$LANG['LABEL_NEW_PREMADE_REPLY'] = 'New Premade Reply';
+$LANG['LABEL_NONE'] = 'None';
 // Label O
 $LANG['LABEL_OPEN'] = 'aberto';
 $LANG['LABEL_OPEN_TICKET'] = 'Open Ticket';
@@ -119,22 +127,31 @@ $LANG['LABEL_PASSWORD_AGAIN'] = 'Password (again)';
 $LANG['LABEL_PHONE'] = 'Phone';
 $LANG['LABEL_POST_REPLY']='Post Reply';
 $LANG['LABEL_PRIORITY'] = 'Priority';
+$LANG['LABEL_PREMADE_REPLIES'] = 'Premade Replies';
 // Label Q
 $LANG['LABEL_QUERY'] = 'Query';
+$LANG['LABEL_QUERY_RETURNED_ZERO_RESULT'] = 'Query returned 0 results';
 // Label R
 $LANG['LABEL_RESET'] = 'Reset';
 $LANG['LABEL_RESULTS_PER_PAGE'] = 'Results Per Page';
+$LANG['LABEL_REPLY_TITLE'] = 'Reply Title';
 // Label S
 $LANG['LABEL_SEARCH'] = 'Search';
-$LANG['LABEL_SELECT_SOURCE'] = 'Select Source';
+$LANG['LABEL_SEARCH_FOR'] = 'Search for';
+$LANG['LABEL_SELECT'] = 'Select';
 $LANG['LABEL_SELECT_DEPARTMENT'] = 'Select Department';
+$LANG['LABEL_SELECT_SOURCE'] = 'Select Source';
+$LANG["LABEL_SETTINGS"] = 'Settings';
 $LANG['LABEL_SORT_BY'] = 'Sort by';
+$LANG['LABEL_SORT_BY_TITLE'] = 'Sort By Title'; 
+$LANG['LABEL_SORT_BY_UPDATE_DATE'] = 'Sort By Update Date';
 $LANG['LABEL_STAFF_PANEL'] = 'Staff Panel';
+$LANG['LABEL_STATUS'] = 'Status';
 $LANG['LABEL_STATUS_IS'] = 'Status is';
 $LANG['LABEL_SUBJECT'] = 'Subject';
 $LANG['LABEL_SUBMIT'] = 'Submit';
 $LANG['LABEL_SUBMIT_TICKET'] = 'Submit Ticket';
-
+$LANG["LABEL_SYSTEM_SETTINGS"] = 'System Settings';
 
 
 // Label T
@@ -143,12 +160,14 @@ $LANG['LABEL_TICKET_NUMBER'] = 'Ticket#';
 $LANG['LABEL_TICKET_STATUS'] = 'Ticket Status';
 $LANG['LABEL_TICKET_ID'] = 'Ticket ID';
 $LANG['LABEL_TO'] = 'To.';
+$LANG['LABEL_TOGGLE'] = 'Toggle';
 $LANG['LABEL_TRANSFER'] = 'Transfer';
 
 
 
 
 // Label U
+$LANG['LABEL_UPDATE_DATE'] = 'Last Updated';
 $LANG['LABEL_USERNAME'] = 'Username';
 // Label V
 $LANG['LABEL_VIEW_STATUS'] = 'View Status'; 
