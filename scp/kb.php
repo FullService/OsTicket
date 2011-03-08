@@ -106,8 +106,10 @@ if(!$page && $_REQUEST['a']=='add' && !$replyID)
     $inc=$page?$page:'premade.inc.php';
 
 $nav->setTabActive('kbase');
-$nav->addSubMenu(array('desc'=>'Premade Replies','href'=>'kb.php','iconclass'=>'premade'));
-$nav->addSubMenu(array('desc'=>'New Premade Reply','href'=>'kb.php?a=add','iconclass'=>'newPremade'));
+$desc = $trl->translate('LABEL_PREMADE_REPLIES');
+$nav->addSubMenu(array('desc'=>$desc,'href'=>'kb.php','iconclass'=>'premade'));
+$desc = $trl->translate('LABEL_NEW_PREMADE_REPLY');
+$nav->addSubMenu(array('desc'=>$desc,'href'=>'kb.php?a=add','iconclass'=>'newPremade'));
 require_once(STAFFINC_DIR.'header.inc.php');
 require_once(STAFFINC_DIR.$inc);
 require_once(STAFFINC_DIR.'footer.inc.php');

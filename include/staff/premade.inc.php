@@ -67,10 +67,10 @@ $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
 <div align="left">
     <form action="kb.php" method="GET" >
     <input type='hidden' name='a' value='search'>
-    Search for:&nbsp;<input type="text" name="query" value="<?=Format::htmlchars($_REQUEST['query'])?>">
-    category
+    <?php $trl->_('LABEL_SEARCH_FOR')?>:&nbsp;<input type="text" name="query" value="<?=Format::htmlchars($_REQUEST['query'])?>">
+    <?php $trl->_('LABEL_CATEGORY')?>
     <select name="dept">
-            <option value=0>All Departments</option>
+            <option value=0><?php $trl->_('LABEL_ALL_DEPARTMENTS')?></option>
             <?
             $depts= db_query('SELECT dept_id,dept_name FROM '.DEPT_TABLE.' WHERE dept_id!='.db_input($ticket['dept_id']));
             while (list($deptId,$deptName) = db_fetch_row($depts)){
@@ -79,7 +79,7 @@ $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
            <?}?>
     </select>
     &nbsp;
-    <input type="submit" name="search" class="button" value="GO">
+    <input type="submit" name="search" class="button" value="<?php $trl->_('LABEL_GO')?>">
     </form>
 </div>
 <div class="msg"><?=$result_type?>&nbsp;<?=$showing?></div>
@@ -91,11 +91,11 @@ $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
         <tr>
 	        <th width="7px">&nbsp;</th>
 	        <th>
-                <a href="kb.php?sort=title&order=<?=$negorder?><?=$qstr?>" title="Sort By Title <?=$negorder?>">Reply Title</a></th>
-            <th width=50>Status</th>
-	        <th width=200>Category/Dept</th> 
+                <a href="kb.php?sort=title&order=<?=$negorder?><?=$qstr?>" title="<?php $trl->_('LABEL_SORT_BY_TITLE') ?> <?=$negorder?>"><?php $trl->_('LABEL_REPLY_TITLE') ?></a></th>
+            <th width=50><?php $trl->_('LABEL_STATUS') ?></th>
+	        <th width=200><?php $trl->_('LABEL_CATEGORY_DEPT') ?></th> 
 	        <th width=150 nowrap>
-                <a href="kb.php?sort=updatedate&order=<?=$negorder?><?=$qstr?>" title="Sort By Update Date <?=$negorder?>">Last Updated</a></th>
+                <a href="kb.php?sort=updatedate&order=<?=$negorder?><?=$qstr?>" title="<?php $trl->_('LABEL_SORT_BY_UPDATE_DATE') ?> <?=$negorder?>"><?php $trl->_('LABEL_UPDATE_DATE')?></a></th>
         </tr>
         <?
         $class = 'row1';
@@ -124,7 +124,7 @@ $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
             $class = ($class =='row2') ?'row1':'row2';
             } //end of while.
         else: //nothin' found!! ?> 
-            <tr class="<?=$class?>"><td colspan=6><b>Query returned 0 results</b></td></tr>
+            <tr class="<?=$class?>"><td colspan=6><b><?php $trl->_('LABEL_QUERY_RETURNED_ZERO_RESULT')?></b></td></tr>
         <?
         endif; ?>
     </table>
@@ -133,10 +133,10 @@ $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
    if(db_num_rows($replies)>0): //Show options..
     ?>
    <tr><td style="padding-left:20px">
-        Select:&nbsp;
-        <a href="#" onclick="return select_all(document.forms['premade'],true)">All</a>&nbsp;
-        <a href="#" onclick="return toogle_all(document.forms['premade'],true)">Toggle</a>&nbsp;
-        <a href="#" onclick="return reset_all(document.forms['premade'])">None</a>&nbsp;
+        <?php $trl->_('LABEL_SELECT')?>:&nbsp;
+        <a href="#" onclick="return select_all(document.forms['premade'],true)"><?php $trl->_('LABEL_ALL')?></a>&nbsp;
+        <a href="#" onclick="return toogle_all(document.forms['premade'],true)"><?php $trl->_('LABEL_TOGGLE')?></a>&nbsp;
+        <a href="#" onclick="return reset_all(document.forms['premade'])"><?php $trl->_('LABEL_NONE')?></a>&nbsp;
         &nbsp;page:<?=$pageNav->getPageLinks()?>&nbsp;
     </td></td>
     <tr><td align="center">

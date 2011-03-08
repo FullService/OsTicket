@@ -41,6 +41,7 @@ $LANG['ERROR_SEARCH_TERM_MORE_3']='Search term must be more than 3 chars';
 $LANG['TITLE'] = 'Tickets FullService'; 
 $LANG['TITLE_BOX_NEW_TICKET'] = 'New Ticket';
 $LANG['TITLE_BAR_OFFLINE'] = 'Support Ticket System';
+$LANG['TITLE_MY_PREFERENCES'] = 'My Preferences';
 $LANG['TITLE_OFFLINE'] = 'Support Ticket System Offline';
 $LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Open Previus Ticket';
 $LANG['TITLE_CLOSED_TICKETS'] = 'Closed Tickets';
@@ -59,6 +60,8 @@ $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 $LANG['LABEL_ADMIN_DASHBOARD'] = 'Admin Dashboard';
 $LANG['LABEL_ADMIN_PANEL'] = 'Admin Panel';
 $LANG['LABEL_ADVANCED'] = 'Advanced';
+$LANG['LABEL_ALL'] = 'All';
+$LANG['LABEL_ALL_DEPARTMENTS'] = 'All Departments';
 $LANG['LABEL_ASSIGN'] = 'Assign';
 $LANG['LABEL_ATTACHMENT'] = 'Attachment';
 $LANG['LABEL_ASCENDING'] = 'Ascending';
@@ -68,6 +71,8 @@ $LANG['LABEL_BASIC'] = 'Basic';
 // Label C
 $LANG['LABEL_CLOSED_TICKETS'] = 'Closed Tickets';
 $LANG['LABEL_CANCEL'] = 'Cancel';
+$LANG['LABEL_CATEGORY'] = 'category';
+$LANG['LABEL_CATEGORY_DEPT'] = 'Category/Dept';
 $LANG['LABEL_CHANGE_PASSWORD'] = 'Change Password';
 $LANG['LABEL_CHECK_STATUS'] = 'Check Status';
 $LANG['LABEL_Closed'] = 'Closed';
@@ -87,6 +92,8 @@ $LANG['LABEL_ENABLE_SYSTEM_OFF_LINE'] = 'Enable';
 // Label F
 $LANG['LABEL_FROM'] = 'From.';
 $LANG['LABEL_FULL_NAME'] = 'Full Name';
+// Label G
+$LANG['LABEL_GO'] = 'GO';
 // Label H
 $LANG['LABEL_HELP_TOPIC'] = 'Help Topic';
 // Label I
@@ -100,11 +107,14 @@ $LANG['LABEL_KNOWLEDGE_BASE_PREMATE'] = 'Knowledge Base: Premade';
 $LANG['LABEL_LOG_OUT'] = 'Log Out';
 // Label M
 $LANG['LABEL_MESSAGE'] = 'Message';
-$LANG['LABEL_MY_PREFERENCES'] = 'My Preferences';
+$LANG['LABEL_MY_ACCOUNT'] = 'My Account';
+$LANG['LABEL_MY_PREFERENCE'] = 'My Preference';
 $LANG['LABEL_MY_PROFILE'] = 'My Profile';
 // Label N
 $LANG['LABEL_NAME'] = 'Name';
 $LANG['LABEL_NEW_TICKET'] = 'Novo Ticket';
+$LANG['LABEL_NEW_PREMADE_REPLY'] = 'New Premade Reply';
+$LANG['LABEL_NONE'] = 'None';
 // Label O
 $LANG['LABEL_OPEN'] = 'aberto';
 $LANG['LABEL_OPEN_TICKET'] = 'Open Ticket';
@@ -117,22 +127,31 @@ $LANG['LABEL_PASSWORD_AGAIN'] = 'Password (again)';
 $LANG['LABEL_PHONE'] = 'Phone';
 $LANG['LABEL_POST_REPLY']='Post Reply';
 $LANG['LABEL_PRIORITY'] = 'Priority';
+$LANG['LABEL_PREMADE_REPLIES'] = 'Premade Replies';
 // Label Q
 $LANG['LABEL_QUERY'] = 'Query';
+$LANG['LABEL_QUERY_RETURNED_ZERO_RESULT'] = 'Query returned 0 results';
 // Label R
 $LANG['LABEL_RESET'] = 'Reset';
 $LANG['LABEL_RESULTS_PER_PAGE'] = 'Results Per Page';
+$LANG['LABEL_REPLY_TITLE'] = 'Reply Title';
 // Label S
 $LANG['LABEL_SEARCH'] = 'Search';
-$LANG['LABEL_SELECT_SOURCE'] = 'Select Source';
+$LANG['LABEL_SEARCH_FOR'] = 'Search for';
+$LANG['LABEL_SELECT'] = 'Select';
 $LANG['LABEL_SELECT_DEPARTMENT'] = 'Select Department';
+$LANG['LABEL_SELECT_SOURCE'] = 'Select Source';
+$LANG["LABEL_SETTINGS"] = 'Settings';
 $LANG['LABEL_SORT_BY'] = 'Sort by';
+$LANG['LABEL_SORT_BY_TITLE'] = 'Sort By Title'; 
+$LANG['LABEL_SORT_BY_UPDATE_DATE'] = 'Sort By Update Date';
 $LANG['LABEL_STAFF_PANEL'] = 'Staff Panel';
+$LANG['LABEL_STATUS'] = 'Status';
 $LANG['LABEL_STATUS_IS'] = 'Status is';
 $LANG['LABEL_SUBJECT'] = 'Subject';
 $LANG['LABEL_SUBMIT'] = 'Submit';
 $LANG['LABEL_SUBMIT_TICKET'] = 'Submit Ticket';
-
+$LANG["LABEL_SYSTEM_SETTINGS"] = 'System Settings';
 
 
 // Label T
@@ -141,12 +160,14 @@ $LANG['LABEL_TICKET_NUMBER'] = 'Ticket#';
 $LANG['LABEL_TICKET_STATUS'] = 'Ticket Status';
 $LANG['LABEL_TICKET_ID'] = 'Ticket ID';
 $LANG['LABEL_TO'] = 'To.';
+$LANG['LABEL_TOGGLE'] = 'Toggle';
 $LANG['LABEL_TRANSFER'] = 'Transfer';
 
 
 
 
 // Label U
+$LANG['LABEL_UPDATE_DATE'] = 'Last Updated';
 $LANG['LABEL_USERNAME'] = 'Username';
 // Label V
 $LANG['LABEL_VIEW_STATUS'] = 'View Status'; 
@@ -194,6 +215,10 @@ $LANG['TEXT_NO_TICKETS_FOUND']='NO tickets found.';
 $LANG['TEXT_OPEN_NEW_TICKET'] = 'Open new Ticket';
 $LANG['TEXT_OPEN_PREVIUS_TICKET'] = 'Check status of previously opened ticket. we provide archives and history of all your support requests complete with responses.';
 $LANG['TEXT_OPEN_TICKETS'] = 'Open Tickets';
+$LANG['TEXT_TOTAL_OPEN_TICKETS'] = "Open ({0})";
+$LANG['TEXT_TOTAL_ANSWERED_TICKETS'] = "Answered ({0})";
+$LANG['TEXT_TOTAL_MY_TICKETS'] = 'My Tickets ({0})';
+$LANG['LABLE_ASSIGNED_TICKETS'] = 'Assigned Tickets';
 $LANG['TEXT_OPEN'] = 'Open';
 $LANG['TEXT_OVERDUE_STATS'] = 'Overdue ({0})';
 $LANG['TEXT_OVERDUE_TICKETS'] = 'Overdue Tickets';
@@ -216,6 +241,7 @@ $LANG['TEXT_SHOW_FROM_TO_OF_ALL'] = 'Showing {0} - {1} of {2}';
 $LANG['TEXT_SHOW_ZERO'] = 'Showing 0 (zero)';
 $LANG['TEXT_SEARCH_RESULTS'] = 'Search Results';
 $LANG['TEXT_SELECT_ONE_TOPIC'] = 'Select One';
+$LANG['TEXT_SYSTEM_IS_OFF_LINE'] = '<strong>System is set to offline mode</strong> - Client interface is disabled and ONLY admins can access staff control panel.';
 $LANG['TEXT_SUPPORT_TEAM'] = 'Support Tean';
 $LANG['TEXT_SUPPORT_TICKET_SISTEM'] = '<span>SUPPORT TICKET</span> SYSTEM';
 $LANG['TEXT_SUPPORT_CENTER'] = 'Support Center';
