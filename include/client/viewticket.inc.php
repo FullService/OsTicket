@@ -1,7 +1,7 @@
 <?php
 if(!defined('OSTCLIENTINC') || !is_object($thisclient) || !is_object($ticket)) die('Kwaheri'); //bye..see ya
 //Double check access one last time...
-if(strcasecmp($thisclient->getEmail(),$ticket->getEmail())) die('Access Denied');
+if(strcasecmp($thisclient->getEmail(),$ticket->getEmail())) die($trl->translate("TEXT_ACCESS_DENIED"));
 
 $info=($_POST && $errors)?Format::input($_POST):array(); //Re-use the post info on error...savekeyboards.org
 

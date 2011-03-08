@@ -31,7 +31,7 @@ class StaffNav {
 		if($thisuser->isAdmin() && strcasecmp($pagetype,'admin')==0) {
 			$desc = $trl->translate("LABEL_DASHBOARD");
 			$title = $trl->translate("LABEL_ADMIN_DASHBOARD");
-			$tabs['dashboard']=array('desc'=>$trl,'href'=>'admin.php?t=dashboard','title'=>$tile);
+			$tabs['dashboard']=array('desc'=>$title,'href'=>'admin.php?t=dashboard','title'=>$tile);
 			$tabs['settings']=array('desc'=>'Settings','href'=>'admin.php?t=settings','title'=>'System Settings');
 			$tabs['emails']=array('desc'=>'Emails','href'=>'admin.php?t=email','title'=>'Email Settings');
 			$tabs['topics']=array('desc'=>'Help Topics','href'=>'admin.php?t=topics','title'=>'Help Topics');

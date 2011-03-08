@@ -1,7 +1,8 @@
-/.buildpath
-/.project
-/.DS_Store
-/include/ost-config.primeiro.teste.php
-/include/ost-config.php
-/.settings
 *.orig
+.buildpath
+.project
+.settings
+.project.orig
+.cvsignore
+.DS_Store
+.cvsignore

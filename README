@@ -2,7 +2,7 @@
 # Porguês Brasileiro
 # Dush
 
-This project is osTicket Translator, it is the translation of osTicket Original (www.osticket.com).
+OsTicket Fork (or OsTicket Reloaded) is an OsTicket which supports several localizations or languages.
 
 This translation was done by the staff of the "Fullservice Consulting & Services - LLC" through its director and owner which is Analyst and Programmer in various languages, among them PHP.
 
@@ -20,4 +20,4 @@ Today the project is already fully adapted to version 1.6 and there are several 
 
 OsTicket Translator is to interface with the client fully translated, and much of the administration interface and team. Your help is critical to the project.
 
-To participate is very simple to start reading our wiki at: https: / / github.com / Fullservice / osTicket / wiki 
+To participate is very simple to start reading our wiki at: https://github.com/Fullservice/OsTicket/wiki 
