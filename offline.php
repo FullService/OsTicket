@@ -24,7 +24,7 @@ if($cfg && !$cfg->isHelpDeskOffline()) {
 <html>
 <head>
 <title><?php echo $trl->translate('TITLE_BAR_OFFLINE'); ?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $trl->getCharset();?>">
 </head>
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" rightmargin="0" topmargin="0">
 <table width="60%" cellpadding="5" cellspacing="0" border="0">

@@ -1,5 +1,5 @@
 <?php
-if(!defined('OSTADMININC') || !$thisuser->isadmin() || !is_object($template)) die('Access Denied');
+if(!defined('OSTADMININC') || !$thisuser->isadmin() || !is_object($template)) die($trl->translate("TEXT_ACCESS_DENIED"));
 $tpl=($errors && $_POST)?Format::input($_POST):Format::htmlchars($template->getInfo());
 ?>
 <div class="msg">Email Templates</div>

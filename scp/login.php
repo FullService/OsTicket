@@ -34,7 +34,7 @@ if($_POST && (!empty($_POST['username']) && !empty($_POST['passwd']))){
        $fatorLastStrike = (time()-$_SESSION['_staff']['laststrike']);
 	   if($fatorLastStrike<$cfg->getStaffLoginTimeout()) {
            $msg=$trl->translate('TEXT_EXCESSIVE_FAILED_LOGIN_ATTEMPTS');
-            $errors['err']=$cfg-translate('TEXT_YOUVE_REACHED_MAXIMUM_FAILED_LOGIN_ATTEMPTS_ALLOWED',$fatorLastStrike);
+            $errors['err']=$trl->translate('TEXT_YOUVE_REACHED_MAXIMUM_FAILED_LOGIN_ATTEMPTS_ALLOWED',$fatorLastStrike);
         }else{ //Timeout is over.
             //Reset the counter for next round of attempts after the timeout.
             $_SESSION['_staff']['laststrike']=null;
@@ -64,7 +64,7 @@ if($_POST && (!empty($_POST['username']) && !empty($_POST['passwd']))){
     //If we get to this point we know the login failed.
     $_SESSION['_staff']['strikes']+=1;
     if(!$errors && $_SESSION['_staff']['strikes']>$cfg->getStaffMaxLogins()) {
-        $msg='Access Denied';
+        $msg=$trl->translate("TEXT_ACCESS_DENIED");
         $errors['err']='Forgot your login info? Contact IT Dept.';
         $_SESSION['_staff']['laststrike']=time();
         $alert='Excessive login attempts by a staff member?'."\n".

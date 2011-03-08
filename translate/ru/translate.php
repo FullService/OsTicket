@@ -142,8 +142,6 @@ $LANG['TEXT_LOGIN_VIEW_STATUS_OF_TICKET']='To view the status of a ticket, provi
         'If this is your first time contacting us or you\'ve lost the ticket ID, please <a href="open.php">click here</a> to open a new ticket.';	
 $LANG['TEXT_OFFLINE']='Thank you for your interest in contacting us.<br>'.
          'Our helpdesk is offline at the moment, please check back at a later time.';
-$LANG['TEXT_LOGIN_VIEW_STATUS_OF_TICKET']='To view the status of a ticket, provide us with your login details below.<br/>'.
-        'If this is your first time contacting us or you\'ve lost the ticket ID, please <a href="open.php">click here</a> to open a new ticket.';	
 $LANG['TEXT_SESSION_TIMED_OUT_DUE_TO_INACTIVITY']='Session timed out due to inactivity';
 $LANG['TEXT_FILE_REJECTED'] = 'File [ {0} ] rejected';
 $LANG['TEXT_INVALID_FILE_TYPE'] = 'Invalid file type [ {0} ]';

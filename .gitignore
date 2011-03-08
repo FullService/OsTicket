@@ -1,0 +1,8 @@
+*.orig
+.buildpath
+.project
+.settings
+.project.orig
+.cvsignore
+.DS_Store
+.cvsignore

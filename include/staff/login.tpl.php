@@ -1,7 +1,9 @@
-<?php defined('OSTSCPINC') or die('Invalid path'); ?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<?php defined('OSTSCPINC') or die('Invalid path'); 
+$trl->sendHeader();
+?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $trl->getLang();?>" lang="<?php echo $trl->getLang();?>">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=<?php echo $trl->getCharset();?>" />
 <title>osTicket:: SCP Login</title>
 <link rel="stylesheet" href="css/login.css" type="text/css" />
 <meta name="robots" content="noindex" />

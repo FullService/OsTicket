@@ -12,7 +12,7 @@
  **********************************************************************/
 
 if(defined('ROOT_DIR'))
-	define('TRANSLATE_DIR',ROOT_DIR.'translate/'); // Dir with Translations
+define('TRANSLATE_DIR',ROOT_DIR.'translate/'); // Dir with Translations
 else{
 	define('ROOT_DIR',str_replace('\\\\', '/', realpath(dirname(__FILE__))).'/'); #Get real path for root dir ---linux and windows
 	define('TRANSLATE_DIR',ROOT_DIR.'translate/'); // Dir with Translations
@@ -53,7 +53,7 @@ class Translator
 	function getLang(){
 		return $this->getLanguage();
 	}
-	
+
 	/**
 	 * Return the Language code;
 	 */
@@ -101,11 +101,37 @@ class Translator
 		}
 			
 	}
+
+	/**
+	 *  echo the string returned from Translator::translate($str,$replace);
+	 *
+	 * @param String $str
+	 * @param mix $replace
+	 */
+	function _($str,$replace = null){
+		echo $this->translate($str,$replace);
+	}
+	
+	/**
+	 *  return from Translator::translate($str,$replace);
+	 *
+	 * @param String $str
+	 * @param mix $replace
+	 */
+	function _t($str,$replace = null) {
+		return $this->translate($str,$replace);
+	}
 	/**
 	 *
 	 */
 	function translate($str, $replace = null)
 	{
+		// Clean the tag
+		$str = trim($str);
+		$str = preg_replace('/\s{2,}/m', ' ', $str);
+		$str = str_replace(" ", "_", $str);
+		$str = strtoupper($str);
+
 		if (!is_null($str))
 		{
 			if(array_key_exists($str,$this->LANG)){
@@ -128,7 +154,7 @@ class Translator
 						$str = str_replace('{0}', $replace, $str);
 					}
 				}
-			}	
+			}
 		}
 		return $str;
 	}
@@ -166,9 +192,9 @@ class Translator
 		while ($file = readdir($dir_handle))
 		{
 			if( is_dir(TRANSLATE_DIR.$file)
-				&& $file != "."
-				&& $file != ".."
-				&& !in_array( $file, self::$omit ) ){
+			&& $file != "."
+			&& $file != ".."
+			&& !in_array( $file, self::$omit ) ){
 				$langs[] = $file ;
 			}
 		}
@@ -179,26 +205,26 @@ class Translator
 		sort($langs);
 		return $langs;
 	}
-	
+
 	/**
 	 * Send RAW Header to browser use the correct charset;
-	 * 
+	 *
 	 * You can inform the content-type to send.
 	 */
 	public function sendHeader($content="text/html"){
 		$charset = $this->getCharset();
 		header ("Content-type: $content; charset=$charset");
-	}	
-	
+	}
+
 	public function getCodePage(){
 		$dir = $this->LANG['CODEPAGE'];
-			if(isset($dir)){
-				return $dir;
-			}else{
-				return 'UTF-8';
-			}
+		if(isset($dir)){
+			return $dir;
+		}else{
+			return 'UTF-8';
+		}
 	}
-	public function getCharset(){ 
+	public function getCharset(){
 		return strtolower($this->getCodePage());
 	}
 }

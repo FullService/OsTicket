@@ -1,5 +1,5 @@
 <?php
-if(!defined('OSTADMININC') || !$thisuser->isadmin()) die('Access Denied');
+if(!defined('OSTADMININC') || !$thisuser->isadmin()) die($trl->translate("TEXT_ACCESS_DENIED"));
 
 //List all staff members...not pagenating...
 $sql='SELECT staff.staff_id, staff.group_id,staff.dept_id, firstname,lastname, username'.

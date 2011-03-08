@@ -32,7 +32,7 @@ if(defined('THIS_VERSION') && strcasecmp($cfg->getVersion(),THIS_VERSION)) {
 }elseif(!$cfg->isHelpDeskOffline()) {
 
     if(file_exists('../setup/')){
-        $sysnotice='Please take a minute to delete <strong>setup/install</strong> directory for security reasons.';
+        $sysnotice=$trl->translate('TEXT_PLEASE_TAKE_A_MINUTE_TO_DELETE_INSTALL');
     }else{
 
         if(CONFIG_FILE && file_exists(CONFIG_FILE) && is_writable(CONFIG_FILE)) {
