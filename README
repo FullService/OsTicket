@@ -1,23 +1,5 @@
-# In English (This File)
-# Porguês Brasileiro
-# Dush
-
-OsTicket Fork (or OsTicket Reloaded) is an OsTicket which supports several localizations or languages.
-
-This translation was done by the staff of the "Fullservice Consulting & Services - LLC" through its director and owner which is Analyst and Programmer in various languages, among them PHP.
-
-This project was born from the need to have a simple and functional software for managing calls of our customers. But did not find any software in my native language (Brazilian Portuguese), although there are several, but none reached our expectations.
-
-So I started the translation of the original project osTicket which can be found at: www.osticket.com and is an original work of Peter Rotich <peter@osticket.com>.
-
-Aiming to enable a fruitful result of my work simply so that others also translate and even customize it if osTicket soon, I decided to build a framework following the philosophy of translation for Joomla.
-
-The project became a success and was translated into eight languages, including Portuguese, Spanish, Italian, Dutch, but during the process of version 1.6 of the Original osTicket began to be tested, and how I chose to finish in this weakened version 1.5 , resuming when the WebDesigner Frumau Jasper, translator in Dutch, we decided to distribute it as your own fork called osTicket Reload (by the way a great name), it renegotiated Jasper Frumau my role in the project, even as I had never before GitHub knew well and had 100% capitate his philosophy.
-
-When I realized that the philosophy of GitHub was 100% compatible with my ideas for sharing knowledge, respect for copyright, and exchanging information openly, I found myself in the right place, then also realized that he could resume the translation work on a Fork keeping my own original design, without discarding the effort in Jasper Frumau keep the project alive.
-
-Today the project is already fully adapted to version 1.6 and there are several branchs of action for the development of solutions suggested in the forum osTicket Original and also to merge these new features with the translated version, osTicket Translator.
-
-OsTicket Translator is to interface with the client fully translated, and much of the administration interface and team. Your help is critical to the project.
-
-To participate is very simple to start reading our wiki at: https://github.com/Fullservice/OsTicket/wiki 
+This is my first Github repository AND first repository ever so patience is a virtue for anyone committing to this project or using the software.
+OsTicket Reloaded is an OsTicket which supports several localizations or languages.
+Developers, who would like to contribute to make this osTicket fork successful are more than welcome to join osTicket Reloaded to make this for the best multilingual osTicket fork ever! Contact admin@full.srv.br for development question.
+This fork is based on OsTicket fork from Carlos Delfino (admin@full.srv.br - http://www.full.srv.br) Version1.6 RC5 and now is based on new work on Version 1.6 ST.
+Contact jasperfrumau <at] gmail.com for collaboration.
