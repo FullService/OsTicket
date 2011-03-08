@@ -236,7 +236,7 @@ $query="$qselect $qfrom $qwhere $qgroup ORDER BY $order_by $order LIMIT ".$pageN
 $tickets_res = db_query($query);
 $showing=db_num_rows($tickets_res)?$pageNav->showing():"";
 if(!$results_type) {
-    $results_type=($search)?$trl->translate(TEXT_SEARCH_RESULTS):$trl->translate('TEXT_'.strtoupper($status).'_TICKETS');
+    $results_type=($search)?$trl->translate(TEXT_SEARCH_RESULTS):$trl->translate('TEXT_'.$status.'_TICKETS');
 }
 $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
 

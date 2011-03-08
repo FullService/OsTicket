@@ -41,7 +41,6 @@ $LANG['ERROR_SEARCH_TERM_MORE_3']='A termo usado na busca deve ter mais de 3 car
 $LANG['TITLE'] = 'Tickets FullService';
 $LANG['TITLE_BOX_NEW_TICKET'] = 'Novo Ticket';
 $LANG['TITLE_BAR_OFFLINE'] = 'Sistema de Ticket para Suporte';
-$LANG['TITLE_MY_PREFERENCES'] = 'Minhas Preferências';
 $LANG['TITLE_OFFLINE'] = 'Sistema de ticket para Suporte está Offline';
 $LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Abrir ticket existente';
 $LANG['TITLE_CLOSED_TICKETS'] = 'Closed Tickets';
@@ -154,6 +153,17 @@ $LANG['LABEL_USERNAME'] = 'Nome do Usuário';
 $LANG['LABEL_VIEW_STATUS'] = 'Verificar Ticket';
 
 
+$LANG['LABEL_ISSUE_SUMMARY'] = 'Resumo do ocorrido';
+$LANG['LABEL_TICKET_NUMBER'] = 'Num. do Ticket';
+$LANG['LABEL_TELEPHONE'] = 'Telefone';
+$LANG['LABEL_TICKET_SOURCE'] = 'Origem do Ticket';
+$LANG['LABEL_TICKET_STATUS'] = 'Situação do Ticket'; 
+$LANG['LABEL_TICKET_ID'] = 'Ticket ID';
+$LANG['LABEL_TO'] = 'Até';
+$LANG['LABEL_TRANSFER'] = 'Transferir';
+$LANG['LABEL_USERNAME'] = 'Nome do Usuário';
+$LANG['LABEL_VIEW_STATUS'] = 'Verificar Ticket';
+
 
 #Alert Messages, normally used with JavaScript dialog box.
 // TEXT A
@@ -222,7 +232,7 @@ $LANG['TEXT_FORGOT_YOUR_LOGIN_INFO'] = 'Esqueceu suas informações de login? Po
 $LANG['TEXT_EXCESSIVE_FAILED_LOGIN_ATTEMPTS'] = 'Tentativas de Login Excessivas';
 $LANG['TEXT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT'] = 'Tentativas de Login Excessivas (cliente)';
 $LANG['TEXT_LOGIN_VIEW_STATUS_OF_TICKET'] = 'Para visualizar a situação de um Ticket, forneça as informações de login abaixo.<br>'.
-											'Se é a primeira vez que está nos contactando ou você perdeu o número de seu ticket, por favor <a href="open.php">abra um novo ticket</a>';
+'Se é a primeira vez que está nos contactando ou você perdeu o número de seu ticket, por favor <a href="open.php">abra um novo ticket</a>';
 $LANG['TEXT_SESSION_TIMED_OUT_DUE_TO_INACTIVITY'] = 'Devido a inatividade, sua seção expirou!';
 $LANG['TEXT_WELCOME_BACK_CLIENT'] = 'Bem Vindo, <strong>{0}</strong>';
 $LANG['TEXT_WELCOME_BACK_STAFF'] = 'Bem Vindo, <strong>{0}</strong>';

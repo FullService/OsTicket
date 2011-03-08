@@ -1,7 +1,7 @@
 <?php
 if(!defined('OSTSCPINC') || !is_object($thisuser) || !$rep) die('Kwaheri');
 ?>
-<div class="msg">&nbsp;<?php echo $trl->translate('TITLE_MY_PREFERENCES');?></div>
+<div class="msg">&nbsp;My Preferences</div>
 <table width="100%" border="0" cellspacing=2 cellpadding=3>
  <form action="profile.php" method="post">
  <input type="hidden" name="t" value="pref">

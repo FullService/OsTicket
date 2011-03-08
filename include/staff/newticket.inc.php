@@ -199,7 +199,7 @@ $info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the po
             </div>
         </td>
     </tr>
-    <tr height=2px><td align="left" colspan=2 >&nbsp;</td></tr>
+    <tr height=2px><td align="left" colspan=2 >&nbsp;</td</tr>
     <tr>
         <td></td>
         <td>

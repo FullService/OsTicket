@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 #Disable direct access.
 if (!strcasecmp(basename($_SERVER['SCRIPT_NAME']), basename( __FILE__ ))) die ('kwaheri rafiki!');
