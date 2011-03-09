@@ -32,7 +32,9 @@ class StaffNav {
 			$desc = $trl->translate("LABEL_DASHBOARD");
 			$title = $trl->translate("LABEL_ADMIN_DASHBOARD");
 			$tabs['dashboard']=array('desc'=>$title,'href'=>'admin.php?t=dashboard','title'=>$tile);
-			$tabs['settings']=array('desc'=>'Settings','href'=>'admin.php?t=settings','title'=>'System Settings');
+			$desc = $trl->translate("LABEL_SETTINGS");
+			$title = $trl->translate("LABEL_SYSTEM_SETTINGS");
+			$tabs['settings']=array('desc'=>$desc,'href'=>'admin.php?t=settings','title'=>$title);
 			$tabs['emails']=array('desc'=>'Emails','href'=>'admin.php?t=email','title'=>'Email Settings');
 			$tabs['topics']=array('desc'=>'Help Topics','href'=>'admin.php?t=topics','title'=>'Help Topics');
 			$tabs['staff']=array('desc'=>'Staff','href'=>'admin.php?t=staff','title'=>'Staff Members');
@@ -47,7 +49,9 @@ class StaffNav {
 			$desc = $trl->translate('LABEL_DIRECTORY');
 			$title = $trl->translate('LABEL_DIRETORY_STAFF');
 			$tabs['directory']=array('desc'=>$desc,'href'=>'directory.php','title'=>$title);
-			$tabs['profile']=array('desc'=>'My Account','href'=>'profile.php','title'=>'My Profile');
+			$desc = $trl->translate('LABEL_MY_ACCOUNT');
+			$title = $trl->translate('LABEL_MY_ACCOUNT');
+			$tabs['profile']=array('desc'=>$desc,'href'=>'profile.php','title'=>$title);
 		}
 		$this->tabs=$tabs;
 	}
