@@ -3,11 +3,11 @@ if(!defined('OSTADMININC') || !$thisuser->isadmin()) die($trl->translate("TEXT_A
 $info=null;
 if($dept && $_REQUEST['a']!='new'){
     //Editing Department.
-    $title='Update Department';
+    $title=$trl->_t('LABEL_UPDATE_DEPARTMENT');
     $action='update';
     $info=$dept->getInfo();
 }else {
-    $title='New Department';
+    $title=$trl->_t('LABEL_NEW_DEPARTMENT');
     $action='create';
     $info['ispublic']=isset($info['ispublic'])?$info['ispublic']:1;
     $info['ticket_auto_response']=isset($info['ticket_auto_response'])?$info['ticket_auto_response']:1;
@@ -25,19 +25,19 @@ $info=($errors && $_POST)?Format::input($_POST):Format::htmlchars($info);
  <input type="hidden" name="dept_id" value="<?=$info['dept_id']?>">
  <tr><td>
     <table width="100%" border="0" cellspacing=0 cellpadding=2 class="tform">
-        <tr class="header"><td colspan=2>Department</td></tr>
-        <tr class="subheader"><td colspan=2 >Dept depends on email &amp; help topics settings for incoming tickets.</td></tr>
-        <tr><th>Dept Name:</th>
+        <tr class="header"><td colspan=2><?php $trl->_('LABEL_DEPARTMENT')?></td></tr>
+        <tr class="subheader"><td colspan=2 ><?php $trl->_('TEXT_DEPT_DEPENDS_ON_EMAIL')?></td></tr>
+        <tr><th><?php $trl->_('LABEL_DEPT_NAME')?>:</th>
             <td><input type="text" name="dept_name" size=25 value="<?=$info['dept_name']?>">
                 &nbsp;<font class="error">*&nbsp;<?=$errors['dept_name']?></font>
                     
             </td>
         </tr>
         <tr>
-            <th>Dept Email:</th>
+            <th><?php $trl->_('LABEL_DEPT_EMAIL')?>:</th>
             <td>
                 <select name="email_id">
-                    <option value=""><?= $trl->translate('TEXT_SELECT_ONE_TOPIC') ?></option>
+                    <option value=""><?= $trl->translate('LABEL_SELECT_ONE_EMAIL') ?></option>
                     <?
                     $emails=db_query('SELECT email_id,email,name,smtp_active FROM '.EMAIL_TABLE);
                     while (list($id,$email,$name,$smtp) = db_fetch_row($emails)){
@@ -49,19 +49,19 @@ $info=($errors && $_POST)?Format::input($_POST):Format::htmlchars($info);
                     <?
                     }?>
                  </select>
-                 &nbsp;<font class="error">*&nbsp;<?=$errors['email_id']?></font>&nbsp;(outgoing email)
+                 &nbsp;<font class="error">*&nbsp;<?=$errors['email_id']?></font>&nbsp;(<?php $trl->_('LABEL_OUTGOING_EMAIL')?>)
             </td>
         </tr>    
         <? if($info['dept_id']) { //update 
             $users= db_query('SELECT staff_id,CONCAT_WS(" ",firstname,lastname) as name FROM '.STAFF_TABLE.' WHERE dept_id='.db_input($info['dept_id']));
             ?>
         <tr>
-            <th>Dep Manager:</th>
+            <th><?php $trl->_('LABEL_DEPT_MANAGER')?>:</th>
             <td>
                 <?if($users && db_num_rows($users)) {?>
                 <select name="manager_id">
-                    <option value=0 >-------None-------</option>
-                    <option value=0 disabled >Select Manager (optional)</option>
+                    <option value=0 >-------<?php $trl->_('LABEL_DEPT_MANAGER_NONE')?>-------</option>
+                    <option value=0 disabled ><?php $trl->_('LABEL_SELECT_MANAGER_OPTIONAL')?></option>
                      <?
                      while (list($id,$name) = db_fetch_row($users)){ ?>
                         <option value="<?=$id?>"<?=($info['manager_id']==$id)?'selected':''?>><?=$name?></option>
@@ -69,35 +69,35 @@ $info=($errors && $_POST)?Format::input($_POST):Format::htmlchars($info);
                      
                 </select>
                  <?}else {?>
-                       No Users (Add Users)
+                       <?php $trl->_('LABEL_NO_MANAGER_ADD_USERS')?>
                        <input type="hidden" name="manager_id"  value="0" />
                  <?}?>
                     &nbsp;<font class="error">&nbsp;<?=$errors['manager_id']?></font>
             </td>
         </tr>
         <?}?>
-        <tr><th>Dept Type</th>
+        <tr><th><?php $trl->_('LABEL_DEPT_TYPE')?></th>
             <td>
-                <input type="radio" name="ispublic"  value="1"   <?=$info['ispublic']?'checked':''?> />Public
-                <input type="radio" name="ispublic"  value="0"   <?=!$info['ispublic']?'checked':''?> />Private (Hidden)
+                <input type="radio" name="ispublic"  value="1"   <?=$info['ispublic']?'checked':''?> /><?php $trl->_('LABEL_PUBLIC')?>
+                <input type="radio" name="ispublic"  value="0"   <?=!$info['ispublic']?'checked':''?> /><?php $trl->_('LABEL_PRIVATE_HIDDEN')?>
                 &nbsp;<font class="error"><?=$errors['ispublic']?></font>
             </td>
         </tr>
         <tr>
-            <th valign="top"><br/>Dept Signature:</th>
+            <th valign="top"><br/><?php $trl->_('LABEL_DEPT_SIGNATURE')?>:</th>
             <td>
-                <i>Required when Dept is public</i>&nbsp;&nbsp;&nbsp;<font class="error"><?=$errors['dept_signature']?></font><br/>
+                <i><?php $trl->_('TEXT_REQUIRED_WHEN_DEPT_IS_PUBLIC')?></i>&nbsp;&nbsp;&nbsp;<font class="error"><?=$errors['dept_signature']?></font><br/>
                 <textarea name="dept_signature" cols="21" rows="5" style="width: 60%;"><?=$info['dept_signature']?></textarea>
                 <br>
-                <input type="checkbox" name="can_append_signature" <?=$info['can_append_signature'] ?'checked':''?> > 
-                can be appended to responses.&nbsp;(available as a choice for public departments)  
+                <input type="checkbox" name="can_append_signature" <?=$info['can_append_signature'] ?'checked':''?> >
+                <?php $trl->_('TEXT_CAM_BE_APPENDED_TO_RESPONSES')?>  
             </td>
         </tr>
-        <tr><th>Email Templates:</th>
+        <tr><th><?php $trl->_('LABEL_EMAIL_TEMPLATES')?>:</th>
             <td>
                 <select name="tpl_id">
-                    <option value=0 disabled>Select Template</option>
-                    <option value="0" selected="selected">System Default</option>
+                    <option value=0 disabled><?php $trl->_('LABEL_SELECT_TEMPLATE')?></option>
+                    <option value="0" selected="selected"><?php $trl->_('LABEL_SYSTEM_DEFAULT_TEMPLATE')?></option>
                     <?
                     $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE tpl_id!='.db_input($cfg->getDefaultTemplateId()));
                     while (list($id,$name) = db_fetch_row($templates)){

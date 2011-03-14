@@ -125,7 +125,7 @@ $LANG['TEXT_NOT_THIS_USER'] = 'Je ne suis pas cet utilisateur';
 $LANG['TEXT_THANKS_NEW_TICKET'] = 'Votre demande a bien été prise en compte.<br>Votre ticket SAV a bien été enregistré et nos équipes vont maintenant le traiter.';
 $LANG['TEXT_NEW_TICKET_AUTO_RESPONSE'] = 'Un mail comportant votre n°de ticket vous a été envoyé <b>{0}</b>. Vous devez posséder votre numéro de ticket lié a votre adresse mail afin de connaître l\'état d\'avancement de votre demande.<br><br>Si vous désirez envoyer des informations supplémentaires, merci de suivre les informations portées sur ce mail.';
 $LANG['TEXT_SUPPORT_TEAM'] = 'Equipe SAV';
-$LANG['TEXT_MESSAGE_POSTED_SUCCESS'] = 'Message envoyé avec succés.';
+$LANG['TEXT_MESSAGE_POSTED_SUCCESSFULLY'] = 'Message envoyé avec succés.';
 $LANG['TEXT_TICKET_NUMBER'] = 'Ticket #';
 $LANG['TEXT_TICKET_THREAD'] = 'Suivi ticket';
 $LANG['TEXT_TICKET_WILL_REOPEN_NEW_POST']= 'le ticket sera réouvert sur le dernier message';
@@ -169,7 +169,6 @@ $LANG['TEXT_EXCESSIVE_LOGIN_ATTEMPTS'] = 'Nombre de tentatives d\'identification
 $LANG['TEXT_HEADER_TITLE'] = 'Système de support SAV osTicket';
 $LANG['TEXT_INVALID_FILE_TYPE'] = 'Type de fichier invalide [ {0} ]';
 $LANG['TEXT_OFFLINE'] = 'Merci de nous avoir contacté.<br/> Notre bureau est actuellement hors ligne, merci de réessayer plus tard.';
-$LANG['TEXT_MESSAGE_POSTED_SUCESSFULLY'] = 'Votre message a bien été posté';
 $LANG['TEXT_YOUVE_REACHED_MAXIMUM_FAILED_LOGIN_ATTEMPTS_ALLOWED'] = 'Vous avez atteint la limite maximale d\'échecs pour vous identifier';
 
 
