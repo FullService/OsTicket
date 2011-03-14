@@ -90,7 +90,6 @@
    
 
     #include required files
-    require(INCLUDE_DIR.'class.extensionsManager.php'); // class for help to extend the OsTicket with modules and plugins;
     require(INCLUDE_DIR.'class.usersession.php');
     require(INCLUDE_DIR.'class.pagenate.php'); //Pagenate helper!
     require(INCLUDE_DIR.'class.sys.php'); //system loader & config & logger.
