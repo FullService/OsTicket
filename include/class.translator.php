@@ -41,7 +41,7 @@ function t($trl,$replace=null) {
 
 /**
  * Return the img path from tranlation of the TRL argument.
- * 
+ *
  * @param String $str
  */
 function ti($str) {
@@ -50,7 +50,7 @@ function ti($str) {
 
 /**
  * Echo the translation of the TRL argument.
- * 
+ *
  * @param String $trl
  * @param String $replace
  */
@@ -60,7 +60,7 @@ function te($trl,$replace) {
 
 /**
  * Echo the img path translation of the TRL argument.
- * 
+ *
  * @param String $str
  */
 function tei($str) {
@@ -91,8 +91,9 @@ class Translator
 
 	static $trl;
 
-	static function init($cfg){
+	static function &init($cfg){
 		self::$trl = new Translator($cfg);
+		return self::$trl;
 	}
 
 	var $cfg;
@@ -143,10 +144,21 @@ class Translator
 		$this->loadTranslate();
 	}
 
+        private function _cleanTag($str){
+
+		$str = trim($str);
+		$str = preg_replace('/\s{2,}/m', ' ', $str);
+		$str = str_replace(" ", "_", $str);
+		$str = strtoupper($str);
+                return $str;
+        }
 	/**
 	 * Translate using printf
 	 */
 	function translatef($str, $params=null){
+
+		$str = $this->_cleanTag($str);
+
 		if (!is_null($str))
 		{
 			$str = $this->LANG[$str];
@@ -178,7 +190,7 @@ class Translator
 	function _($str,$replace = null){
 		echo $this->translate($str,$replace);
 	}
-	
+
 	/**
 	 *  return from Translator::translate($str,$replace);
 	 *
@@ -193,6 +205,9 @@ class Translator
 	 */
 	function translate($str, $replace = null)
 	{
+
+		$str = $this->_cleanTag($str);
+
 		if (!is_null($str))
 		{
 			if(array_key_exists($str,$this->LANG)){
