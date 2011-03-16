@@ -35,10 +35,18 @@ class StaffNav {
 			$desc = $trl->translate("LABEL_SETTINGS");
 			$title = $trl->translate("LABEL_SYSTEM_SETTINGS");
 			$tabs['settings']=array('desc'=>$desc,'href'=>'admin.php?t=settings','title'=>$title);
-			$tabs['emails']=array('desc'=>'Emails','href'=>'admin.php?t=email','title'=>'Email Settings');
-			$tabs['topics']=array('desc'=>'Help Topics','href'=>'admin.php?t=topics','title'=>'Help Topics');
-			$tabs['staff']=array('desc'=>'Staff','href'=>'admin.php?t=staff','title'=>'Staff Members');
-			$tabs['depts']=array('desc'=>'Departments','href'=>'admin.php?t=depts','title'=>'Departments');
+			$desc = $trl->_t('LABEL_EMAILS');
+			$title = $trl->_t('LABEL_EMAILS_SETTINGS');
+			$tabs['emails']=array('desc'=>$desc,'href'=>'admin.php?t=email','title'=>$title);
+			$desc = $trl->_t('LABEL_HELP_TOPICS');
+			$title = $trl->_t('LABEL_HELP_TOPICS');
+			$tabs['topics']=array('desc'=>$desc,'href'=>'admin.php?t=topics','title'=>$title);
+			$desc = $trl->_t('LABEL_STAFF');
+			$title = $trl->_t('LABEL_STAFF_MEMBERS');
+			$tabs['staff']=array('desc'=>$desc,'href'=>'admin.php?t=staff','title'=>$title);
+			$desc = $trl->_t('LABEL_DEPARTMENTS');
+			$title = $trl->_t('LABEL_DEPARTMENTS');
+			$tabs['depts']=array('desc'=>$desc,'href'=>'admin.php?t=depts','title'=>$title);
 		}else {
 			$tabs['tickets']=array('desc'=>'Tickets','href'=>'tickets.php','title'=>'Ticket Queue');
 			if($thisuser && $thisuser->canManageKb()){

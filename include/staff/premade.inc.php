@@ -117,7 +117,7 @@ $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
                         onClick="highLight(this.value,this.checked);">
                 <td><a href="kb.php?id=<?=$row['premade_id']?>"><?=Format::htmlchars(Format::truncate($row['title'],60))?></a></td>
                 <td><b><?=$row['isenabled']?'Active':'Disabled'?></b></td>
-                <td><?=$row['dept_name']?Format::htmlchars($row['dept_name']):'All Departments'?></td>
+                <td><?=$row['dept_name']?Format::htmlchars($row['dept_name']):$trl->_t('LABEL_ALL_DEPARTMENTS')?></td>
                 <td><?=Format::db_datetime($row['updated'])?></td>
             </tr>
             <?

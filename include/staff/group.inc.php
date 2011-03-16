@@ -39,8 +39,8 @@ if($group && $_REQUEST['a']!='new'){
                 &nbsp;<font class="error">&nbsp;<?=$errors['group_enabled']?></font>
             </td>
         </tr>
-        <tr><th valign="top"><br>Dept Access</th>
-            <td class="mainTableAlt"><i>Select departments group members are allowed to access in addition to thier own department.</i>
+        <tr><th valign="top"><br><?php $trl->_('LABEL_DEPT_ACCESS')?></th>
+            <td class="mainTableAlt"><i><?php $trl->_('TEXT_SELECT_DEPARTMENTS_GROUP_MEMBERS')?></i>
                 &nbsp;<font class="error">&nbsp;<?=$errors['depts']?></font><br/>
                 <?
                 //Try to save the state on error...

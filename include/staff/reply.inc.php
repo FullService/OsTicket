@@ -41,7 +41,7 @@ if($answer && $_REQUEST['a']!='add'){
     <tr><td valign="top">Category:</td>
         <td>Department under which the 'answer' will be made available.&nbsp;<font class="error">&nbsp;<?=$errors['depts']?></font><br/>
             <select name=dept_id>
-                <option value=0 selected>All Departments</option>
+                <option value=0 selected>$trl->_('LABEL_ALL_DEPARTMENTS')</option>
                 <?
                 $depts= db_query('SELECT dept_id,dept_name FROM '.DEPT_TABLE.' ORDER BY dept_name');
                 while (list($id,$name) = db_fetch_row($depts)){

@@ -468,7 +468,7 @@ if($_POST && $_REQUEST['t'] && !$errors):
                 $dept = new Dept($_POST['dept_id']);
                 if($dept && $dept->getId()) {
                     if($dept->update($_POST,$errors))
-                        $msg='Dept updated successfully';
+                        $msg=$trl->_t('TEXT_DEPT_UPDATED_SUCCESSFULLY');
                     elseif(!$errors['err'])
                         $errors['err']='Error updating the department';
                 }else{
@@ -675,8 +675,11 @@ switch($thistab){
         }
         $page=($dept or ($_REQUEST['a']=='new' && !$deptID))?'dept.inc.php':'depts.inc.php';
         $nav->setTabActive('depts');
-        $nav->addSubMenu(array('desc'=>'Departments','href'=>'admin.php?t=depts','iconclass'=>'departments'));
-        $nav->addSubMenu(array('desc'=>'Add New Dept.','href'=>'admin.php?t=depts&a=new','iconclass'=>'newDepartment'));
+        $desc = $trl->_t('LABEL_DEPARTMENTS');
+		$title = $trl->_t('LABEL_DEPARTMENTS');
+        $nav->addSubMenu(array('desc'=>$desc,'href'=>'admin.php?t=depts','iconclass'=>$title));
+        $desc = $trl->_t('LABEL_ADD_NEW_DEPT'); 
+        $nav->addSubMenu(array('desc'=>$desc,'href'=>'admin.php?t=depts&a=new','iconclass'=>'newDepartment'));
         break;
     // (default)
     default:
