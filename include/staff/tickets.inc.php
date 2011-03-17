@@ -278,7 +278,7 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
     <tr>
         <td><?php echo $trl->translate(LABEL_QUERY);?>: </td><td><input type="text" id="query" name="query" value="<?=Format::htmlchars($_REQUEST['query'])?>"></td>
         <td><?php echo $trl->translate(LABEL_DEPT);?>:</td>
-        <td><select name="dept"><option value=0><?php echo $trl->translate(TEXT_ALL_DEPARTMENTS)?></option>
+        <td><select name="dept"><option value=0><?php echo $trl->_t(TEXT_ALL_DEPARTMENTS)?></option>
             <?
                 //Showing only departments the user has access to...
                 $sql='SELECT dept_id,dept_name FROM '.DEPT_TABLE;

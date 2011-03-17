@@ -20,6 +20,68 @@ else{
 
 define('TRANSLATE_PATH','translate/');
 
+/**
+ * Improvements in Translation API Library to use simple functions like:
+ * t(TRL)              --> Return the translation of the TRL argument.
+ * te(TRL)             --> Echo the translation of the TRL argument.
+ * ti(TRL)             --> Return the img path from tranlation of the TRL argument.
+ * tei(TRL)            --> Echo the img path translation of the TRL argument.
+ * teimg(TRL, array_of_img_param) --> Echo the img tag translation of the TRL argument
+ *
+ */
+/**
+ * Return the translation of the TRL argument.
+ *
+ * @param String $trl
+ * @param String $replace
+ */
+function t($trl,$replace=null) {
+	return Translator::$trl->translate($trl,$replace);
+}
+
+/**
+ * Return the img path from tranlation of the TRL argument.
+ *
+ * @param String $str
+ */
+function ti($str) {
+	return Translator::$trl->image($str);
+}
+
+/**
+ * Echo the translation of the TRL argument.
+ *
+ * @param String $trl
+ * @param String $replace
+ */
+function te($trl,$replace) {
+	echo t($trl,$replace);
+}
+
+/**
+ * Echo the img path translation of the TRL argument.
+ *
+ * @param String $str
+ */
+function tei($str) {
+	echo ti($str);
+}
+
+/**
+ * Echo the img tag translation of the TRL argument
+ *
+ * @param String $param -- String to Translate
+ * @param Array $parans -- Array of Img Tag.
+ */
+function teimg($str, $parans = array()) {
+	$parans = " ";
+	foreach ($parans as $key => $value) {
+		$parans .= " $key='$value' ";
+	};
+	$img = ti($str);
+	echo "<img src='$img' $parans />";
+}
+
 class Translator
 {
 	// lista nome de arquivos e diretorios a serem omitidos na listagem de idiomas disponiveis
@@ -27,10 +89,17 @@ class Translator
 	'.cvs','.CVS','cvs','CVS',
 	'.svn','.SVN','svn','SVN');
 
+	static $trl;
+
+	static function &init($cfg){
+		self::$trl = new Translator($cfg);
+		return self::$trl;
+	}
+
 	var $cfg;
 	var $LANG = array ();
 
-	function Translator($cfg = false )
+	private function Translator($cfg = false )
 	{
 		$this->cfg = $cfg;
 		$this->loadTranslate();
@@ -75,10 +144,21 @@ class Translator
 		$this->loadTranslate();
 	}
 
+        private function _cleanTag($str){
+
+		$str = trim($str);
+		$str = preg_replace('/\s{2,}/m', ' ', $str);
+		$str = str_replace(" ", "_", $str);
+		$str = strtoupper($str);
+                return $str;
+        }
 	/**
 	 * Translate using printf
 	 */
 	function translatef($str, $params=null){
+
+		$str = $this->_cleanTag($str);
+
 		if (!is_null($str))
 		{
 			$str = $this->LANG[$str];
@@ -101,7 +181,6 @@ class Translator
 		}
 			
 	}
-
 	/**
 	 *  echo the string returned from Translator::translate($str,$replace);
 	 *
@@ -111,7 +190,7 @@ class Translator
 	function _($str,$replace = null){
 		echo $this->translate($str,$replace);
 	}
-	
+
 	/**
 	 *  return from Translator::translate($str,$replace);
 	 *
@@ -126,11 +205,8 @@ class Translator
 	 */
 	function translate($str, $replace = null)
 	{
-		// Clean the tag
-		$str = trim($str);
-		$str = preg_replace('/\s{2,}/m', ' ', $str);
-		$str = str_replace(" ", "_", $str);
-		$str = strtoupper($str);
+
+		$str = $this->_cleanTag($str);
 
 		if (!is_null($str))
 		{

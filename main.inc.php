@@ -173,9 +173,7 @@
     
         $_SESSION['cfg']=$cfg;
     
-	$trl = new Translator($cfg);
-    
-	$_SESSION['trl']=$trl;
-    
+	$trl = Translator::init($cfg);
+    $_SESSION['trl'] = $trl;
     
 ?>

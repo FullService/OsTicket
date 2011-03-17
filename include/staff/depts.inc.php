@@ -8,7 +8,7 @@ $sql='SELECT dept.dept_id,dept_name,email.email_id,email.email,email.name as ema
      ' LEFT JOIN '.STAFF_TABLE.' staff ON dept.dept_id=staff.dept_id ';
 $depts=db_query($sql.' GROUP BY dept.dept_id ORDER BY dept_name');    
 ?>
-<div class="msg">Departments</div>
+<div class="msg"><?php $trl->_('LABEL_DEPARTMENTS')?></div>
 <table width="100%" border="0" cellspacing=1 cellpadding=2>
     <form action="admin.php?t=dept" method="POST" name="depts" onSubmit="return checkbox_checker(document.forms['depts'],1,0);">
     <input type=hidden name='do' value='mass_process'>
@@ -16,11 +16,11 @@ $depts=db_query($sql.' GROUP BY dept.dept_id ORDER BY dept_name');
     <table border="0" cellspacing=0 cellpadding=2 class="dtable" align="center" width="100%">
         <tr>
 	        <th width="7px">&nbsp;</th>
-	        <th>Dept. Name</th>
-            <th>Type</th>
-            <th width=10>Users</th>
-            <th>Primary Outgoing Email</th>
-            <th>Manager</th>
+	        <th><?php $trl->_('LABEL_DEPT_NAME')?></th>
+            <th><?php $trl->_('LABEL_TYPE')?></th>
+            <th width=10><?php $trl->_('LABEL_USERS')?></th>
+            <th><?php $trl->_('LABEL_PRIMARY_OUTGOING_EMAIL')?></th>
+            <th><?php $trl->_('LABEL_MANAGER')?></th>
         </tr>
         <?
         $class = 'row1';
@@ -35,14 +35,14 @@ $depts=db_query($sql.' GROUP BY dept.dept_id ORDER BY dept_name');
                     $sel=true;
                 }
                 $row['email']=$row['email_name']?($row['email_name'].' &lt;'.$row['email'].'&gt;'):$row['email'];
-                $default=($defaultId==$row['dept_id'])?'(Default)':'';
+                $default=($defaultId==$row['dept_id'])?'('.$trl->_t('LABEL_DEFAULT').')':'';
                 ?>
             <tr class="<?=$class?>" id="<?=$row['dept_id']?>">
                 <td width=7px>
                   <input type="checkbox" name="ids[]" value="<?=$row['dept_id']?>" <?=$sel?'checked':''?>  <?=$default?'disabled':''?>
                             onClick="highLight(this.value,this.checked);"> </td>
                 <td><a href="admin.php?t=dept&id=<?=$row['dept_id']?>"><?=$row['dept_name']?></a>&nbsp;<?=$default?></td>
-                <td><?=$row['ispublic']?'Public':'<b>Private</b>'?></td>
+                <td><?=$row['ispublic']?$trl->_t('LABEL_PUBLIC'):'<b>'.$trl->_t('LABEL_PUBLIC').'</b>'?></td>
                 <td>&nbsp;&nbsp;
                     <b>
                     <?if($row['users']>0) {?>
@@ -58,7 +58,7 @@ $depts=db_query($sql.' GROUP BY dept.dept_id ORDER BY dept_name');
             $class = ($class =='row2') ?'row1':'row2';
             } //end of while.
         else: //not tickets found!! ?> 
-            <tr class="<?=$class?>"><td colspan=6><b>Query returned 0 results</b></td></tr>
+            <tr class="<?=$class?>"><td colspan=6><b><?php $trl->_('TEXT_QUERY_RETURNED_ZERO_RESULTS')?></b></td></tr>
         <?
         endif; ?>
     </table>
@@ -69,18 +69,18 @@ $depts=db_query($sql.' GROUP BY dept.dept_id ORDER BY dept_name');
     <tr>
         <td style="padding-left:20px">
             Select:&nbsp;
-            <a href="#" onclick="return select_all(document.forms['depts'],true)">All</a>&nbsp;&nbsp;
-            <a href="#" onclick="return reset_all(document.forms['depts'])">None</a>&nbsp;&nbsp;
-            <a href="#" onclick="return toogle_all(document.forms['depts'],true)">Toggle</a>&nbsp;&nbsp;
+            <a href="#" onclick="return select_all(document.forms['depts'],true)"><?php $trl->_('LABEL_ALL')?></a>&nbsp;&nbsp;
+            <a href="#" onclick="return reset_all(document.forms['depts'])"><?php $trl->_('LABEL_NONE')?></a>&nbsp;&nbsp;
+            <a href="#" onclick="return toogle_all(document.forms['depts'],true)"><?php $trl->_('LABEL_TOGGLE')?></a>&nbsp;&nbsp;
         </td>
     </tr>
     <tr>
         <td align="center">
-            <input class="button" type="submit" name="public" value="Make Public"
+            <input class="button" type="submit" name="public" value="<?php $trl->_('LABEL_MAKE_PUBLIC')?>"
                 onClick=' return confirm("Are you sure you want to make selected depts(s) public?");'>
-            <input class="button" type="submit" name="private" value="Make Private" 
+            <input class="button" type="submit" name="private" value="<?php $trl->_('LABEL_MAKE_PRIVATE')?>" 
                 onClick=' return confirm("Are you sure you want to make selected depts(s) private?");'>
-            <input class="button" type="submit" name="delete" value="Delete Dept(s)" 
+            <input class="button" type="submit" name="delete" value="<?php $trl->_('LABEL_DELETE_DEPT_S')?>" 
                 onClick=' return confirm("Are you sure you want to DELETE selected depts(s)?");'>
         </td>
     </tr>
