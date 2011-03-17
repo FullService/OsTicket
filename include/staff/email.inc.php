@@ -46,10 +46,10 @@ $priorities= db_query('SELECT priority_id,priority_desc FROM '.TICKET_PRIORITY_T
                 &nbsp;&nbsp;(<i>Optional email's FROM name.</i>)
             </td>
         </tr>
-        <tr><th>New Ticket Priority</th>
+        <tr><th><?php $trl->_('LABEL_NEW_TICKET_PRIORITY')?></th>
             <td>
                 <select name="priority_id">
-                    <option value=0>Select Priority</option>
+                    <option value=0><?php $trl->_('LABEL_SELECT_PRIORITY')?></option>
                     <?
                     while (list($id,$name) = db_fetch_row($priorities)){
                         $selected = ($info['priority_id']==$id)?'selected':''; ?>

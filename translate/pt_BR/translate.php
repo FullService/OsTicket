@@ -44,7 +44,7 @@ $LANG['TITLE_BAR_OFFLINE'] = 'Sistema de Ticket para Suporte';
 $LANG['TITLE_MY_PREFERENCES'] = 'Minhas Preferências';
 $LANG['TITLE_OFFLINE'] = 'Sistema de ticket para Suporte está Offline';
 $LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Abrir ticket existente';
-$LANG['TITLE_CLOSED_TICKETS'] = 'Closed Tickets';
+$LANG['TITLE_CLOSED_TICKETS'] = 'Atendimentos Finalizados';
 
 # Images for Staff and Clients Ends
 // relative path of imagens in "translate/".$LANG['LANGUAGE']."/"
@@ -63,15 +63,18 @@ $LANG['LABEL_ADMIN_PANEL'] = 'Painel de Administração';
 $LANG['LABEL_ADVANCED'] = 'Avançado';
 $LANG['LABEL_ALL'] = 'Todos';
 $LANG['LABEL_ALL_DEPARTMENTS'] = 'Todos os Departamentos';
+$LANG['LABEL_ASC'] = 'ASC';
 $LANG['LABEL_ASCENDING'] = 'Ascendente';
 $LANG['LABEL_ASSIGN'] = 'Designar';
 $LANG['LABEL_ASSIGNED_TICKETS'] = 'Tickets Designados';
 $LANG['LABEL_ATTACHMENT'] = 'Anexo';
 $LANG['LABEL_AUTO_RESPONSE_EMAIL'] = 'E-mail para Auto Resposta';
 $LANG['LABEL_AUTORESPONDERS'] = 'Autoresposta';
+$LANG['LABEL_AUTORESP'] = 'Auto Resp.';
 // Label B
 $LANG['LABEL_BASIC'] = 'Basico';
 // Label C
+$LANG['LABEL_CLOSE'] = 'Fechado';
 $LANG['LABEL_CLOSED_TICKETS'] = 'Tickets Fechados';
 $LANG['LABEL_CANCEL'] = 'Cancelar';
 $LANG['LABEL_CATEGORY'] = 'categoria';
@@ -82,24 +85,26 @@ $LANG['LABEL_CLOSED'] = 'Fechado';
 $LANG['LABEL_CREATE_DATE'] = 'Criação';
 // Label D
 $LANG['LABEL_DASHBOARD'] = 'Dashboard';
+$LANG['LABEL_DATE'] = 'Data';
 $LANG['LABEL_DATE_SPAN'] = 'Data Entre';
 $LANG['LABEL_DEFAULT'] = 'Padrão';
+$LANG['LABEL_DELETE'] = 'Remover';
 $LANG['LABEL_DELETE_DEPT_S'] = 'Apagar Depart.(s)';
 $LANG['LABEL_DEPARTMENT'] = 'Departamento';
 $LANG['LABEL_DEPARTMENTS'] = 'Departamentos';
 $LANG['LABEL_DEPT_MANAGER'] = 'Gerente do Departamento';
 $LANG['LABEL_DEPT_MANAGER_NONE'] = 'Nenhum Gerente';
 $LANG['LABEL_DEPT'] = 'Dept.';
-$LANG['LABEL_DEPT_ACCESS'] = 'Dept Access';
+$LANG['LABEL_DEPT_ACCESS'] = 'Acesso ao Depart.';
 $LANG['LABEL_DEPT_TYPE'] = 'Tipo de Departamento';
 $LANG['LABEL_DEPT_NAME'] = 'Nome do Departamento';
 $LANG['LABEL_DEPT_EMAIL'] = 'E-mail do Departamento';
 $LANG['LABEL_DEPT_EMAIL_ABOVE'] = 'E-mail do Departamento (acima definido)';
 $LANG['LABEL_DEPT_SIGNATURE'] = 'Assinatura do Departamento';
 $LANG['LABEL_DESCENDING'] = 'Descendente';
-$LANG['LABEL_DIRECTORY'] = 'Agenda';
+$LANG['LABEL_DESC'] = 'DESC';$LANG['LABEL_DIRECTORY'] = 'Agenda';
 $LANG['LABEL_DIRECTORY_STAFF'] = 'Agenda de Contatos da Equipe';
-// Label E
+// Label E 
 $LANG['LABEL_EMAIL'] = 'E-Mail';
 $LANG['LABEL_EMAILS'] = 'E-Mails';
 $LANG['LABEL_EMAILS_SETTINGS'] = 'Configurações de E-Mails';
@@ -121,6 +126,7 @@ $LANG['LABEL_ISSUE_SUMMARY'] = 'Resumo do ocorrido';
 $LANG['LABEL_KNOWLEDGE_BASE'] = 'Conhecimento (KB)';
 $LANG['LABEL_KNOWLEDGE_BASE_PREMATE'] = 'Base de Conhecimento: Premade';
 // Label L
+$LANG['LABEL_LAST_UPDATED'] = 'Última Atualização';
 $LANG['LABEL_LOG_OUT'] = 'Sair';
 // Label M
 $LANG['LABEL_MAKE_PUBLIC'] = 'Tornar Publico';
@@ -136,6 +142,7 @@ $LANG['LABEL_NEW_DEPARTMENT'] = 'Novo Departamento';
 $LANG['LABEL_NEW_MESSAGE'] = 'New Message';
 $LANG['LABEL_NEW_PREMADE_REPLY'] = 'Nova Resposta Pré-pronta';
 $LANG['LABEL_NEW_TICKET'] = 'Novo Ticket';
+$LANG['LABEL_NEW_TICKET_PRIORITY'] = 'Novo nível de prioridade do Atendmento';
 $LANG['LABEL_NO_MANAGER_ADD_USERS'] = 'Nenhum possível Gerente encontrado (Adicione Usuários)';
 $LANG['LABEL_NONE'] = 'Nenhum';
 // Label O
@@ -144,9 +151,11 @@ $LANG['LABEL_OPEN_NEW_TICKET'] = 'Abrir Novo Ticket';
 $LANG['LABEL_OPEN_TICKET'] = 'Criar Ticket';
 $LANG['LABEL_OTHER'] = 'Outro';
 $LANG['LABEL_OUTGOING_EMAIL'] = 'e-mail de saída';
+$LANG['LABEL_OVERDUE'] = 'Atrasado';
 // Label P
 $LANG['LABEL_PASSWORD'] = 'Senha';
 $LANG['LABEL_PUBLIC'] = 'Público';
+$LANG['LABEL_PAGE'] = 'Página';
 $LANG['LABEL_PRIVATE'] = 'Privado';
 $LANG['LABEL_PRIVATE_HIDDEN'] = 'Interno (Oculto)';
 $LANG['LABEL_PASSWORD_AGAIN'] = 'Senha (novamente)';
@@ -160,6 +169,7 @@ $LANG['LABEL_PREMADE_REPLIES'] = 'Resposta pré-pronta';
 $LANG['LABEL_QUERY'] = 'Consulta';
 $LANG['LABEL_QUERY_RETURNED_ZERO_RESULT'] = 'A consulta não retornou resultados';
 // Label R
+$LANG['LABEL_REOPEN'] = 'Reabrir';
 $LANG['LABEL_RESET'] = 'Limpar';
 $LANG['LABEL_RESULTS_PER_PAGE'] = 'Número de Resultados por Paginas';
 $LANG['LABEL_REPLY_TITLE'] = 'Título da Resposta';
@@ -172,6 +182,7 @@ $LANG['LABEL_SELECT_DEPARTMENT'] = 'Selecione o Departamento';
 $LANG['LABEL_SELECT_MANAGER_OPTIONAL'] = 'Selecione o Gerente (isto é opcional)';
 $LANG['LABEL_SELECT_ONE_TOPIC'] = 'Selecione um dos Tópicos';
 $LANG['LABEL_SELECT_ONE_EMAIL'] = 'Selecione um dos E-mail';
+$LANG['LABEL_SELECT_PRIORITY'] = 'Selecione o nível de prioridade';
 $LANG['LABEL_SELECT_TEMPLATE'] = 'Selecione o Modelo (Template)';
 $LANG['LABEL_SORT_BY'] = 'Ordenado por';
 $LANG['LABEL_SORT_BY_TITLE'] = 'Ordenar pelo título';
@@ -188,14 +199,12 @@ $LANG['LABEL_SUBJECT'] = 'Assunto';
 $LANG['LABEL_SYSTEM_DEFAULT_TEMPLATE'] = 'Padrão do Sistema';
 $LANG["LABEL_SYSTEM_SETTINGS"] = 'Configurações do sistema';
 // Label T
-$LANG['LABEL_TICKET_NUMBER'] = 'Num. do Ticket';
 $LANG['LABEL_TELEPHONE'] = 'Telefone';
-$LANG['LABEL_TICKET_STATUS'] = 'Situação do Ticket';
-$LANG['LABEL_TELEPHONE'] = 'Telefone';
-$LANG['LABEL_TICKET_NUMBER'] = 'Num. do Ticket';
-$LANG['LABEL_TICKET_SOURCE'] = 'Origem do Ticket';
-$LANG['LABEL_TICKET_STATUS'] = 'Situação do Ticket';
-$LANG['LABEL_TICKET_ID'] = 'Ticket ID';
+$LANG['LABEL_TICKET'] = 'Atendimento';
+$LANG['LABEL_TICKET_ID'] = 'ID do Atendimento';
+$LANG['LABEL_TICKET_NUMBER'] = 'Num. do Atendimento';
+$LANG['LABEL_TICKET_SOURCE'] = 'Origem do Atendimento';
+$LANG['LABEL_TICKET_STATUS'] = 'Situação do Atendimento';
 $LANG['LABEL_TO'] = 'Até';
 $LANG['LABEL_TOGGLE'] = 'Invertido';
 $LANG['LABEL_TRANSFER'] = 'Transferir';
@@ -206,13 +215,13 @@ $LANG['LABEL_UPDATE_DEPARTMENT'] = 'Atualizar Departamento';
 $LANG['LABEL_USERNAME'] = 'Nome do Usuário';
 $LANG['LABEL_USERS'] = 'Usuários';
 // Label V
-$LANG['LABEL_VIEW_STATUS'] = 'Verificar Ticket';
+$LANG['LABEL_VIEW_STATUS'] = 'Verificar Atendimento';
 
 #Alert Messages, normally used with JavaScript dialog box.
 // TEXT A
 $LANG['TEXT_ACCESS_DENIED']='Acesso Negado';
-$LANG['TEXT_ANSWERED_STATS'] = 'Tickets Respondidos ({0})';
-$LANG['TEXT_ANSWERED_TICKETS'] = 'Tickets Respondidos';
+$LANG['TEXT_ANSWERED_STATS'] = 'Requisições Respondidas ({0})';
+$LANG['TEXT_ANSWERED_TICKETS'] = 'Requisições Respondidos';
 $LANG['TEXT_ANY_STATUS'] = 'Alguma Situação';
 $LANG['TEXT_ASSIGNED_TICKETS'] = 'Tickets atribuídos';
 $LANG['TEXT_ATTACH_FILE'] = 'Anexe seu arquivo';
@@ -278,7 +287,6 @@ $LANG['TEXT_REFRESH'] = 'Atualizar';
 $LANG['TEXT_REQUIRED_WHEN_DEPT_IS_PUBLIC'] = 'A Assinatura é necessária quando o departamento é público';
 // TEXT S
 $LANG['TEXT_SELECT_DEPARTMENTS_GROUP_MEMBERS'] = 'Selecionte o grupo de membros do departamentos que são permitidos acesso em adicião ao seu proprio departamento.';
-$LANG['TEXT_SELECT_ONE_TOPIC'] = 'Selecione um Tópico';
 $LANG['TEXT_SUPPORT_CENTER'] = 'Centro de Suporte FullService';
 $LANG['TEXT_SUPPORT_TICKET_SISTEM'] = 'Sistema FullSErvice de <span>TICKET para Suporte</span>';
 $LANG['TEXT_SYSTEM_IS_OFF_LINE'] = '<strong>O Sistema está definido como desativado (Off-Line)</strong> - A interface com o cliente está desativada e somente os administadores podem acessar o painel de controle.';
@@ -287,9 +295,11 @@ $LANG['TEXT_SHOW_ZERO'] = 'Exibindo 0 (zero)';
 $LANG['TEXT_SHOW_FROM_TO_OF_ALL'] = 'Exibindo {0} - {1} de {2}';
 $LANG['TEXT_SHOW_ZERO'] = 'Exibindo 0 (zero)';
 $LANG['TEXT_SESSION_TIMED_OUT_DUE_TO_INACTIVITY'] = 'Devido a inatividade, sua seção expirou!';
-$LANG['TEXT_SORT_BY_TICKET_ID'] = 'Ordenar por Número do Ticket';
+$LANG['TEXT_SORT_BY_CATEGORY'] = 'Ordenar pela Categoria';
 $LANG['TEXT_SORT_BY_DATE'] = 'Ordenar por Data';
 $LANG['TEXT_SORT_BY_DEPARTMENT'] = 'Ordenar por Departamento';
+$LANG['TEXT_SORT_BY_PRIORITY'] = 'Ordenar pela Prioridade';
+$LANG['TEXT_SORT_BY_TICKET_ID'] = 'Ordenar por Número do Ticket';
 $LANG['TEXT_SEARCH_RESULTS'] = 'Resultado de Pesquisa';
 $LANG['TEXT_SUPPORT_TEAM'] = 'Equipe de Atendimento Externo';
 // TEXT T

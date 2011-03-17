@@ -54,7 +54,7 @@ $info=($_POST && $errors)?Format::input($_POST):array(); //on error...use the po
         <th><?php echo $trl->translate('LABEL_HELP_TOPIC'); ?>:</th>
         <td>
             <select name="topicId">
-                <option value="" selected ><?php echo  $trl->translate('TEXT_SELECT_ONE_TOPIC') ?></option>
+                <option value="" selected ><?php echo  $trl->translate('LABEL_SELECT_ONE_TOPIC') ?></option>
                 <?
                  $services= db_query('SELECT topic_id,topic FROM '.TOPIC_TABLE.' WHERE isactive=1 ORDER BY topic');
                  while (list($topicId,$topic) = db_fetch_row($services)){

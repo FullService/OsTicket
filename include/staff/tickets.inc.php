@@ -390,15 +390,15 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
 	        <th width="8px">&nbsp;</th>
             <?}?>
 	        <th width="70" >
-                <a href="tickets.php?sort=ID&order=<?=$negorder?><?=$qstr?>" title="Sort By Ticket ID <?=$negorder?>">Ticket</a></th>
+                <a href="tickets.php?sort=ID&order=<?=$negorder?><?=$qstr?>" title="<?php $trl->_('TEXT_SORT_BY_TICKET_ID')?> <?php $trl->_('LABEL_'.$negorder)?>"><?php $trl->_('LABEL_TICKET')?></a></th>
 	        <th width="70">
-                <a href="tickets.php?sort=date&order=<?=$negorder?><?=$qstr?>" title="Sort By Date <?=$negorder?>">Date</a></th>
-	        <th width="280">Subject</th>
+                <a href="tickets.php?sort=date&order=<?=$negorder?><?=$qstr?>" title="<?php $trl->_('TEXT_SORT_BY_DATE')?> <?php $trl->_('LABEL_'.$negorder)?>"><?php $trl->_('LABEL_DATE')?></a></th>
+	        <th width="280"><?php $trl->_('LABEL_SUBJECT')?></th>
 	        <th width="120">
-                <a href="tickets.php?sort=dept&order=<?=$negorder?><?=$qstr?>" title="Sort By Category <?=$negorder?>">Department</a></th>
+                <a href="tickets.php?sort=dept&order=<?=$negorder?><?=$qstr?>" title="<?php $trl->_('TEXT_SORT_BY_CATEGORY')?> <?php $trl->_('LABEL_'.$negorder)?>"><?php $trl->_('LABEL_DEPARTMENT')?></a></th>
 	        <th width="70">
-                <a href="tickets.php?sort=pri&order=<?=$negorder?><?=$qstr?>" title="Sort By Priority <?=$negorder?>">Priority</a></th>
-            <th width="180" >From</th>
+                <a href="tickets.php?sort=pri&order=<?=$negorder?><?=$qstr?>" title="<?php $trl->_('TEXT_SORT_BY_PRIORITY')?> <?php $trl->_('LABEL_'.$negorder)?>"><?php $trl->_('LABEL_PRIORITY')?></a></th>
+            <th width="180" ><?php $trl->_('LABEL_FROM')?></th>
         </tr>
         <?
         $class = "row1";
@@ -452,12 +452,12 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
     ?>
         <tr><td style="padding-left:20px">
             <?if($canDelete || $canClose) { ?>
-            Select:
-                <a href="#" onclick="return select_all(document.forms['tickets'],true)">All</a>&nbsp;
-                <a href="#" onclick="return reset_all(document.forms['tickets'])">None</a>&nbsp;
-                <a href="#" onclick="return toogle_all(document.forms['tickets'],true)">Toggle</a>&nbsp;
+            <?php $trl->_('LABEL_SELECT')?>:
+                <a href="#" onclick="return select_all(document.forms['tickets'],true)"><?php $trl->_('LABEL_ALL')?></a>&nbsp;
+                <a href="#" onclick="return reset_all(document.forms['tickets'])"><?php $trl->_('LABEL_NONE')?></a>&nbsp;
+                <a href="#" onclick="return toogle_all(document.forms['tickets'],true)"><?php $trl->_('LABEL_TOgGLE')?></a>&nbsp;
             <?}?>
-            page:<?=$pageNav->getPageLinks()?>
+            <?php $trl->_('LABEL_PAGE')?>:<?=$pageNav->getPageLinks()?>
         </td></tr>
         <? if($canClose or $canDelete) { ?>
         <tr><td align="center"> <br>
@@ -468,7 +468,7 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
             //If they can delete tickets...they are allowed to close--reopen..etc.
             switch (strtolower($status)) {
                 case 'closed': ?>
-                    <input class="button" type="submit" name="reopen" value="Reopen"
+                    <input class="button" type="submit" name="reopen" value="<?php $trl->_('LABEL_REOPEN')?>"
                         onClick=' return confirm("Are you sure you want to reopen selected tickets?");'>
                     <?
                     break;
@@ -476,22 +476,22 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
                 case 'answered':
                 case 'assigned':
                     ?>
-                    <input class="button" type="submit" name="overdue" value="Overdue"
+                    <input class="button" type="submit" name="overdue" value="<?php $trl->_('LABEL_OVERDUE')?>"
                         onClick=' return confirm("Are you sure you want to mark selected tickets overdue/stale?");'>
-                    <input class="button" type="submit" name="close" value="Close"
+                    <input class="button" type="submit" name="close" value="<?php $trl->_('LABEL_CLOSE')?>"
                         onClick=' return confirm("Are you sure you want to close selected tickets?");'>
                     <?
                     break;
                 default: //search??
                     ?>
-                    <input class="button" type="submit" name="close" value="Close"
+                    <input class="button" type="submit" name="close" value="<?php $trl->_('LABEL_CLOSE')?>"
                         onClick=' return confirm("Are you sure you want to close selected tickets?");'>
-                    <input class="button" type="submit" name="reopen" value="Reopen"
+                    <input class="button" type="submit" name="reopen" value="<?php $trl->_('LABEL_REOPEN')?>"
                         onClick=' return confirm("Are you sure you want to reopen selected tickets?");'>
             <?
             }
             if($canDelete) {?>
-                <input class="button" type="submit" name="delete" value="Delete" 
+                <input class="button" type="submit" name="delete" value="<?php $trl->_('LABEL_DELETE')?>" 
                     onClick=' return confirm("Are you sure you want to DELETE selected tickets?");'>
             <?}?>
         </td></tr>

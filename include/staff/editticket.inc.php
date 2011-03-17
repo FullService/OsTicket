@@ -85,7 +85,7 @@ if($_POST && $errors){
       $sql='SELECT priority_id,priority_desc FROM '.TICKET_PRIORITY_TABLE.' ORDER BY priority_urgency DESC';
       if(($priorities=db_query($sql)) && db_num_rows($priorities)){ ?>
       <tr>
-        <td align="left">Priority:</td>
+        <td align="left"><?php $trl->_('LABEL_PRIORITY')?>:</td>
         <td>
             <select name="pri">
               <?

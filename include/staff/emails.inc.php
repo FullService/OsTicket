@@ -16,11 +16,11 @@ $emails=db_query($sql.' ORDER BY email');
     <table border="0" cellspacing=0 cellpadding=2 class="dtable" align="center" width="100%">
         <tr>
 	        <th width="7px">&nbsp;</th>
-	        <th>Email Address</th>
-            <th>AutoResp.</th>
-            <th>Department</th>
-            <th>Priority</th>
-	        <th>Last Updated</th>
+	        <th><?php $trl->_('LABEL_EMAIL_ADDRESS')?></th>
+            <th><?php $trl->_('LABEL_AUTORESP')?></th>
+            <th><?php $trl->_('LABEL_DEPARTMENT')?></th>
+            <th><?php $trl->_('LABEL_PRIORITY')?></th>
+	        <th><?php $trl->_('LABEL_LAST_UPDATED')?></th>
         </tr>
         <?
         $class = 'row1';
