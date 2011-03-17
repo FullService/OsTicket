@@ -281,6 +281,7 @@ $LANG['TEXT_REFRESH']='Refresh';
 $LANG['TEXT_REQUIRED_WHEN_DEPT_IS_PUBLIC'] = 'Required when Dept is public';
 // TEXT S
 $LANG['TEXT_SELECT_DEPARTMENTS_GROUP_MEMBERS'] = 'Select departments group members are allowed to access in addition to thier own department.';
+$LANG['TEXT_SELECT_ONE_TOPIC'] = 'Select One Topic';
 $LANG['TEXT_SESSION_TIMED_OUT_DUE_TO_INACTIVITY']='Session timed out due to inactivity';
 $LANG['TEXT_SORT_BY_TICKET_ID']='Sort By Ticket ID';
 $LANG['TEXT_SORT_BY_DATE']='Sort By Date';

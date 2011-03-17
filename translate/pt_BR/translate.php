@@ -278,6 +278,7 @@ $LANG['TEXT_REFRESH'] = 'Atualizar';
 $LANG['TEXT_REQUIRED_WHEN_DEPT_IS_PUBLIC'] = 'A Assinatura é necessária quando o departamento é público';
 // TEXT S
 $LANG['TEXT_SELECT_DEPARTMENTS_GROUP_MEMBERS'] = 'Selecionte o grupo de membros do departamentos que são permitidos acesso em adicião ao seu proprio departamento.';
+$LANG['TEXT_SELECT_ONE_TOPIC'] = 'Selecione um Tópico';
 $LANG['TEXT_SUPPORT_CENTER'] = 'Centro de Suporte FullService';
 $LANG['TEXT_SUPPORT_TICKET_SISTEM'] = 'Sistema FullSErvice de <span>TICKET para Suporte</span>';
 $LANG['TEXT_SYSTEM_IS_OFF_LINE'] = '<strong>O Sistema está definido como desativado (Off-Line)</strong> - A interface com o cliente está desativada e somente os administadores podem acessar o painel de controle.';
