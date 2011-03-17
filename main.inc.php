@@ -174,6 +174,6 @@
         $_SESSION['cfg']=$cfg;
     
 	$trl = Translator::init($cfg);
-    $_SESSION['cfg'] = $trl;
+    $_SESSION['trl'] = $trl;
     
 ?>
