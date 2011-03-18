@@ -88,10 +88,30 @@ $LANG['LABEL_DATE_SPAN'] = 'Date Span';
 $LANG['LABEL_DEPARTMENT'] = 'Departamento';
 $LANG['LABEL_DEPT'] = 'Dept.';
 $LANG['LABEL_DESCENDING'] = 'Descending';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Label E
 $LANG['LABEL_EMAIL'] = 'E-Mail';
 $LANG['LABEL_EMAIL_ADDRESS'] = 'E-Mail';
 $LANG['LABEL_EMAIL'] = 'Email';
+
+
+
 // Label F
 $LANG['LABEL_FROM'] = 'From.';
 $LANG['LABEL_FULL_NAME'] = 'Nome Completo';
@@ -99,46 +119,106 @@ $LANG['LABEL_FULL_NAME'] = 'Nome Completo';
 $LANG['TEXT_GENERAL_INQUIRY'] = 'Assunto Geral';
 // Label H
 $LANG['LABEL_HELP_TOPIC'] = 'Ajuda Relacionada a';
+
 // Label I
+
 // Label J
+// Label K
+
+
 // Label L
+
+
 // Label M
 $LANG['LABEL_MESSAGE'] = 'Mensagem';
+
+
+
+
+
+
 // Label N
 $LANG['LABEL_NAME'] = 'Name';
+
+
+
+
+
+
+
 // Label O
 $LANG['LABEL_OPEN_NEW_TICKET'] = 'Abrir Novo Ticket';
 $LANG['LABEL_OPEN_TICKET'] = 'Criar Ticket';
+
+
+
+
 // Label P
 $LANG['LABEL_PASSWORD'] = 'Senha';
 $LANG['LABEL_PASSWORD_AGAIN'] = 'Senha (novamente)';
 $LANG['LABEL_PHONE'] = 'Fone';
 $LANG['LABEL_POST_REPLY'] = 'Enviar Resposta';
 $LANG['LABEL_PRIORITY'] = 'Prioridade';
+
+
+
+
+
+
+
 // Label Q
 $LANG['LABEL_QUERY'] = 'Query';
+
 // Label R
 $LANG['LABEL_RESET'] = 'Limpar';
 $LANG['LABEL_RESULTS_PER_PAGE'] = 'Results Per Page';
+
+
 // Label S
 $LANG['LABEL_STAFF_PANEL'] = 'Equipe';
 $LANG['LABEL_STATUS_IS'] = 'Status is';
 $LANG['LABEL_SEARCH'] = 'Search';
 $LANG['LABEL_SORT_BY'] = 'Sort by';
 $LANG['LABEL_SUBJECT'] = 'Assunto';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Label T
 $LANG['LABEL_TELEPHONE'] = 'Telefone';
 $LANG['LABEL_TICKET_NUMBER'] = 'Num. do Ticket';
 $LANG['LABEL_TICKET_STATUS'] = 'Situação do Ticket';
-$LANG['LABEL_TO'] = 'To.';
+$LANG['LABEL_TO'] = 'até';
+
+
+
+
+
+
 // Label U
+
+
 $LANG['LABEL_USERNAME'] = 'Usuário';
+
 // Label V
 $LANG['LABEL_VIEW_STATUS'] = 'Situação do Ticket';
 
-
-
-
+#Alert Messages, normally used with JavaScript dialog box.
 // Text A
 $LANG['TEXT_AUTHENTICATION_REQUIRED'] = 'Autenticação Obrigatória';
 $LANG['TEXT_ANSWERED_TICKETS'] = 'Answered Tickets';
