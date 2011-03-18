@@ -347,18 +347,18 @@ if(($resp=db_query($sql)) && ($notes=db_num_rows($resp))){
                 </p>
             </div>
             <div id="notes" class="tabbertab"  align="left">
-                <h2>Post Internal Note</h2>
+                <h2><?php $trl->_('LABEL_POST_INTERNAL_NOTE')?></h2>
                 <p>
                     <form action="tickets.php?id=<?=$id?>#notes" name="notes" class="inline" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="ticket_id" value="<?=$id?>">
                         <input type="hidden" name="a" value="postnote">
                         <div>
-                            <label for="title">Note Title:</label>
+                            <label for="title"><?php $trl->_('LABEL_NOTE_TITLE')?>:</label>
                             <input type="text" name="title" id="title" value="<?=$info['title']?>" size=30px />
                             </select><font class="error">*&nbsp;<?=$errors['title']?></font>
                         </div>
                         <div style="margin-top: 3px;">
-                            <label for="note" valign="top">Enter note content.
+                            <label for="note" valign="top"><?php $trl->_('LABEL_ENTER_NOTE_CONTENT')?>
                                 <font class="error">*&nbsp;<?=$errors['note']?></font></label><br/>
                             <textarea name="note" id="note" cols="80" rows="7" wrap="soft" style="width:90%"><?=$info['note']?></textarea>
                         </div>
@@ -368,13 +368,13 @@ if(($resp=db_query($sql)) && ($notes=db_num_rows($resp))){
                         if(!$ticket->isAssigned() || $thisuser->isadmin()  || $thisuser->isManager() || $thisuser->getId()==$ticket->getStaffId()) {
                          ?>
                         <div style="margin-top: 3px;">
-                            <b>Ticket Status:</b>
+                            <b><?php $trl->_('LABEL_TICKET_STATUS')?>:</b>
                             <?
                             $checked=($info && isset($info['ticket_status']))?'checked':''; //not selected by default.
                             if($ticket->isOpen()){?>
-                            <label><input type="checkbox" name="ticket_status" id="ticket_status" value="Close" <?=$checked?> > Close Ticket</label>
+                            <label><input type="checkbox" name="ticket_status" id="ticket_status" value="Close" <?=$checked?> ><?php $trl->_('LABEL_CLOSE_TICKET')?></label>
                             <?}else{ ?>
-                            <label><input type="checkbox" name="ticket_status" id="ticket_status" value="Reopen" <?=$checked?> > Reopen Ticket</label>
+                            <label><input type="checkbox" name="ticket_status" id="ticket_status" value="Reopen" <?=$checked?> ><?php $trl->_('LABEL_REOPEN_TICKET')?></label>
                             <?}?>
                         </div>
                         <?}?>

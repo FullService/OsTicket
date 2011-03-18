@@ -75,7 +75,8 @@ $LANG['LABEL_AUTORESP'] = 'Auto Resp.';
 $LANG['LABEL_BASIC'] = 'Basico';
 // Label C
 $LANG['LABEL_CLOSE'] = 'Fechado';
-$LANG['LABEL_CLOSED_TICKETS'] = 'Tickets Fechados';
+$LANG['LABEL_CLOSE_TICKET'] = 'Finalizar Atendimento';
+$LANG['LABEL_CLOSED_TICKETS'] = 'Atendimentos Fechados';
 $LANG['LABEL_CANCEL'] = 'Cancelar';
 $LANG['LABEL_CATEGORY'] = 'categoria';
 $LANG['LABEL_CATEGORY_DEPT'] = 'Categoria/Departamento';
@@ -112,6 +113,7 @@ $LANG['LABEL_EMAILS_SETTINGS'] = 'Configurações de E-Mails';
 $LANG['LABEL_EMAIL_ADDRESS'] = 'E-Mail';
 $LANG['LABEL_EMAIL_TEMPLATES'] = 'Modelos de Mensagens para o E-mail';
 $LANG['LABEL_ENABLE_SYSTEM_OFF_LINE'] = 'Abilitar (liberar acesso)';
+$LANG['LABEL_ENTER_NOTE_CONTENT'] = 'Digite a Observação.';
 // Label F
 $LANG['LABEL_FROM'] = 'De';
 $LANG['LABEL_FULL_NAME'] = 'Nome Completo';
@@ -145,6 +147,7 @@ $LANG['LABEL_NEW_PREMADE_REPLY'] = 'Nova Resposta Pré-pronta';
 $LANG['LABEL_NEW_TICKET'] = 'Novo Ticket';
 $LANG['LABEL_NEW_TICKET_PRIORITY'] = 'Novo nível de prioridade do Atendmento';
 $LANG['LABEL_NO_MANAGER_ADD_USERS'] = 'Nenhum possível Gerente encontrado (Adicione Usuários)';
+$LANG['LABEL_NOTE_TITLE'] = 'Título da Obsevação';
 $LANG['LABEL_NONE'] = 'Nenhum';
 // Label O
 $LANG['LABEL_OPEN'] = 'aberto';
@@ -160,6 +163,7 @@ $LANG['LABEL_PAGE'] = 'Página';
 $LANG['LABEL_PRIVATE'] = 'Privado';
 $LANG['LABEL_PRIVATE_HIDDEN'] = 'Interno (Oculto)';
 $LANG['LABEL_PASSWORD_AGAIN'] = 'Senha (novamente)';
+$LANG['LABEL_POST_INTERNAL_NOTE'] = 'Enviar uma Observação Interna';
 $LANG['LABEL_POST_REPLY'] = 'Enviar Resposta';
 $LANG['LABEL_PHONE'] = 'Fone';
 $LANG['LABEL_PREFERENCES'] = 'Configurações';
@@ -171,6 +175,7 @@ $LANG['LABEL_QUERY'] = 'Consulta';
 $LANG['LABEL_QUERY_RETURNED_ZERO_RESULT'] = 'A consulta não retornou resultados';
 // Label R
 $LANG['LABEL_REOPEN'] = 'Reabrir';
+$LANG['LABEL_REOPEN_TICKET'] = 'Reabrir Atendimento';
 $LANG['LABEL_RESET'] = 'Limpar';
 $LANG['LABEL_RESULTS_PER_PAGE'] = 'Número de Resultados por Paginas';
 $LANG['LABEL_REPLY_TITLE'] = 'Título da Resposta';
