@@ -102,7 +102,8 @@ $LANG['LABEL_DEPT_EMAIL'] = 'E-mail do Departamento';
 $LANG['LABEL_DEPT_EMAIL_ABOVE'] = 'E-mail do Departamento (acima definido)';
 $LANG['LABEL_DEPT_SIGNATURE'] = 'Assinatura do Departamento';
 $LANG['LABEL_DESCENDING'] = 'Descendente';
-$LANG['LABEL_DESC'] = 'DESC';$LANG['LABEL_DIRECTORY'] = 'Agenda';
+$LANG['LABEL_DESC'] = 'DESC';
+$LANG['LABEL_DIRECTORY'] = 'Agenda';
 $LANG['LABEL_DIRECTORY_STAFF'] = 'Agenda de Contatos da Equipe';
 // Label E 
 $LANG['LABEL_EMAIL'] = 'E-Mail';
@@ -212,7 +213,7 @@ $LANG['LABEL_TYPE'] = 'Tipo';
 // Label U
 $LANG['LABEL_UPDATE_DATE'] = 'Última Atualização';
 $LANG['LABEL_UPDATE_DEPARTMENT'] = 'Atualizar Departamento';
-$LANG['LABEL_USERNAME'] = 'Nome do Usuário';
+$LANG['LABEL_USERNAME'] = 'Usuário';
 $LANG['LABEL_USERS'] = 'Usuários';
 // Label V
 $LANG['LABEL_VIEW_STATUS'] = 'Verificar Atendimento';
