@@ -1,5 +1,5 @@
 <?php
-$title=($cfg && is_object($cfg))?$cfg->getTitle():'osTicket :: Support Ticket System';
+$title=($cfg && is_object($cfg))?$cfg->getTitle():'osTicket :: Sistema de Atendimento CSAT';
 $trl->sendHeader();
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
