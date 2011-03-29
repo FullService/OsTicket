@@ -173,7 +173,7 @@
     
         $_SESSION['cfg']=$cfg;
     
-	$trl = Translator::init($cfg);
-    $_SESSION['trl'] = $trl;
+	$trl = &Translator::init($cfg);
+    $_SESSION['trl'] = &$trl;
     
 ?>
