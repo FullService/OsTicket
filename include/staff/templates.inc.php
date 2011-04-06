@@ -166,7 +166,3 @@ $deletable=0;
     </tr>
  </table>
  </div>
-
-
-
-

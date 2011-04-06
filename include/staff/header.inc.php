@@ -65,4 +65,3 @@ if($sysnotice){?>
     </div>
     <div class="clear"></div>
     <div id="content" width="100%">
-
