@@ -106,7 +106,7 @@ $LANG['LABEL_DESCENDING'] = 'Descendente';
 $LANG['LABEL_DESC'] = 'DESC';
 $LANG['LABEL_DIRECTORY'] = 'Agenda';
 $LANG['LABEL_DIRECTORY_STAFF'] = 'Agenda de Contatos da Equipe';
-// Label E 
+// Label E
 $LANG['LABEL_EMAIL'] = 'E-Mail';
 $LANG['LABEL_EMAILS'] = 'E-Mails';
 $LANG['LABEL_EMAILS_SETTINGS'] = 'Configurações de E-Mails';
@@ -291,6 +291,7 @@ $LANG['TEXT_POST_REPLY'] = 'Enviar Resposta';
 // TEXT R
 $LANG['TEXT_REFRESH'] = 'Atualizar';
 $LANG['TEXT_REQUIRED_WHEN_DEPT_IS_PUBLIC'] = 'A Assinatura é necessária quando o departamento é público';
+$LANG['TEXT_RESPONSE_POSTED_SUCCESSFULLY'] = 'Response Posted Successfully';
 // TEXT S
 $LANG['TEXT_SELECT_DEPARTMENTS_GROUP_MEMBERS'] = 'Selecionte o grupo de membros do departamentos que são permitidos acesso em adicião ao seu proprio departamento.';
 $LANG['TEXT_SUPPORT_CENTER'] = 'Centro de Suporte FullService';
@@ -310,12 +311,16 @@ $LANG['TEXT_SEARCH_RESULTS'] = 'Resultado de Pesquisa';
 $LANG['TEXT_SUPPORT_TEAM'] = 'Equipe de Atendimento Externo';
 // TEXT T
 $LANG['TEXT_THANKS_NEW_TICKET'] = 'Obrigado por nos contactar.<br>Um ticket para sua requisição foi criado e um de nossos representantes irá retornar para você o mais rapido possível!';
-$LANG['TEXT_TICKETS_STATUS'] = 'Situação dos Tickets';
-$LANG['TEXT_TICKET_NUMBER'] = 'Número do Ticket';
-$LANG['TEXT_TICKET_THREAD'] = 'Histórico do Ticket';
-$LANG['TEXT_TICKET_WILL_REOPEN_NEW_POST'] = 'O ticket será reaberto se houver uma nova postagem!';
 $LANG['TEXT_TICKET_CREATED'] = 'Ticket para requisição criado!';
-$LANG['TEXT_Ticket_status_changed_to'] = 'Situação do Ticket alterada para {0}';
+$LANG['TEXT_TICKET_DELETED_FOREVER'] = 'Ticket Removido para Sempre';
+$LANG['TEXT_TICKET_NUM_STATUS_SET_CLOSED'] = 'A situação do Ticket #{0} foi definida como FECHADO';
+$LANG['TEXT_TICKET_NUMBER'] = 'Número do Ticket';
+$LANG['TEXT_TICKET_STATUS_CHANGED_TO'] = 'Situação do Ticket alterada para {0}';
+$LANG['TEXT_TICKET_STATUS_SET_TO_OPEN'] = 'Situação do Ticket alterada para ABERTO';
+$LANG['TEXT_TICKET_THREAD'] = 'Histórico do Ticket';
+$LANG['TEXT_TICKET_TRANSFERED_SUCESSFULLY_TO_DEPT'] = 'Ticket transferido com sucesso para o Dep. {0}';
+$LANG['TEXT_TICKET_WILL_REOPEN_NEW_POST'] = 'O ticket será reaberto se houver uma nova postagem!';
+$LANG['TEXT_TICKETS_STATUS'] = 'Situação dos Tickets';
 $LANG['TEXT_TOTAL_OPEN_TICKETS'] = "Abertos ({0})";
 $LANG['TEXT_TOTAL_ANSWERED_TICKETS'] = "Respondidos ({0})";
 $LANG['TEXT_TOTAL_MY_TICKETS'] = 'Meus Tickets ({0})';

@@ -25,23 +25,23 @@ if($answer && $_REQUEST['a']!='add'){
     <form action="kb.php" method="POST" name="group">
     <input type="hidden" name="a" value="<?=$action?>">
     <input type="hidden" name="id" value="<?=$info['premade_id']?>">
-    <tr><td width=80px>Title:</td>
+    <tr><td width=80px><?php $trl->_('LABEL_TITLE')?>:</td>
         <td><input type="text" size=45 name="title" value="<?=$info['title']?>">
             &nbsp;<font class="error">*&nbsp;<?=$errors['title']?></font>
         </td>
     </tr>
     <tr>
-        <td>Status:</td>
+        <td><?php $trl->_('LABEL_STATUS')?>:</td>
         <td>
             <input type="radio" name="isenabled"  value="1"   <?=$info['isenabled']?'checked':''?> /> Active
             <input type="radio" name="isenabled"  value="0"   <?=!$info['isenabled']?'checked':''?> />Offline
             &nbsp;<font class="error">&nbsp;<?=$errors['isenabled']?></font>
         </td>
     </tr>
-    <tr><td valign="top">Category:</td>
+    <tr><td valign="top"><?php $trl->_('LABEL_CATEGORY')?>:</td>
         <td>Department under which the 'answer' will be made available.&nbsp;<font class="error">&nbsp;<?=$errors['depts']?></font><br/>
             <select name=dept_id>
-                <option value=0 selected>$trl->_('LABEL_ALL_DEPARTMENTS')</option>
+                <option value=0 selected><?php $trl->_('LABEL_ALL_DEPARTMENTS') ?></option>
                 <?
                 $depts= db_query('SELECT dept_id,dept_name FROM '.DEPT_TABLE.' ORDER BY dept_name');
                 while (list($id,$name) = db_fetch_row($depts)){
@@ -52,7 +52,7 @@ if($answer && $_REQUEST['a']!='add'){
             </select>
         </td>
     </tr>
-    <tr><td valign="top">Answer:</td>
+    <tr><td valign="top"><?php $trl->_('LABEL_ANSWER')?>:</td>
         <td>Premade Reply - Ticket's base variables are supported.&nbsp;<font class="error">*&nbsp;<?=$errors['answer']?></font><br/>
             <textarea name="answer" id="answer" cols="90" rows="9" wrap="soft" style="width:80%"><?=$info['answer']?></textarea>
         </td>

@@ -83,7 +83,7 @@ if($_POST && !$errors):
 
             //If no error...do the do.
             if(!$errors && ($respId=$ticket->postResponse($_POST['msg_id'],$_POST['response'],$_POST['signature'],$_FILES['attachment']))){
-                $msg='Response Posted Successfully';
+                $msg=$trl->_t('TEXT_RESPONSE_POSTED_SUCCESSFULLY');
                 //Set status if any.
                 $wasOpen=$ticket->isOpen();
                 if(isset($_POST['ticket_status']) && $_POST['ticket_status']) {
@@ -128,7 +128,7 @@ if($_POST && !$errors):
                 //Send out alerts?? - for now yes....part of internal note!
                 $title='Dept. Transfer from '.$olddept.' to '.$ticket->getDeptName();
                 $ticket->postNote($title,$_POST['message']);
-                $msg='Ticket transfered sucessfully to '.$ticket->getDeptName().' Dept.';
+                $msg=$trl->_t('TEXT_TICKET_TRANSFERED_SUCESSFULLY_TO_DEPT',$ticket->getDeptName());
                 if(!$thisuser->canAccessDept($_POST['dept_id']) && $ticket->getStaffId()!=$thisuser->getId()) { //Check access.
                     //Staff doesn't have access to the new department.
                     $page='tickets.inc.php';
@@ -227,7 +227,7 @@ if($_POST && !$errors):
                         $errors['err']='Perm. Denied. You are not allowed to close tickets.';
                     }else{
                         if($ticket->close()){
-                            $msg='Ticket #'.$ticket->getExtId().' status set to CLOSED';
+                            $msg=$trl->_t('TEXT_TICKET_NUM_STATUS_SET_CLOSED',$ticket->getExtId());
                             $note='Ticket closed without response by '.$thisuser->getName();
                             $ticket->logActivity('Ticket Closed',$note);
                             $page=$ticket=null; //Going back to main listing.
@@ -242,7 +242,7 @@ if($_POST && !$errors):
                         $errors['err']='Perm. Denied. You are not allowed to reopen tickets.';
                     }else{
                         if($ticket->reopen()){
-                            $msg='Ticket status set to OPEN';
+                            $msg=$trl->_t('TEXT_TICKET_STATUS_SET_TO_OPEN');
                             $note='Ticket reopened (without comments)';
                             if($_POST['ticket_priority']) {
                                 $ticket->setPriority($_POST['ticket_priority']);
@@ -314,7 +314,7 @@ if($_POST && !$errors):
                     }else{
                         if($ticket->delete()){
                             $page='tickets.inc.php'; //ticket is gone...go back to the listing.
-                            $msg='Ticket Deleted Forever';
+                            $msg=$trl->_t('TEXT_TICKET_DELETED_FOREVER');
                             $ticket=null; //clear the object.
                         }else{
                             $errors['err']='Problems deleting the ticket. Try again';

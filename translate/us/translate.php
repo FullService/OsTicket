@@ -297,6 +297,7 @@ $LANG['TEXT_PLEASE_TAKE_A_MINUTE_TO_DELETE_INSTALL'] = 'Please take a minute to 
 // TEXT R
 $LANG['TEXT_REFRESH']='Refresh';
 $LANG['TEXT_REQUIRED_WHEN_DEPT_IS_PUBLIC'] = 'Required when Dept is public';
+$LANG['TEXT_RESPONSE_POSTED_SUCCESSFULLY'] = 'Response Posted Successfully';
 // TEXT S
 $LANG['TEXT_SELECT_DEPARTMENTS_GROUP_MEMBERS'] = 'Select departments group members are allowed to access in addition to thier own department.';
 $LANG['TEXT_SESSION_TIMED_OUT_DUE_TO_INACTIVITY']='Session timed out due to inactivity';
@@ -317,9 +318,13 @@ $LANG['TEXT_TOTAL_OPEN_TICKETS'] = "Open ({0})";
 $LANG['TEXT_TOTAL_ANSWERED_TICKETS'] = "Answered ({0})";
 $LANG['TEXT_TOTAL_MY_TICKETS'] = 'My Tickets ({0})';
 $LANG['TEXT_TICKET_CREATED'] = 'Support ticket request created';
-$LANG['TEXT_Ticket_status_changed_to'] = 'Situação do Ticket alterada para {0}';
+$LANG['TEXT_TICKET_DELETED_FOREVER'] = 'Ticket Deleted Forever';
+$LANG['TEXT_TICKET_NUM_STATUS_SET_CLOSED'] = 'Ticket #{0} status set to CLOSED';
 $LANG['TEXT_TICKET_NUMBER'] = 'Ticket #';
+$LANG['TEXT_TICKET_STATUS_CHANGED_TO'] = 'Situação do Ticket alterada para {0}';
+$LANG['TEXT_TICKET_STATUS_SET_TO_OPEN'] = 'Ticket status set to OPEN';
 $LANG['TEXT_TICKET_THREAD'] = 'Ticket Thread';
+$LANG['TEXT_TICKET_TRANSFERED_SUCESSFULLY_TO_DEPT'] = 'Ticket transfered sucessfully to {0} Dept.';
 $LANG['TEXT_TICKET_WILL_REOPEN_NEW_POST']='Ticket will be reopened on message post';
 $LANG['TEXT_TICKETS_STATUS'] = 'Tickets Status';
 $LANG['TEXT_THANKS_NEW_TICKET'] = 'Thank you for contacting us.<br>A support ticket request has been created and a representative will be getting back to you shortly if necessary.';
