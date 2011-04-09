@@ -152,6 +152,21 @@ $LANG['TEXT_OPEN'] = 'Abiertos';
 $LANG['TEXT_CLOSED'] = 'Cerrados';
 $LANG['TEXT_OVERDUE'] = 'Atrasados';
 
+$LANG['LABEL_LOG_OUT'] = 'Cerrar';
+$LANG['LABEL_MY_PREFERENCE'] = 'Mis Preferencias';
+$LANG['LABEL_ADMIN_DASHBOARD'] = 'Dashboard';
+$LANG['TEXT_TOTAL_OPEN_TICKETS'] = 'Ver todos los tickets abiertos';
+$LANG['LABEL_CLOSED_TICKETS'] = 'Ver todos los tickets cerrados';    
+$LANG['LABEL_NEW_TICKET'] = 'Crear nuevo ticket';    
+$LANG['LABEL_KNOWLEDGE_BASE'] = 'Replys';        
+$LANG['LABEL_DIRECTORY'] = 'Directorio'; 
+$LANG['LABEL_MY_PROFILE'] = 'Mi Perfil';    
+$LANG['LABEL_PREFERENCES'] = 'Preferencias';    
+$LANG['LABEL_CHANGE_PASSWORD'] = 'Cambiar Clave';   
+$LANG['TITLE_MY_PREFERENCES'] = 'Mis Preferencias';    
+$LANG['TEXT_PLEASE_TAKE_A_MINUTE_TO_DELETE_INSTALL'] = 'Por favor, tómese un minuto para eliminar la instalación en el directorio <strong>/install </strong> de la guía por razones de seguridad.';      
+$LANG['LABEL_TICKET_ID'] = 'Ticket#';
+
 $LANG['ALERT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT']='Excesivos intentos de acceso por cliente'."\n".
 'Email: {0}'."\n".
 'Ticket#: {1}'."\n".
