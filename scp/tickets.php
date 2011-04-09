@@ -161,7 +161,7 @@ if($_POST && !$errors):
             }
             if(!$errors && $ticket->assignStaff($_POST['staffId'],$_POST['assign_message'])){
                 $staff=$ticket->getStaff();
-                $msg='Ticket Assigned to '.($staff?$staff->getName():'staff');
+                $msg=$trl->_('TEXT_TICKET_ASSIGNED_TO_STAFF',($staff?$staff->getName():$trl->_t('LABEL_STAFF')));
                 //Remove all the logs and go back to index page.
                 TicketLock::removeStaffLocks($thisuser->getId(),$ticket->getId());
                 $page='tickets.inc.php';
@@ -179,10 +179,10 @@ if($_POST && !$errors):
                 $errors=array_merge($errors,$params->errors());
 
             if(!$errors && $ticket->postNote($_POST['title'],$_POST['note'])){
-                $msg='Internal note posted';
+                $msg=$trl->_t('TEXT_INTERNAL_NOTE_POSTED');
                 if(isset($_POST['ticket_status']) && $_POST['ticket_status']){
                     if($ticket->setStatus($_POST['ticket_status']) && $ticket->reload()){
-                        $msg.=' and status set to '.($ticket->isClosed()?'closed':'open');
+                        $msg.=$trl->_t('TEXT_AND_STATUS_SET_TO',($ticket->isClosed()?$trl->_t('LABEL_CLOSED'):$trl->_t('LABEL_OPEN')));
                         if($ticket->isClosed())
                             $page=$ticket=null; //Going back to main listing.
                     }
@@ -196,7 +196,7 @@ if($_POST && !$errors):
             if(!$ticket || !$thisuser->canEditTickets())
                 $errors['err']='Perm. Denied. You are not allowed to edit tickets';
             elseif($ticket->update($_POST,$errors)){
-                $msg='Ticket updated successfully';
+                $msg=$trl->_t('TEXT_TICKET_UPDATED_SUCCESSFULLY');
                 $page='viewticket.inc.php';
             }elseif(!$errors['err']) {
                 $errors['err']='Error(s) occured! Try again.';
@@ -213,7 +213,7 @@ if($_POST && !$errors):
                     }
                     if(!$errors){
                         if($ticket->setPriority($_POST['ticket_priority'])){
-                            $msg='Priority Changed Successfully';
+                            $msg=$trl->_t('TEXT_PRIORITY_CHANGED_SUCCESSFULLY');
                             $ticket->reload();
                             $note='Ticket priority set to "'.$ticket->getPriority().'" by '.$thisuser->getName();
                             $ticket->logActivity('Priority Changed',$note);
@@ -271,7 +271,7 @@ if($_POST && !$errors):
                         $errors['err']='Perm. Denied. You are not allowed to flag tickets overdue';
                     }else{
                         if($ticket->markOverdue()){
-                            $msg='Ticket flagged as overdue';
+                            $msg=$trl->_t('TEXT_TICKET_FLAGGED_AS_OVERDUE');
                             $note=$msg;
                             if($_POST['ticket_priority']) {
                                 $ticket->setPriority($_POST['ticket_priority']);
@@ -289,9 +289,9 @@ if($_POST && !$errors):
                     if(!$thisuser->isadmin() && !$thisuser->canManageBanList()){
                         $errors['err']='Perm. Denied. You are not allowed to ban emails';
                     }elseif(Banlist::add($ticket->getEmail(),$thisuser->getName())){
-                        $msg='Email ('.$ticket->getEmail().') added to banlist';
+                        $msg=$trl->_t('TEXT_EMAIL_ADDED_TO_BANLIST',$ticket->getEmail());;
                         if($ticket->isOpen() && $ticket->close()) {
-                            $msg.=' & ticket status set to closed';
+                            $msg.=$trl->_t('TEXT_AND_TICKET_STATUS_SET_TO_CLOSED');
                             $ticket->logActivity('Ticket Closed',$msg);
                             $page=$ticket=null; //Going back to main listing.
                         }
@@ -303,7 +303,7 @@ if($_POST && !$errors):
                     if(!$thisuser->isadmin() && !$thisuser->canManageBanList()){
                         $errors['err']='Perm. Denied. You are not allowed to remove emails from banlist.';
                     }elseif(Banlist::remove($ticket->getEmail())){
-                        $msg='Email removed from banlist';
+                        $msg=$trl->_t('TEXT_EMAIL_REMOVED_FROM_BANLIST');
                     }else{
                         $errors['err']='Unable to remove the email from banlist. Try again.';
                     }
@@ -356,7 +356,7 @@ if($_POST && !$errors):
                                 $t->logActivity('Ticket Reopened',$note,false,'System');
                             }
                         }
-                        $msg="$i of $count selected tickets reopened";
+                        $msg=$trl->_t('TEXT_OF_SELECTED_TICKETS_REOPENED',array($i,$count));
                     }elseif(isset($_POST['close'])){
                         $i=0;
                         $note='Ticket closed without response by '.$thisuser->getName();
@@ -367,7 +367,7 @@ if($_POST && !$errors):
                                 $t->logActivity('Ticket Closed',$note,false,'System');
                             }
                         }
-                        $msg="$i of $count selected tickets closed";
+                        $msg=$trl->_t('TEXT_OF_SELECTED_TICKETS_CLOSED',array($i,$count));
                     }elseif(isset($_POST['overdue'])){
                         $i=0;
                         $note='Ticket flagged as overdue by '.$thisuser->getName();
@@ -379,14 +379,14 @@ if($_POST && !$errors):
                                     $t->logActivity('Ticket Marked Overdue',$note,false,'System');
                                 }
                         }
-                        $msg="$i of $count selected tickets marked overdue";
+                        $$msg=$trl->_t('TEXT_OF_SELECTED_TICKETS_MARKED_OVERDUE',array($i,$count));
                     }elseif(isset($_POST['delete'])){
                         $i=0;
                         foreach($_POST['tids'] as $k=>$v) {
                             $t = new Ticket($v);
                             if($t && @$t->delete()) $i++;
                         }
-                        $msg="$i of $count selected tickets deleted";
+                        $msg=$trl->_t('TEXT_OF_SELECTED_TICKETS_DELETED',array($i,$count));
                     }
                 }
                 break;
@@ -395,7 +395,7 @@ if($_POST && !$errors):
                 //TODO: check if the user is allowed to create a ticet.
                 if(($ticket=Ticket::create_by_staff($_POST,$errors))) {
                     $ticket->reload();
-                    $msg='Ticket created successfully';
+                    $msg=$trl->_t('TEXT_TICKET_CREATED_SUCCESSFULLY');
                     if($thisuser->canAccessDept($ticket->getDeptId()) || $ticket->getStaffId()==$thisuser->getId()) {
                         //View the sucker
                         $page='viewticket.inc.php';

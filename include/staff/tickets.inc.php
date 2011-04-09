@@ -263,7 +263,7 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
     <input type="hidden" name="a" value="search">
     <table>
         <tr>
-            <td><?php echo $trl->translate(LABEL_QUERY);?>: </td>
+            <td><?php  $trl->_(LABEL_QUERY);?>: </td>
             <td><input type="text" id="query" name="query" size=30 value="<?=Format::htmlchars($_REQUEST['query'])?>"></td>
             <td><input type="submit" name="basic_search" class="button" value="<?php echo $trl->translate(LABEL_SEARCH); ?>">
              &nbsp;[ <a href="#" onClick="showHide('basic','advance'); return false;"><?php echo $trl->translate(LABEL_ADVANCED);?></a> ] </td>
@@ -276,8 +276,8 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
  <input type="hidden" name="a" value="search">
   <table>
     <tr>
-        <td><?php echo $trl->translate(LABEL_QUERY);?>: </td><td><input type="text" id="query" name="query" value="<?=Format::htmlchars($_REQUEST['query'])?>"></td>
-        <td><?php echo $trl->translate(LABEL_DEPT);?>:</td>
+        <td><?php $trl->_(LABEL_QUERY);?>: </td><td><input type="text" id="query" name="query" value="<?=Format::htmlchars($_REQUEST['query'])?>"></td>
+        <td><?php $trl->_(LABEL_DEPT);?>:</td>
         <td><select name="dept"><option value=0><?php echo $trl->_t(TEXT_ALL_DEPARTMENTS)?></option>
             <?
                 //Showing only departments the user has access to...
@@ -293,7 +293,7 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
             }?>
             </select>
         </td>
-        <td><?php echo $trl->translate(LABEL_STATUS_IS)?>:</td><td>
+        <td><?php $trl->_(LABEL_STATUS_IS)?>:</td><td>
     
         <select name="status">
             <option value='any' selected ><?php echo $trl->translate(TEXT_ANY_STATUS)?></option>
@@ -305,11 +305,11 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
      </tr>
     </table>
     <div>
-        <?php echo $trl->translate('LABEL_DATE_SPAN');?>:
-        &nbsp;<?php echo $trl->translate('LABEL_FROM');?>&nbsp;<input id="sd" name="startDate" value="<?=Format::htmlchars($_REQUEST['startDate'])?>" 
+        <?php $trl->_('LABEL_DATE_SPAN');?>:
+        &nbsp;<?php $trl->_('LABEL_FROM');?>&nbsp;<input id="sd" name="startDate" value="<?=Format::htmlchars($_REQUEST['startDate'])?>" 
                 onclick="event.cancelBubble=true;calendar(this);" autocomplete=OFF>
             <a href="#" onclick="event.cancelBubble=true;calendar(getObj('sd'));"><img src='images/cal.png'border=0 alt=""></a>
-            &nbsp;&nbsp; <?php echo $trl->translate('LABEL_TO');?> &nbsp;&nbsp;
+            &nbsp;&nbsp; <?php $trl->_('LABEL_TO');?> &nbsp;&nbsp;
             <input id="ed" name="endDate" value="<?=Format::htmlchars($_REQUEST['endDate'])?>" 
                 onclick="event.cancelBubble=true;calendar(this);" autocomplete=OFF >
                 <a href="#" onclick="event.cancelBubble=true;calendar(getObj('ed')); return false;"><img src='images/cal.png'border=0 alt=""></a>
@@ -317,7 +317,7 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
     </div>
     <table>
     <tr>
-       <td>Type:</td>
+       <td><?php $trl->_('LABEL_TYPE');?>:</td>
        <td>       
         <select name="stype">
             <option value="LIKE" <?=(!$_REQUEST['stype'] || $_REQUEST['stype'] == 'LIKE') ?'selected':''?>>Scan (%)</option>
@@ -442,7 +442,7 @@ $basic_display=!isset($_REQUEST['advance_search'])?true:false;
             $class = ($class =='row2') ?'row1':'row2';
             } //end of while.
         else: //not tickets found!! ?> 
-            <tr class="<?=$class?>"><td colspan=8><b>Query returned 0 results.</b></td></tr>
+            <tr class="<?=$class?>"><td colspan=8><b><?php $trl->_('LABEL_QUERY_RETURNED_ZERO_RESULT')?></b></td></tr>
         <?
         endif; ?>
        </table>

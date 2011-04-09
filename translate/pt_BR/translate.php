@@ -5,16 +5,28 @@ if (!strcasecmp(basename($_SERVER['SCRIPT_NAME']), basename( __FILE__ ))) die ('
 
 $LANG = array ();
 
-// name in iso-639
+# Language identification in iso-639
 $LANG['LANGUAGE'] = 'pt_BR';
 //Word Name (english name)
-$LANG['LANGUAGE_NAME'] = 'Portugues Brasil';
+$LANG['LANGUAGE_NAME'] = 'Brazilian Portuguese';
 //Native name of language (in the original language)
 $LANG['LANGUAGE_NATIVE_NAME'] = 'Portugues Brasil';
 $LANG['DIRECTION'] = 'ltr';
 $LANG['CODEPAGE'] = 'UTF-8';
 
-# Error Mensages
+#########
+##Alert Messages, normally used with JavaScript dialog box.
+##
+$LANG['ALERT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT'] = 'Tentativas de Login pelo cliente excessivas'."\n".
+'Email: {0}'."\n".
+'Ticket#: {1}'."\n".
+'IP: {2}'."\n".
+'Data: {3}'."\n\n".
+'Tentativas #{4}';
+
+#######
+## Error Mensages
+##
 $LANG['ERROR_EMAIL_PARSE_FAILED'] = 'Falha ao tratar o Email';
 $LANG['ERROR_INVALID_FILE_TYPE'] = 'Tipo de arquivo inválido.';
 $LANG['ERROR_INVALID_FROM_ADDRESS'] = 'Endereço Informado no FROM é invalido';
@@ -37,17 +49,11 @@ $LANG['ERROR_UNKNOW_ACTION'] = 'Ação desconhecida!';
 
 $LANG['ERROR_SEARCH_TERM_MORE_3']='A termo usado na busca deve ter mais de 3 caracteres';
 
-# Titles on pages and web pages
-$LANG['TITLE'] = 'Tickets FullService';
-$LANG['TITLE_BOX_NEW_TICKET'] = 'Novo Ticket';
-$LANG['TITLE_BAR_OFFLINE'] = 'Sistema de Ticket para Suporte';
-$LANG['TITLE_MY_PREFERENCES'] = 'Minhas Preferências';
-$LANG['TITLE_OFFLINE'] = 'Sistema de ticket para Suporte está Offline';
-$LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Abrir ticket existente';
-$LANG['TITLE_CLOSED_TICKETS'] = 'Atendimentos Finalizados';
-
-# Images for Staff and Clients Ends
-// relative path of imagens in "translate/".$LANG['LANGUAGE']."/"
+#######
+## Images for Staff and Clients Ends
+##
+## relative path of imagens in "translate/".$LANG['LANGUAGE']."/"
+##
 $LANG['IMAGE_CLIENT_VIEW_OPEN'] = 'client/view_open.gif';
 $LANG['IMAGE_CLIENT_VIEW_CLOSED'] = 'client/view_closed.gif';
 $LANG['IMAGE_CLIENT_REFRESH'] = 'client/refresh.gif';
@@ -55,18 +61,24 @@ $LANG['IMAGE_STAFF_VIEW_OPEN'] = 'staff/view_open.gif';
 $LANG['IMAGE_STAFF_VIEW_CLOSED'] = 'staff/view_closed.gif';
 $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 
-# Labels for Bottons and Headers on Tables, Selections and others
+
+#######
+## Labels for Bottons, Headers on Tables, Selections, Link Texts and others
+##
 // Label A
 $LANG['LABEL_ADD_NEW_DEPT'] = 'Adicionar Novo Departamento.';
-$LANG['LABEL_ADMIN_DASHBOARD'] = 'Admin Dashboard';
+$LANG['LABEL_ADMIN_DASHBOARD'] = 'Painel de Administração';
 $LANG['LABEL_ADMIN_PANEL'] = 'Painel de Administração';
 $LANG['LABEL_ADVANCED'] = 'Avançado';
 $LANG['LABEL_ALL'] = 'Todos';
 $LANG['LABEL_ALL_DEPARTMENTS'] = 'Todos os Departamentos';
+$LANG['LABEL_APPEND'] = 'Adicionar ao texto';
+$LANG['LABEL_APPEND_SIGNATURE'] = 'Adicionar Assinatura';
 $LANG['LABEL_ASC'] = 'ASC';
 $LANG['LABEL_ASCENDING'] = 'Ascendente';
 $LANG['LABEL_ASSIGN'] = 'Designar';
-$LANG['LABEL_ASSIGNED_TICKETS'] = 'Tickets Designados';
+$LANG['LABEL_ASSIGN_TO_STAFF'] = 'Atribuir a um Profissional';
+$LANG['LABEL_ASSIGNED_TICKETS'] = 'Tickets Atríbuidos';
 $LANG['LABEL_ATTACHMENT'] = 'Anexo';
 $LANG['LABEL_AUTO_RESPONSE_EMAIL'] = 'E-mail para Auto Resposta';
 $LANG['LABEL_AUTORESPONDERS'] = 'Autoresposta';
@@ -75,9 +87,11 @@ $LANG['LABEL_AUTORESP'] = 'Auto Resp.';
 $LANG['LABEL_BASIC'] = 'Basico';
 // Label C
 $LANG['LABEL_CLOSE'] = 'Fechado';
+$LANG['LABEL_CLOSED'] = 'Closed';
 $LANG['LABEL_CLOSE_TICKET'] = 'Finalizar Atendimento';
-$LANG['LABEL_CLOSED_TICKETS'] = 'Atendimentos Fechados';
+$LANG['LABEL_CLOSED_TICKETS'] = 'Fechados';
 $LANG['LABEL_CANCEL'] = 'Cancelar';
+$LANG['LABEL_CANNED_RESPONSE'] = 'Respostas Prontas';
 $LANG['LABEL_CATEGORY'] = 'categoria';
 $LANG['LABEL_CATEGORY_DEPT'] = 'Categoria/Departamento';
 $LANG['LABEL_CHANGE_PASSWORD'] = 'Trocar Senha';
@@ -139,6 +153,7 @@ $LANG['LABEL_MESSAGE'] = 'Mensagem';
 $LANG['LABEL_MY_ACCOUNT'] = 'Minha Conta';
 $LANG['LABEL_MY_PREFERENCE'] = 'Minhas Configurações';
 $LANG['LABEL_MY_PROFILE'] = 'Meu Perfil';
+$LANG['LABEL_MY_SIGNATURE'] = 'Minha Assinatura';
 // Label N
 $LANG['LABEL_NAME'] = 'Name';
 $LANG['LABEL_NEW_DEPARTMENT'] = 'Novo Departamento';
@@ -174,6 +189,7 @@ $LANG['LABEL_PREMADE_REPLIES'] = 'Resposta pré-pronta';
 $LANG['LABEL_QUERY'] = 'Consulta';
 $LANG['LABEL_QUERY_RETURNED_ZERO_RESULT'] = 'A consulta não retornou resultados';
 // Label R
+$LANG['LABEL_RE_ASSIGN_TICKET'] = 'Reatr. a outro Prof.';
 $LANG['LABEL_REOPEN'] = 'Reabrir';
 $LANG['LABEL_REOPEN_TICKET'] = 'Reabrir Atendimento';
 $LANG['LABEL_RESET'] = 'Limpar';
@@ -194,6 +210,7 @@ $LANG['LABEL_SORT_BY'] = 'Ordenado por';
 $LANG['LABEL_SORT_BY_TITLE'] = 'Ordenar pelo título';
 $LANG['LABEL_SORT_BY_UPDATE_DATE'] = 'Ordenadr atualização por data';
 $LANG['LABEL_STAFF'] = 'Equipe';
+$LANG['LABEL_STAFF_MEMBER'] = 'Profissional';
 $LANG['LABEL_STAFF_MEMBERS'] = 'Membros da Equipe';
 $LANG['LABEL_STAFF_PANEL'] = 'Painel de Equipe';
 $LANG['LABEL_STATUS'] = 'Situção';
@@ -223,9 +240,15 @@ $LANG['LABEL_USERS'] = 'Usuários';
 // Label V
 $LANG['LABEL_VIEW_STATUS'] = 'Verificar Atendimento';
 
-#Alert Messages, normally used with JavaScript dialog box.
+#######
+## Generic text for all site, if have to text repeted in
+## Client or Staff ends, is prefixed with correct name.
+##
 // TEXT A
 $LANG['TEXT_ACCESS_DENIED']='Acesso Negado';
+$LANG['TEXT_ALL_DEPARTMENTS'] = 'Todos os Departamentos';
+$LANG['TEXT_AND_STATUS_SET_TO'] = ' e a situação definida para {0}';
+$LANG['TEXT_AND_TICKET_STATUS_SET_TO_CLOSED'] = ' e situação do atendimento definido como fechado';
 $LANG['TEXT_ANSWERED_STATS'] = 'Requisições Respondidas ({0})';
 $LANG['TEXT_ANSWERED_TICKETS'] = 'Requisições Respondidos';
 $LANG['TEXT_ANY_STATUS'] = 'Alguma Situação';
@@ -239,12 +262,16 @@ $LANG['TEXT_BOX_NEW_TICKET'] = 'Envie uma nova requisição de suporte. Por favo
 $LANG['TEXT_CAM_BE_APPENDED_TO_RESPONSES'] = 'Pode ser adicionado a respostas do departamento.<br/>(Disponível como uma opção para departamentos de acesso ao publico)';
 $LANG['TEXT_CLOSED_TICKETS'] = 'Tickets Fechados';
 $LANG['TEXT_CLOSED'] = 'Fechado';
+$LANG['TEXT_COMMENTS_REASONS_TRANSFER'] = 'Comentários/Motivo para transferir. &nbsp;(<i>Observação Interna</i>)';
 $LANG['TEXT_CREATE_FAILED'] = 'Falha na Criação do Ticket';
 // TEXT D
 $LANG['TEXT_DEPT_DEPENDS_ON_EMAIL'] = 'Departamento depende das configurações de e-mail e tópicos de ajuda para as solicitações de entrada.';
+$LANG['TEXT_DEPT_TRANSFER'] = 'Transferir Entre Depart.';
 $LANG['TEXT_DEPT_UPDATED_SUCCESSFULLY'] = 'Departamento atualizado com sucesso!';
 // TEXT E
+$LANG['TEXT_EMAIL_ADDED_TO_BANLIST'] = 'Email ({0}) Adicionado a lista de banidos';
 $LANG['TEXT_EMAIL_ADDRESS_USED_SEND_AUTO_RESPONSES'] = 'Endereço de E-mail usado para enviar auto-respostas, se abilitado.';
+$LANG['TEXT_EMAIL_REMOVED_FROM_BANLIST'] = 'Email removido da lista de banidos';
 $LANG['TEXT_ENTER_MESSAGE'] = 'Entre sua mensagem';
 // TEXT F
 $LANG['TEXT_FORGOT_YOUR_LOGIN_INFO'] = 'Esqueceu suas informações de login? Por favor <a href="open.php">Abra um novo ticket</a>.';
@@ -254,6 +281,7 @@ $LANG['TEXT_GLOBAL_AUTO_RESPONSE_SETTINGS'] = 'Configurações globais para auto
 // TEXT H
 $LANG['TEXT_HOME'] = 'Início';
 // TEXT I
+$LANG['TEXT_INTERNAL_NOTE_POSTED'] = 'Observação Interna Enviada';
 $LANG['TEXT_INVALID_LOGIN'] = 'Login Inválido';
 // TEXT J
 // TEXT K
@@ -262,7 +290,6 @@ $LANG['TEXT_INVALID_LOGIN'] = 'Login Inválido';
 $LANG['TEXT_MESSAGE_POSTED_SUCCESSFULLY'] = 'Mensagem enviada com sucesso';
 $LANG['TEXT_MY_PREFERENCES'] = 'Minhas Configurações';
 $LANG['TEXT_MY_ACCOUNT'] = 'Minha Conta';
-$LANG['TEXT_My Tickets_STATS'] = 'Meus Tickets ({0})';
 $LANG['TEXT_MY_TICKETS'] = 'Meus Tickets';
 $LANG['TEXT_MY_TICKETS_STATS'] = 'Meus Tickets ({0})';
 // TEXT N
@@ -272,6 +299,10 @@ $LANG['TEXT_NEW_TICKET'] = 'Novo Ticket';
 // TEXT O
 $LANG['TEXT_OPEN_NEW_TICKET'] = 'Abrir novo Ticket';
 $LANG['TEXT_OPEN_PREVIUS_TICKET'] = 'Verificar o status de um Ticket criado anteriormente. É mantido um histórico e arquivo de todos as requisições de suporte com suas respostas.';
+$LANG['TEXT_OF_SELECTED_TICKETS_REOPENED'] = "{0} de {1} atendimentos selecionados foram reabertos";
+$LANG['TEXT_OF_SELECTED_TICKETS_CLOSED'] = "{0} de {1} atendimentos selecionados foram fechados";
+$LANG['TEXT_OF_SELECTED_TICKETS_MARKED_OVERDUE'] = "{0} de {1} atendimentos selecionados foram marcados atrasados";
+$LANG['TEXT_OF_SELECTED_TICKETS_DELETED'] = "{0} de {1} atendimentos selecionados foram removidos definitivamente";
 $LANG['TEXT_OFFLINE']='Obrigado pelo seu interesse em nos contactar.<br>'.
          'Nosso Helpdesk não está funcionando agora, porem volte mais tarde, não deixe de tentar denovo.<br/>'.
 		 ' Isto não é um erro.';
@@ -287,6 +318,7 @@ $LANG['TEXT_PLEASE_FILL_STAFF_FORM_BELOW_OPEN_NEW_TICKET'] = 'Por Favor, preench
 $LANG['TEXT_PLEASE_FILL_FORM_NEW_TICKET'] = 'Por favor preencha o formulário abaixo para abir um novo Ticket.';
 $LANG['TEXT_PLEASE_TAKE_A_MINUTE_TO_DELETE_INSTALL'] = 'Por favor não se esqueça de apagar o diretório <strong>setup/install</strong> para sua segurança.';
 $LANG['TEXT_POST_REPLY'] = 'Enviar Resposta';
+$LANG['TEXT_PRIORITY_CHANGED_SUCCESSFULLY'] = 'Prioridade Alterada com Sucesso';
 // TEXT Q
 // TEXT R
 $LANG['TEXT_REFRESH'] = 'Atualizar';
@@ -294,6 +326,9 @@ $LANG['TEXT_REQUIRED_WHEN_DEPT_IS_PUBLIC'] = 'A Assinatura é necessária quando
 $LANG['TEXT_RESPONSE_POSTED_SUCCESSFULLY'] = 'Response Posted Successfully';
 // TEXT S
 $LANG['TEXT_SELECT_DEPARTMENTS_GROUP_MEMBERS'] = 'Selecionte o grupo de membros do departamentos que são permitidos acesso em adicião ao seu proprio departamento.';
+$LANG['TEXT_SELECT_PREMADE_REPLY'] = 'Selecione uma resposta pre pronta';
+$LANG['TEXT_SELECT_TARGET_DEPT'] = '-Selecione o departamento de destino-';
+$LANG['TEXT_SELECT_STAFF_MEMBER'] = '-Selecione o membro da equipe.-';
 $LANG['TEXT_SUPPORT_CENTER'] = 'Centro de Suporte FullService';
 $LANG['TEXT_SUPPORT_TICKET_SISTEM'] = 'Sistema FullSErvice de <span>TICKET para Suporte</span>';
 $LANG['TEXT_SYSTEM_IS_OFF_LINE'] = '<strong>O Sistema está definido como desativado (Off-Line)</strong> - A interface com o cliente está desativada e somente os administadores podem acessar o painel de controle.';
@@ -311,14 +346,19 @@ $LANG['TEXT_SEARCH_RESULTS'] = 'Resultado de Pesquisa';
 $LANG['TEXT_SUPPORT_TEAM'] = 'Equipe de Atendimento Externo';
 // TEXT T
 $LANG['TEXT_THANKS_NEW_TICKET'] = 'Obrigado por nos contactar.<br>Um ticket para sua requisição foi criado e um de nossos representantes irá retornar para você o mais rapido possível!';
+$LANG['TEXT_TICKET_ASSIGNED_TO_STAFF'] = 'Ticket Assigned to {0}';
 $LANG['TEXT_TICKET_CREATED'] = 'Ticket para requisição criado!';
+$LANG['TEXT_TICKET_CREATED_SUCCESSFULLY'] = 'Ticket de atendimento criado com sucesso';
 $LANG['TEXT_TICKET_DELETED_FOREVER'] = 'Ticket Removido para Sempre';
+$LANG['TEXT_TICKET_FLAGGED_AS_OVERDUE'] = 'Ticket identificado como atrasado';
 $LANG['TEXT_TICKET_NUM_STATUS_SET_CLOSED'] = 'A situação do Ticket #{0} foi definida como FECHADO';
 $LANG['TEXT_TICKET_NUMBER'] = 'Número do Ticket';
+$LANG['TEXT_TICKET_STATUS'] = 'Situação do Atendimento';
 $LANG['TEXT_TICKET_STATUS_CHANGED_TO'] = 'Situação do Ticket alterada para {0}';
 $LANG['TEXT_TICKET_STATUS_SET_TO_OPEN'] = 'Situação do Ticket alterada para ABERTO';
-$LANG['TEXT_TICKET_THREAD'] = 'Histórico do Ticket';
+$LANG['TEXT_TICKET_THREAD'] = 'Histórico do Atendimento';
 $LANG['TEXT_TICKET_TRANSFERED_SUCESSFULLY_TO_DEPT'] = 'Ticket transferido com sucesso para o Dep. {0}';
+$LANG['TEXT_TICKET_UPDATED_SUCCESSFULLY'] = 'Ticket atualizado com sucesso';
 $LANG['TEXT_TICKET_WILL_REOPEN_NEW_POST'] = 'O ticket será reaberto se houver uma nova postagem!';
 $LANG['TEXT_TICKETS_STATUS'] = 'Situação dos Tickets';
 $LANG['TEXT_TOTAL_OPEN_TICKETS'] = "Abertos ({0})";
@@ -326,10 +366,12 @@ $LANG['TEXT_TOTAL_ANSWERED_TICKETS'] = "Respondidos ({0})";
 $LANG['TEXT_TOTAL_MY_TICKETS'] = 'Meus Tickets ({0})';
 // TEXT U
 $LANG['TEXT_UNABLE_CREATE_TICKET'] = 'Não foi possível criar o Ticket. Por favor corrija os erros abaixo e tente novamente!';
+$LANG['TEXT_UPDATE_TICKET'] = 'Atualizar o atendimento #{0}';
 $LANG['TEXT_USED_FOR_OUTGOING_EMAILS'] = 'Usado para envio de e-mails, alertas e informações aos usuários e equipe.';
 // TEXT V
 $LANG['TEXT_VIEW_OPEN'] = 'Verificar Abertos';
 $LANG['TEXT_VIEW_CLOSED'] = 'Verificar Fechados';
+$LANG['TEXT_VIEW_TICKET'] = 'Verificar Atendimento';
 $LANG['TEXT_VISIBLE_TO_CLIENT'] = 'Visivel pelo Cliente.';
 // TEXT W
 $LANG['TEXT_WELCOME_MSG'] = 'Para podermos lhe dar o melhor atendimento usamos um sistema de tickets. Cada requisição de suporte é associada a um único número de atendimento (Ticket) que você pode usar para observar o progresso de seu atendimento rapidamente. Para sua referência nós oferecemos um arquivo completo com o histórico de todas as suas requisições.';
@@ -350,13 +392,17 @@ $LANG['TEXT_LOG_OUT'] = 'Sair';
 
 $LANG['TEXT_WELCOME_TITLE'] = 'Bem Vindo ao Centro de Suporte';
 
+########
+## Titles on pages and web pages
+##
+$LANG['TITLE'] = 'Tickets FullService';
+$LANG['TITLE_BOX_NEW_TICKET'] = 'Novo Ticket';
+$LANG['TITLE_BAR_OFFLINE'] = 'Sistema de Ticket para Suporte';
+$LANG['TITLE_MY_PREFERENCES'] = 'Minhas Preferências';
+$LANG['TITLE_OFFLINE'] = 'Sistema de ticket para Suporte está Offline';
+$LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Abrir ticket existente';
+$LANG['TITLE_CLOSED_TICKETS'] = 'Atendimentos Finalizados';
 
 
-#Alert Messages, normally used with JavaScript dialog box.
-$LANG['ALERT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT'] = 'Tentativas de Login pelo cliente excessivas'."\n".
-'Email: {0}'."\n".
-'Ticket#: {1}'."\n".
-'IP: {2}'."\n".
-'Data: {3}'."\n\n".
-'Tentativas #{4}';
+
 ?>
