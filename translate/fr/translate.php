@@ -179,4 +179,3 @@ $LANG['ALERT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT']= 'Temps d\'accés dépassé pa
 'Time: {3}'."\n\n".
                 'Attempts #{4}';
 ?>
-

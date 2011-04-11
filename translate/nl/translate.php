@@ -185,4 +185,3 @@ $LANG['ALERT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT']='Excessief aantal loginpoginge
 				'Time: {3}'."\n\n".
                 'Attempts #{4}';
 ?>
-
