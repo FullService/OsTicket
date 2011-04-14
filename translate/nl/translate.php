@@ -125,6 +125,7 @@ $LANG['LABEL_EMAILS_SETTINGS'] = 'E-Mail';
 $LANG['LABEL_EMAIL_ADDRESS'] = 'Email adres'; 
 $LANG['LABEL_EMAIL_ADRES'] = 'Email adres'; 
 $LANG['LABEL_EMAIL_TEMPLATES'] = 'Email template'; 
+$LANG['LABEL_ENABLE_SYSTEM_OFF_LINE'] = 'Publiceren'; 
 $LANG['LABEL_ENTER_NOTE_CONTENT'] = 'Typ Notitie Inhoud'; 
 // Label F
 $LANG['LABEL_FIRST_NAME'] = 'Voornaam'; 
@@ -369,6 +370,7 @@ $LANG['TEXT_SORT_BY_TICKET_ID']='Rangschik op ticket ID';
 $LANG['TEXT_SUPPORT_CENTER'] = 'Support centrum';
 $LANG['TEXT_SUPPORT_TEAM'] = 'Support Team';
 $LANG['TEXT_SUPPORT_TICKET_SISTEM'] = '<span>SUPPORT TICKET</span> SYSTEEM';
+$LANG['TEXT_SYSTEM_IS_OFF_LINE'] = 'Systeem is offline.';
 // TEXT T
 $LANG['TEXT_TICKET_CREATED'] = 'Support ticket aangemaakt';
 $LANG['TEXT_TICKET_NUMBER'] = 'Ticket #';
