@@ -72,6 +72,7 @@ $LANG['LABEL_ASSIGNTOSTAFF'] = '-Wijs toe aan personeel-';
 $LANG['LABEL_ATTACHMENT'] = 'Bijlage'; //alleen zichtbaar als er geupload kan worden (newticket.inc)
 $LANG['LABEL_ATTACH_FILE'] = 'Voeg Bestand Toe'; 
 $LANG['LABEL_ASCENDING'] = 'Oplopend';
+$LANG['LABEL_AUTORESP'] = 'Automatische response';
 $LANG['LABEL_AUTO_RESPONSE_EMAIL'] = 'Email adres voor auto-response';
 $LANG['LABEL_AUTORESPONDERS'] = 'Auto reponse';
 // Label B
@@ -85,6 +86,7 @@ $LANG['LABEL_CATEGORY_DEPT'] = 'Categorie/Afdeling';
 $LANG['LABEL_CHANGE_PRIORITY'] = 'Wijzig Prioriteit'; 
 $LANG['LABEL_CHANGE_PASSWORD'] = 'Verander wachtwoord';
 $LANG['LABEL_CHECK_STATUS'] = 'Check Status';
+$LANG['LABEL_CLOSE'] = 'Sluiten'; 
 $LANG['LABEL_CLOSE_ON_REPLY'] = 'Sluiten bij Antwoord'; 
 $LANG['LABEL_CLOSE_TICKET'] = 'Sluit Ticket'; 
 $LANG['LABEL_CLOSED_TICKETS'] = 'Gesloten tickets';
@@ -153,6 +155,7 @@ $LANG['LABEL_KNOWLEDGE_BASE_PREMATE'] = ''; //hint
 $LANG['LABEL_LAST_NAME'] = 'Achternaam'; 
 $LANG['LABEL_LAST_MESSAGE'] = 'Laatste Bericht Op'; 
 $LANG['LABEL_LAST_RESPONSE'] = 'Laatste Antwoord Op'; 
+$LANG['LABEL_LAST_UPDATED'] = 'Laatste update'; 
 $LANG['LABEL_LOG_OUT'] = 'Uitloggen';
 // Label M
 $LANG['LABEL_MAKE_PRIVATE'] = 'Maak Prive'; 
@@ -173,6 +176,7 @@ $LANG['LABEL_NAME'] = 'Naam';
 $LANG['LABEL_NEW_PREMADE_REPLY'] = 'Maak Nieuw Antwoord Template'; 
 $LANG['LABEL_NEW_MESSAGE'] = 'Nieuw Bericht';
 $LANG['LABEL_NEW_TICKET'] = 'Nieuw Ticket';
+$LANG['LABEL_NEW_TICKET_PRIORITY'] = 'Nieuw Ticket Prioriteit';
 $LANG['LABEL_NONE'] = 'Geen'; 
 $LANG['LABEL_NOTE_TITLE'] = 'Notitie Titel'; 
 // Label O
@@ -206,6 +210,7 @@ $LANG['LABEL_PUBLIC'] = 'Publiek';
 // Label Q
 $LANG['LABEL_QUERY'] = 'Vraag';
 $LANG['LABEL_QUERY_RETURNED_0_RESULTS'] = 'Aanvraag heeft 0 resultaten'; 
+$LANG['LABEL_QUERY_RETURNED_ZERO_RESULT'] = 'Aanvraag heeft 0 resultaten'; 
 // Label R
 $LANG['LABEL_REASONS_FOR_THE_EDIT'] = 'Reden voor de wijziging'; 
 $LANG['LABEL_RE_ASSIGN_TO_STAFF'] = 'Re:Toewijzen aan medewerker'; 
