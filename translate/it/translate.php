@@ -2,7 +2,16 @@
 
 # Italian translation completed and updated by UncleDan ( uncledan at uncledan dot it )
 # osTicket Release: 1.6.0
-# Traslation Release: 1.0
+# Traslation Release: 1.1
+
+# Changelog
+// 1.0:
+// * Completed translation
+// 1.1:
+// * Shortened some messages too long for display
+// * Escaped correctly "é" in "affinché"
+// * Added link to access Staff Control Panel from home page
+// * Added labels LABEL_ISSUE_SUMMARY and LABEL_TICKET_SOURCE
 
 #Disable direct access.
 if (!strcasecmp(basename($_SERVER['SCRIPT_NAME']), basename( __FILE__ ))) die ('kwaheri rafiki!');
@@ -85,7 +94,7 @@ $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 ##
 // Label A
 $LANG['LABEL_ADD_NEW_DEPT'] = 'Aggiungi Nuovo Dipart.';
-$LANG['LABEL_ADMIN_DASHBOARD'] = 'Console Amministratore';
+$LANG['LABEL_ADMIN_DASHBOARD'] = 'Amministratore';
 $LANG['LABEL_ADMIN_PANEL'] = 'Pannello Amministratore';
 $LANG['LABEL_ADVANCED'] = 'Avanzate';
 $LANG['LABEL_APPEND'] = 'Aggiungi';
@@ -153,8 +162,9 @@ $LANG['LABEL_FULL_NAME'] = 'Nome Completo';
 $LANG['LABEL_GO'] = 'VAI';
 // Label H
 $LANG['LABEL_HELP_TOPIC'] = 'Argomento della Guida';
-$LANG['LABEL_HELP_TOPICS'] = 'Argomenti della Guida';
+$LANG['LABEL_HELP_TOPICS'] = 'Argom. Guida';
 // Label I
+$LANG['LABEL_ISSUE_SUMMARY'] = 'Riassunto del problema';
 // Label J
 // Label K
 $LANG['LABEL_KNOWLEDGE_BASE'] = 'Knowledge Base';
@@ -243,6 +253,7 @@ $LANG['LABEL_TELEPHONE'] = 'Telefono';
 $LANG['LABEL_TICKET'] = 'Ticket';
 $LANG['LABEL_TICKET_ID'] = 'ID Ticket';
 $LANG['LABEL_TICKET_NUMBER'] = 'Ticket n.';
+$LANG['LABEL_TICKET_SOURCE'] = 'Origine del ticket'; 
 $LANG['LABEL_TICKET_STATUS'] = 'Stato Ticket'; 
 $LANG['LABEL_TO'] = 'A.';
 $LANG['LABEL_TOGGLE'] = 'Toggle'; //en_US
@@ -297,7 +308,7 @@ $LANG['TEXT_FILE_IS_TOO_BIG'] = 'File troppo grande. Consentiti al massimo {0} b
 $LANG['TEXT_FORGOT_YOUR_LOGIN_INFO']='Dimenticato le credenziali? Per favore <a href="open.php">apri un nuovo Ticket</a>.';
 // TEXT G
 $LANG['TEXT_GENERAL_INQUIRY'] = 'General Inquiry'; //en_US
-$LANG['TEXT_GLOBAL_AUTO_RESPONSE_SETTINGS'] = 'Le opzioni di risposta automatica generali devono essere attivate nelle preferenzeaffinché l\'opzione \'Abilita\' Dip. abbia effetto.';
+$LANG['TEXT_GLOBAL_AUTO_RESPONSE_SETTINGS'] = 'Le opzioni di risposta automatica generali devono essere attivate nelle preferenze affinch&#233; l\'opzione \'Abilita\' Dip. abbia effetto.';
 // TEXT H
 $LANG['TEXT_HOME'] = 'Pagina principale';
 $LANG['TEXT_HEADER_TITLE']='osTicket :: Support Ticket System'; //en_US
@@ -361,7 +372,7 @@ $LANG['TEXT_SHOW_ZERO'] = 'Visualizzati 0 (zero)';
 $LANG['TEXT_SEARCH_RESULTS'] = 'Risultati Ricerca';
 $LANG['TEXT_SYSTEM_IS_OFF_LINE'] = '<strong>Il sistema &#232; in modalit&#224; offline</strong> - L\'Interfaccia client &#232; disattivata e SOLO gli aministratori possono accedere al Pannello di Controllo.';
 $LANG['TEXT_SUPPORT_TEAM'] = 'Team di Supporto';
-$LANG['TEXT_SUPPORT_TICKET_SISTEM'] = '<span>SUPPORT TICKET</span> SYSTEM'; //en_US
+$LANG['TEXT_SUPPORT_TICKET_SISTEM'] = '<span>SUPPORT TICKET</span> SYSTEM | <a href="./scp/">Accesso Staff</a>' ; //en_US + mod
 $LANG['TEXT_SUPPORT_CENTER'] = 'Centro di supporto';
 // TEXT T
 $LANG['TEXT_TOTAL_OPEN_TICKETS'] = "Aperto ({0})";
