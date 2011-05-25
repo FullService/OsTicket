@@ -3,7 +3,7 @@
 #Disable direct access.
 if (!strcasecmp(basename($_SERVER['SCRIPT_NAME']), basename( __FILE__ ))) die ('kwaheri rafiki!');
 
-$LANG['AR_NAME'] = 'Arabic';
+$LANG['AR_NAME'] = '';
 $LANG['CS_NAME'] = 'Czech';
 $LANG['ES_NAME'] = 'Espanish';
 $LANG['FR_NAME'] = 'Français ';

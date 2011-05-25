@@ -99,7 +99,7 @@
     require(INCLUDE_DIR.'class.validator.php'); //Class to help with basic form input validation...please help improve it.
     require(INCLUDE_DIR.'mysql.php');
     require(INCLUDE_DIR.'class.translator.php'); // class for help to translate the application;
-    
+
     #CURRENT EXECUTING SCRIPT.
     define('THISPAGE',Misc::currentURL());
 
