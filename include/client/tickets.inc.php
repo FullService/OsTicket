@@ -81,7 +81,7 @@ $negorder=$order=='DESC'?'ASC':'DESC'; //Negate the sorting..
         <td nowrap >
             <a href="view.php?status=open"><img src="images/view_open_btn.gif" alt="<?= $trl->translate('TEXT_VIEW_OPEN')?>" border=0></a>            
             <a href="view.php?status=closed"><img src="images/view_closed_btn.gif" alt="<?= $trl->translate('TEXT_VIEW_CLOSED')?>" border=0></a>            
-            <a href=""><img src="<?php $trl->tei('IMAGE_STAFF_REFRESH')?>" alt="<?= $trl->translate('TEXT_REFRESH')?>" border=0></a>
+            <a href=""><img src="<?php tei('IMAGE_STAFF_REFRESH')?>" alt="<?= $trl->translate('TEXT_REFRESH')?>" border=0></a>
         </td>
     </tr>
  </table>
