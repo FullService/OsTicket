@@ -549,9 +549,12 @@ switch($thistab){
     case 'attach':
     case 'api':
         $nav->setTabActive('settings');
-        $nav->addSubMenu(array('desc'=>'Preferences','href'=>'admin.php?t=pref','iconclass'=>'preferences'));
-        $nav->addSubMenu(array('desc'=>'Attachments','href'=>'admin.php?t=attach','iconclass'=>'attachment'));
-        $nav->addSubMenu(array('desc'=>'API','href'=>'admin.php?t=api','iconclass'=>'api'));
+        $desc = $trl->translate('LABEL_PREFERENCES');
+        $nav->addSubMenu(array('desc'=>$desc,'href'=>'admin.php?t=pref','iconclass'=>'preferences'));
+        $desc = $trl->translate('LABEL_ATTACHMENTS');
+        $nav->addSubMenu(array('desc'=>$desc,'href'=>'admin.php?t=attach','iconclass'=>'attachment'));
+        $desc = $trl->translate('LABEL_API');
+        $nav->addSubMenu(array('desc'=>$desc,'href'=>'admin.php?t=api','iconclass'=>'api'));
         switch($thistab):
         case 'settings':            
         case 'pref':        
@@ -567,7 +570,8 @@ switch($thistab){
     case 'dashboard':
     case 'syslog':
         $nav->setTabActive('dashboard');
-        $nav->addSubMenu(array('desc'=>'System Logs','href'=>'admin.php?t=syslog','iconclass'=>'syslogs'));
+        $desc = $trl->translate('LABEL_SYSTEM_LOGS'); 
+        $nav->addSubMenu(array('desc'=>$desc,'href'=>'admin.php?t=syslog','iconclass'=>'syslogs'));
         $page='syslogs.inc.php';
         break;
     case 'email':

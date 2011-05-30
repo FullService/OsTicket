@@ -16,7 +16,7 @@ $LANG['CODEPAGE'] = 'UTF-8';
 
 ########
 ##Alert Messages, normally used with JavaScript dialog box.
-## 
+##
 $LANG['ALERT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT']='Excessive login attempts by a client'."\n".
                 'Email: {0}'."\n".
 				'Ticket#: {1}'."\n".
@@ -65,6 +65,7 @@ $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 ## Labels for Bottons, Headers on Tables, Selections, Link Texts and others
 ##
 // Label A
+$LANG['LABEL_ACTIVE_IN_PARENTESIS'] = '(Active)'; 
 $LANG['LABEL_ADD_NEW_DEPT'] = 'Add New Dept.';
 $LANG['LABEL_ADMIN_DASHBOARD'] = 'Admin Dashboard';
 $LANG['LABEL_ADMIN_PANEL'] = 'Admin Panel';
@@ -73,12 +74,14 @@ $LANG['LABEL_APPEND'] = 'Append';
 $LANG['LABEL_APPEND_SIGNATURE'] = 'Append Signature';
 $LANG['LABEL_ALL'] = 'All';
 $LANG['LABEL_ALL_DEPARTMENTS'] = 'All Departments';
+$LANG['LABEL_API'] = 'API';
 $LANG['LABEL_ASSIGN'] = 'Assign';
 $LANG['LABEL_ASSIGN_TO_STAFF'] = 'Assign to Staff';
 $LANG['LABEl_ASSIGNED_TICKETS'] = 'Assigned Tickets';
 $LANG['LABEL_ASC'] = 'ASC';
 $LANG['LABEL_ASCENDING'] = 'Ascending';
 $LANG['LABEL_ATTACHMENT'] = 'Attachment';
+$LANG['LABEL_ATTACHMENTS'] = 'Attachmets';
 $LANG['LABEL_AUTO_RESPONSE_EMAIL'] = 'Auto Response Email';
 $LANG['LABEL_AUTORESPONDERS'] = 'Autoresponders';
 $LANG['LABEL_AUTORESP'] = 'AutoResp.';
@@ -117,6 +120,7 @@ $LANG['LABEL_DEPT_SIGNATURE'] = 'Dept. Signature';
 $LANG['LABEL_DEPT_TYPE'] = 'Dept. Type';
 $LANG['LABEL_DESC'] = 'DESC';
 $LANG['LABEL_DESCENDING'] = 'Descending';
+$LANG['LABEL_DISABLED_IN_PARENTESIS'] = '(Disabled)';
 $LANG['LABEL_DIRECTORY'] = 'Directory';
 $LANG['LABEL_DIRECTORY_STAFF'] = 'Staff Directory';
 // Label E
@@ -131,10 +135,28 @@ $LANG['LABEL_ENTER_NOTE_CONTENT'] = 'Enter note content.';
 $LANG['LABEL_FROM'] = 'From.';
 $LANG['LABEL_FULL_NAME'] = 'Full Name';
 // Label G
+$LANG['LABEL_GENERAL_SETTINGS'] = 'General Settings';
 $LANG['LABEL_GO'] = 'GO';
 // Label H
 $LANG['LABEL_HELP_TOPIC'] = 'Help Topic';
 $LANG['LABEL_HELP_TOPICS'] = 'Help Topics';
+$LANG['LABEL_HELPDESK_ATTEMPT_ALLOWED_BEFORE_A'] = 'attempt(s) allowed&nbsp;before a';
+$LANG['LABEL_HELPDESK_BIND_STAFF_SESSION_TO_IP'] = 'Bind Staff Session to IP';
+$LANG['LABEL_HELPDESK_DEFAULT_DEPARTMENT'] = 'Default Department';
+$LANG['LABEL_HELPDESK_DEFAULT_EMAIL_TEMPLATES'] = 'Default Email Templates';
+$LANG['LABEL_HELPDESK_NAME_TITLE'] = 'Helpdesk Name/Title';
+$LANG['LABEL_HELPDESK_NONE_DISABLE_LOGGER'] = 'None (Disable Logger)';
+$LANG['LABEL_HELPDESK_PENALTY_IN_MINUTES'] = 'min. timeout (penalty in minutes)';
+$LANG['LABEL_HELPDESK_PURGE_NONE_DISABLE'] = 'None (Disable)';
+$LANG['LABEL_HELPDESK_PURGE_LOGS_AFTER'] = 'Purge logs after';
+$LANG['LABEL_HELPDESK_DEFAULT_PAGE_SIZE'] = 'Default Page Size';
+$LANG['LABEL_HELPDESK_SELECT_DEFAULT_DEPARTMENT'] = 'Select Default Dept';
+$LANG['LABEL_HELPDESK_SELECT_DEFAULT_TEMPLATE'] = 'Select Default Template'; 
+$LANG['LABEL_HELPDESK_STAFF_EXCESSIVE_LOGINS'] = 'Staff Excessive Logins';
+$LANG['LABEL_HELPDESK_STAFF_SESSION_TIMEOUT'] = 'Staff Session Timeout';
+$LANG['LABEL_HELPDESK_STATUS'] = 'Helpdesk Status';
+$LANG['LABEL_HELPDESK_SYSTEM_LOG_LEVEL'] = 'System Log Level'; 
+$LANG['LABEL_HELPDESK_URL'] = 'Helpdesk URL';
 // Label I
 // Label J
 
@@ -149,6 +171,8 @@ $LANG['LABEL_MAKE_PUBLIC'] = 'Make Public';
 $LANG['LABEL_MAKE_PRIVATE'] = 'Make Private';
 $LANG['LABEL_MANAGER'] = 'Manager';
 $LANG['LABEL_MESSAGE'] = 'Message';
+$LANG['LABEL_MONTHS'] = 'Months';
+$LANG['LABEL_MONTH'] = 'Month';
 $LANG['LABEL_MY_ACCOUNT'] = 'My Account';
 $LANG['LABEL_MY_PREFERENCE'] = 'My Preference';
 $LANG['LABEL_MY_PROFILE'] = 'My Profile';
@@ -179,8 +203,9 @@ $LANG['LABEL_PAGE'] = 'page';
 $LANG['LABEL_PASSWORD'] = 'Password';
 $LANG['LABEL_PASSWORD_AGAIN'] = 'Password (again)';
 $LANG['LABEL_PHONE'] = 'Phone';
-$LANG['LABEL_POST_INTERNAL_NOTE'] = 'Post Internal Note'; 
+$LANG['LABEL_POST_INTERNAL_NOTE'] = 'Post Internal Note';
 $LANG['LABEL_POST_REPLY']='Post Reply';
+$LANG['LABEL_PREFERENCES'] = 'Preferences';
 $LANG['LABEL_PRIORITY'] = 'Priority';
 $LANG['LABEL_PRIMARY_OUTGOING_EMAIL'] = 'Primary Outgoing Email';
 $LANG['LABEL_PREMADE_REPLIES'] = 'Premade Replies';
@@ -219,13 +244,15 @@ $LANG['LABEL_SUBJECT'] = 'Subject';
 $LANG['LABEL_SUBMIT'] = 'Submit';
 $LANG['LABEL_SUBMIT_TICKET'] = 'Submit Ticket';
 $LANG['LABEL_SYSTEM_DEFAULT_TEMPLATE'] = 'System Default';
+$LANG['LABEL_SYSTEM_LOGS'] = 'System Logs';
+$LANG['LABEL_SYSTEM_PREFERENCES_AND_SETTINGS'] = 'System Preferences and Settings';
 $LANG["LABEL_SYSTEM_SETTINGS"] = 'System Settings';
 // Label T
 $LANG['LABEL_TELEPHONE'] = 'Telephone';
 $LANG['LABEL_TICKET'] = 'Ticket';
 $LANG['LABEL_TICKET_ID'] = 'Ticket ID';
 $LANG['LABEL_TICKET_NUMBER'] = 'Ticket#';
-$LANG['LABEL_TICKET_STATUS'] = 'Ticket Status'; 
+$LANG['LABEL_TICKET_STATUS'] = 'Ticket Status';
 $LANG['LABEL_TO'] = 'To.';
 $LANG['LABEL_TOGGLE'] = 'Toggle';
 $LANG['LABEL_TRANSFER'] = 'Transfer';
@@ -283,6 +310,7 @@ $LANG['TEXT_GLOBAL_AUTO_RESPONSE_SETTINGS'] = 'Global auto-response settings in 
 // TEXT H
 $LANG['TEXT_HOME'] = 'Home';
 $LANG['TEXT_HEADER_TITLE']='osTicket :: Support Ticket System';
+$LANG['TEXT_HELPDESK_STAFF_MAX_IDLE_TIME_IN_MINUTES'] = '(<i>Staff\'s max Idle time in minutes. Enter 0 to disable timeout</i>)';
 // TEXT I
 $LANG['TEXT_INTERNAL_NOTE_POSTED'] = 'Internal note posted';
 $LANG['TEXT_INVALID_LOGIN'] = 'Invalid login';
@@ -312,6 +340,8 @@ $LANG['TEXT_OVERDUE_TICKETS'] = 'Overdue Tickets';
 $LANG['TEXT_OVERDUE'] = 'Overdue';
 $LANG['TEXT_OFFLINE']='Thank you for your interest in contacting us.<br>'.
          'Our helpdesk is offline at the moment, please check back at a later time.';
+$LANG['TEXT_OFFLINE_MODE_WILL_DISABLE_CLIENT'] = 'Offline mode will disable client interface and <b>only</b>'.
+         ' allow <b>super admins</b> to login to Staff Control Panel';
 $LANG['TEXT_OF_SELECTED_TICKETS_REOPENED'] = "{0} of {1} selected tickets reopened";
 $LANG['TEXT_OF_SELECTED_TICKETS_CLOSED'] = "{0} of {1} selected tickets closed";
 $LANG['TEXT_OF_SELECTED_TICKETS_MARKED_OVERDUE'] = "{0} of {1} selected tickets marked overdue";

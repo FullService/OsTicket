@@ -17,7 +17,7 @@ $LANG['CODEPAGE'] = 'UTF-8';
 #########
 ##Alert Messages, normally used with JavaScript dialog box.
 ##
-$LANG['ALERT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT'] = 'Tentativas de Login pelo cliente excessivas'."\n".
+$LANG['ALERT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT'] = 'Excessivas tentativas de Login pelo cliente'."\n".
 'Email: {0}'."\n".
 'Ticket#: {1}'."\n".
 'IP: {2}'."\n".
@@ -66,11 +66,13 @@ $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 ## Labels for Bottons, Headers on Tables, Selections, Link Texts and others
 ##
 // Label A
+$LANG['LABEL_ACTIVE_IN_PARENTESIS'] = '(Ativado)'; 
 $LANG['LABEL_ADD_NEW_DEPT'] = 'Adicionar Novo Departamento.';
-$LANG['LABEL_ADMIN_DASHBOARD'] = 'Painel de Administração';
+$LANG['LABEL_ADMIN_DASHBOARD'] = 'Administração';
 $LANG['LABEL_ADMIN_PANEL'] = 'Painel de Administração';
 $LANG['LABEL_ADVANCED'] = 'Avançado';
 $LANG['LABEL_ALL'] = 'Todos';
+$LANG['LABEL_API'] = 'API';
 $LANG['LABEL_ALL_DEPARTMENTS'] = 'Todos os Departamentos';
 $LANG['LABEL_APPEND'] = 'Adicionar ao texto';
 $LANG['LABEL_APPEND_SIGNATURE'] = 'Adicionar Assinatura';
@@ -80,6 +82,7 @@ $LANG['LABEL_ASSIGN'] = 'Designar';
 $LANG['LABEL_ASSIGN_TO_STAFF'] = 'Atribuir a um Profissional';
 $LANG['LABEL_ASSIGNED_TICKETS'] = 'Tickets Atríbuidos';
 $LANG['LABEL_ATTACHMENT'] = 'Anexo';
+$LANG['LABEL_ATTACHMENTS'] = 'Anexos';
 $LANG['LABEL_AUTO_RESPONSE_EMAIL'] = 'E-mail para Auto Resposta';
 $LANG['LABEL_AUTORESPONDERS'] = 'Autoresposta';
 $LANG['LABEL_AUTORESP'] = 'Auto Resp.';
@@ -118,6 +121,7 @@ $LANG['LABEL_DEPT_EMAIL_ABOVE'] = 'E-mail do Departamento (acima definido)';
 $LANG['LABEL_DEPT_SIGNATURE'] = 'Assinatura do Departamento';
 $LANG['LABEL_DESCENDING'] = 'Descendente';
 $LANG['LABEL_DESC'] = 'DESC';
+$LANG['LABEL_DISABLED_IN_PARENTESIS'] = '(Desabilitado)';
 $LANG['LABEL_DIRECTORY'] = 'Agenda';
 $LANG['LABEL_DIRECTORY_STAFF'] = 'Agenda de Contatos da Equipe';
 // Label E
@@ -132,10 +136,28 @@ $LANG['LABEL_ENTER_NOTE_CONTENT'] = 'Digite a Observação.';
 $LANG['LABEL_FROM'] = 'De';
 $LANG['LABEL_FULL_NAME'] = 'Nome Completo';
 // Label G
+$LANG['LABEL_GENERAL_SETTINGS'] = 'Configurações Gerais';
 $LANG['LABEL_GO'] = 'Vá';
 // Label H
 $LANG['LABEL_HELP_TOPIC'] = 'Ajuda Relacionada';
 $LANG['LABEL_HELP_TOPICS'] = 'Tópicos de Ajuda';
+$LANG['LABEL_HELPDESK_ATTEMPT_ALLOWED_BEFORE_A'] = 'tentativa(s) permitida(s)&nbsp;antes de';
+$LANG['LABEL_HELPDESK_BIND_STAFF_SESSION_TO_IP'] = 'Ligar o IP a seção da Equipe';
+$LANG['LABEL_HELPDESK_DEFAULT_DEPARTMENT'] = 'Departamento Padrão';
+$LANG['LABEL_HELPDESK_DEFAULT_EMAIL_TEMPLATES'] = 'Templates de E-mail Padrão';
+$LANG['LABEL_HELPDESK_NAME_TITLE'] = 'Nome/Titulo do Helpdesk';
+$LANG['LABEL_HELPDESK_NONE_DISABLE_LOGGER'] = 'Nenhum (Desabilitar o Logger)';
+$LANG['LABEL_HELPDESK_PENALTY_IN_MINUTES'] = 'Min. (Penalidade em minutos)';
+$LANG['LABEL_HELPDESK_PURGE_NONE_DISABLE'] = 'Não descartar';
+$LANG['LABEL_HELPDESK_PURGE_LOGS_AFTER'] = 'Descartar logs após';
+$LANG['LABEL_HELPDESK_DEFAULT_PAGE_SIZE'] = 'Tamanho Padrão da Página';
+$LANG['LABEL_HELPDESK_SELECT_DEFAULT_DEPARTMENT'] = 'Selecione o Departamento Padrão';
+$LANG['LABEL_HELPDESK_SELECT_DEFAULT_TEMPLATE'] = 'Selecione o Template Padrão';  
+$LANG['LABEL_HELPDESK_STAFF_EXCESSIVE_LOGINS'] = 'Tentativas Excessivas de Logins da Equipe';
+$LANG['LABEL_HELPDESK_STAFF_SESSION_TIMEOUT'] = 'Tempo Limite da Sessão da Equipe';
+$LANG['LABEL_HELPDESK_STATUS'] = 'Situação do Helpdesk';
+$LANG['LABEL_HELPDESK_SYSTEM_LOG_LEVEL'] = 'Nível de Log do Sistema'; 
+$LANG['LABEL_HELPDESK_URL'] = 'URL do Helpdesk';
 // Label I
 $LANG['LABEL_ISSUE_SUMMARY'] = 'Resumo do ocorrido';
 // Label J
@@ -150,6 +172,8 @@ $LANG['LABEL_MAKE_PUBLIC'] = 'Tornar Publico';
 $LANG['LABEL_MAKE_PRIVATE'] = 'Tornar Privado';
 $LANG['LABEL_MANAGER'] = 'Gerente';
 $LANG['LABEL_MESSAGE'] = 'Mensagem';
+$LANG['LABEL_MONTH'] = 'Mês';
+$LANG['LABEL_MONTHS'] = 'Meses';
 $LANG['LABEL_MY_ACCOUNT'] = 'Minha Conta';
 $LANG['LABEL_MY_PREFERENCE'] = 'Minhas Configurações';
 $LANG['LABEL_MY_PROFILE'] = 'Meu Perfil';
@@ -179,7 +203,7 @@ $LANG['LABEL_PRIVATE'] = 'Privado';
 $LANG['LABEL_PRIVATE_HIDDEN'] = 'Interno (Oculto)';
 $LANG['LABEL_PASSWORD_AGAIN'] = 'Senha (novamente)';
 $LANG['LABEL_POST_INTERNAL_NOTE'] = 'Enviar uma Observação Interna';
-$LANG['LABEL_POST_REPLY'] = 'Enviar Resposta';
+$LANG['LABEL_POST_REPLY'] = 'Enviar Resposta'; 
 $LANG['LABEL_PHONE'] = 'Fone';
 $LANG['LABEL_PREFERENCES'] = 'Configurações';
 $LANG['LABEL_PRIORITY'] = 'Prioridade';
@@ -220,6 +244,8 @@ $LANG['LABEL_SUBMIT'] = 'Enviar';
 $LANG['LABEL_SUBMIT_TICKET'] = 'Enviar Ticket';
 $LANG['LABEL_SUBJECT'] = 'Assunto';
 $LANG['LABEL_SYSTEM_DEFAULT_TEMPLATE'] = 'Padrão do Sistema';
+$LANG['LABEL_SYSTEM_LOGS'] = 'Logs do Sistema';
+$LANG['LABEL_SYSTEM_PREFERENCES_AND_SETTINGS'] = 'Definições e configurações do sistema';
 $LANG["LABEL_SYSTEM_SETTINGS"] = 'Configurações do sistema';
 // Label T
 $LANG['LABEL_TELEPHONE'] = 'Telefone';
@@ -280,6 +306,7 @@ $LANG['TEXT_GENERAL_INQUIRY'] = 'Assunto Geral';
 $LANG['TEXT_GLOBAL_AUTO_RESPONSE_SETTINGS'] = 'Configurações globais para auto-resposta  na seção preferência deve estar abilitada por departamento \'Abilitado\' para configurações terem efeito';
 // TEXT H
 $LANG['TEXT_HOME'] = 'Início';
+$LANG['TEXT_HELPDESK_STAFF_MAX_IDLE_TIME_IN_MINUTES'] = '(<i>Tempo maximo ocioso para o painel da equipe. Entre 0 para desabilitar o este recurso.</i>)'; 
 // TEXT I
 $LANG['TEXT_INTERNAL_NOTE_POSTED'] = 'Observação Interna Enviada';
 $LANG['TEXT_INVALID_LOGIN'] = 'Login Inválido';
@@ -306,6 +333,8 @@ $LANG['TEXT_OF_SELECTED_TICKETS_DELETED'] = "{0} de {1} atendimentos selecionado
 $LANG['TEXT_OFFLINE']='Obrigado pelo seu interesse em nos contactar.<br>'.
          'Nosso Helpdesk não está funcionando agora, porem volte mais tarde, não deixe de tentar denovo.<br/>'.
 		 ' Isto não é um erro.';
+$LANG['TEXT_OFFLINE_MODE_WILL_DISABLE_CLIENT'] = 'O modo Offline desabilida <b>apenas</b> a interface do cliente'.
+        'e permite apenas <b>super admins</b> logar no Painel de Controle da Equipe'; 
 $LANG['TEXT_OVERDUE'] = 'Atrasado';
 $LANG['TEXT_OVERDUE_STATS'] = 'Atrasado ({0})';
 $LANG['TEXT_OVERDUE_TICKETS'] = 'Tickets Atrasados';
@@ -381,8 +410,8 @@ $LANG['TEXT_WELCOME_BACK'] = 'Bem Vindo';
 
 $LANG['TEXT_NO_TICKETS_FOUND'] = 'Nenhum Ticket encontrado.';
 
-$LANG['TEXT_EXCESSIVE_FAILED_LOGIN_ATTEMPTS'] = 'Tentativas de Login Excessivas';
-$LANG['TEXT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT'] = 'Tentativas de Login Excessivas (cliente)';
+$LANG['TEXT_EXCESSIVE_FAILED_LOGIN_ATTEMPTS'] = 'Excessivas Tentativas de Login';
+$LANG['TEXT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT'] = 'Excessivas tentativas de Login (cliente)';
 
 $LANG['TEXT_LOGIN_VIEW_STATUS_OF_TICKET'] = 'Para visualizar a situação de um Ticket, forneça as informações de login abaixo.<br>'.
 											'Se é a primeira vez que está nos contactando ou você perdeu o número de seu ticket, por favor <a href="open.php">abra um novo ticket</a>';

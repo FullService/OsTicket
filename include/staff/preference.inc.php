@@ -26,35 +26,35 @@ $gmtime=Misc::gmtime();
 $depts= db_query('SELECT dept_id,dept_name FROM '.DEPT_TABLE.' WHERE ispublic=1');
 $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_id='.db_input($cfg->getId()));
 ?>
-<div class="msg">System Preferences and Settings&nbsp;&nbsp;(v<?=$config['ostversion']?>)</div>
+<div class="msg"><?php te('LABEL_SYSTEM_PREFERENCES_AND_SETTINGS');?>&nbsp;&nbsp;(v<?=$config['ostversion']?>)</div>
 <table width="100%" border="0" cellspacing=0 cellpadding=0>
  <form action="admin.php?t=pref" method="post">
  <input type="hidden" name="t" value="pref">
  <tr><td>
     <table width="100%" border="0" cellspacing=0 cellpadding=2 class="tform">
-        <tr class="header" ><td colspan=2>General Settings</td></tr>
+        <tr class="header" ><td colspan=2><?php te('LABEL_GENERAL_SETTINGS')?></td></tr>
         <tr class="subheader">
-            <td colspan=2">Offline mode will disable client interface and <b>only</b> allow <b>super admins</b> to login to Staff Control Panel</td>
+            <td colspan=2"><?php te('TEXT_OFFLINE_MODE_WILL_DISABLE_CLIENT')?></td>
         </tr>
-        <tr><th><b>Helpdesk Status</b></th>
+        <tr><th><b><?php te('LABEL_HELPDESK_STATUS')?></b></th>
             <td>
-                <input type="radio" name="isonline"  value="1"   <?=$config['isonline']?'checked':''?> /><b>Online</b> (Active)
-                <input type="radio" name="isonline"  value="0"   <?=!$config['isonline']?'checked':''?> /><b>Offline</b> (Disabled)
+                <input type="radio" name="isonline"  value="1"   <?=$config['isonline']?'checked':''?> /><b>Online</b> <?php te('LABEL_ACTIVE_IN_PARENTESIS')?>
+                <input type="radio" name="isonline"  value="0"   <?=!$config['isonline']?'checked':''?> /><b>Offline</b> <?php te('LABEL_DISABLED_IN_PARENTESIS')?>
                 &nbsp;<font class="warn">&nbsp;<?=$config['isoffline']?'osTicket offline':''?></font>
             </td>
         </tr>
-        <tr><th>Helpdesk URL:</th>
+        <tr><th><?php te('LABEL_HELPDESK_URL')?></th>
             <td>
                 <input type="text" size="40" name="helpdesk_url" value="<?=$config['helpdesk_url']?>"> 
                 &nbsp;<font class="error">*&nbsp;<?=$errors['helpdesk_url']?></font></td>
         </tr>
-        <tr><th>Helpdesk Name/Title:</th>
+        <tr><th><?php te('LABEL_HELPDESK_NAME_TITLE')?></th>
             <td><input type="text" size="40" name="helpdesk_title" value="<?=$config['helpdesk_title']?>"> </td>
         </tr>
-        <tr><th>Default Email Templates:</th>
+        <tr><th><?php te('LABEL_HELPDESK_DEFAULT_EMAIL_TEMPLATES')?></th>
             <td>
                 <select name="default_template_id">
-                    <option value=0>Select Default Template</option>
+                    <option value=0><?php te('LABEL_HELPDESK_SELECT_DEFAULT_TEMPLATE')?></option>
                     <?
                     while (list($id,$name) = db_fetch_row($templates)){
                         $selected = ($config['default_template_id']==$id)?'SELECTED':''; ?>
@@ -64,10 +64,10 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
                 </select>&nbsp;<font class="error">*&nbsp;<?=$errors['default_template_id']?></font>
             </td>
         </tr>
-        <tr><th>Default Department:</th>
+        <tr><th><?php te('LABEL_HELPDESK_DEFAULT_DEPARTMENT')?></th>
             <td>
                 <select name="default_dept_id">
-                    <option value=0>Select Default Dept</option>
+                    <option value=0><?php te('LABEL_HELPDESK_SELECT_DEFAULT_DEPARTMENT')?></option>
                     <?
                     while (list($id,$name) = db_fetch_row($depts)){
                     $selected = ($config['default_dept_id']==$id)?'SELECTED':''; ?>
@@ -77,7 +77,7 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
                 </select>&nbsp;<font class="error">*&nbsp;<?=$errors['default_dept_id']?></font>
             </td>
         </tr>
-        <tr><th>Default Page Size:</th>
+        <tr><th><?php te('LABEL_HELPDESK_DEFAULT_PAGE_SIZE')?></th>
             <td>
                 <select name="max_page_size">
                     <?
@@ -90,27 +90,27 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
                 </select>
             </td>
         </tr>
-        <tr><th>System Log Level:</th>
+        <tr><th><?php te('LABEL_HELPDESK_SYSTEM_LOG_LEVEL')?></th>
             <td>
                 <select name="log_level">
-                    <option value=0 <?=$config['log_level'] == 0 ? 'selected="selected"':''?>>None (Disable Logger)</option>
+                    <option value=0 <?=$config['log_level'] == 0 ? 'selected="selected"':''?>><?php te('LABEL_HELPDESK_NONE_DISABLE_LOGGER')?></option>
                     <option value=3 <?=$config['log_level'] == 3 ? 'selected="selected"':''?>> DEBUG</option>
                     <option value=2 <?=$config['log_level'] == 2 ? 'selected="selected"':''?>> WARN</option>
                     <option value=1 <?=$config['log_level'] == 1 ? 'selected="selected"':''?>> ERROR</option>
                 </select>
-                &nbsp;Purge logs after
+                &nbsp;<?php te('LABEL_HELPDESK_PURGE_LOGS_AFTER')?>
                 <select name="log_graceperiod">
-                    <option value=0 selected> None (Disable)</option>
+                    <option value=0 selected><?php te('LABEL_HELPDESK_PURGE_NONE_DISABLE')?></option>
                     <?
                     for ($i = 1; $i <=12; $i++) {
                         ?>
-                        <option <?=$config['log_graceperiod'] == $i ? 'SELECTED':''?> value="<?=$i?>"><?=$i?>&nbsp;<?=($i>1)?'Months':'Month'?></option>
+                        <option <?=$config['log_graceperiod'] == $i ? 'SELECTED':''?> value="<?=$i?>"><?=$i?>&nbsp;<?=($i>1)?t('LABEL_MONTHS'):t('LABEL_MONTH')?></option>
                         <?
                     }?>
                 </select>
             </td>
         </tr>
-        <tr><th>Staff Excessive Logins:</th>
+        <tr><th><?php te('LABEL_HELPDESK_STAFF_EXCESSIVE_LOGINS')?></th>
             <td>
                 <select name="staff_max_logins">
                   <?php
@@ -118,24 +118,23 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
                         echo sprintf('<option value="%d" %s>%d</option>',$i,(($config['staff_max_logins']==$i)?'selected="selected"':''),$i);
                     }
                     ?>
-                </select> attempt(s) allowed
-                &nbsp;before a
+                </select> <?php te('LABEL_HELPDESK_ATTEMPT_ALLOWED_BEFORE_A')?> 
                 <select name="staff_login_timeout">
                   <?php
                     for ($i = 1; $i <= 10; $i++) {
                         echo sprintf('<option value="%d" %s>%d</option>',$i,(($config['staff_login_timeout']==$i)?'selected="selected"':''),$i);
                     }
                     ?>
-                </select> min. timeout (penalty in minutes)
+                </select> <?php te('LABEL_HELPDESK_PENALTY_IN_MINUTES')?>
             </td>
         </tr>
-        <tr><th>Staff Session Timeout:</th>
+        <tr><th><?php te('LABEL_HELPDESK_STAFF_SESSION_TIMEOUT')?></th>
             <td>
               <input type="text" name="staff_session_timeout" size=6 value="<?=$config['staff_session_timeout']?>">
-                (<i>Staff's max Idle time in minutes. Enter 0 to disable timeout</i>)
+                <?php te('TEXT_HELPDESK_STAFF_MAX_IDLE_TIME_IN_MINUTES')?>
             </td>
         </tr>
-       <tr><th>Bind Staff Session to IP:</th>
+       <tr><th><?php te('LABEL_HELPDESK_BIND_STAFF_SESSION_TO_IP')?></th>
             <td>
               <input type="checkbox" name="staff_ip_binding" <?=$config['staff_ip_binding']?'checked':''?>>
                Bind staff's session to login IP.
