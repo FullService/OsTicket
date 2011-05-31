@@ -247,7 +247,7 @@ $title=sprintf('osTicket upgrade wizard v %s','1.6 ST (stable)');
         ?>
         </div>
     </div>
-    <div id="footer">Copyright &copy; <?=date('Y')?>&nbsp;osTicket.com. &nbsp;All Rights Reserved.</div>
+    <div id="footer">Copyright &copy; <?=date('Y')?>&nbsp;osTicket-reloaded.com. &nbsp;All Rights Reserved.</div>
 </div>
 </body>
 </html>

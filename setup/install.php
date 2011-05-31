@@ -253,7 +253,7 @@ $title=sprintf('osTicket version %s - Basic installation',VERSION_VERBOSE);
         ?>
         </div>
     </div>
-    <div id="footer">Copyright &copy; <?=date('Y')?>&nbsp;osTicket.com. &nbsp;All Rights Reserved.</div>
+    <div id="footer">Copyright &copy; <?=date('Y')?>&nbsp;osTicket-reloaded.com. &nbsp;All Rights Reserved.</div>
 </div>
 </body>
 </html>
