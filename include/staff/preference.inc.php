@@ -141,7 +141,7 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
             </td>
         </tr>
 
-        <tr><th>Client Excessive Logins:</th>
+        <tr><th><?php te('LABEL_HELPDESK_CLIENT_EXCESSIVE_LOGINS')?></th>
             <td>
                 <select name="client_max_logins">
                   <?php
@@ -150,34 +150,33 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
                     }
 
                     ?>
-                </select> attempt(s) allowed
-                &nbsp;before a
+                </select><?php te('LABEL_HELPDESK_ATTEMPT_ALLOWED_BEFORE_A')?>
                 <select name="client_login_timeout">
                   <?php
                     for ($i = 1; $i <= 10; $i++) {
                         echo sprintf('<option value="%d" %s>%d</option>',$i,(($config['client_login_timeout']==$i)?'selected="selected"':''),$i);
                     }
                     ?>
-                </select> min. timeout (penalty in minutes)
+                </select> <?php te('LABEL_HELPDESK_PENALTY_IN_MINUTES')?>
             </td>
         </tr>
 
-        <tr><th>Client Session Timeout:</th>
+        <tr><th><?php te('LABEL_HELPDESK_CLIENT_SESSION_TIMEOUT')?></th>
             <td>
               <input type="text" name="client_session_timeout" size=6 value="<?=$config['client_session_timeout']?>">
-                (<i>Client's max Idle time in minutes. Enter 0 to disable timeout</i>)
+                <?php te('TEXT_HELPDESK_CLIENT_MAX_IDLE_TIME_IN_MINUTES')?>
             </td>
         </tr>
-        <tr><th>Clickable URLs:</th>
+        <tr><th><?php te('LABEL_HELPDESK_CLICKABLE_URLS')?></th>
             <td>
               <input type="checkbox" name="clickable_urls" <?=$config['clickable_urls']?'checked':''?>>
-                Make URLs clickable
+                <?php te('LABEL_HELPDESK_MAKE_URLS_CLICKABLE')?>
             </td>
         </tr>
-        <tr><th>Enable Auto Cron:</th>
+        <tr><th><?php te('LABEL_HELPDESK_ENABLE_AUTO_CRON')?></th>
             <td>
               <input type="checkbox" name="enable_auto_cron" <?=$config['enable_auto_cron']?'checked':''?>>
-                Enable cron call on staff's activity
+                <?php te('TEXT_HELPDESK_ENABLE_CRON_CALL_ON_STAFF_ACTIVITY')?>
             </td>
         </tr>
     </table>

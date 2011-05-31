@@ -143,8 +143,13 @@ $LANG['LABEL_HELP_TOPIC'] = 'Ajuda Relacionada';
 $LANG['LABEL_HELP_TOPICS'] = 'Tópicos de Ajuda';
 $LANG['LABEL_HELPDESK_ATTEMPT_ALLOWED_BEFORE_A'] = 'tentativa(s) permitida(s)&nbsp;antes de';
 $LANG['LABEL_HELPDESK_BIND_STAFF_SESSION_TO_IP'] = 'Ligar o IP a seção da Equipe';
+$LANG['LABEL_HELPDESK_CLIENT_EXCESSIVE_LOGINS'] = 'Tentativas Excessivas de Logins do Cliente';
+$LANG['LABEL_HELPDESK_CLIENT_SESSION_TIMEOUT'] = 'Tempo Limite da Sessão do Cliente';
+$LANG['LABEL_HELPDESK_CLICKABLE_URLS'] = 'URLs Clicaveis';
 $LANG['LABEL_HELPDESK_DEFAULT_DEPARTMENT'] = 'Departamento Padrão';
 $LANG['LABEL_HELPDESK_DEFAULT_EMAIL_TEMPLATES'] = 'Templates de E-mail Padrão';
+$LANG['LABEL_HELPDESK_ENABLE_AUTO_CRON'] = 'Abilitar o Cron Automático';
+$LANG['LABEL_HELPDESK_MAKE_URLS_CLICKABLE'] = 'Tornar as URLs Clicaveis';
 $LANG['LABEL_HELPDESK_NAME_TITLE'] = 'Nome/Titulo do Helpdesk';
 $LANG['LABEL_HELPDESK_NONE_DISABLE_LOGGER'] = 'Nenhum (Desabilitar o Logger)';
 $LANG['LABEL_HELPDESK_PENALTY_IN_MINUTES'] = 'Min. (Penalidade em minutos)';
@@ -306,7 +311,9 @@ $LANG['TEXT_GENERAL_INQUIRY'] = 'Assunto Geral';
 $LANG['TEXT_GLOBAL_AUTO_RESPONSE_SETTINGS'] = 'Configurações globais para auto-resposta  na seção preferência deve estar abilitada por departamento \'Abilitado\' para configurações terem efeito';
 // TEXT H
 $LANG['TEXT_HOME'] = 'Início';
-$LANG['TEXT_HELPDESK_STAFF_MAX_IDLE_TIME_IN_MINUTES'] = '(<i>Tempo maximo ocioso para o painel da equipe. Entre 0 para desabilitar o este recurso.</i>)'; 
+$LANG['TEXT_HELPDESK_STAFF_MAX_IDLE_TIME_IN_MINUTES'] = '(<i>Tempo máximo ocioso para o painel da equipe. Entre 0 para desabilitar este recurso.</i>)';
+$LANG['TEXT_HELPDESK_CLIENT_MAX_IDLE_TIME_IN_MINUTES'] = '(<i>Tempo máximo ocioso para o painel do cliente, entre 0 para desabilitar este recurso.</i>)';$LANG['TEXT_HELPDESK_ENABLE_CRON_CALL_ON_STAFF_ACTIVITY'] = 'Enable cron call on staff\'s activity';
+$LANG['TEXT_HELPDESK_ENABLE_CRON_CALL_ON_STAFF_ACTIVITY'] = 'Abilitar a ativação do cron conforme a atividade da equipe';
 // TEXT I
 $LANG['TEXT_INTERNAL_NOTE_POSTED'] = 'Observação Interna Enviada';
 $LANG['TEXT_INVALID_LOGIN'] = 'Login Inválido';
