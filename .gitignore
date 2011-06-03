@@ -1,3 +1,8 @@
+*.lck
+*.LCK
+_notes
+/uploads
+uploads
 *.orig
 .buildpath
 .project
