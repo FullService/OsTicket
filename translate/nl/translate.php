@@ -65,33 +65,27 @@ $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 ## Labels for Bottons, Headers on Tables, Selections, Link Texts and others
 ##
 // Label A
-$LANG['LABEL_ACTION'] = 'Actie'; 
-$LANG['LABEL_ADD_NEW_DEPT'] = 'Nieuwe afdeling toevoegen';
-$LANG['LABEL_ADMIN_DASHBOARD'] = 'Dashboard';
-$LANG['LABEL_ADMIN_PANEL'] = 'Administratief Paneel';
+
+$LANG['LABEL_ACTIVE_IN_PARENTESIS'] = '(Activeer)'; 
+$LANG['LABEL_ADD_NEW_DEPT'] = 'Voeg nieuwe afdeling toe.';
+$LANG['LABEL_ADMIN_DASHBOARD'] = 'Admin Dashboard';
+$LANG['LABEL_ADMIN_PANEL'] = 'Admin Paneel';
 $LANG['LABEL_ADVANCED'] = 'Geavanceerd';
-$LANG['LABEL_ALL'] = 'Alle'; 
-$LANG['LABEL_ALL_DEPARTMENTS'] = 'Alle afdelingen'; 
-$LANG['LABEL_AND_CLOSE'] = 'En Sluiten'; 
-$LANG['LABEL_ANSWER'] = 'Antwoord';
-$LANG['LABEL_ANSWERED_TICKETS'] = 'Beantwoorde tickets';
-$LANG['LABEL_ANY_STATUS'] = 'Any status';
-$LANG['LABEL_APPEND'] = 'Toevoegen'; 
-$LANG['LABEL_APPEND_SIGNATURE'] = 'Handtekening Toevoegen'; 
-$LANG['LABEL_APPENDCHECKBOX'] = 'Toevoegen';
-$LANG['LABEL_ASC'] = 'Oplopend';
+$LANG['LABEL_APPEND'] = 'Voeg toe';
+$LANG['LABEL_APPEND_SIGNATURE'] = 'Voeg handtekening toe';
+$LANG['LABEL_ALL'] = 'Alles';
+$LANG['LABEL_ALL_DEPARTMENTS'] = 'Alle afdelingen';
+$LANG['LABEL_API'] = 'API';
+$LANG['LABEL_ASSIGN'] = 'Wijs toe aan';
+$LANG['LABEL_ASSIGN_TO_STAFF'] = 'Wijs toe aan personeel';
+$LANG['LABEl_ASSIGNED_TICKETS'] = 'Toegewezen Tickets';
+$LANG['LABEL_ASC'] = 'ASC';
 $LANG['LABEL_ASCENDING'] = 'Oplopend';
-$LANG['LABEL_ASSIGN'] = 'Wijs toe';
-$LANG['LABEL_ASSIGN_TO_STAFF'] = 'Toewijzen aan medewerker'; 
-$LANG['LABEL_ASSIGNED_TICKETS'] = 'Toegewezen tickets';
-$LANG['LABEL_ASSIGNED_STAFF'] = 'Toegewezen Aan'; 
-$LANG['LABEL_ASSIGNTO'] = 'Toewijzen aan'; 
-$LANG['LABEL_ASSIGNTOSTAFF'] = '-Wijs toe aan personeel-'; 
-$LANG['LABEL_ATTACHMENT'] = 'Bijlage'; //alleen zichtbaar als er geupload kan worden (newticket.inc)
-$LANG['LABEL_ATTACH_FILE'] = 'Voeg Bestand Toe'; 
-$LANG['LABEL_AUTO_RESPONSE_EMAIL'] = 'Email adres voor auto-response';
-$LANG['LABEL_AUTORESP'] = 'Automatische response';
-$LANG['LABEL_AUTORESPONDERS'] = 'Auto reponse';
+$LANG['LABEL_ATTACHMENT'] = 'Bijlage';
+$LANG['LABEL_ATTACHMENTS'] = 'Bijlages';
+$LANG['LABEL_AUTO_RESPONSE_EMAIL'] = 'Auto Response Email';
+$LANG['LABEL_AUTORESPONDERS'] = 'Autoresponders';
+$LANG['LABEL_AUTORESP'] = 'AutoResp.';
 // Label B
 $LANG['LABEL_BAN_EMAIL'] = 'Ban Email'; 
 $LANG['LABEL_BASIC'] = 'Basic';
@@ -157,6 +151,28 @@ $LANG['LABEL_GO'] = 'Zoek';
 $LANG['LABEL_HELPTOPIC'] = 'Help onderwerp';
 $LANG['LABEL_HELP_TOPIC'] = 'Help Onderwerp';
 $LANG['LABEL_HELP_TOPICS'] = 'Help Onderwerpen';
+$LANG['LABEL_HELPDESK_ATTEMPT_ALLOWED_BEFORE_A'] = 'poging(en) toegestaanallowed&nbsp;voordat er een';
+$LANG['LABEL_HELPDESK_BIND_STAFF_SESSION_TO_IP'] = 'Bin Staff Sessie aan IP';
+$LANG['LABEL_HELPDESK_CLIENT_EXCESSIVE_LOGINS'] = 'Excessief aantal logins door client';
+$LANG['LABEL_HELPDESK_CLIENT_SESSION_TIMEOUT'] = 'Timeout client sessie ';
+$LANG['LABEL_HELPDESK_CLICKABLE_URLS'] = 'Aanklikbare URLs';
+$LANG['LABEL_HELPDESK_DEFAULT_DEPARTMENT'] = 'Standaard Afdeling';
+$LANG['LABEL_HELPDESK_DEFAULT_EMAIL_TEMPLATES'] = 'Standaard email sjablonen';
+$LANG['LABEL_HELPDESK_ENABLE_AUTO_CRON'] = 'Zet Auto Cron aan';
+$LANG['LABEL_HELPDESK_MAKE_URLS_CLICKABLE'] = 'Maak URLs aanklikbaar';
+$LANG['LABEL_HELPDESK_NAME_TITLE'] = 'Helpdesk naam/titel';
+$LANG['LABEL_HELPDESK_NONE_DISABLE_LOGGER'] = 'Geen (Zet Logger uit)';
+$LANG['LABEL_HELPDESK_PENALTY_IN_MINUTES'] = 'min. timeout (penalty in minuten)';
+$LANG['LABEL_HELPDESK_PURGE_NONE_DISABLE'] = 'None (Disable)';
+$LANG['LABEL_HELPDESK_PURGE_LOGS_AFTER'] = 'Leeg logs na';
+$LANG['LABEL_HELPDESK_DEFAULT_PAGE_SIZE'] = 'Standaard pagina grootte';
+$LANG['LABEL_HELPDESK_SELECT_DEFAULT_DEPARTMENT'] = 'Select Default Dept';
+$LANG['LABEL_HELPDESK_SELECT_DEFAULT_TEMPLATE'] = 'Selecteer standaardsjabloon'; 
+$LANG['LABEL_HELPDESK_STAFF_EXCESSIVE_LOGINS'] = 'Excessief aantal logins door personeel';
+$LANG['LABEL_HELPDESK_STAFF_SESSION_TIMEOUT'] = 'Staff Sessies Timeout';
+$LANG['LABEL_HELPDESK_STATUS'] = 'Helpdesk status';
+$LANG['LABEL_HELPDESK_SYSTEM_LOG_LEVEL'] = 'Systeem Log niveau'; 
+$LANG['LABEL_HELPDESK_URL'] = 'Helpdesk koppeling';
 
 // Label I
 $LANG['LABEL_ISSUE_SUMMARY'] = 'Probleem Omschrijving';
@@ -310,7 +326,7 @@ $LANG['LABEL_USERS'] = 'Gebruikers';
 // Label V
 $LANG['LABEL_VIEW_STATUS'] = 'Bekijk Status'; 
 $LANG['LABEL_VIEW_TICKET'] = 'Bekijken Ticket'; 
-
+$LANG['LABEL_HELPDESK_STATUS'] = 
 #######
 ## Generic text for all site, if have to text repeted in
 ## Client or Staff ends, is prefixed with correct name.
