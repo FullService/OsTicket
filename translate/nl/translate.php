@@ -153,13 +153,13 @@ $LANG['LABEL_GO'] = 'Zoek';
 $LANG['LABEL_HELPTOPIC'] = 'Help onderwerp';
 $LANG['LABEL_HELP_TOPIC'] = 'Help Onderwerp';
 $LANG['LABEL_HELP_TOPICS'] = 'Help Onderwerpen';
-$LANG['LABEL_HELPDESK_ATTEMPT_ALLOWED_BEFORE_A'] = 'poging(en) toegestaanallowed&nbsp;voordat er een';
+$LANG['LABEL_HELPDESK_ATTEMPT_ALLOWED_BEFORE_A'] = 'poging(en) toegestaan&nbsp;voordat er een';
 $LANG['LABEL_HELPDESK_BIND_STAFF_SESSION_TO_IP'] = 'Bin Staff Sessie aan IP';
 $LANG['LABEL_HELPDESK_CLIENT_EXCESSIVE_LOGINS'] = 'Excessief aantal logins door client';
 $LANG['LABEL_HELPDESK_CLIENT_SESSION_TIMEOUT'] = 'Timeout client sessie ';
 $LANG['LABEL_HELPDESK_CLICKABLE_URLS'] = 'Aanklikbare URLs';
 $LANG['LABEL_HELPDESK_DEFAULT_DEPARTMENT'] = 'Standaard Afdeling';
-$LANG['LABEL_HELPDESK_DEFAULT_EMAIL_TEMPLATES'] = 'Standaard email sjablonen';
+$LANG['LABEL_HELPDESK_DEFAULT_EMAIL_TEMPLATES'] = 'Standaard email sjabloon';
 $LANG['LABEL_HELPDESK_ENABLE_AUTO_CRON'] = 'Zet Auto Cron aan';
 $LANG['LABEL_HELPDESK_MAKE_URLS_CLICKABLE'] = 'Maak URLs aanklikbaar';
 $LANG['LABEL_HELPDESK_NAME_TITLE'] = 'Helpdesk naam/titel';
@@ -174,7 +174,7 @@ $LANG['LABEL_HELPDESK_STAFF_EXCESSIVE_LOGINS'] = 'Excessief aantal logins door p
 $LANG['LABEL_HELPDESK_STAFF_SESSION_TIMEOUT'] = 'Staff Sessies Timeout';
 $LANG['LABEL_HELPDESK_STATUS'] = 'Helpdesk status';
 $LANG['LABEL_HELPDESK_SYSTEM_LOG_LEVEL'] = 'Systeem Log niveau'; 
-$LANG['LABEL_HELPDESK_URL'] = 'Helpdesk koppeling';
+$LANG['LABEL_HELPDESK_URL'] = 'Helpdesk url';
 
 // Label I
 $LANG['LABEL_ISSUE_SUMMARY'] = 'Probleem Omschrijving';
