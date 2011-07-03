@@ -163,6 +163,11 @@ $LANG['LABEL_HELPDESK_STATUS'] = 'Helpdesk Status';
 $LANG['LABEL_HELPDESK_SYSTEM_LOG_LEVEL'] = 'System Log Level'; 
 $LANG['LABEL_HELPDESK_URL'] = 'Helpdesk URL';
 // Label I
+$LANG['LABEL_ISSUE_SUMMARY'] = 'Issue Summary';
+$LANG['LABEL_INTERNAL_NOTE'] = 'Interne Notitie'; //newticket.inc 
+$LANG['LABEL_INTERNAL_NOTES'] = 'Interne Notities'; 
+$LANG['LABEL_IP_ADDRESS'] = 'Ip Adres'; 
+
 // Label J
 
 // Label K
