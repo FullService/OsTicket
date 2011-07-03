@@ -130,6 +130,7 @@ $LANG['LABEL_DEPTSIGNATURE'] = 'Handtekening afdeling(indien present)';
 $LANG['LABEL_DESCENDING'] = 'Aflopend';
 $LANG['LABEL_DIRETORY_STAFF'] = ''; //hint
 $LANG['LABEL_DIRECTORY'] = 'Staf Adresboek';
+$LANG['LABEL_DISABLED_IN_PARENTESIS'] = '(Uitgeschakeld)';
 $LANG['LABEL_DUEDATE'] = 'Vervaldatum';
 // Label E
 $LANG['LABEL_EMAIL'] = 'E-Mail';
@@ -146,6 +147,7 @@ $LANG['LABEL_FROM'] = 'Van.';
 $LANG['LABEL_FULL_NAME'] = 'Volledige naam';
 // Label G
 $LANG['LABEL_GENERAL_INQUIRY'] = 'Algemene vraag';
+$LAN['LABEL_GENERAL_SETTINGS'] = 'Algemene Instellingen';
 $LANG['LABEL_GO'] = 'Zoek'; 
 // Label H
 $LANG['LABEL_HELPTOPIC'] = 'Help onderwerp';
@@ -296,6 +298,7 @@ $LANG['LABEL_SUBJECT'] = 'Onderwerp';
 $LANG['LABEL_SUBMIT'] = 'Dien in';
 $LANG['LABEL_SUBMIT_TICKET'] = 'Dien ticket in';
 $LANG['LABEL_SYSTEM_DEFAULT_TEMPLATE'] = 'Standaard template';
+$LANG['LABEL_SYSTEM_PREFERENCES_AND_SETTINGS'] = 'Systeemvoorkeuren -en instellingen';
 $LANG['LABEL_SYSTEM_SETTINGS'] = 'Instellingen';
 // Label T
 $LANG['LABEL_TELEPHONE'] = 'Telefoon';
@@ -398,8 +401,9 @@ $LANG['TEXT_OF_SELECTED_TICKETS_REOPENED'] = "{0} of {1} geselecteerde tickets h
 $LANG['TEXT_OF_SELECTED_TICKETS_CLOSED'] = "{0} of {1} geselecteerde tickets gesloten.";
 $LANG['TEXT_OF_SELECTED_TICKETS_MARKED_OVERDUE'] = "{0} of {1} geselecteerde tickets vervallen.";
 $LANG['TEXT_OF_SELECTED_TICKETS_DELETED'] = "{0} of {1} geselecteerde tickets verwijderd.";
-$LANG['TEXT_OFFLINE']='Dank u voor uw het contact opnemen met ons.<br>'.
+$LANG['TEXT_OFFLINE'] = 'Dank u voor uw het contact opnemen met ons.<br>'.
          'Onze helpdesk is op het moment offline. Probeert u het later nogmaals.';
+$LANG['TEXT_OFFLINE_MODE_WILL_DISABLE_CLIENT'] = 'Offline Mode zal client uitschakelen';
 $LANG['TEXT_OPEN_NEW_TICKET'] = 'Open nieuw Ticket';
 $LANG['TEXT_OPEN_PREVIUS_TICKET'] = 'Check de status of eerder geopened ticket. We archiveren al uw support vragen alsmede de reacties daarop.';
 $LANG['TEXT_OPEN'] = 'Open'; 
