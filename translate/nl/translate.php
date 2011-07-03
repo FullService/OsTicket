@@ -147,7 +147,7 @@ $LANG['LABEL_FROM'] = 'Van.';
 $LANG['LABEL_FULL_NAME'] = 'Volledige naam';
 // Label G
 $LANG['LABEL_GENERAL_INQUIRY'] = 'Algemene vraag';
-$LAN['LABEL_GENERAL_SETTINGS'] = 'Algemene Instellingen';
+$LANG['LABEL_GENERAL_SETTINGS'] = 'Algemene Instellingen';
 $LANG['LABEL_GO'] = 'Zoek'; 
 // Label H
 $LANG['LABEL_HELPTOPIC'] = 'Help onderwerp';
@@ -375,8 +375,10 @@ $LANG['TEXT_GENERAL_INQUIRY'] = 'Algemene vraag';
 $LANG['TEXT_GLOBAL_AUTO_RESPONSE_SETTINGS'] = 'Globale auto-reponse instellingen';
 // TEXT H
 $LANG['TEXT_HOME'] = 'Home';
-$LANG['TEXT_HEADER_TITLE']='osTicket :: Support Ticket System';
+$LANG['TEXT_HEADER_TITLE']='osTicket Reloaded :: Meertalig Support Ticket Systeem';
+$LANG['TEXT_HELPDESK_ENABLE_CRON_CALL_ON_STAFF_ACTIVITY'] = 'Zet Cron Call aan voor personeelsactiviteit';
 $LANG['TEXT_HELPDESK_STAFF_MAX_IDLE_TIME_IN_MINUTES'] = 'Helpdesk personeel maximum inactiviteit in minuten';
+$LANG['TEXT_HELPDESK_CLIENT_MAX_IDLE_TIME_IN_MINUTES'] = 'Helpdesk client maximum inactiviteit in minuten';
 // TEXT I
 $LANG['TEXT_INTERNAL_NOTE_POSTED'] = 'Interne notitie geplaatst';
 $LANG['TEXT_INVALID_LOGIN'] = 'Ongeldig login';
