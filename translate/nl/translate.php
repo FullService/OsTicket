@@ -376,6 +376,7 @@ $LANG['TEXT_GLOBAL_AUTO_RESPONSE_SETTINGS'] = 'Globale auto-reponse instellingen
 // TEXT H
 $LANG['TEXT_HOME'] = 'Home';
 $LANG['TEXT_HEADER_TITLE']='osTicket :: Support Ticket System';
+$LANG['TEXT_HELPDESK_STAFF_MAX_IDLE_TIME_IN_MINUTES'] = 'Helpdesk personeel maximum inactiviteit in minuten';
 // TEXT I
 $LANG['TEXT_INTERNAL_NOTE_POSTED'] = 'Interne notitie geplaatst';
 $LANG['TEXT_INVALID_LOGIN'] = 'Ongeldig login';
