@@ -66,7 +66,7 @@ $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 ##
 // Label A
 
-$LANG['LABEL_ACTIVE_IN_PARENTESIS'] = '(Activeer)'; 
+$LANG['LABEL_ACTIVE_IN_PARENTESIS'] = '(Actief)'; 
 $LANG['LABEL_ADD_NEW_DEPT'] = 'Voeg nieuwe afdeling toe.';
 $LANG['LABEL_ADMIN_DASHBOARD'] = 'Admin Dashboard';
 $LANG['LABEL_ADMIN_PANEL'] = 'Admin Paneel';
@@ -130,7 +130,7 @@ $LANG['LABEL_DEPTSIGNATURE'] = 'Handtekening afdeling(indien present)';
 $LANG['LABEL_DESCENDING'] = 'Aflopend';
 $LANG['LABEL_DIRETORY_STAFF'] = ''; //hint
 $LANG['LABEL_DIRECTORY'] = 'Staf Adresboek';
-$LANG['LABEL_DISABLED_IN_PARENTESIS'] = '(Uitgeschakeld)';
+$LANG['LABEL_DISABLED_IN_PARENTESIS'] = '(Schakel uit)';
 $LANG['LABEL_DUEDATE'] = 'Vervaldatum';
 // Label E
 $LANG['LABEL_EMAIL'] = 'E-Mail';
