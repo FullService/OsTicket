@@ -200,6 +200,7 @@ $LANG['LABEL_MARK_OVERDUE'] = 'Markeer Als Vervallen';
 $LANG['LABEL_MESSAGE'] = 'Bericht';
 $LANG['LABEL_MOBIEL'] = 'Mobiel'; 
 $LANG['LABEL_MOBILE_PHONE'] = 'Mobiel';
+$LANG['LABEL_MONTH'] = 'Aantal maanden'; 
 $LANG['LABEL_MONTHS'] = 'Maanden'; 
 $LANG['LABEL_MYSIGNATURE'] = 'Mijn handtekening'; 
 $LANG['LABEL_MY_ACCOUNT'] = 'Mijn Account';
