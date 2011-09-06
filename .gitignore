@@ -2,4 +2,14 @@
 .project
 .settings/
 _notes/
-
+*.lck
+*.LCK
+/uploads
+*.orig
+.project.orig
+.cvsignore
+.DS_Store
+.cvsignore
+/tinymce
+/md5.php
+/nbproject

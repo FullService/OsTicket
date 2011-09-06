@@ -1,0 +1,196 @@
+/* default text and background colors */
+body {
+  color:#333;
+  background-color: #fff;
+  background-image: url(../images/bg.gif);
+  background-repeat: repeat;
+}
+
+/* default link color */
+a { color:#006699; text-decoration: none; }
+
+/* default link hover color */
+a:hover { color:#DB8606; text-decoration: none; }
+
+
+#container {
+    background:#fff;
+    border-color:#ccc;
+}
+
+#loginform, #ticketform {
+  background:#f1f1f1;
+  border-color:#ccc;
+}
+
+/* bottom border of header */
+#header {
+  border-color:#000;
+}
+
+/* "SUPPORT TICKET SYSTEM" default text */
+#header p {
+  color:#666;
+}
+
+/* "SUPPORT TICKET" color */
+#header p span {
+  color:#fe7700;
+}
+
+/* top nav background and bottom border */
+#nav {
+  background:#f1f1f1;
+  border-color:#ccc;
+}
+
+/* nav link color */
+#nav li a {
+  color:#006699;
+  font-weight:bold;
+}
+
+/* nav link hover color */
+#nav a:hover {
+  color:#fe7700;
+}
+
+/* footer background and border */
+#footer {
+  background:#f1f1f1;
+  border-color:#ccc;
+}
+
+/* Headings */
+h1 {
+  color:#fe7700;
+}
+h2 {
+  color:#333;
+}
+h3 {
+  color:#666;
+}
+
+
+/* Data Table */
+table.tgrid {
+ border-left: 1px solid;
+}
+
+table.tgrid td {
+  border:1px solid;
+  border-top:none;
+  border-left:none;
+}
+
+table.tgrid th {
+  color: #FFF;
+  font-size: 12px; 
+  font-weight:bold;
+}
+
+
+table.tgrid, table.tgrid td, table.tgrid th {
+  border-color:#ADADAD;
+}
+
+/* Table headings */
+table.tgrid th {
+  background:#ADADAD;;
+  color:#FFF;
+}
+
+table.tgrid th a, table.tgrid th a:hover {
+  color:#FFF;
+  text-decoration:underline;
+}
+
+/* row highlighting on hover */
+.tgrid tr:hover td {  background-color: #FFFFDD; }
+
+/* Alt rows used on most data tables */
+.row1 { background-color: #F4FAFF; }
+.row2 { background-color: #FFFFFF; }
+
+/* auto-highlight */
+.row1.highlight td,.row2.highlight td {
+    background-color: #FFFFDD;
+}
+
+
+/* mesages, warning and errors */
+.error {
+    color: #FF0000;
+}
+
+.msg {
+    color:#006699;
+}
+
+#infomessage {
+  background-color: #390;
+  border-color: #390;
+  color: #390;
+  background: #CFC;
+}
+
+#errormessage {
+    border-color: #903;
+    background-color: #fcc;
+    color: #903;
+}
+
+#warnmessage {
+    border-color: #fad163;
+    background-color: #fdedc1;
+}
+
+/* Input buttons/submits colors*/
+.button {
+    text-shadow: #000 -1px -1px 1px;
+    background-color: #DB8606;
+    color: #FFF;
+    border-color: #666;
+}
+
+/* Assorted number of tables used on view ticket.*/
+
+table.infotable td, table.infotable th {
+    background-color: #F4FAFF;
+}
+
+table.infotable th {
+    font-weight:bold;
+    text-align:left;
+    padding-left:3px;
+}
+
+/* Response & message background */
+table.message, table.response {
+    border-color:#ADADAD;
+}
+
+/* Message title */
+table.message th {
+    background-color: #C3D9FF;
+}
+/* Response title */
+table.response th {
+    background-color: #FFE0B3;
+}
+
+/* message & response header */
+table.message tr.header td, table.response tr.header td {
+    background-color: #EFEFEF;
+    border-color:#ccc;
+}
+
+/* table cells bg */
+table.message td, table.response td {
+  background-color: #FAFAFA;
+}
+
+.rcol h3, .lcol h3 { color:#006699; }
+
+hr { border:none; border-bottom:1px solid #ccc; margin:10px 0 10px 0; }
