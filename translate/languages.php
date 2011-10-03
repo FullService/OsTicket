@@ -5,6 +5,7 @@ if (!strcasecmp(basename($_SERVER['SCRIPT_NAME']), basename( __FILE__ ))) die ('
 
 $LANG['US_NAME'] = 'English';
 $LANG['AR_NAME'] = 'Arabic';
+$LANG['CA_NAME'] = 'Català';
 $LANG['CS_NAME'] = 'Czech';
 $LANG['ES_NAME'] = 'Español';
 $LANG['FR_NAME'] = 'Français ';
