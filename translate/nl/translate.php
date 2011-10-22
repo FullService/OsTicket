@@ -52,7 +52,7 @@ $LANG['ERROR_SEARCH_TERM_MORE_3']='Zoekterm moet meer dan 3 karakters bevatten';
 #######
 ## Images for Staff and Clients Ends
 ##
-## relative path of imagens in "translate/".$LANG['LANGUAGE']."/"
+## Relative path of images in "translate/".$LANG['LANGUAGE']."/"
 ##
 $LANG['IMAGE_CLIENT_VIEW_OPEN'] = 'client/view_open.gif';
 $LANG['IMAGE_CLIENT_VIEW_CLOSED'] = 'client/view_closed.gif';
@@ -62,7 +62,7 @@ $LANG['IMAGE_STAFF_VIEW_CLOSED'] = 'staff/view_closed.gif';
 $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 
 #######
-## Labels for Bottons, Headers on Tables, Selections, Link Texts and others
+## Labels for Buttons, Headers on Tables, Selections, Link Texts and others
 ##
 // Label A
 $LANG['LABEL_ACTIVE_IN_PARENTESIS'] = '(Actief)'; 
@@ -86,7 +86,7 @@ $LANG['LABEL_AUTO_RESPONSE_EMAIL'] = 'Auto Response Email';
 $LANG['LABEL_AUTORESPONDERS'] = 'Autoresponders';
 $LANG['LABEL_AUTORESP'] = 'AutoResp.';
 // Label B
-$LANG['LABEL_BAN_EMAIL'] = 'Ban Email'; 
+$LANG['LABEL_BAN_EMAIL'] = 'Verbied Email'; 
 $LANG['LABEL_BASIC'] = 'Basic';
 // Label C
 $LANG['LABEL_CANCEL'] = 'Annuleer';
