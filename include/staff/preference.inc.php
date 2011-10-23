@@ -230,7 +230,7 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
         <tr>
             <th><?php te('LABEL_DAYLIGHT_SAVING')?>:</th>
             <td>
-                <input type="checkbox" name="enable_daylight_saving" <?=$config['enable_daylight_saving'] ? 'checked': ''?>><?php te('OBSERVE_DAYLIGHT_SAVINGS')?>
+                <input type="checkbox" name="enable_daylight_saving" <?=$config['enable_daylight_saving'] ? 'checked': ''?>><?php te('TEXT_OBSERVE_DAYLIGHT_SAVINGS')?>
             </td>
         </tr>
     </table>
