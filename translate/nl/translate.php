@@ -106,9 +106,15 @@ $LANG['LABEL_COMMENTS_REASONS_FOR_THE_TRANSFER'] = 'Opmerkingen/Redenen Voor De 
 $LANG['LABEL_CREATE_DATE'] = 'Aanmaak Datum'; 
 // Label D
 $LANG['LABEL_DASHBOARD'] = 'Dashboard';
-$LANG['LABEL_DATE'] = 'Datum'; 
+$LANG['LABEL_DATE'] = 'Datum';
+$LANG['LABEL_DATE_AND_TIME'] = 'Datum en tijd';
+$LANG['LABEL_DATE_FORMAT'] = 'Datum weergave';
+$LANG['LABEL_DATE_AND_TIME_FORMAT'] = 'Datum en tijd weergave';
+$LANG['LABEL_DAY_DATE_AND_TIME_FORMAT'] = 'dag, datum en tijd weergave';
+$LANG['LABEL_DAYLIGHT_SAVING'] = 'Zomertijd';
 $LANG['LABEL_DATE_SPAN'] = 'Datum Spanne';
-$LANG['LABEL_DEFAULT'] = 'Standaard'; 
+$LANG['LABEL_DEFAULT'] = 'Standaard';
+$LANG['LABEL_DEFAULT_TIME_ZONE'] = 'Standaard tijdzone';
 $LANG['LABEL_DELETE'] = 'Verwijder'; 
 $LANG['LABEL_DELETE_DEPT_S'] = 'Verwijder Afdeling'; 
 $LANG['LABEL_DELETE_TICKET'] = 'Verwijder Ticket'; 
@@ -322,6 +328,7 @@ $LANG['LABEL_TICKET_THREAD'] = 'Ticket Proces';
 $LANG['LABEL_TICKET_NUMBER'] = 'Ticket#';
 $LANG['LABEL_TICKET_SOURCE'] = 'Ticket Bron';
 $LANG['LABEL_TICKET_STATUS'] = 'Ticket Status';
+$LANG['LABEL_TIME_FORMAT'] = 'Tijdweergave';
 $LANG['LABEL_TIME_IS_BASED_ON_YOUR_TIMEZONE'] = 'Tijd is gebaseerd op je tijdzone'; 
 $LANG['LABEL_TITLE'] = 'Titel'; 
 $LANG['LABEL_TO'] = 'Aan.';
@@ -381,6 +388,7 @@ $LANG['TEXT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT']='Excessief aantal loginpogingen
 // TEXT F
 $LANG['TEXT_FILE_REJECTED'] = 'Bestand [ {0} ] geweigerd';
 $LANG['TEXT_FILE_IS_TOO_BIG'] = 'Bestand is te groot. Max {0} bytes toegestaan';
+$LANG['TEXT_FOR_SUPPORTED_PARAMETERS'] = 'voor ondersteunde parameters';
 $LANG['TEXT_FORGOT_YOUR_LOGIN_INFO']='Login informatie vergeten? Maak a.u.b. <a href="open.php">een nieuw ticket</a> aan.';
 // TEXT G
 $LANG['TEXT_GENERAL_INQUIRY'] = 'Algemene vraag';
@@ -412,6 +420,7 @@ $LANG['TEXT_NEW_TICKET_AUTO_RESPONSE'] = 'Er is een email met het ticket nummer 
 $LANG['TEXT_NOT_THIS_USER'] = 'Ik ben deze gebruiker niet';
 $LANG['TEXT_NO_TICKETS_FOUND']='Geen tickets gevonden.';
 // TEXT O
+$LANG['TEXT_OBSERVE_DAYLIGHT_SAVINGS' = 'Volg zomertijd';
 $LANG['TEXT_OF_SELECTED_TICKETS_REOPENED'] = "{0} of {1} geselecteerde tickets heropend.";
 $LANG['TEXT_OF_SELECTED_TICKETS_CLOSED'] = "{0} of {1} geselecteerde tickets gesloten.";
 $LANG['TEXT_OF_SELECTED_TICKETS_MARKED_OVERDUE'] = "{0} of {1} geselecteerde tickets vervallen.";
@@ -427,8 +436,10 @@ $LANG['TEXT_OVERDUE'] = 'Vervallen';
 $LANG['TEXT_OVERDUE_STATS'] = 'Vervallen ({0})';
 $LANG['TEXT_OVERDUE_TICKETS'] = 'Vervallen Tickets';
 // TEXT P
+$LANG['TEXT_PHP_MANUAL'] = 'PHP handleiding';
 $LANG['TEXT_PLEASE_FILL_FORM_NEW_TICKET'] = 'Voer het onderstaande formulier in om een nieuw ticket te openen.';
 $LANG['TEXT_PLEASE_FILL_STAFF_FORM_BELOW_OPEN_NEW_TICKET']='Vul onderstaand formulier in om een nieuw ticket aan te maken';
+$LANG['TEXT_PLEASE_REFER_TO'] = 'kijk alstublieft in de' ;
 $LANG['TEXT_PLEASE_TAKE_A_MINUTE_TO_DELETE_INSTALL'] = 'U dient de setup directory nog te verwijderen.';
 $LANG['TEXT_POST_REPLY']='Laat een reactie achter';
 $LANG['TEXT_PRIORITY_CHANGED_SUCCESSFULLY'] = 'Priority succesvol gewijzigd';
