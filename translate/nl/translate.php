@@ -420,7 +420,7 @@ $LANG['TEXT_NEW_TICKET_AUTO_RESPONSE'] = 'Er is een email met het ticket nummer 
 $LANG['TEXT_NOT_THIS_USER'] = 'Ik ben deze gebruiker niet';
 $LANG['TEXT_NO_TICKETS_FOUND']='Geen tickets gevonden.';
 // TEXT O
-$LANG['TEXT_OBSERVE_DAYLIGHT_SAVINGS' = 'Volg zomertijd';
+$LANG['TEXT_OBSERVE_DAYLIGHT_SAVINGS'] = 'Volg zomertijd';
 $LANG['TEXT_OF_SELECTED_TICKETS_REOPENED'] = "{0} of {1} geselecteerde tickets heropend.";
 $LANG['TEXT_OF_SELECTED_TICKETS_CLOSED'] = "{0} of {1} geselecteerde tickets gesloten.";
 $LANG['TEXT_OF_SELECTED_TICKETS_MARKED_OVERDUE'] = "{0} of {1} geselecteerde tickets vervallen.";
