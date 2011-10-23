@@ -182,11 +182,11 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
     </table>
     
     <table width="100%" border="0" cellspacing=0 cellpadding=2 class="tform">
-        <tr class="header"><td colspan=2>Date &amp; Time</td></tr>
+        <tr class="header"><td colspan=2><?php te('LABEL_DATE_AND_TIME')?></td></tr>
         <tr class="subheader">
-            <td colspan=2>Please refer to <a href="http://php.net/date" target="_blank">PHP Manual</a> for supported parameters.</td>
+            <td colspan=2><?php te('TEXT_PLEASE_REFER_TO')?> <a href="http://php.net/date" target="_blank"><?php te('TEXT_PHP_MANUAL')?></a> <?php te('TEXT_FOR_SUPPORTED_PARAMETERS')?>.</td>
         </tr>
-        <tr><th>Time Format:</th>
+        <tr><th><?php te('LABEL_TIME_FORMAT')?>:</th>
             <td>
                 <input type="text" name="time_format" value="<?=$config['time_format']?>">
                     &nbsp;<font class="error">*&nbsp;<?=$errors['time_format']?></font>
