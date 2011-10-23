@@ -52,7 +52,7 @@ $LANG['ERROR_SEARCH_TERM_MORE_3']='Search term must be more than 3 chars';
 #######
 ## Images for Staff and Clients Ends
 ##
-## relative path of imagens in "translate/".$LANG['LANGUAGE']."/"
+## relative path of images in "translate/".$LANG['LANGUAGE']."/"
 ##
 $LANG['IMAGE_CLIENT_VIEW_OPEN'] = 'client/view_open.gif';
 $LANG['IMAGE_CLIENT_VIEW_CLOSED'] = 'client/view_closed.gif';
@@ -62,7 +62,7 @@ $LANG['IMAGE_STAFF_VIEW_CLOSED'] = 'staff/view_closed.gif';
 $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 
 #######
-## Labels for Bottons, Headers on Tables, Selections, Link Texts and others
+## Labels for Buttons, Headers in Tables, Selections, Link Texts and others
 ##
 // Label A
 $LANG['LABEL_ACTIVE_IN_PARENTESIS'] = '(Active)'; 
@@ -103,8 +103,14 @@ $LANG['LABEL_CREATE_DATE'] = 'Create Date';
 // Label D
 $LANG['LABEL_DASHBOARD'] = 'Dashboard';
 $LANG['LABEL_DATE'] = 'Date';
+$LANG['LABEL_DATE_FORMAT'] = 'Date Format';
+$LANG['LABEL_DATE_AND_TIME'] = 'Date and Time';
+$LANG['LABEL_DATE_AND_TIME_FORMAT'] = 'Date and Time Format';
+$LANG['LABEL_DAY_DATE_AND_TIME_FORMAT'] = 'Day, Date and Time Format';
 $LANG['LABEL_DATE_SPAN'] = 'Date Span';
+$LANG['LABEL_DAYLIGHT_SAVING'] = 'Daylight Saving';
 $LANG['LABEL_DEFAULT'] = 'Default';
+$LANG['LABEL_DEFAULT_TIME_ZONE'] = 'Default Time Zone';
 $LANG['LABEL_DELETE'] = 'Delete';
 $LANG['LABEL_DELETE_DEPT_S'] = 'Delete Dept(s)';
 $LANG['LABEL_DEPARTMENT'] = 'Department';
@@ -273,6 +279,7 @@ $LANG['LABEL_TICKET'] = 'Ticket';
 $LANG['LABEL_TICKET_ID'] = 'Ticket ID';
 $LANG['LABEL_TICKET_NUMBER'] = 'Ticket#';
 $LANG['LABEL_TICKET_STATUS'] = 'Ticket Status';
+$LANG['LABEL_TIME_FORMAT'] = 'Time format';
 $LANG['LABEL_TO'] = 'To.';
 $LANG['LABEL_TOGGLE'] = 'Toggle';
 $LANG['LABEL_TRANSFER'] = 'Transfer';
@@ -286,7 +293,7 @@ $LANG['LABEL_USERS'] = 'Users';
 $LANG['LABEL_VIEW_STATUS'] = 'View Status';
 
 #######
-## Generic text for all site, if have to text repeted in
+## Generic text for all site, if have the text repeated in
 ## Client or Staff ends, is prefixed with correct name.
 ##
 // TEXT A
@@ -323,6 +330,7 @@ $LANG['TEXT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT']='Excessive login attempts (clie
 // TEXT F
 $LANG['TEXT_FILE_REJECTED'] = 'File [ {0} ] rejected';
 $LANG['TEXT_FILE_IS_TOO_BIG'] = 'File is too big. Max {0} bytes allowed';
+$LANG['TEXT_FOR_SUPPORTED_PARAMETERS'] = 'for supported parameters';
 $LANG['TEXT_FORGOT_YOUR_LOGIN_INFO']='Forgot your login info? Please <a href="open.php">open a new ticket</a>.';
 // TEXT G
 $LANG['TEXT_GENERAL_INQUIRY'] = 'General Inquiry';
@@ -353,6 +361,7 @@ $LANG['TEXT_NOT_THIS_USER'] = 'I am not this user';
 $LANG['TEXT_NEW_TICKET_AUTO_RESPONSE'] = 'An email with the ticket number has been sent to <b>{0}</b>.You\'ll need the ticket number along with your email to view status and progress online.<br><br>If you wish to send additional comments or information regarding same issue, please follow the instructions on the email.';
 $LANG['TEXT_NO_TICKETS_FOUND']='NO tickets found.';
 // TEXT O
+$LANG['TEXT_OBSERVE_DAYLIGHT_SAVINGS'] = 'Observe Daylight Savings';
 $LANG['TEXT_OPEN_NEW_TICKET'] = 'Open new Ticket';
 $LANG['TEXT_OPEN_PREVIUS_TICKET'] = 'Check status of previously opened ticket. we provide archives and history of all your support requests complete with responses.';
 $LANG['TEXT_OPEN_TICKETS'] = 'Open Tickets';
@@ -369,10 +378,12 @@ $LANG['TEXT_OF_SELECTED_TICKETS_CLOSED'] = "{0} of {1} selected tickets closed";
 $LANG['TEXT_OF_SELECTED_TICKETS_MARKED_OVERDUE'] = "{0} of {1} selected tickets marked overdue";
 $LANG['TEXT_OF_SELECTED_TICKETS_DELETED'] = "{0} of {1} selected tickets deleted";
 // TEXT P
-$LANG['TEXT_POST_REPLY']='Post Reply';
+$LANG['TEXT_PHP_MANUAL'] = 'PHP Manual';
 $LANG['TEXT_PLEASE_FILL_STAFF_FORM_BELOW_OPEN_NEW_TICKET'] = 'Please fill in the form below to open a new ticket.';
 $LANG['TEXT_PLEASE_FILL_FORM_NEW_TICKET'] = 'Please fill in the form below to open a new ticket.';
+$LANG['TEXT_PLEASE_REFER_TO']='Please refer to';
 $LANG['TEXT_PLEASE_TAKE_A_MINUTE_TO_DELETE_INSTALL'] = 'Please take a minute to delete <strong>setup/install</strong> directory for security reasons.';
+$LANG['TEXT_POST_REPLY']='Post Reply';
 $LANG['TEXT_PRIORITY_CHANGED_SUCCESSFULLY'] = 'Priority Changed Successfully';
 // TEXT Q
 // TEXT R
