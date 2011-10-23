@@ -192,25 +192,25 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
                     &nbsp;<font class="error">*&nbsp;<?=$errors['time_format']?></font>
                     <i><?=Format::date($config['time_format'],$gmtime,$config['timezone_offset'],$config['enable_daylight_saving'])?></i></td>
         </tr>
-        <tr><th>Date Format:</th>
+        <tr><th><?php te('LABEL_DATE_FORMAT')?>:</th>
             <td><input type="text" name="date_format" value="<?=$config['date_format']?>">
                         &nbsp;<font class="error">*&nbsp;<?=$errors['date_format']?></font>
                         <i><?=Format::date($config['date_format'],$gmtime,$config['timezone_offset'],$config['enable_daylight_saving'])?></i>
             </td>
         </tr>
-        <tr><th>Date &amp; Time Format:</th>
+        <tr><th><?php te('LABEL_DATE_AND_TIME_FORMAT')?>:</th>
             <td><input type="text" name="datetime_format" value="<?=$config['datetime_format']?>">
                         &nbsp;<font class="error">*&nbsp;<?=$errors['datetime_format']?></font>
                         <i><?=Format::date($config['datetime_format'],$gmtime,$config['timezone_offset'],$config['enable_daylight_saving'])?></i>
             </td>
         </tr>
-        <tr><th>Day, Date &amp; Time Format:</th>
+        <tr><th><?php te('LABEL_DAY_DATE_AND_TIME_FORMAT')?>:</th>
             <td><input type="text" name="daydatetime_format" value="<?=$config['daydatetime_format']?>">
                         &nbsp;<font class="error">*&nbsp;<?=$errors['daydatetime_format']?></font>
                         <i><?=Format::date($config['daydatetime_format'],$gmtime,$config['timezone_offset'],$config['enable_daylight_saving'])?></i>
             </td>
         </tr>
-        <tr><th>Default Timezone:</th>
+        <tr><th><?php te('LABEL_DEFAULT_TIME_ZONE')?>:</th>
             <td>
                 <select name="timezone_offset">
                     <?
@@ -228,9 +228,9 @@ $templates=db_query('SELECT tpl_id,name FROM '.EMAIL_TEMPLATE_TABLE.' WHERE cfg_
             </td>
         </tr>
         <tr>
-            <th>Daylight Saving:</th>
+            <th><?php te('LABEL_DAYLIGHT_SAVING')?>:</th>
             <td>
-                <input type="checkbox" name="enable_daylight_saving" <?=$config['enable_daylight_saving'] ? 'checked': ''?>>Observe daylight savings
+                <input type="checkbox" name="enable_daylight_saving" <?=$config['enable_daylight_saving'] ? 'checked': ''?>><?php te('OBSERVE_DAYLIGHT_SAVINGS')?>
             </td>
         </tr>
     </table>
