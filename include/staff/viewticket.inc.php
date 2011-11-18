@@ -172,26 +172,26 @@ $warn.='&nbsp;&nbsp;<span class="Icon overdueTicket">Marked overdue!</span>';
 					type='hidden' name='a' value="process" /> <span for="do"> &nbsp;<b>Action:</b>
 				</span> <select id="do" name="do"
 					onChange="this.form.ticket_priority.disabled=strcmp(this.options[this.selectedIndex].value,'change_priority','reopen','overdue')?false:true;">
-					<option value="">Select Action</option>
+					<option value=""><?php te('LABEL_STAFF_VIEWTICKET_SELECT_ACTION')?></option>
 					<option value="change_priority"
-					<?=$info['do']=='change_priority'?'selected':''?>>Change Priority</option>
+					<?=$info['do']=='change_priority'?'selected':''?>><?php te('LABEL_STAFF_VIEWTICKET_CHANGE_PRIORITY')?></option>
 					<?if(!$ticket->isoverdue()){ ?>
-					<option value="overdue" <?=$info['do']=='overdue'?'selected':''?>>Mark
-						Overdue</option>
+					<option value="overdue" <?=$info['do']=='overdue'?'selected':''?>><?php te('LABEL_STAFF_VIEWTICKET_MARK_OVERDUE')?>
+						</option>
 						<?}?>
 						<?if($ticket->isAssigned()){ ?>
-					<option value="release" <?=$info['do']=='release'?'selected':''?>>Release
-						(unassign)</option>
+					<option value="release" <?=$info['do']=='release'?'selected':''?>><?php te('LABEL_STAFF_VIEWTICKET_RELEASE_UNASSIGN')?>
+						</option>
 						<?}?>
 
 						<?if($thisuser->canCloseTickets()){
 							//if you can close a ticket...reopening it is given.
 							if($ticket->isOpen()){?>
-					<option value="close" <?=$info['do']=='close'?'selected':''?>>Close
-						Ticket</option>
+					<option value="close" <?=$info['do']=='close'?'selected':''?>><?php te('LABEL_STAFF_VIEWTICKET_CLOSE_TICKET')?>
+						</option>
 						<?}else{?>
-					<option value="reopen" <?=$info['do']=='reopen'?'selected':''?>>Reopen
-						Ticket</option>
+					<option value="reopen" <?=$info['do']=='reopen'?'selected':''?>><?php te('LABEL_STAFF_VIEWTICKET_REOPEN_TICKET')?>
+						</option>
 						<?}
 						}?>
 						<?php
