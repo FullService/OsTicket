@@ -139,8 +139,8 @@ $LANG['LABEL_FULL_NAME'] = 'Полное имя';
 $LANG['LABEL_GENERAL_SETTINGS'] = 'Основные Настройки';
 $LANG['LABEL_GO'] = 'Перейти';
 // Label H
-$LANG['LABEL_HELP_TOPIC'] = 'Раздел Помощи';
-$LANG['LABEL_HELP_TOPICS'] = 'Разделы Помощи';
+$LANG['LABEL_HELP_TOPIC'] = 'Раздел';
+$LANG['LABEL_HELP_TOPICS'] = 'Разделы';
 $LANG['LABEL_HELPDESK_ATTEMPT_ALLOWED_BEFORE_A'] = 'попыток разрешено&nbsp;прежде чем';
 $LANG['LABEL_HELPDESK_BIND_STAFF_SESSION_TO_IP'] = 'Привязать сессию персонала к IP';
 $LANG['LABEL_HELPDESK_CLIENT_EXCESSIVE_LOGINS'] = 'Превышение попыток входа клиентом';
