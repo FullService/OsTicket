@@ -403,7 +403,7 @@ $LANG['TEXT_SORT_BY_PRIORITY'] = 'Сортировать по Приоритет
 $LANG['TEXT_SHOW_FROM_TO_OF_ALL'] = 'Показ {0} - {1} из {2}';
 $LANG['TEXT_SHOW_ZERO'] = 'Показ 0 (ноль)';
 $LANG['TEXT_SEARCH_RESULTS'] = 'Результаты Поиска';
-$LANG['TEXT_SYSTEM_IS_OFF_LINE'] = '<strong>Система переведена в офф-лайн режим</strong> - Интерфейс клиента отключен и ТОЛЬКО Администраторы имеют доступ.';
+$LANG['TEXT_SYSTEM_IS_OFF_LINE'] = '<strong>Система переведена в оффлайн режим</strong> - Интерфейс клиента отключен и ТОЛЬКО Администраторы имеют доступ.';
 $LANG['TEXT_SUPPORT_TEAM'] = 'Служба Поддержки';
 $LANG['TEXT_SUPPORT_TICKET_SISTEM'] = '<span>Система поддержки</span> по Заявкам';
 $LANG['TEXT_SUPPORT_CENTER'] = 'Центр Поддержки';
@@ -426,7 +426,7 @@ $LANG['TEXT_TICKET_TRANSFERED_SUCESSFULLY_TO_DEPT'] = 'Заявка успешн
 $LANG['TEXT_TICKET_UPDATED_SUCCESSFULLY'] = 'Заявка обновлена успешно';
 $LANG['TEXT_TICKET_WILL_REOPEN_NEW_POST']='Заявка будет повторно открыта после появления сообщения';
 $LANG['TEXT_TICKETS_STATUS'] = 'Статус Заявки';
-$LANG['TEXT_THANKS_NEW_TICKET'] = 'Спасибо, что связались с нами.<br>Заявка была успешно создана. В случае необходимости наш персонал обязательно свяжется с Вами.';
+$LANG['TEXT_THANKS_NEW_TICKET'] = 'Спасибо что связались с нами.<br>Заявка была успешно создана. В случае необходимости наш персонал обязательно свяжется с Вами.';
 // TEXT U
 $LANG['TEXT_UNABLE_CREATE_TICKET'] = 'Невозможно оформить Заявку!';
 $LANG['TEXT_UPDATE_TICKET'] = 'Обновить Заявку #{0}';
@@ -443,7 +443,7 @@ $LANG['TEXT_YOUVE_REACHED_MAXIMUM_FAILED_LOGIN_ATTEMPTS_ALLOWED']='Вы прев
 $LANG['TEXT_WELCOME_BACK_VACATION']= 'Добро Пожаловать! Вы числитесь как \'в отпуске\' Пожалуйста, свяжитесь с менеджером и дайте знать что Вы вернулись.';
 $LANG['TEXT_WELCOME_BACK_CLIENT'] = 'Добро Пожаловать, <strong>{0}</strong>';
 $LANG['TEXT_WELCOME_BACK_STAFF'] = 'Добро Пожаловать, <strong>{0}</strong>';
-$LANG['TEXT_WELCOME_TITLE'] = 'Добро пожаловать в Центр Поддержки Клиентов.';
+$LANG['TEXT_WELCOME_TITLE'] = 'Добро пожаловать в Центр Поддержки Клиентов!';
 $LANG['TEXT_WELCOME_MSG'] = 'В целях оптимизации запросов на оказание поддержки и лучшего обслуживания, мы используем систему поддержки по Заявкам. Каждому запросу в службу поддержки присваивается уникальный номер, который можно использовать для отслеживания прогресса и ответа онлайн. Для справки мы предоставляем полный архив и историю всех Ваших запросов поддержки.';
 $LANG['TEXT_WELCOME_BACK'] = 'Добро Пожаловать';
 
