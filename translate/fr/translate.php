@@ -134,7 +134,7 @@ $LANG['LABEL_EMAIL_TEMPLATES'] = 'Modèles d\'Email';
 $LANG['LABEL_ENABLE_SYSTEM_OFF_LINE'] = 'Activé';
 $LANG['LABEL_ENTER_NOTE_CONTENT'] = 'Entrer le contenu de la note.';
 // Label F
-$LANG['LABEL_FROM'] = 'Expéditeur.';
+$LANG['LABEL_FROM'] = 'De.';
 $LANG['LABEL_FULL_NAME'] = 'Nom complet';
 // Label G
 $LANG['LABEL_GENERAL_SETTINGS'] = 'Paramètres Generaux';
