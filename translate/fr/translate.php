@@ -18,7 +18,7 @@ $LANG['CODEPAGE'] = 'UTF-8';
 ##
 $LANG['ALERT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT'] = 'Trop d\'essai de connexion par un client'."\n".
                 'Email: {0}'."\n".
-                			'Ticket#: {1}'."\n".
+				'Ticket#: {1}'."\n".
                 'IP: {2}'."\n".
 				'Time: {3}'."\n\n".
                 'Attempts #{4}';
