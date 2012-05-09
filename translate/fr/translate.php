@@ -172,7 +172,7 @@ $LANG['LABEL_KNOWLEDGE_BASE'] = 'Mess. prédef';
 $LANG['LABEL_KNOWLEDGE_BASE_PREMATE'] = 'Base de connasissance prédéfinie';
 // Label L
 $LANG['LABEL_LAST_UPDATED'] = 'Dernière mise a jour';
-$LANG['LABEL_LOG_OUT'] = 'Déconnection';
+$LANG['LABEL_LOG_OUT'] = 'Déconnexion';
 // Label M
 $LANG['LABEL_MAKE_PUBLIC'] = 'Rendre public';
 $LANG['LABEL_MAKE_PRIVATE'] = 'Rendre privé';
