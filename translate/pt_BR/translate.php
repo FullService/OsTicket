@@ -445,7 +445,7 @@ $LANG['TITLE_BOX_NEW_TICKET'] = 'Novo Ticket';
 $LANG['TITLE_BAR_OFFLINE'] = 'Sistema de Ticket para Suporte';
 $LANG['TITLE_MY_PREFERENCES'] = 'Minhas Preferências';
 $LANG['TITLE_OFFLINE'] = 'Sistema de ticket para Suporte está Offline';
-$LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Abrir ticket existente';
+$LANG['TITLE_OPEN_PREVIOUS_TICKET'] = 'Abrir ticket existente';
 $LANG['TITLE_CLOSED_TICKETS'] = 'Atendimentos Finalizados';
 
 
