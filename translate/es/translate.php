@@ -108,7 +108,7 @@ $LANG['LABEL_DATE_AND_TIME'] = 'Fecha y hora';
 $LANG['LABEL_DATE_AND_TIME_FORMAT'] = 'Formaro fecha y hora';
 $LANG['LABEL_DATE_FORMAT'] = 'Formato de fecha';
 $LANG['LABEL_DATE_SPAN'] = 'Fecha Span';
-$LANG['LABEL_DAY_DATE_AND_TIME_FORMAT'] = 'Formato fecha con dia y hora';
+$LANG['LABEL_DAY_DATE_AND_TIME_FORMAT'] = 'Formato fecha y hora extendida';
 $LANG['LABEL_DAYLIGHT_SAVING'] = 'Horario de verano';
 $LANG['LABEL_DEFAULT'] = 'Por Defecto';
 $LANG['LABEL_DEFAULT_TIME_ZONE'] = 'Zona horaria';
@@ -332,6 +332,7 @@ $LANG['TEXT_ENTER_MESSAGE']='Introducir Mensaje';
 $LANG['TEXT_EXCESSIVE_FAILED_LOGIN_ATTEMPTS'] = 'Ecesivos itentos de acceso fallidos';
 $LANG['TEXT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT']='Excesivos intentos de acceso (cliente)';
 // TEXT F
+$LANG['TEXT_FOR_SUPPORTED_PARAMETERS'] = 'para consultar los parámetros soportados';
 $LANG['TEXT_FORGOT_YOUR_LOGIN_INFO']='¿Olvidaste tus datos de acceso? Por favor <a href="open.php">abra un nuevo ticket</a>.';
 // TEXT G
 $LANG['TEXT_GENERAL_INQUIRY'] = 'Consulta General';
@@ -378,8 +379,10 @@ $LANG['TEXT_OPEN_TICKETS'] = 'Tickets Abiertos';
 $LANG['TEXT_OVERDUE'] = 'Atrasados';
 $LANG['TEXT_OVERDUE_TICKETS'] = 'Tickets Vencidos (Vencidos)';
 // TEXT P
+$LANG['TEXT_PHP_MANUAL'] = 'la documentación PHP ';
 $LANG['TEXT_PLEASE_FILL_FORM_NEW_TICKET'] = 'Por favor, rellene el siguiente formulario para abrir un nuevo ticket.';
 $LANG['TEXT_PLEASE_FILL_STAFF_FORM_BELOW_OPEN_NEW_TICKET'] = 'Por favor, rellene el siguiente formulario para abrir un nuevo ticket.';
+$LANG['TEXT_PLEASE_REFER_TO'] = 'Por favor, diríjase a ';
 $LANG['TEXT_PLEASE_TAKE_A_MINUTE_TO_DELETE_INSTALL'] = 'Por favor, tómese un minuto para eliminar la instalación en el directorio <strong>/setup</strong> de la guía por razones de seguridad.';      
 $LANG['TEXT_POST_REPLY']='Publicar respuesta';
 $LANG['TEXT_PRIORITY_CHANGED_SUCCESSFULLY'] = 'Prioridad cambiada satisfactoriamente';
