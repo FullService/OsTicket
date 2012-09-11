@@ -52,7 +52,7 @@ $LANG['ERROR_SEARCH_TERM_MORE_3']='Zoekterm moet meer dan 3 karakters bevatten';
 #######
 ## Images for Staff and Clients Ends
 ##
-## relative path of imagens in "translate/".$LANG['LANGUAGE']."/"
+## Relative path of images in "translate/".$LANG['LANGUAGE']."/"
 ##
 $LANG['IMAGE_CLIENT_VIEW_OPEN'] = 'client/view_open.gif';
 $LANG['IMAGE_CLIENT_VIEW_CLOSED'] = 'client/view_closed.gif';
@@ -62,38 +62,31 @@ $LANG['IMAGE_STAFF_VIEW_CLOSED'] = 'staff/view_closed.gif';
 $LANG['IMAGE_STAFF_REFRESH'] = 'staff/refresh.gif';
 
 #######
-## Labels for Bottons, Headers on Tables, Selections, Link Texts and others
+## Labels for Buttons, Headers on Tables, Selections, Link Texts and others
 ##
 // Label A
-$LANG['LABEL_ACTION'] = 'Actie'; 
-$LANG['LABEL_ADD_NEW_DEPT'] = 'Nieuwe afdeling toevoegen';
-$LANG['LABEL_ADMIN_DASHBOARD'] = 'Dashboard';
-$LANG['LABEL_ADMIN_PANEL'] = 'Administratief Paneel';
+$LANG['LABEL_ACTIVE_IN_PARENTESIS'] = '(Actief)'; 
+$LANG['LABEL_ADD_NEW_DEPT'] = 'Voeg nieuwe afdeling toe.';
+$LANG['LABEL_ADMIN_DASHBOARD'] = 'Admin Dashboard';
+$LANG['LABEL_ADMIN_PANEL'] = 'Admin Paneel';
 $LANG['LABEL_ADVANCED'] = 'Geavanceerd';
-$LANG['LABEL_ALL'] = 'Alle'; 
-$LANG['LABEL_ALL_DEPARTMENTS'] = 'Alle afdelingen'; 
-$LANG['LABEL_AND_CLOSE'] = 'En Sluiten'; 
-$LANG['LABEL_ANSWER'] = 'Antwoord';
-$LANG['LABEL_ANSWERED_TICKETS'] = 'Beantwoorde tickets';
-$LANG['LABEL_ANY_STATUS'] = 'Any status';
-$LANG['LABEL_APPEND'] = 'Toevoegen'; 
-$LANG['LABEL_APPEND_SIGNATURE'] = 'Handtekening Toevoegen'; 
-$LANG['LABEL_APPENDCHECKBOX'] = 'Toevoegen';
-$LANG['LABEL_ASC'] = 'Oplopend';
+$LANG['LABEL_APPEND'] = 'Voeg toe';
+$LANG['LABEL_APPEND_SIGNATURE'] = 'Voeg handtekening toe';
+$LANG['LABEL_ALL'] = 'Alles';
+$LANG['LABEL_ALL_DEPARTMENTS'] = 'Alle afdelingen';
+$LANG['LABEL_API'] = 'API';
+$LANG['LABEL_ASSIGN'] = 'Wijs toe aan';
+$LANG['LABEL_ASSIGN_TO_STAFF'] = 'Wijs toe aan personeel';
+$LANG['LABEl_ASSIGNED_TICKETS'] = 'Toegewezen Tickets';
+$LANG['LABEL_ASC'] = 'ASC';
 $LANG['LABEL_ASCENDING'] = 'Oplopend';
-$LANG['LABEL_ASSIGN'] = 'Wijs toe';
-$LANG['LABEL_ASSIGN_TO_STAFF'] = 'Toewijzen aan medewerker'; 
-$LANG['LABEL_ASSIGNED_TICKETS'] = 'Toegewezen tickets';
-$LANG['LABEL_ASSIGNED_STAFF'] = 'Toegewezen Aan'; 
-$LANG['LABEL_ASSIGNTO'] = 'Toewijzen aan'; 
-$LANG['LABEL_ASSIGNTOSTAFF'] = '-Wijs toe aan personeel-'; 
-$LANG['LABEL_ATTACHMENT'] = 'Bijlage'; //alleen zichtbaar als er geupload kan worden (newticket.inc)
-$LANG['LABEL_ATTACH_FILE'] = 'Voeg Bestand Toe'; 
-$LANG['LABEL_AUTO_RESPONSE_EMAIL'] = 'Email adres voor auto-response';
-$LANG['LABEL_AUTORESP'] = 'Automatische response';
-$LANG['LABEL_AUTORESPONDERS'] = 'Auto reponse';
+$LANG['LABEL_ATTACHMENT'] = 'Bijlage';
+$LANG['LABEL_ATTACHMENTS'] = 'Bijlages';
+$LANG['LABEL_AUTO_RESPONSE_EMAIL'] = 'Auto Response Email';
+$LANG['LABEL_AUTORESPONDERS'] = 'Autoresponders';
+$LANG['LABEL_AUTORESP'] = 'AutoResp.';
 // Label B
-$LANG['LABEL_BAN_EMAIL'] = 'Ban Email'; 
+$LANG['LABEL_BAN_EMAIL'] = 'Verbied Email'; 
 $LANG['LABEL_BASIC'] = 'Basic';
 // Label C
 $LANG['LABEL_CANCEL'] = 'Annuleer';
@@ -113,9 +106,15 @@ $LANG['LABEL_COMMENTS_REASONS_FOR_THE_TRANSFER'] = 'Opmerkingen/Redenen Voor De 
 $LANG['LABEL_CREATE_DATE'] = 'Aanmaak Datum'; 
 // Label D
 $LANG['LABEL_DASHBOARD'] = 'Dashboard';
-$LANG['LABEL_DATE'] = 'Datum'; 
+$LANG['LABEL_DATE'] = 'Datum';
+$LANG['LABEL_DATE_AND_TIME'] = 'Datum en tijd';
+$LANG['LABEL_DATE_FORMAT'] = 'Datumweergave';
+$LANG['LABEL_DATE_AND_TIME_FORMAT'] = 'Datum -en tijdweergave';
+$LANG['LABEL_DAY_DATE_AND_TIME_FORMAT'] = 'dag, datum -en tijdweergave';
+$LANG['LABEL_DAYLIGHT_SAVING'] = 'Zomertijd';
 $LANG['LABEL_DATE_SPAN'] = 'Datum Spanne';
-$LANG['LABEL_DEFAULT'] = 'Standaard'; 
+$LANG['LABEL_DEFAULT'] = 'Standaard';
+$LANG['LABEL_DEFAULT_TIME_ZONE'] = 'Standaard tijdzone';
 $LANG['LABEL_DELETE'] = 'Verwijder'; 
 $LANG['LABEL_DELETE_DEPT_S'] = 'Verwijder Afdeling'; 
 $LANG['LABEL_DELETE_TICKET'] = 'Verwijder Ticket'; 
@@ -136,6 +135,7 @@ $LANG['LABEL_DEPTSIGNATURE'] = 'Handtekening afdeling(indien present)';
 $LANG['LABEL_DESCENDING'] = 'Aflopend';
 $LANG['LABEL_DIRETORY_STAFF'] = ''; //hint
 $LANG['LABEL_DIRECTORY'] = 'Staf Adresboek';
+$LANG['LABEL_DISABLED_IN_PARENTESIS'] = '(Schakel uit)';
 $LANG['LABEL_DUEDATE'] = 'Vervaldatum';
 // Label E
 $LANG['LABEL_EMAIL'] = 'E-Mail';
@@ -152,11 +152,34 @@ $LANG['LABEL_FROM'] = 'Van.';
 $LANG['LABEL_FULL_NAME'] = 'Volledige naam';
 // Label G
 $LANG['LABEL_GENERAL_INQUIRY'] = 'Algemene vraag';
+$LANG['LABEL_GENERAL_SETTINGS'] = 'Algemene Instellingen';
 $LANG['LABEL_GO'] = 'Zoek'; 
 // Label H
 $LANG['LABEL_HELPTOPIC'] = 'Help onderwerp';
 $LANG['LABEL_HELP_TOPIC'] = 'Help Onderwerp';
 $LANG['LABEL_HELP_TOPICS'] = 'Help Onderwerpen';
+$LANG['LABEL_HELPDESK_ATTEMPT_ALLOWED_BEFORE_A'] = 'poging(en) toegestaan&nbsp;voordat er een';
+$LANG['LABEL_HELPDESK_BIND_STAFF_SESSION_TO_IP'] = 'Bin Staff Sessie aan IP';
+$LANG['LABEL_HELPDESK_CLIENT_EXCESSIVE_LOGINS'] = 'Excessief aantal logins door client';
+$LANG['LABEL_HELPDESK_CLIENT_SESSION_TIMEOUT'] = 'Timeout client sessie ';
+$LANG['LABEL_HELPDESK_CLICKABLE_URLS'] = 'Aanklikbare URLs';
+$LANG['LABEL_HELPDESK_DEFAULT_DEPARTMENT'] = 'Standaard Afdeling';
+$LANG['LABEL_HELPDESK_DEFAULT_EMAIL_TEMPLATES'] = 'Standaard email sjabloon';
+$LANG['LABEL_HELPDESK_ENABLE_AUTO_CRON'] = 'Zet Auto Cron aan';
+$LANG['LABEL_HELPDESK_MAKE_URLS_CLICKABLE'] = 'Maak URLs aanklikbaar';
+$LANG['LABEL_HELPDESK_NAME_TITLE'] = 'Helpdesk naam/titel';
+$LANG['LABEL_HELPDESK_NONE_DISABLE_LOGGER'] = 'Geen (Zet Logger uit)';
+$LANG['LABEL_HELPDESK_PENALTY_IN_MINUTES'] = 'min. timeout (penalty in minuten)';
+$LANG['LABEL_HELPDESK_PURGE_NONE_DISABLE'] = 'None (Disable)';
+$LANG['LABEL_HELPDESK_PURGE_LOGS_AFTER'] = 'Leeg logs na';
+$LANG['LABEL_HELPDESK_DEFAULT_PAGE_SIZE'] = 'Standaard pagina grootte';
+$LANG['LABEL_HELPDESK_SELECT_DEFAULT_DEPARTMENT'] = 'Select Default Dept';
+$LANG['LABEL_HELPDESK_SELECT_DEFAULT_TEMPLATE'] = 'Selecteer standaardsjabloon'; 
+$LANG['LABEL_HELPDESK_STAFF_EXCESSIVE_LOGINS'] = 'Excessief aantal logins door personeel';
+$LANG['LABEL_HELPDESK_STAFF_SESSION_TIMEOUT'] = 'Staff Sessies Timeout';
+$LANG['LABEL_HELPDESK_STATUS'] = 'Helpdesk status';
+$LANG['LABEL_HELPDESK_SYSTEM_LOG_LEVEL'] = 'Systeem Log niveau'; 
+$LANG['LABEL_HELPDESK_URL'] = 'Helpdesk url';
 
 // Label I
 $LANG['LABEL_ISSUE_SUMMARY'] = 'Probleem Omschrijving';
@@ -181,7 +204,9 @@ $LANG['LABEL_MANAGER'] = 'Manager';
 $LANG['LABEL_MARK_OVERDUE'] = 'Markeer Als Vervallen'; 
 $LANG['LABEL_MESSAGE'] = 'Bericht';
 $LANG['LABEL_MOBIEL'] = 'Mobiel'; 
-$LANG['LABEL_MOBILE_PHONE'] = 'Mobiel'; 
+$LANG['LABEL_MOBILE_PHONE'] = 'Mobiel';
+$LANG['LABEL_MONTH'] = 'Aantal maanden'; 
+$LANG['LABEL_MONTHS'] = 'Maanden'; 
 $LANG['LABEL_MYSIGNATURE'] = 'Mijn handtekening'; 
 $LANG['LABEL_MY_ACCOUNT'] = 'Mijn Account';
 $LANG['LABEL_MY_PREFERENCE'] = 'Mijn voorkeuren';
@@ -280,6 +305,18 @@ $LANG['LABEL_SUBJECT'] = 'Onderwerp';
 $LANG['LABEL_SUBMIT'] = 'Dien in';
 $LANG['LABEL_SUBMIT_TICKET'] = 'Dien ticket in';
 $LANG['LABEL_SYSTEM_DEFAULT_TEMPLATE'] = 'Standaard template';
+$LANG['LABEL_SYSTEM_LOGS'] = 'Systeem logs';
+$LANG['LABEL_SYSTEM_LOGS_ALL'] = 'Alles';
+$LANG['LABEL_SYSTEM_LOGS_DATESPAN'] = 'Datum';
+$LANG['LABEL_SYSTEM_LOGS_DEBUG'] = 'Debug';
+$LANG['LABEL_SYSTEM_LOGS_ERRORS'] = 'Fouten';
+$LANG['LABEL_SYSTEM_LOGS_FROM'] = 'Van';
+$LANG['LABEL_SYSTEM_LOGS_GO'] = 'Ga';
+$LANG['LABEL_SYSTEM_LOGS_NO_RESULTS'] = 'Geen logs';
+$LANG['LABEL_SYSTEM_LOGS_TO'] = 'tot';
+$LANG['LABEL_SYSTEM_LOGS_TYPE'] = 'Type';
+$LANG['LABEL_SYSTEM_LOGS_WARNINGS'] = 'Waarschuwingen';
+$LANG['LABEL_SYSTEM_PREFERENCES_AND_SETTINGS'] = 'Systeemvoorkeuren -en instellingen';
 $LANG['LABEL_SYSTEM_SETTINGS'] = 'Instellingen';
 // Label T
 $LANG['LABEL_TELEPHONE'] = 'Telefoon';
@@ -291,6 +328,7 @@ $LANG['LABEL_TICKET_THREAD'] = 'Ticket Proces';
 $LANG['LABEL_TICKET_NUMBER'] = 'Ticket#';
 $LANG['LABEL_TICKET_SOURCE'] = 'Ticket Bron';
 $LANG['LABEL_TICKET_STATUS'] = 'Ticket Status';
+$LANG['LABEL_TIME_FORMAT'] = 'Tijdweergave';
 $LANG['LABEL_TIME_IS_BASED_ON_YOUR_TIMEZONE'] = 'Tijd is gebaseerd op je tijdzone'; 
 $LANG['LABEL_TITLE'] = 'Titel'; 
 $LANG['LABEL_TO'] = 'Aan.';
@@ -310,7 +348,7 @@ $LANG['LABEL_USERS'] = 'Gebruikers';
 // Label V
 $LANG['LABEL_VIEW_STATUS'] = 'Bekijk Status'; 
 $LANG['LABEL_VIEW_TICKET'] = 'Bekijken Ticket'; 
-
+$LANG['LABEL_HELPDESK_STATUS'] = 
 #######
 ## Generic text for all site, if have to text repeted in
 ## Client or Staff ends, is prefixed with correct name.
@@ -350,13 +388,17 @@ $LANG['TEXT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT']='Excessief aantal loginpogingen
 // TEXT F
 $LANG['TEXT_FILE_REJECTED'] = 'Bestand [ {0} ] geweigerd';
 $LANG['TEXT_FILE_IS_TOO_BIG'] = 'Bestand is te groot. Max {0} bytes toegestaan';
+$LANG['TEXT_FOR_SUPPORTED_PARAMETERS'] = 'voor ondersteunde parameters';
 $LANG['TEXT_FORGOT_YOUR_LOGIN_INFO']='Login informatie vergeten? Maak a.u.b. <a href="open.php">een nieuw ticket</a> aan.';
 // TEXT G
 $LANG['TEXT_GENERAL_INQUIRY'] = 'Algemene vraag';
 $LANG['TEXT_GLOBAL_AUTO_RESPONSE_SETTINGS'] = 'Globale auto-reponse instellingen';
 // TEXT H
 $LANG['TEXT_HOME'] = 'Home';
-$LANG['TEXT_HEADER_TITLE']='osTicket :: Support Ticket System';
+$LANG['TEXT_HEADER_TITLE']='osTicket Reloaded :: Meertalig Support Ticket Systeem';
+$LANG['TEXT_HELPDESK_ENABLE_CRON_CALL_ON_STAFF_ACTIVITY'] = 'Zet Cron Call aan voor personeelsactiviteit';
+$LANG['TEXT_HELPDESK_STAFF_MAX_IDLE_TIME_IN_MINUTES'] = 'Helpdesk personeel maximum inactiviteit in minuten';
+$LANG['TEXT_HELPDESK_CLIENT_MAX_IDLE_TIME_IN_MINUTES'] = 'Helpdesk client maximum inactiviteit in minuten';
 // TEXT I
 $LANG['TEXT_INTERNAL_NOTE_POSTED'] = 'Interne notitie geplaatst';
 $LANG['TEXT_INVALID_LOGIN'] = 'Ongeldig login';
@@ -378,12 +420,14 @@ $LANG['TEXT_NEW_TICKET_AUTO_RESPONSE'] = 'Er is een email met het ticket nummer 
 $LANG['TEXT_NOT_THIS_USER'] = 'Ik ben deze gebruiker niet';
 $LANG['TEXT_NO_TICKETS_FOUND']='Geen tickets gevonden.';
 // TEXT O
+$LANG['TEXT_OBSERVE_DAYLIGHT_SAVINGS'] = 'Volg zomertijd';
 $LANG['TEXT_OF_SELECTED_TICKETS_REOPENED'] = "{0} of {1} geselecteerde tickets heropend.";
 $LANG['TEXT_OF_SELECTED_TICKETS_CLOSED'] = "{0} of {1} geselecteerde tickets gesloten.";
 $LANG['TEXT_OF_SELECTED_TICKETS_MARKED_OVERDUE'] = "{0} of {1} geselecteerde tickets vervallen.";
 $LANG['TEXT_OF_SELECTED_TICKETS_DELETED'] = "{0} of {1} geselecteerde tickets verwijderd.";
-$LANG['TEXT_OFFLINE']='Dank u voor uw het contact opnemen met ons.<br>'.
+$LANG['TEXT_OFFLINE'] = 'Dank u voor uw het contact opnemen met ons.<br>'.
          'Onze helpdesk is op het moment offline. Probeert u het later nogmaals.';
+$LANG['TEXT_OFFLINE_MODE_WILL_DISABLE_CLIENT'] = 'Offline Mode zal client uitschakelen';
 $LANG['TEXT_OPEN_NEW_TICKET'] = 'Open nieuw Ticket';
 $LANG['TEXT_OPEN_PREVIUS_TICKET'] = 'Check de status of eerder geopened ticket. We archiveren al uw support vragen alsmede de reacties daarop.';
 $LANG['TEXT_OPEN'] = 'Open'; 
@@ -392,8 +436,10 @@ $LANG['TEXT_OVERDUE'] = 'Vervallen';
 $LANG['TEXT_OVERDUE_STATS'] = 'Vervallen ({0})';
 $LANG['TEXT_OVERDUE_TICKETS'] = 'Vervallen Tickets';
 // TEXT P
+$LANG['TEXT_PHP_MANUAL'] = 'PHP handleiding';
 $LANG['TEXT_PLEASE_FILL_FORM_NEW_TICKET'] = 'Voer het onderstaande formulier in om een nieuw ticket te openen.';
 $LANG['TEXT_PLEASE_FILL_STAFF_FORM_BELOW_OPEN_NEW_TICKET']='Vul onderstaand formulier in om een nieuw ticket aan te maken';
+$LANG['TEXT_PLEASE_REFER_TO'] = 'Kijk alstublieft in de' ;
 $LANG['TEXT_PLEASE_TAKE_A_MINUTE_TO_DELETE_INSTALL'] = 'U dient de setup directory nog te verwijderen.';
 $LANG['TEXT_POST_REPLY']='Laat een reactie achter';
 $LANG['TEXT_PRIORITY_CHANGED_SUCCESSFULLY'] = 'Priority succesvol gewijzigd';

@@ -55,7 +55,7 @@ class StaffNav {
 				$tabs['kbase']=array('desc'=>$desc,'href'=>'kb.php','title'=>$title);
 			}
 			$desc = $trl->translate('LABEL_DIRECTORY');
-			$title = $trl->translate('LABEL_DIRETORY_STAFF');
+			$title = $trl->translate('LABEL_DIRECTORY_STAFF');
 			$tabs['directory']=array('desc'=>$desc,'href'=>'directory.php','title'=>$title);
 			$desc = $trl->translate('LABEL_MY_ACCOUNT');
 			$title = $trl->translate('LABEL_MY_ACCOUNT');
