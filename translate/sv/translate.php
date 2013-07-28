@@ -339,7 +339,7 @@ $LANG['TEXT_NEW_TICKET_AUTO_RESPONSE'] = 'Ett e-postmeddelande med ärendets num
 $LANG['TEXT_NO_TICKETS_FOUND']='Inga ärenden hittades.';
 // TEXT O
 $LANG['TEXT_OPEN_NEW_TICKET'] = 'Öppna nytt ärende';
-$LANG['TEXT_OPEN_PREVIUS_TICKET'] = 'Kontrollera status på ett tidigare öppet ärende. Vi behåller arkiv och historik över alla dina ärenden.';
+$LANG['TEXT_OPEN_PREVIOUS_TICKET'] = 'Kontrollera status på ett tidigare öppet ärende. Vi behåller arkiv och historik över alla dina ärenden.';
 $LANG['TEXT_OPEN_TICKETS'] = 'Öppna ärenden';
 $LANG['TEXT_OPEN'] = 'Öppna';
 $LANG['TEXT_OVERDUE_STATS'] = 'Försenade ({0})';
@@ -430,6 +430,6 @@ $LANG['TITLE_BOX_NEW_TICKET'] = 'Nytt ärende';
 $LANG['TITLE_BAR_OFFLINE'] = 'Ärendehanteringssystem';
 $LANG['TITLE_MY_PREFERENCES'] = 'Mina inställningar';
 $LANG['TITLE_OFFLINE'] = 'Ärendehanteringssystemet är offline';
-$LANG['TITLE_OPEN_PREVIUS_TICKET'] = 'Öppna föregående ärende';
+$LANG['TITLE_OPEN_PREVIOUS_TICKET'] = 'Öppna föregående ärende';
 $LANG['TITLE_CLOSED_TICKETS'] = 'Stängda ärenden';
 ?>
