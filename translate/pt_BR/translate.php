@@ -440,7 +440,7 @@ $LANG['TEXT_WELCOME_TITLE'] = 'Bem Vindo ao Centro de Suporte';
 ########
 ## Titles on pages and web pages
 ##
-$LANG['TITLE'] = 'Tickets FullService';
+$LANG['TITLE'] = 'Serviço completo de Tickets';
 $LANG['TITLE_BOX_NEW_TICKET'] = 'Novo Ticket';
 $LANG['TITLE_BAR_OFFLINE'] = 'Sistema de Ticket para Suporte';
 $LANG['TITLE_MY_PREFERENCES'] = 'Minhas Preferências';
