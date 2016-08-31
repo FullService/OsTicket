@@ -39,8 +39,8 @@ define('CONFIGFILE','../include/ost-config.php'); //osTicket config file full pa
 define('SCHEMAFILE','./inc/osticket-v1.6.sql'); //osTicket SQL schema.
 define('URL',rtrim('http'.(($_SERVER['HTTPS']=='on')?'s':'').'://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']),'setup'));
 
-$install='<strong>Need help?</strong> <a href="http://www.osticket.com/support/" target="_blank">Professional Installation Available</a>';
-$support='<strong>Get a peace of mind</strong> <a href="http://www.osticket.com/support/" target="_blank">Commercial Support Available</a>';
+$install='<strong>Need help?</strong> <a href="http://carlosdelfino.eti.br" target="_blank">Professional Installation Available</a>';
+$support='<strong>Get a peace of mind</strong> <a href="http://carlosdelfino.eti.br" target="_blank">Commercial Support Available</a>';
 
 //Basic checks 
 $inc='install.inc.php';
