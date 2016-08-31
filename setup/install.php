@@ -187,7 +187,7 @@ if(file_exists('../ostconfig.php') || file_exists('../include/settings.php')) { 
                     mysql_query($sql);
                     //Create a ticket to make the system warm and happy.
                     $sql='INSERT INTO '.PREFIX.'ticket SET created=NOW(),ticketID='.db_input(Misc::randNumber(6)).
-                        ",priority_id=2,dept_id=1,email='support@osticket.com',name='osTicket Support' ".
+                        ",priority_id=2,dept_id=1,email='consultoria@carlosdelfino.eti.br',name='osTicket Support' ".
                         ",subject='osTicket Installed!',helptopic='Commercial support',status='open',source='Web'";
                     if(db_query($sql) && ($id=db_insert_id())){
                         db_query('INSERT INTO '.PREFIX."ticket_message VALUES (1,$id,NULL,".db_input(OSTICKET_INSTALLED).",NULL,'Web','',NOW(),NULL)");
