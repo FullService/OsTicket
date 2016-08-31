@@ -186,7 +186,7 @@ if(!strcasecmp($cfg->getVersion(),VERSION)) {
             //Create a ticket
             $sql='INSERT INTO '.PREFIX.'ticket SET created=NOW(),ticketID='.db_input(Misc::randNumber(6)).
              ',dept_id='.db_input($deptId?$deptId:$cfg->getDefaultDeptId()).
-                 ",priority_id=2,email='support@osticket.com',name='osTicket Support' ".
+                 ",priority_id=2,email='consultoria@carlosdelfino.eti.br',name='osTicket Support' ".
              ",subject='osTicket Upgraded!',helptopic='osTicket Support',status='open',source='Web'";
             
             if(db_query($sql) && ($id=db_insert_id())){
