@@ -27,27 +27,31 @@ $LANG['ALERT_EXCESSIVE_LOGIN_ATTEMPTS_BY_CLIENT']='Excessive login attempts by a
 #######
 ## Error Messages
 ##
-$LANG['ERROR_ACCESS_DENIED_INVALID_TICKET'] = 'Åtkomst nekas. Kontrollera så ärende-ID stämmer';
+$LANG['ERROR_ACCESS_DENIED_INVALID_TICKET'] = 'Ugyldig forespørsel. Kontroller din forespørsel-ID';
 $LANG['ERROR_EMAIL_PARSE_FAILED'] = 'Kunne ikke lese epostadressen';
 $LANG['ERROR_FILE_REJECTED'] = 'Filen {0} godkjennes ikke!';
-$LANG['ERROR_INVALID_FROM_ADDRESS'] = 'Fel i avsenderadressen';
+$LANG['ERROR_INVALID_FROM_ADDRESS'] = 'Ugyldig epost adressse';
 $LANG['ERROR_INVALID_FILE_TYPE'] = 'Ulovlig filtype';
 $LANG['ERROR_MESSAGE_REQUIRED'] = 'En beskjed må fylles inn';
 $LANG['ERROR_NAME_REQUIRED'] = 'Navn må fylles inn';
-$LANG['ERROR_OCCURED'] = 'Feil oppstod. Försök igen';
+$LANG['ERROR_OCCURED'] = 'Feil oppstod. Forsøk en gang til';
 $LANG['ERROR_OCCURED_TRY_AGAIN'] = 'Feil oppstod. Forsøk igjen';
-$LANG['ERROR_POSSIBLY_INVALID_TICKET'] = 'Åtkomst nekas. Kontrollera så ärende-ID stämmer';
+$LANG['ERROR_POSSIBLY_INVALID_TICKET'] = 'Ugyldig forespørsel. Kontroller din forespørsel-ID';
 $LANG['ERROR_SERVICES_NOT_AVAILABLE'] = 'Tjenesten er ikke tilgjengelig!';
-$LANG['ERROR_SECURITY_REPEAT_RESULT_LOCK'] = 'Säkerhetsöverträdelse. Upprepade överträdelser kommer resultera i att kontot stängs av.';
-$LANG['ERROR_SECURITY_VIOLATION_YOUR_ACCOUNT_WILL_LOCKED'] = 'Säkerhetsöverträdelse. Upprepade överträdelser kommer resultera i att kontot stängs av';
+$LANG['ERROR_SECURITY_REPEAT_RESULT_LOCK'] = 'Advarsel! Hvis du overtrer sikkerheten igjen, vil din konto bli stengt.';
+$LANG['ERROR_SECURITY_VIOLATION_YOUR_ACCOUNT_WILL_LOCKED'] = 'Advarsel! Hvis du overtrer sikkerheten igjen, vil din konto bli stengt';
 $LANG['ERROR_UNABLE_SEND_MESSAGE_TRY_AGAIN'] = 'Kunne ikke sende beskjed, forsøk en gang til.';
 $LANG['ERROR_UNABLE_TO_POST_THE_RESPONSE']='Kunne ikke sende svaret';
 $LANG['ERROR_UNKNOW_ACTION'] = 'Ukjent aktion';
 $LANG['ERROR_UNABLE_TO_POST_MESSAGE'] = 'Kunne ikke sende beskjed, forsøk en gang til.';
 $LANG['ERROR_UKNOW_ACTION'] = 'Ukjent action';
-$LANG['ERROR_YOU_HAVE_REACHED_MAXIMUM_FAILED_LOGIN']='Du har nått maximala antalet tillåtna inloggningsförsök. Vänta 5 minuter och försök igen';
+$LANG['ERROR_YOU_HAVE_REACHED_MAXIMUM_FAILED_LOGIN']='Ditt login forsøk har feilet for mange ganger. Vent i 5 minutter og prøv igjen';
 $LANG['ERROR_YOU_MUST_CHANGE_PASSWORD'] = 'Du må bytte passord for å fortsette';
 $LANG['ERROR_SEARCH_TERM_MORE_3']='Søkeordet må være lenger enn 3 tegn';
+$LANG['ERROR_EMAIL_REQUIRED']='Gylid epost adresse kreves';
+$LANG['ERROR_HELPTOPIC_REQUIRED']='Kategori kreves';
+$LANG['ERROR_SUBJECT_REQUIRED']='Emne kreves';
+$LANG['ERROR_ENTER_TEXT_IN_IMAGE']='Skriv teksten du ser på bilde'; 
 
 #######
 ## Images for Staff and Clients Ends
@@ -73,15 +77,15 @@ $LANG['LABEL_ADVANCED'] = 'Avansert';
 $LANG['LABEL_APPEND'] = 'Legg til';
 $LANG['LABEL_APPEND_SIGNATURE'] = 'Legg til signatur';
 $LANG['LABEL_ALL'] = 'Alle';
-$LANG['LABEL_ALL_DEPARTMENTS'] = 'Alle avdelningar';
+$LANG['LABEL_ALL_DEPARTMENTS'] = 'Alle avdelninger';
 $LANG['LABEL_API'] = 'API';
 $LANG['LABEL_ASSIGN'] = 'Tilldela';
-$LANG['LABEL_ASSIGN_TO_STAFF'] = 'Tilldela till personal';
-$LANG['LABEl_ASSIGNED_TICKETS'] = 'Tilldelade ärenden';
+$LANG['LABEL_ASSIGN_TO_STAFF'] = 'Tilldel til personal';
+$LANG['LABEl_ASSIGNED_TICKETS'] = 'Tildelte forespørsler';
 $LANG['LABEL_ASC'] = 'ASC';
-$LANG['LABEL_ASCENDING'] = 'Stigande';
-$LANG['LABEL_ATTACHMENT'] = 'Bifogad fil';
-$LANG['LABEL_ATTACHMENTS'] = 'Bifogade filer';
+$LANG['LABEL_ASCENDING'] = 'Stigende';
+$LANG['LABEL_ATTACHMENT'] = 'Legg ved fil';
+$LANG['LABEL_ATTACHMENTS'] = 'Vedlagte filer';
 $LANG['LABEL_AUTO_RESPONSE_EMAIL'] = 'Autosvar';
 $LANG['LABEL_AUTORESPONDERS'] = 'Autoresponders';
 $LANG['LABEL_AUTORESP'] = 'Autosvar';
@@ -90,10 +94,10 @@ $LANG['LABEL_BASIC'] = 'Grunn';
 // Label C
 $LANG['LABEL_CLOSE'] = 'Steng';
 $LANG['LABEL_CLOSED'] = 'Stengt';
-$LANG['LABEL_CLOSE_TICKET'] = 'Steng ärende';
-$LANG['LABEL_CLOSED_TICKETS'] = 'Stengte ärenden';
+$LANG['LABEL_CLOSE_TICKET'] = 'Lukk forespørselen';
+$LANG['LABEL_CLOSED_TICKETS'] = 'Lukkede forespørsler';
 $LANG['LABEL_CANCEL'] = 'Avbryt';
-$LANG['LABEL_CANNED_RESPONSE'] = 'Canned Response';
+$LANG['LABEL_CANNED_RESPONSE'] = 'Standard svar';
 $LANG['LABEL_CATEGORY'] = 'Kategori';
 $LANG['LABEL_CATEGORY_DEPT'] = 'Kategori/Avdelning';
 $LANG['LABEL_CHANGE_PASSWORD'] = 'Bytte passord';
@@ -112,7 +116,7 @@ $LANG['LABEL_DEPARTMENTS'] = 'Avdelinger';
 $LANG['LABEL_DEPT_MANAGER'] = 'Avdelingsleder';
 $LANG['LABEL_DEPT_MANAGER_NONE'] = 'Ingen';
 $LANG['LABEL_DEPT'] = 'Avd.';
-$LANG['LABEL_DEPT_ACCESS'] = 'Tillträde, avdeling';
+$LANG['LABEL_DEPT_ACCESS'] = 'Avdeling';
 $LANG['LABEL_DEPT_NAME'] = 'Navn på avdeling';
 $LANG['LABEL_DEPT_EMAIL'] = 'Epost til avdeling';
 $LANG['LABEL_DEPT_EMAIL_ABOVE'] = 'Epost til avdelning (over)';
@@ -128,7 +132,7 @@ $LANG['LABEL_EMAIL'] = 'E-post';
 $LANG['LABEL_EMAILS'] = 'E-post';
 $LANG['LABEL_EMAILS_SETTINGS'] = 'Instillinger epost';
 $LANG['LABEL_EMAIL_ADDRESS'] = 'Epost';
-$LANG['LABEL_EMAIL_TEMPLATES'] = 'Epostmallar';
+$LANG['LABEL_EMAIL_TEMPLATES'] = 'Epostmaler';
 $LANG['LABEL_ENABLE_SYSTEM_OFF_LINE'] = 'Aktivere';
 $LANG['LABEL_ENTER_NOTE_CONTENT'] = 'Skriv inn beskjedens innehold.';
 // Label F
@@ -270,6 +274,32 @@ $LANG['LABEL_USERS'] = 'Brukere';
 // Label V
 $LANG['LABEL_VIEW_STATUS'] = 'Vis status';
 
+#Stuff not translated in Swedish.. so we have to create them..
+$LANG['LABEL_SYSTEM_LOGS_DATESPAN'] = 'Periode (mm/dd/åååå)';
+$LANG['LABEL_SYSTEM_LOGS_FROM'] = 'fra';
+$LANG['LABEL_SYSTEM_LOGS_TO'] = 'til';
+$LANG['LABEL_SYSTEM_LOGS_TYPE'] = 'Kategori';
+$LANG['LABEL_SYSTEM_LOGS_ALL'] = 'Alle';
+$LANG['LABEL_SYSTEM_LOGS_ERRORS'] = 'Feil';
+$LANG['LABEL_SYSTEM_LOGS_WARNINGS'] = 'Advarsler';
+$LANG['LABEL_SYSTEM_LOGS_DEBUG'] = 'Debug';
+$LANG['LABEL_SYSTEM_LOGS_GO'] = 'Vis';
+
+$LANG['LABEL_DATE_AND_TIME'] = 'Dato og tid';
+$LANG['TEXT_PLEASE_REFER_TO'] = 'Se';
+$LANG['TEXT_PHP_MANUAL'] = 'PHP manualen';
+$LANG['TEXT_FOR_SUPPORTED_PARAMETERS'] = 'for mer informasjon om disse instillingene';
+$LANG['LABEL_TIME_FORMAT'] = 'Format for tid';
+$LANG['LABEL_DATE_FORMAT'] = 'Format for dato';
+$LANG['LABEL_DATE_AND_TIME_FORMAT'] = 'Format for tid og dato';
+$LANG['LABEL_DAY_DATE_AND_TIME_FORMAT'] = 'Format for dag, tid og dato';
+$LANG['LABEL_DEFAULT_TIME_ZONE'] = 'Tidssone';
+$LANG['LABEL_DAYLIGHT_SAVING'] = 'Sommertid';
+$LANG['TEXT_OBSERVE_DAYLIGHT_SAVINGS'] = 'Automatisk';
+$LANG['TEXT_SELECT_ONE_TOPIC'] = 'Velg en kategori';
+$LANG['LABEL_CAPTCHA'] = 'Skriv teksten du ser på bilde';
+
+
 #######
 ## Generic text for all site, if have to text repeted in
 ## Client or Staff ends, is prefixed with correct name.
@@ -348,7 +378,7 @@ $LANG['TEXT_OVERDUE_TICKETS'] = 'Forfalte forespørsler';
 $LANG['TEXT_OVERDUE'] = 'Forfalte';
 $LANG['TEXT_OFFLINE']='Takk for at du kontaktet oss.<br>'.
          'Support portalen er for øyeblikket stengt. Vennligst kom tilbake senere.';
-$LANG['TEXT_OFFLINE_MODE_WILL_DISABLE_CLIENT'] = 'Offline-modus lukker klientgrensesnittet og tillater <b>bare</b>'.
+$LANG['TEXT_OFFLINE_MODE_WILL_DISABLE_CLIENT'] = 'Offline-modus stenger klientgrensesnittet og tillater <b>bare</b>'.
          '<b>administratorer</b> å logge inn i kontrollpanelet';
 $LANG['TEXT_OF_SELECTED_TICKETS_REOPENED'] = "{0} av {1} valgte forespørsler gjenvalda ärenden återöppnades";
 $LANG['TEXT_OF_SELECTED_TICKETS_CLOSED'] = "{0} av {1} valgte forespørsler lukket";
