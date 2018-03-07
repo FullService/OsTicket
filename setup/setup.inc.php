@@ -69,11 +69,11 @@ function load_sql_schema($schema,&$errors,$debug=false){
 
 ob_start();
 echo "
-Thank you for choosing osTicket.
+Thank you for choosing osTicket - Reloaded (FullService).
     
-Please make sure you join the osTicket forums at http://osticket.com/forums to stay up to date on the latest news, security alerts and updates. The osTicket forums are also a great place to get assistance, guidance, tips, and help from other osTicket users. In addition to the forums, the osTicket wiki provides a useful collection of educational materials, documentation, and notes from the community. We welcome your contributions to the osTicket community.
+Please if you have a question about osTicket post at https://github.com/FullService/OsTicket/issues. This is the better place to get help about osTicket - Reloaded (FullSevice). In addition, the osTicket wiki (https://github.com/FullService/OsTicket/wiki) (provides a useful collection of educational materials, documentation, and notes from the community. We welcome your contributions to the osTicket community.
 
-If you are looking for a greater level of support, we provide professional services and commercial support with guaranteed response times, and access to the core development team. We can also help customize osTicket or even add new features to the system to meet your unique needs.
+If you are looking for a greater level of support, we provide professional services and commercial support with guaranteed response times, and access to the core development team. We can also help customize osTicket or even add new features to the system to meet your unique needs. Use the e-mail consultoria@carlosdelfino for request comercial and professional support.
 
 For more information or to discuss your needs, please contact us today at http://carlosdelfino.eti.br. Your feedback is greatly appreciated!
 
